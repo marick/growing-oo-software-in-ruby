@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (FlexMock::PartialMockProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/flexmock/partial_mock.rb, line 40</span>
+40:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">mock</span>, <span class="ruby-identifier">safe_mode</span>)
+41:       <span class="ruby-ivar">@obj</span> = <span class="ruby-identifier">obj</span>
+42:       <span class="ruby-ivar">@mock</span> = <span class="ruby-identifier">mock</span>
+43:       <span class="ruby-ivar">@method_definitions</span> = {}
+44:       <span class="ruby-ivar">@methods_proxied</span> = []
+45:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">safe_mode</span>
+46:         <span class="ruby-identifier">add_mock_method</span>(<span class="ruby-ivar">@obj</span>, <span class="ruby-identifier">:should_receive</span>)
+47:         <span class="ruby-constant">MOCK_METHODS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
+48:           <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@obj</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">sym</span>)
+49:             <span class="ruby-identifier">add_mock_method</span>(<span class="ruby-ivar">@obj</span>, <span class="ruby-identifier">sym</span>)
+50:           <span class="ruby-keyword kw">end</span>
+51:         <span class="ruby-keyword kw">end</span>
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

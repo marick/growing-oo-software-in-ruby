@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new_instances (FlexMock::PartialMockProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/partial_mock.rb, line 119</span>
+119:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new_instances</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">allocators</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+120:       <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;new_instances requires a Class to stub&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-ivar">@obj</span>
+121:       <span class="ruby-identifier">allocators</span> = [<span class="ruby-identifier">:new</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">allocators</span>.<span class="ruby-identifier">empty?</span>
+122:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">ExpectationRecorder</span>.<span class="ruby-identifier">new</span>
+123:       <span class="ruby-identifier">allocators</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">allocate_method</span><span class="ruby-operator">|</span>
+124:         <span class="ruby-comment cmt"># HACK: Without the following lambda, Ruby 1.9 will not bind</span>
+125:         <span class="ruby-comment cmt"># the allocate_method parameter correctly.</span>
+126:         <span class="ruby-identifier">lambda</span> { } 
+127:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">allocate_method</span>).<span class="ruby-identifier">and_return</span> { <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+128:           <span class="ruby-identifier">new_obj</span> = <span class="ruby-identifier">invoke_original</span>(<span class="ruby-identifier">allocate_method</span>, <span class="ruby-identifier">args</span>)
+129:           <span class="ruby-identifier">mock</span> = <span class="ruby-identifier">flexmock_container</span>.<span class="ruby-identifier">flexmock</span>(<span class="ruby-identifier">new_obj</span>)
+130:           <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">mock</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+131:           <span class="ruby-identifier">result</span>.<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">mock</span>)
+132:           <span class="ruby-identifier">new_obj</span>
+133:         }
+134:       <span class="ruby-keyword kw">end</span>
+135:       <span class="ruby-identifier">result</span>
+136:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

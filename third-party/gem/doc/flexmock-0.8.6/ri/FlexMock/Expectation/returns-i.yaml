@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #and_return"
+full_name: FlexMock::Expectation#returns
+is_singleton: false
+name: returns
+params: (*args, &block)
+visibility: public

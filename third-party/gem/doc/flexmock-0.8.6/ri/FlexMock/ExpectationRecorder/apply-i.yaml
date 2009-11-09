@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Apply the recorded messages to the given object in a chaining fashion (i.e. the result of the previous call is used as the target of the next call).
+full_name: FlexMock::ExpectationRecorder#apply
+is_singleton: false
+name: apply
+params: (mock)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+full_name: FlexMock::RSpecFrameworkAdapter#assert_block
+is_singleton: false
+name: assert_block
+params: (msg, &block) {|| ...}
+visibility: public

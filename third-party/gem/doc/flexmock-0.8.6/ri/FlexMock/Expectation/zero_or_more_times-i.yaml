@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the method may be called any number of times.
+full_name: FlexMock::Expectation#zero_or_more_times
+is_singleton: false
+name: zero_or_more_times
+params: ()
+visibility: public

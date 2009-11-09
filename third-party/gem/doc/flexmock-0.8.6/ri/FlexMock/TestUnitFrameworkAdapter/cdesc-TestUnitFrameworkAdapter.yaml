@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Adapter for adapting FlexMock to the Test::Unit framework.
+constants: []
+
+full_name: FlexMock::TestUnitFrameworkAdapter
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Test::Unit::Assertions
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: assertion_failed_error
+name: TestUnitFrameworkAdapter
+superclass: Object

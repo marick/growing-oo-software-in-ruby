@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the method can be called with any number of arguments of any type.
+full_name: FlexMock::Expectation#with_any_args
+is_singleton: false
+name: with_any_args
+params: ()
+visibility: public

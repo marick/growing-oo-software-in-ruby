@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If the expectation has been called <tt>n</tt> times, is it still eligible to be called again? Since this validator only establishes a lower limit, not an upper limit, then the answer is always true.
+full_name: FlexMock::AtLeastCountValidator#eligible?
+is_singleton: false
+name: eligible?
+params: (n)
+visibility: public

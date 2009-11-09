@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>add_model_methods (FlexMock::MockContainerHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/mock_container.rb, line 209</span>
+209:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_model_methods</span>(<span class="ruby-identifier">mock</span>, <span class="ruby-identifier">model_class</span>, <span class="ruby-identifier">id</span>)
+210:       <span class="ruby-identifier">container</span> = <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">flexmock_container</span>
+211: 
+212:       <span class="ruby-identifier">mock_errors</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">flexmock</span>(<span class="ruby-value str">&quot;errors&quot;</span>)
+213:       <span class="ruby-identifier">mock_errors</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:count</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-value">0</span>).<span class="ruby-identifier">by_default</span>
+214:       <span class="ruby-identifier">mock_errors</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:full_messages</span>).<span class="ruby-identifier">and_return</span>([]).<span class="ruby-identifier">by_default</span>
+215: 
+216:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:id</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">id</span>).<span class="ruby-identifier">by_default</span>
+217:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:to_params</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">by_default</span>
+218:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:new_record?</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">by_default</span>
+219:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:class</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">model_class</span>).<span class="ruby-identifier">by_default</span>
+220:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:errors</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">mock_errors</span>).<span class="ruby-identifier">by_default</span>
+221: 
+222:       <span class="ruby-comment cmt"># HACK: Ruby 1.9 needs the following lambda so that model_class</span>
+223:       <span class="ruby-comment cmt"># is correctly bound below.</span>
+224:       <span class="ruby-identifier">lambda</span> { }
+225:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:is_a?</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">any</span>).<span class="ruby-identifier">and_return</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">other</span><span class="ruby-operator">|</span>
+226:         <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">model_class</span>
+227:       }.<span class="ruby-identifier">by_default</span>
+228:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:instance_of?</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">any</span>).<span class="ruby-identifier">and_return</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">other</span><span class="ruby-operator">|</span>
+229:         <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">model_class</span>
+230:       }.<span class="ruby-identifier">by_default</span>
+231:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">:kind_of?</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">any</span>).<span class="ruby-identifier">and_return</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">other</span><span class="ruby-operator">|</span>
+232:         <span class="ruby-identifier">model_class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">other</span>)
+233:       }.<span class="ruby-identifier">by_default</span>
+234:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

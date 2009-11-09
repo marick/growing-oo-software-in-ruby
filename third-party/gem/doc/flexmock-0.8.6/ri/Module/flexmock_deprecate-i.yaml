@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Module#flexmock_deprecate
+is_singleton: false
+name: flexmock_deprecate
+params: (*method_names)
+visibility: public

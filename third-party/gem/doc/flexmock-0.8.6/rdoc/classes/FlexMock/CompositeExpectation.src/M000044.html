@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_s (FlexMock::CompositeExpectation)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/expectation.rb, line 439</span>
+439:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+440:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@expectations</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+441:         <span class="ruby-value str">&quot;[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@expectations</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;]&quot;</span>
+442:       <span class="ruby-keyword kw">else</span>
+443:         <span class="ruby-ivar">@expectations</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>
+444:       <span class="ruby-keyword kw">end</span>
+445:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

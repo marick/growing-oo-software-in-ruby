@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: contexts
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_context
+- !ruby/object:RI::MethodSummary 
+  name: contexts
+- !ruby/object:RI::MethodSummary 
+  name: current_context
+- !ruby/object:RI::MethodSummary 
+  name: remove_context
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "'1.2.0'"
+full_name: Thoughtbot::Shoulda
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: context
+- !ruby/object:RI::MethodSummary 
+  name: should
+- !ruby/object:RI::MethodSummary 
+  name: should_eventually
+name: Shoulda
+superclass: 

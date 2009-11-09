@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the Rails controller under test should render the named view. If a view template name is given, it will be an error if the named view is not rendered during the execution of the contoller action. If no template name is given, then the any view may be rendered. If no view is actually rendered, then an assertion failure will occur.
+- !ruby/struct:SM::Flow::VERB 
+  body: " def test_my_action_does_what_it_should\n   should_render_view 'show'\n\n   get :show, :id =&gt; 1\n\n   assert_response :success\n end\n"
+full_name: FlexMock::MockContainer#should_render_view
+is_singleton: false
+name: should_render_view
+params: (template_name=nil)
+visibility: public

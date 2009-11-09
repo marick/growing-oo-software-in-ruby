@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FlexMock::DefaultFrameworkAdapter#assert_equal
+is_singleton: false
+name: assert_equal
+params: (a, b, msg=nil)
+visibility: public

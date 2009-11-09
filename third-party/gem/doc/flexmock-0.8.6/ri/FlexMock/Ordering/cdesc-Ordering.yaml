@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "################################################################# The ordering module contains the methods and data structures used to determine proper orderring of mocked calls. By providing the functionality in a module, a individual mock object can order its own calls, and the container can provide ordering at a global level."
+constants: []
+
+full_name: FlexMock::Ordering
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_allocate_order
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_current_order
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_current_order=
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_groups
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_validate_order
+name: Ordering
+superclass: 

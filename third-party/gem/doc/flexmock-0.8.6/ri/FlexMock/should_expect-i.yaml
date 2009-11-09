@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: Recorder.new(self)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the mock object should expect methods by providing a recorder for the methods and having the user invoke the expected methods in a block. Further expectations may be applied the result of the recording call.
+- !ruby/struct:SM::Flow::P 
+  body: "Example Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  mock.should_expect do |record|\n    record.add(Integer, 4) { |a, b|\n      a + b\n    }.at_least.once\n"
+full_name: FlexMock#should_expect
+is_singleton: false
+name: should_expect
+params: () {|Recorder.new(self)| ...}
+visibility: public

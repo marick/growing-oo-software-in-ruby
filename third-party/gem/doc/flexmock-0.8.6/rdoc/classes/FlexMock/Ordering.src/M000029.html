@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>flexmock_validate_order (FlexMock::Ordering)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/flexmock/ordering.rb, line 43</span>
+43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">flexmock_validate_order</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">order_number</span>)
+44:       <span class="ruby-constant">FlexMock</span>.<span class="ruby-identifier">check</span>(<span class="ruby-node">&quot;method #{method_name} called out of order &quot;</span> <span class="ruby-operator">+</span>
+45:         <span class="ruby-node">&quot;(expected order #{order_number}, was #{flexmock_current_order})&quot;</span>) {
+46:         <span class="ruby-identifier">order_number</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">flexmock_current_order</span>
+47:       }
+48:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">flexmock_current_order</span> = <span class="ruby-identifier">order_number</span>
+49:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

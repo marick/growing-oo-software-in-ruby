@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: throws
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declares that the method will throw the given symbol (with an optional value) when executed.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>throws</tt> is an alias for <tt>and_throw</tt>.
+full_name: FlexMock::Expectation#and_throw
+is_singleton: false
+name: and_throw
+params: |
+  and_throw(a_symbol)
+  and_throw(a_symbol, value)
+
+visibility: public

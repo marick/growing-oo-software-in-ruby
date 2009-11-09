@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>add_mock_method (FlexMock::PartialMockProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/flexmock/partial_mock.rb, line 91</span>
+91:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_mock_method</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">method_name</span>)
+92:       <span class="ruby-identifier">stow_existing_definition</span>(<span class="ruby-identifier">method_name</span>)
+93:       <span class="ruby-identifier">eval_line</span> = <span class="ruby-keyword kw">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+94:       <span class="ruby-identifier">eval</span> <span class="ruby-node">%{
+95:         def obj.#{method_name}(*args, &amp;block)
+96:           @flexmock_proxy.#{method_name}(*args, &amp;block)
+97:         end
+98:       }</span>, <span class="ruby-identifier">binding</span>, <span class="ruby-keyword kw">__FILE__</span>, <span class="ruby-identifier">eval_line</span>
+99:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

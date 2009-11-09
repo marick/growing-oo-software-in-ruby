@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Validate that the method expectation was called exactly <tt>n</tt> times.
+full_name: FlexMock::ExactCountValidator#validate
+is_singleton: false
+name: validate
+params: (n)
+visibility: public

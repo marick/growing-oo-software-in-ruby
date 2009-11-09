@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Verify the current call with the given arguments matches the expectations recorded in this object.
+full_name: FlexMock::Expectation#verify_call
+is_singleton: false
+name: verify_call
+params: (*args)
+visibility: public

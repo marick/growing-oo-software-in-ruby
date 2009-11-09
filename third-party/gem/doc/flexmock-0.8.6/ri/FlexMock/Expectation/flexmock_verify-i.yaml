@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Validate the correct number of calls have been made. Called by the teardown process.
+full_name: FlexMock::Expectation#flexmock_verify
+is_singleton: false
+name: flexmock_verify
+params: ()
+visibility: public

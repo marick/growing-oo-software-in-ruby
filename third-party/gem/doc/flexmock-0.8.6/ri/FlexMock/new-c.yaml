@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a FlexMock object with the given name. The name is used in error messages. If no container is given, create a new, one-off container for this mock.
+full_name: FlexMock::new
+is_singleton: true
+name: new
+params: (name="unknown", container=nil)
+visibility: public

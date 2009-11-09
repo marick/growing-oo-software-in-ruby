@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Do the flexmock specific teardown stuff. If you need finer control, you can use either <tt>flexmock_verify</tt> or <tt>flexmock_close</tt>.
+full_name: FlexMock::MockContainer#flexmock_teardown
+is_singleton: false
+name: flexmock_teardown
+params: ()
+visibility: public

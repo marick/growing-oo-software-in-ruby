@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Verify that the mock has been properly called. After verification, detach the mocking infrastructure from the existing object.
+full_name: FlexMock::PartialMockProxy#flexmock_verify
+is_singleton: false
+name: flexmock_verify
+params: ()
+visibility: public

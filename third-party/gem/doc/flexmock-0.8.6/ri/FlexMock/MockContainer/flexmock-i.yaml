@@ -1,0 +1,46 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: flexstub
+block_params: (mock)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a mocking object in the FlexMock framework. The <tt>flexmock</tt> method has a number of options available, depending on just what kind of mocking object your require. Mocks created via <tt>flexmock</tt> will be automatically verify during the teardown phase of your test framework.
+- !ruby/struct:SM::Flow::P 
+  body: <b>Note:</b> A plain flexmock() call without a block will return the mock object (the object that interprets <tt>should_receive</tt> and its brethern). A flexmock() call that <em>includes</em> a block will return the domain objects (the object that will interpret domain messages) since the mock will be passed to the block for configuration. With regular mocks, this distinction is unimportant because the mock object and the domain object are the same object. However, with partial mocks, the mock object is separation from the domain object. Keep that distinciton in mind.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name :"
+    body: Name of the mock object. If no name is given, &quot;unknown&quot; is used for full mocks and &quot;flexmock(<em>real_object</em>)&quot; is used for partial mocks.
+  - !ruby/struct:SM::Flow::LI 
+    label: "expect_hash :"
+    body: "Hash table of method names and values. Each method/value pair is used to setup a simple expectation so that if the mock object receives a message matching an entry in the table, it returns the associated value. No argument our call count constraints are added. Using an expect_hash is identical to calling:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    mock.should_receive(method_name).and_return(value)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: for each of the method/value pairs in the hash.
+  - !ruby/struct:SM::Flow::LI 
+    label: "real_object :"
+    body: If a real object is given, then a partial mock is constructed using the real_object as a base. Partial mocks (formally referred to as stubs) behave as a mock object when an expectation is matched, and otherwise will behave like the original object. This is useful when you want to use a real object for testing, but need to mock out just one or two methods.
+  - !ruby/struct:SM::Flow::LI 
+    label: ":base :"
+    body: Forces the following argument to be used as the base of a partial mock object. This explicit tag is only needed if you want to use a string or a symbol as the mock base (string and symbols would normally be interpretted as the mock name).
+  - !ruby/struct:SM::Flow::LI 
+    label: "&block :"
+    body: If a block is given, then the mock object is passed to the block and expectations may be configured within the block. When a block is given for a partial mock, flexmock will return the domain object rather than the mock object.
+  type: :NOTE
+full_name: FlexMock::MockContainer#flexmock
+is_singleton: false
+name: flexmock
+params: |
+  flexmock() { |mock| ... }
+  flexmock(name) { |mock| ... }
+  flexmock(expect_hash) { |mock| ... }
+  flexmock(name, expect_hash) { |mock| ... }
+  flexmock(real_object) { |mock| ... }
+  flexmock(real_object, name) { |mock| ... }
+  flexmock(real_object, name, expect_hash) { |mock| ... }
+  flexmock(:base, string, name, expect_hash) { |mock| ... }
+
+visibility: public

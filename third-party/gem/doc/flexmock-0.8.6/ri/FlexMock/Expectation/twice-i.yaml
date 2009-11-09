@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the method is expected to be called exactly twice with the given argument list. This may be modified by the <tt>at_least</tt> and <tt>at_most</tt> declarators.
+full_name: FlexMock::Expectation#twice
+is_singleton: false
+name: twice
+params: ()
+visibility: public

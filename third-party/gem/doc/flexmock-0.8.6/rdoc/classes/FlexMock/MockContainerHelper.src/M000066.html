@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>make_partial_proxy (FlexMock::MockContainerHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/mock_container.rb, line 238</span>
+238:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_partial_proxy</span>(<span class="ruby-identifier">container</span>, <span class="ruby-identifier">obj</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">safe_mode</span>)
+239:       <span class="ruby-identifier">name</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;flexmock(#{obj.class.to_s})&quot;</span>
+240:       <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_eval</span> {
+241:         <span class="ruby-identifier">mock</span> = <span class="ruby-constant">FlexMock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">container</span>)
+242:         <span class="ruby-ivar">@flexmock_proxy</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">PartialMockProxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">mock</span>, <span class="ruby-identifier">safe_mode</span>)
+243:       }
+244:       <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@flexmock_proxy&quot;</span>)
+245:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

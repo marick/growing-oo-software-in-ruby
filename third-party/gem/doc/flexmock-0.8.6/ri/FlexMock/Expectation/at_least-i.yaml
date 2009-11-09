@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Modifies the next call count declarator (<tt>times</tt>, <tt>never</tt>, <tt>once</tt> or <tt>twice</tt>) so that the declarator means the method is called at least that many times.
+- !ruby/struct:SM::Flow::P 
+  body: "E.g. method f must be called at least twice:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  mock.should_receive(:f).at_least.twice\n"
+full_name: FlexMock::Expectation#at_least
+is_singleton: false
+name: at_least
+params: ()
+visibility: public

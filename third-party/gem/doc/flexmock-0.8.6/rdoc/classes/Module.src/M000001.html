@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>flexmock_deprecate (Module)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/flexmock/deprecated_methods.rb, line 14</span>
+14:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">flexmock_deprecate</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">method_names</span>)
+15:     <span class="ruby-identifier">method_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span><span class="ruby-operator">|</span>
+16:       <span class="ruby-identifier">eval_line</span> = <span class="ruby-keyword kw">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+17:       <span class="ruby-identifier">module_eval</span> <span class="ruby-node">%{
+18:         def #{method_name}(*args)
+19:           $stderr.puts &quot;#{method_name} is deprecated, use flex#{method_name} instead&quot;
+20:           flex#{method_name}(*args)
+21:         end
+22:       }</span>, <span class="ruby-keyword kw">__FILE__</span>, <span class="ruby-identifier">eval_line</span>
+23:     <span class="ruby-keyword kw">end</span>
+24:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

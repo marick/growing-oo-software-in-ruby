@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Place the record in strict mode. While recording expectations in strict mode, the following will be true.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: All expectations will be expected in the order they were recorded.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: All expectations will be expected once.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: All arguments will be placed in exact match mode, including regular expressions and class objects.
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: Strict mode is usually used when giving the recorder to a known good algorithm. Strict mode captures the exact sequence of calls and validate that the code under test performs the exact same sequence of calls.
+- !ruby/struct:SM::Flow::P 
+  body: The recorder may exit strict mode via a <tt>should_be_strict(false)</tt> call. Non-strict expectations may be recorded at that point, or even explicit expectations (using <tt>should_receieve</tt>) can be specified.
+full_name: FlexMock::Recorder#should_be_strict
+is_singleton: false
+name: should_be_strict
+params: (is_strict=true)
+visibility: public

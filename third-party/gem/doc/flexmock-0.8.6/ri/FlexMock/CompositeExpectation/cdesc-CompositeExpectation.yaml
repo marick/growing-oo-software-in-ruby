@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A composite expectation allows several expectations to be grouped into a single composite and then apply the same constraints to all expectations in the group.
+constants: []
+
+full_name: FlexMock::CompositeExpectation
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: mock
+- !ruby/object:RI::MethodSummary 
+  name: order_number
+- !ruby/object:RI::MethodSummary 
+  name: should_receive
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: CompositeExpectation
+superclass: Object

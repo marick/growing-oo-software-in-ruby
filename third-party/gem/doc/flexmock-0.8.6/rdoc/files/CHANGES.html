@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: CHANGES</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>CHANGES</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>CHANGES
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 09 15:24:24 -0600 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Changes for <a href="../classes/FlexMock.html">FlexMock</a></h1>
+<h2>Version 0.8.5</h2>
+<ul>
+<li>Fixed warning about a void context.
+
+</li>
+<li>hsh() argument matcher now reports its matching constraints in error
+messages.
+
+</li>
+</ul>
+<h2>Version 0.8.4</h2>
+<ul>
+<li>Added support for rails 2.2.x in should_render_view.
+
+</li>
+</ul>
+<h2>Version 0.8.3</h2>
+<ul>
+<li>Fixed a bug where the by_default option was not completely honored in some
+edge cases.
+
+</li>
+</ul>
+<h2>Version 0.8.2</h2>
+<ul>
+<li>Added workaround for compatibility issues with RSpec on Rails.
+
+</li>
+</ul>
+<h2>Version 0.8.1</h2>
+<ul>
+<li>Additional fix for Rails 2.0.2
+
+</li>
+<li>Added Joe O&#8216;Brien&#8216;s patch to allow view stubbing in Rails 2.0
+
+</li>
+<li>Added Evan Phoenix&#8216;s patch to remove allocate from default allocators
+in new_instances (for Rubinius compatibility).
+
+</li>
+</ul>
+<h2>Version 0.8.0</h2>
+<ul>
+<li>Added by_default
+
+</li>
+<li>Added undefined behavior
+
+</li>
+<li>Mock methods are added to partial mocks only if they are not previously
+defined. This should reduce the need for safe mode.
+
+</li>
+<li>respond_to? on mocks now accepts multiple arguments. This eases mocking in
+rails a little bit.
+
+</li>
+<li>Added experimental view mocking for rails.
+
+</li>
+</ul>
+<h2>Version 0.7.2</h2>
+<ul>
+<li>Changed initial model Id to 10000.
+
+</li>
+<li>Added test suggested for RSpec Mocks, just to make sure we were good too.
+
+</li>
+</ul>
+<h2>Version 0.7.1</h2>
+<ul>
+<li>Updated install.rb to handle non-root destination directories via DESTDIR.
+
+</li>
+<li>Fixed operator bug introduced in 0.7.0.
+
+</li>
+</ul>
+<h2>Version 0.7.0</h2>
+<ul>
+<li>Added <tt>and_yield</tt> as an expectation clause.
+
+</li>
+<li>Inspect on Mocks now yield a more consise description.
+
+</li>
+<li>Global ordering across all mocks in a container is now allowed.
+
+</li>
+<li>Added support for Demeter chain mocking.
+
+</li>
+<li>Deprecated a number of mock_* methods.
+
+</li>
+</ul>
+<h2>Version 0.6.4</h2>
+<ul>
+<li>Renamed flexmodel(&#8230;) to flexmock(:model, &#8230;) because visually
+they were too similar.
+
+</li>
+</ul>
+<h2>Version 0.6.3</h2>
+<ul>
+<li>Added flexmodel() for better support of mocking ActiveRecord models.
+
+</li>
+<li>Fixed comment for singleton?
+
+</li>
+<li>Fixed coverage report for the partial mocking class.
+
+</li>
+<li>Fixed bug when partial mock objects reported they respond to a method but
+they actually didn&#8216;t.
+
+</li>
+<li>The flexmock() method now <em>always</em> returns a combination domain/mock
+object. For partial mocks, this implies that the domain object now has mock
+support methods on it (e.g. should_receive).
+
+</li>
+<li>Safe mode for partials was introduced for the small number of cases where
+mock support methods in the domain object would cause problems.
+
+</li>
+<li>Internally renamed PartialMock to PartialMockProxy.
+
+</li>
+</ul>
+<h2>Version 0.6.2</h2>
+<ul>
+<li>flexmock() with a block now always returns the domain object. flexmock()
+without a block returns the mock object. Note that for normal mocks, the
+domain and mock objects are the same. For partial mocks, the mock is
+separate from the domain object.
+
+</li>
+<li>Added <tt>and_raise</tt> to the list of expection specifications.
+
+</li>
+</ul>
+<h2>Version 0.6.1</h2>
+<ul>
+<li>Fixed bug that prevented mocks from mocking field assignment operators.
+
+</li>
+<li>Fixed bug that prevented partial mocks from being ordered.
+
+</li>
+</ul>
+<h2>Version 0.6.0</h2>
+<ul>
+<li>Dropped class interception.
+
+</li>
+<li>Refactored into more granular classes.
+
+</li>
+<li>Added RSpec integration.
+
+</li>
+<li>Added hash expectations to flexmock() and should_expect().
+
+</li>
+<li>Integrated partial mocks into the flexmock() methods.
+
+</li>
+<li>Allow non-block configuration of new_instances.
+
+</li>
+</ul>
+<h2>Version 0.5.1</h2>
+<ul>
+<li>Changed the name of any_instance to new_instances. Deprecated any_instance.
+
+</li>
+<li>Added ability to stub any class method in new_instances.
+
+</li>
+<li>Added RCov task
+
+</li>
+<li>Reworked original behavior hooks to use method aliasing rather than method
+procs.
+
+</li>
+<li>Fixed bug in stubbing File class methods.
+
+</li>
+</ul>
+<h2>Version 0.5.0</h2>
+<ul>
+<li>Added any_instance stubbing to class objects.
+
+</li>
+</ul>
+<h2>Version 0.4.5</h2>
+<ul>
+<li>Fixed version typo in 0.4.4 (internally claimed to be 0.4.3.1)
+
+</li>
+</ul>
+<h2>Version 0.4.4</h2>
+<ul>
+<li>Added block support to flexstub.
+
+</li>
+</ul>
+<h2>Version 0.4.3</h2>
+<ul>
+<li>Fixed bug where non-direct class methods were not properly handled.
+
+</li>
+</ul>
+<h2>Version 0.4.2</h2>
+<ul>
+<li>Fixed bug where multiple stubs of a class method were not properly
+restored.
+
+</li>
+</ul>
+<h2>Version 0.4.1</h2>
+<ul>
+<li>Removed include of Test::Unit::Assertions from Expectations.
+
+</li>
+<li>Fixed mocking of kernel methods.
+
+</li>
+</ul>
+<h2>Version 0.4.0</h2>
+<ul>
+<li>Added stubbing for mocking methods of existing objects.
+
+</li>
+<li>Added multiple return values for the <tt>and_returns</tt> method.
+
+</li>
+<li>Added block initialization to the flexmock method.
+
+</li>
+</ul>
+<h2>Version 0.3.2</h2>
+<ul>
+<li>Fixed bug when mock is used as a replacement class in class interception.
+
+</li>
+</ul>
+<h2>Version 0.3.1</h2>
+<ul>
+<li>Fixed some warnings regarding uninitialized variables.
+
+</li>
+<li>Added (very) simple class interception.
+
+</li>
+<li>Added the mock_factory method to go along with class interception.
+
+</li>
+<li>When using <a href="../classes/Test/Unit.html">Test::Unit</a> integration,
+avoid mock verification if the test has already failed for some reason.
+
+</li>
+</ul>
+<h2>Version 0.3.0</h2>
+<ul>
+<li>Added <a href="../classes/Test/Unit.html">Test::Unit</a> integration.
+
+</li>
+</ul>
+<h2>Version 0.2.1</h2>
+<ul>
+<li>Added strict mode in record mode interface to facility using known good
+algorithms for comparison testing.
+
+</li>
+<li>Improved the docs and examples. Fixed garbled first example in README.
+
+</li>
+</ul>
+<h2>Version 0.2.0</h2>
+<ul>
+<li>Added record mode for building expectations.
+
+</li>
+<li>Fixed a bunch of documentation.
+
+</li>
+</ul>
+<h2>Version 0.1.7</h2>
+<ul>
+<li>Bumped version because 0.1.6 was uploaded to the wrong Rubyforge area.
+
+</li>
+</ul>
+<h2>Version 0.1.6</h2>
+<ul>
+<li>Added a proc based matcher for arguments (using keyword <tt>on</tt>).
+
+</li>
+</ul>
+<h2>Version 0.1.5</h2>
+<ul>
+<li>Fixed the overzealous argument matching when String is given as an argument
+qualifier to <tt>should_receive</tt>.
+
+</li>
+</ul>
+<h2>Version 0.1.4</h2>
+<ul>
+<li>Added eq and any methods for argument matching.
+
+</li>
+<li>Added tests for the &quot;first match&quot; argument matching policy.
+
+</li>
+</ul>
+<h2>Version 0.1.3</h2>
+<ul>
+<li>Improved the definition of ordered so that it takes group names instead of
+explicit order numbers. This make the code easier to write and the API
+easier to understand.
+
+</li>
+</ul>
+<h2>Version 0.1.2</h2>
+<ul>
+<li>Fixed homepage in gem spec.
+
+</li>
+<li>Removed autorequire from gemspec.
+
+</li>
+<li>Fixed README to be automatically updated with <a
+href="../classes/FlexMock.html">FlexMock</a> Version
+
+</li>
+</ul>
+<h2>Version 0.1.1</h2>
+<ul>
+<li>Added responds_to? and method support.
+
+</li>
+<li>Added JMock style expectations.
+
+</li>
+</ul>
+<h2>Version 0.0.3</h2>
+<ul>
+<li>Changed to a GEM package.
+
+</li>
+</ul>
+<h2>Version 0.0.2</h2>
+<ul>
+<li>Updated the documentation.
+
+</li>
+<li>Fixed the install script.
+
+</li>
+</ul>
+<h2>Version 0.0.1</h2>
+<ul>
+<li>Initial Version
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

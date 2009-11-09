@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Forward the request for the expectation director to the mock.
+full_name: FlexMock::PartialMockProxy#flexmock_expectations_for
+is_singleton: false
+name: flexmock_expectations_for
+params: (method_name)
+visibility: public

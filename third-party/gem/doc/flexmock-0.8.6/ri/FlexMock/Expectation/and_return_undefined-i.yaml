@@ -1,0 +1,19 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: returns_undefined
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the method returns and undefined object (FlexMock.undefined). Since the undefined object will always return itself for any message sent to it, it is a good &quot;I don't care&quot; value to return for methods that are commonly used in method chains.
+- !ruby/struct:SM::Flow::P 
+  body: "For example, if m.foo returns the undefined object, then:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "   m.foo.bar.baz\n"
+- !ruby/struct:SM::Flow::P 
+  body: returns the undefined object without throwing an exception.
+full_name: FlexMock::Expectation#and_return_undefined
+is_singleton: false
+name: and_return_undefined
+params: ()
+visibility: public

@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: yields
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the mocked method is expected to be given a block and that the block will be called with the values supplied to yield. If the mock is called multiple times, mulitple <tt>and_yield</tt> declarations can be used to supply different values on each call.
+- !ruby/struct:SM::Flow::P 
+  body: An error is raised if the mocked method is not called with a block.
+full_name: FlexMock::Expectation#and_yield
+is_singleton: false
+name: and_yield
+params: |
+  and_yield(value1, value2, ...)
+
+visibility: public

@@ -1,0 +1,3 @@
+
+ruby $1 2>&1 | grep -v 'third-party' | grep -v 'flexmock' | \
+                         grep -vi shoulda 

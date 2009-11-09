@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: raises
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declares that the method will raise the given exception (with an optional message) when executed.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: If an exception instance is given, then that instance will be raised.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: If an exception class is given, the exception raised with be an instance of that class constructed with <tt>new</tt>. Any additional arguments in the argument list will be passed to the <tt>new</tt> constructor when it is invoked.
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: <tt>raises</tt> is an alias for <tt>and_raise</tt>.
+full_name: FlexMock::Expectation#and_raise
+is_singleton: false
+name: and_raise
+params: |
+  and_raise(an_exception)
+  and_raise(SomeException)
+  and_raise(SomeException, args, ...)
+
+visibility: public

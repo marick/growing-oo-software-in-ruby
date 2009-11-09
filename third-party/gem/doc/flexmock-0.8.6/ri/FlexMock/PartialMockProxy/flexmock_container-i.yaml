@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Forward to the mock's container.
+full_name: FlexMock::PartialMockProxy#flexmock_container
+is_singleton: false
+name: flexmock_container
+params: ()
+visibility: public

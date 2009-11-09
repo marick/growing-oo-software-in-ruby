@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: FlexMock</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">FlexMock</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/flexmock/argument_matchers_rb.html">
+                lib/flexmock/argument_matchers.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/argument_types_rb.html">
+                lib/flexmock/argument_types.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/composite_rb.html">
+                lib/flexmock/composite.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/core_rb.html">
+                lib/flexmock/core.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/core_class_methods_rb.html">
+                lib/flexmock/core_class_methods.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/default_framework_adapter_rb.html">
+                lib/flexmock/default_framework_adapter.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/deprecated_methods_rb.html">
+                lib/flexmock/deprecated_methods.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/errors_rb.html">
+                lib/flexmock/errors.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/expectation_rb.html">
+                lib/flexmock/expectation.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/expectation_director_rb.html">
+                lib/flexmock/expectation_director.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/mock_container_rb.html">
+                lib/flexmock/mock_container.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/ordering_rb.html">
+                lib/flexmock/ordering.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/partial_mock_rb.html">
+                lib/flexmock/partial_mock.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/rails/view_mocking_rb.html">
+                lib/flexmock/rails/view_mocking.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/recorder_rb.html">
+                lib/flexmock/recorder.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/rspec_rb.html">
+                lib/flexmock/rspec.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/test_unit_integration_rb.html">
+                lib/flexmock/test_unit_integration.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/undefined_rb.html">
+                lib/flexmock/undefined.rb
+                </a>
+        <br />
+                <a href="../files/lib/flexmock/validators_rb.html">
+                lib/flexmock/validators.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <pre>
+ Permission is granted for use, copying, modification, distribution,
+ and distribution of modified versions of this work as long as the
+ above copyright notice is included.
+</pre>
+<p>
++++
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000008">by_default</a>&nbsp;&nbsp;
+      <a href="#M000005">flexmock_teardown</a>&nbsp;&nbsp;
+      <a href="#M000004">flexmock_verify</a>&nbsp;&nbsp;
+      <a href="#M000003">inspect</a>&nbsp;&nbsp;
+      <a href="#M000011">method</a>&nbsp;&nbsp;
+      <a href="#M000009">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000007">mock_ignore_missing</a>&nbsp;&nbsp;
+      <a href="#M000002">new</a>&nbsp;&nbsp;
+      <a href="#M000010">respond_to?</a>&nbsp;&nbsp;
+      <a href="#M000013">should_expect</a>&nbsp;&nbsp;
+      <a href="#M000006">should_ignore_missing</a>&nbsp;&nbsp;
+      <a href="#M000012">should_receive</a>&nbsp;&nbsp;
+      <a href="#M000015">undefined</a>&nbsp;&nbsp;
+      <a href="#M000014">use</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="FlexMock/Ordering.html">Ordering</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="FlexMock/ArgumentTypes.html" class="link">FlexMock::ArgumentTypes</a><br />
+Module <a href="FlexMock/MockContainer.html" class="link">FlexMock::MockContainer</a><br />
+Module <a href="FlexMock/Ordering.html" class="link">FlexMock::Ordering</a><br />
+Module <a href="FlexMock/TestCase.html" class="link">FlexMock::TestCase</a><br />
+Class <a href="FlexMock/AnyMatcher.html" class="link">FlexMock::AnyMatcher</a><br />
+Class <a href="FlexMock/AtLeastCountValidator.html" class="link">FlexMock::AtLeastCountValidator</a><br />
+Class <a href="FlexMock/AtMostCountValidator.html" class="link">FlexMock::AtMostCountValidator</a><br />
+Class <a href="FlexMock/CompositeExpectation.html" class="link">FlexMock::CompositeExpectation</a><br />
+Class <a href="FlexMock/CountValidator.html" class="link">FlexMock::CountValidator</a><br />
+Class <a href="FlexMock/DefaultFrameworkAdapter.html" class="link">FlexMock::DefaultFrameworkAdapter</a><br />
+Class <a href="FlexMock/DuckMatcher.html" class="link">FlexMock::DuckMatcher</a><br />
+Class <a href="FlexMock/EqualMatcher.html" class="link">FlexMock::EqualMatcher</a><br />
+Class <a href="FlexMock/ExactCountValidator.html" class="link">FlexMock::ExactCountValidator</a><br />
+Class <a href="FlexMock/Expectation.html" class="link">FlexMock::Expectation</a><br />
+Class <a href="FlexMock/ExpectationDirector.html" class="link">FlexMock::ExpectationDirector</a><br />
+Class <a href="FlexMock/ExpectationRecorder.html" class="link">FlexMock::ExpectationRecorder</a><br />
+Class <a href="FlexMock/HashMatcher.html" class="link">FlexMock::HashMatcher</a><br />
+Class <a href="FlexMock/MockContainerHelper.html" class="link">FlexMock::MockContainerHelper</a><br />
+Class <a href="FlexMock/MockError.html" class="link">FlexMock::MockError</a><br />
+Class <a href="FlexMock/PartialMockProxy.html" class="link">FlexMock::PartialMockProxy</a><br />
+Class <a href="FlexMock/ProcMatcher.html" class="link">FlexMock::ProcMatcher</a><br />
+Class <a href="FlexMock/RSpecFrameworkAdapter.html" class="link">FlexMock::RSpecFrameworkAdapter</a><br />
+Class <a href="FlexMock/Recorder.html" class="link">FlexMock::Recorder</a><br />
+Class <a href="FlexMock/TestUnitFrameworkAdapter.html" class="link">FlexMock::TestUnitFrameworkAdapter</a><br />
+Class <a href="FlexMock/Undefined.html" class="link">FlexMock::Undefined</a><br />
+Class <a href="FlexMock/UsageError.html" class="link">FlexMock::UsageError</a><br />
+Class <a href="FlexMock/UseContainer.html" class="link">FlexMock::UseContainer</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ANY</td>
+          <td>=</td>
+          <td class="context-item-value">AnyMatcher.new</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ContainerHelper</td>
+          <td>=</td>
+          <td class="context-item-value">MockContainerHelper.new</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">respond_to?</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">flexmock_respond_to?</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+Save the original definition of <a
+href="FlexMock.html#M000010">respond_to?</a> for <a
+href="FlexMock.html#M000014">use</a> a bit later.
+
+</td>
+      </tr>
+                        </table>
+      </div>
+    </div>
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">flexmock_container</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">flexmock_name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">framework_adapter</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000002.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(name=&quot;unknown&quot;, container=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="FlexMock.html">FlexMock</a> object with the given name.
+The name is used in error messages. If no container is given, create a <a
+href="FlexMock.html#M000002">new</a>, one-off container for this mock.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000015.html');return false;">
+          <span class="method-name">undefined</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="FlexMock/Undefined.html">Undefined</a> is normally available as <a
+href="FlexMock.html#M000015">FlexMock.undefined</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000014.html');return false;">
+          <span class="method-name">use</span><span class="method-args">(*names) {|*mocks| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Class <a href="FlexMock.html#M000011">method</a> to make sure that verify
+is called at the end of a test. One mock object will be created for each
+name given to the <a href="FlexMock.html#M000014">use</a> <a
+href="FlexMock.html#M000011">method</a>. The mocks will be passed to the
+block as arguments. If no names are given, then a single anonymous mock
+object will be created.
+</p>
+<p>
+At the end of the <a href="FlexMock.html#M000014">use</a> block, each mock
+object will be verified to make sure the proper number of calls have been
+made.
+</p>
+<p>
+Usage:
+</p>
+<pre>
+  FlexMock.use(&quot;name&quot;) do |mock|    # Creates a mock named &quot;name&quot;
+    mock.should_receive(:meth).
+      returns(0).once
+  end                               # mock is verified here
+</pre>
+<p>
+NOTE: If you include <a
+href="FlexMock/TestCase.html">FlexMock::TestCase</a> into your test case
+file, you can create mocks that will be automatically verified in the test
+teardown by using the <tt>flexmock</tt> <a
+href="FlexMock.html#M000011">method</a>.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000008.html');return false;">
+          <span class="method-name">by_default</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000005.html');return false;">
+          <span class="method-name">flexmock_teardown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Teardown and infrastructure setup for this mock.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000004.html');return false;">
+          <span class="method-name">flexmock_verify</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Verify that each <a href="FlexMock.html#M000011">method</a> that had an
+explicit expected count was actually called that many times.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000003.html');return false;">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the inspection string for a mock.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000011.html');return false;">
+          <span class="method-name">method</span><span class="method-args">(sym)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Override the built-in <tt><a href="FlexMock.html#M000011">method</a></tt>
+to include the mocked methods.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000009.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(sym, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Handle missing methods by attempting to look up a handler.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <span class="method-name">mock_ignore_missing</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="FlexMock.html#M000006">should_ignore_missing</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000010.html');return false;">
+          <span class="method-name">respond_to?</span><span class="method-args">(sym, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Override the built-in <a href="FlexMock.html#M000010">respond_to?</a> to
+include the mocked methods.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000013.html');return false;">
+          <span class="method-name">should_expect</span><span class="method-args">() {|Recorder.new(self)| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare that the mock object should expect methods by providing a recorder
+for the methods and having the user invoke the expected methods in a block.
+Further expectations may be applied the result of the recording call.
+</p>
+<p>
+Example Usage:
+</p>
+<pre>
+  mock.should_expect do |record|
+    record.add(Integer, 4) { |a, b|
+      a + b
+    }.at_least.once
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000006.html');return false;">
+          <span class="method-name">should_ignore_missing</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Ignore all <a href="FlexMock.html#M000015">undefined</a> (missing) <a
+href="FlexMock.html#M000011">method</a> calls.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="FlexMock.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('FlexMock.src/M000012.html');return false;">
+          <span class="method-name">mock.should_receive(:method_name)<br />
+mock.should_receive(:method1, method2, ...)<br />
+mock.should_receive(:meth1 => result1, :meth2 => result2, ...)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare that the mock object should receive a message with the given name.
+</p>
+<p>
+If more than one <a href="FlexMock.html#M000011">method</a> name is given,
+then the mock object should expect to receive all the listed melthods. If a
+hash of <a href="FlexMock.html#M000011">method</a> name/value pairs is
+given, then the each <a href="FlexMock.html#M000011">method</a> will return
+the associated result. Any expectations applied to the result of <tt><a
+href="FlexMock.html#M000012">should_receive</a></tt> will be applied to all
+the methods defined in the argument list.
+</p>
+<p>
+An expectation object for the <a href="FlexMock.html#M000011">method</a>
+name is returned as the result of this <a
+href="FlexMock.html#M000011">method</a>. Further expectation constraints
+can be added by chaining to the result.
+</p>
+<p>
+See <a href="FlexMock/Expectation.html">Expectation</a> for a list of
+declarators that can be used.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

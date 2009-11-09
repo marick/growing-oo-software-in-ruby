@@ -1,0 +1,21 @@
+p26.rb is a Ruby translation of the example on page 26 of GOOS (/Growing
+Object-Oriented Software/). You can run it like this:
+
+% ruby p26.rb
+
+It will spew a huge stack dump at you. If you include the bin directory in your
+path, you can filter the stack dump down to the important lines like this:
+
+% run-one p26.rb
+Loaded suite p26
+Started
+F
+Finished in 0.001663 seconds.
+
+  1) Failure:
+test: AuctionClearMessageTranslator should notify auction closed when Close message received. (AuctionClearMessageTranslatorTest)
+in mock 'AuctionEventListener': method 'auction_closed(*args)' called incorrect number of times.
+<1> expected but was
+<0>.
+
+1 tests, 0 assertions, 1 failures, 0 errors

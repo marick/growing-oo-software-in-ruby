@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Start a new method expectation. The following constraints will be applied to the new expectation.
+full_name: FlexMock::CompositeExpectation#should_receive
+is_singleton: false
+name: should_receive
+params: (*args, &block)
+visibility: public

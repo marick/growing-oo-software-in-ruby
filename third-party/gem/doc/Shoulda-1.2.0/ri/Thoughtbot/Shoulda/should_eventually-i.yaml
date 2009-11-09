@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Just like should, but never runs, and instead prints an 'X' in the Test::Unit output.
+full_name: Thoughtbot::Shoulda#should_eventually
+is_singleton: false
+name: should_eventually
+params: (name, options = {}, &blk)
+visibility: public

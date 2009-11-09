@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Record an expectation for receiving the method <tt>sym</tt> with the given arguments.
+full_name: FlexMock::Recorder#method_missing
+is_singleton: false
+name: method_missing
+params: (sym, *args, &block)
+visibility: public

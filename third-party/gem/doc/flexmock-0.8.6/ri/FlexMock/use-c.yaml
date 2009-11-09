@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (*mocks)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Class method to make sure that verify is called at the end of a test. One mock object will be created for each name given to the use method. The mocks will be passed to the block as arguments. If no names are given, then a single anonymous mock object will be created.
+- !ruby/struct:SM::Flow::P 
+  body: At the end of the use block, each mock object will be verified to make sure the proper number of calls have been made.
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  FlexMock.use(&quot;name&quot;) do |mock|    # Creates a mock named &quot;name&quot;\n    mock.should_receive(:meth).\n      returns(0).once\n  end                               # mock is verified here\n"
+- !ruby/struct:SM::Flow::P 
+  body: "NOTE: If you include FlexMock::TestCase into your test case file, you can create mocks that will be automatically verified in the test teardown by using the <tt>flexmock</tt> method."
+full_name: FlexMock::use
+is_singleton: true
+name: use
+params: (*names) {|*mocks| ...}
+visibility: public

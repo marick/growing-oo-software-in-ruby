@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FlexMock::PartialMockProxy#add_mock_method
+is_singleton: false
+name: add_mock_method
+params: (obj, method_name)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Hash of groups defined in this ordering.
+full_name: FlexMock::Ordering#flexmock_groups
+is_singleton: false
+name: flexmock_groups
+params: ()
+visibility: public

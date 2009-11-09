@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Validate the method expectation was called no more than <tt>n</tt> times.
+full_name: FlexMock::AtLeastCountValidator#validate
+is_singleton: false
+name: validate
+params: (n)
+visibility: public

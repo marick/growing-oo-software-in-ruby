@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return an argument matcher that matches any object that implementes (i.e. responds to) the given method list.
+full_name: FlexMock::ArgumentTypes#ducktype
+is_singleton: false
+name: ducktype
+params: (*methods)
+visibility: public

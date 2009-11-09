@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>flexmock (FlexMock::MockContainer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/mock_container.rb, line 116</span>
+116:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">flexmock</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+117:       <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>
+118:       <span class="ruby-identifier">quick_defs</span> = {}
+119:       <span class="ruby-identifier">domain_obj</span> = <span class="ruby-keyword kw">nil</span>
+120:       <span class="ruby-identifier">safe_mode</span> = <span class="ruby-keyword kw">false</span>
+121:       <span class="ruby-identifier">model_class</span> = <span class="ruby-keyword kw">nil</span>
+122:       <span class="ruby-keyword kw">while</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+123:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+124:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:base</span>, <span class="ruby-identifier">:safe</span>
+125:           <span class="ruby-identifier">safe_mode</span> = (<span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:safe</span>)
+126:           <span class="ruby-identifier">domain_obj</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+127:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:model</span>
+128:           <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+129:           <span class="ruby-identifier">model_class</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+130:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+131:           <span class="ruby-identifier">name</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">to_s</span>
+132:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+133:           <span class="ruby-identifier">quick_defs</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+134:         <span class="ruby-keyword kw">else</span>
+135:           <span class="ruby-identifier">domain_obj</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+136:         <span class="ruby-keyword kw">end</span>
+137:       <span class="ruby-keyword kw">end</span>
+138:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">UsageError</span>, <span class="ruby-value str">&quot;a block is required in safe mode&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">safe_mode</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">block_given?</span>
+139: 
+140:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">domain_obj</span>
+141:         <span class="ruby-identifier">mock</span> = <span class="ruby-constant">ContainerHelper</span>.<span class="ruby-identifier">make_partial_proxy</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">domain_obj</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">safe_mode</span>)
+142:         <span class="ruby-identifier">result</span> = <span class="ruby-identifier">domain_obj</span>
+143:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">model_class</span>
+144:         <span class="ruby-identifier">id</span> = <span class="ruby-constant">ContainerHelper</span>.<span class="ruby-identifier">next_id</span>
+145:         <span class="ruby-identifier">result</span> = <span class="ruby-identifier">mock</span> = <span class="ruby-constant">FlexMock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{model_class}_#{id}&quot;</span>, <span class="ruby-keyword kw">self</span>)
+146:       <span class="ruby-keyword kw">else</span>
+147:         <span class="ruby-identifier">result</span> = <span class="ruby-identifier">mock</span> = <span class="ruby-constant">FlexMock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span> <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;unknown&quot;</span>, <span class="ruby-keyword kw">self</span>)
+148:       <span class="ruby-keyword kw">end</span>
+149:       <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">quick_defs</span>)
+150:       <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">mock</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+151:       <span class="ruby-identifier">flexmock_remember</span>(<span class="ruby-identifier">mock</span>)
+152:       <span class="ruby-constant">ContainerHelper</span>.<span class="ruby-identifier">add_model_methods</span>(<span class="ruby-identifier">mock</span>, <span class="ruby-identifier">model_class</span>, <span class="ruby-identifier">id</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">model_class</span>
+153:       <span class="ruby-identifier">result</span>
+154:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

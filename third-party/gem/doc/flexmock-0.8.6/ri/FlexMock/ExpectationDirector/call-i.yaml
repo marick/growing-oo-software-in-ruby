@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Invoke the expectations for a given set of arguments.
+- !ruby/struct:SM::Flow::P 
+  body: First, look for an expectation that matches the arguements and is eligible to be called. Failing that, look for a expectation that matches the arguments (at this point it will be ineligible, but at least we will get a good failure message). Finally, check for expectations that don't have any argument matching criteria.
+full_name: FlexMock::ExpectationDirector#call
+is_singleton: false
+name: call
+params: (*args)
+visibility: public

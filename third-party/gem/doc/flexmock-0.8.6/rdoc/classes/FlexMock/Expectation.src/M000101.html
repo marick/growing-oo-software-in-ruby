@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>ordered (FlexMock::Expectation)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/expectation.rb, line 356</span>
+356:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ordered</span>(<span class="ruby-identifier">group_name</span>=<span class="ruby-keyword kw">nil</span>)
+357:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@globally</span>
+358:         <span class="ruby-ivar">@global_order_number</span> = <span class="ruby-identifier">define_ordered</span>(<span class="ruby-identifier">group_name</span>, <span class="ruby-ivar">@mock</span>.<span class="ruby-identifier">flexmock_container</span>)
+359:       <span class="ruby-keyword kw">else</span>
+360:         <span class="ruby-ivar">@order_number</span> = <span class="ruby-identifier">define_ordered</span>(<span class="ruby-identifier">group_name</span>, <span class="ruby-ivar">@mock</span>)
+361:       <span class="ruby-keyword kw">end</span>
+362:       <span class="ruby-ivar">@globally</span> = <span class="ruby-keyword kw">false</span>
+363:       <span class="ruby-keyword kw">self</span>
+364:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

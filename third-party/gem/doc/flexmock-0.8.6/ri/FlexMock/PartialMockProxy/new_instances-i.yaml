@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: new_instances is a short cut method for overriding the behavior of any new instances created via a mocked class object.
+- !ruby/struct:SM::Flow::P 
+  body: By default, new_instances will mock the behaviour of the :new method. If you wish to mock a different set of class methods, just pass a list of symbols to as arguments. (previous versions also mocked :allocate by default. If you need :allocate to be mocked, just request it explicitly).
+- !ruby/struct:SM::Flow::P 
+  body: "For example, to stub only objects created by :make (and not :new), use:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "   flexmock(ClassName).new_instances(:make).should_receive(...)\n"
+full_name: FlexMock::PartialMockProxy#new_instances
+is_singleton: false
+name: new_instances
+params: |
+  new_instances.should_receive(...)
+  new_instances { |instance|  instance.should_receive(...) }
+
+visibility: public

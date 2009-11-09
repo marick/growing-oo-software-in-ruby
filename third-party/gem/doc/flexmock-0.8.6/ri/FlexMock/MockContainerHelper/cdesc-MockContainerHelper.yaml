@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "################################################################# Helper methods for mock containers. MockContainer is a module that is designed to be mixed into other classes, particularly testing framework test cases. Since we don't want to pollute the method namespace of the class that mixes in MockContainer, a number of MockContainer methods were moved into ContainerHelper to to isoloate the names."
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: METHOD_NAME_RE
+  value: /^([A-Za-z_][A-Za-z0-9_]*[=!?]?|\[\]=?||\*\*|<<|>>|<=>|[<>=]=|=~|===|[-+]@|[-+\*\/%&^|<>~])$/
+full_name: FlexMock::MockContainerHelper
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: FlexMock::ArgumentTypes
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_model_methods
+- !ruby/object:RI::MethodSummary 
+  name: make_partial_proxy
+- !ruby/object:RI::MethodSummary 
+  name: next_id
+name: MockContainerHelper
+superclass: Object

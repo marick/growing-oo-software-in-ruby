@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 09 15:24:24 -0600 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Flex Mock &#8212; Making Mock Easy</h1>
+<p>
+<a href="../classes/FlexMock.html">FlexMock</a> is a simple, but flexible,
+mock object library for Ruby unit testing.
+</p>
+<table>
+<tr><td valign="top">Version :</td><td>0.8.6
+
+</td></tr>
+</table>
+<h1>Links</h1>
+<table>
+<tr><td valign="top"><b>Documents</b>   :</td><td><a href="http://flexmock.rubyforge.org">flexmock.rubyforge.org</a>
+
+</td></tr>
+<tr><td valign="top"><b>RubyGems</b>    :</td><td>Install with: <b>gem install flexmock</b>
+
+</td></tr>
+<tr><td valign="top"><b>Download</b>    :</td><td>Download from RubyForge at <a
+href="http://rubyforge.org/frs/?group_id=3433">rubyforge.org/frs/?group_id=3433</a>
+(pre 0.6.0 versions may be found at <a
+href="http://rubyforge.org/frs/?group_id=170">rubyforge.org/frs/?group_id=170</a>)
+
+</td></tr>
+</table>
+<h2>Installation</h2>
+<p>
+You can install <a href="../classes/FlexMock.html">FlexMock</a> with the
+following command.
+</p>
+<pre>
+ $ gem install flexmock
+</pre>
+<h2>Simple Example</h2>
+<p>
+We have a data acquisition class (<tt>TemperatureSampler</tt>) that reads a
+temperature sensor and returns an average of 3 readings. We don&#8216;t
+have a <em>real</em> temperature to use for testing, so we mock one up with
+a mock object that responds to the <tt>read_temperature</tt> message.
+</p>
+<p>
+Here&#8216;s the complete example:
+</p>
+<pre>
+  require 'test/unit'
+  require 'flexmock/test_unit'
+
+  class TemperatureSampler
+    def initialize(sensor)
+      @sensor = sensor
+    end
+
+    def average_temp
+      total = (0...3).collect {
+        @sensor.read_temperature
+      }.inject { |i, s| i + s }
+      total / 3.0
+    end
+  end
+
+  class TestTemperatureSampler &lt; Test::Unit::TestCase
+    def test_sensor_can_average_three_temperature_readings
+      sensor = flexmock(&quot;temp&quot;)
+      sensor.should_receive(:read_temperature).times(3).
+        and_return(10, 12, 14)
+
+      sampler = TemperatureSampler.new(sensor)
+      assert_equal 12, sampler.average_temp
+    end
+  end
+</pre>
+<p>
+You can find an extended example of <a
+href="../classes/FlexMock.html">FlexMock</a> in <a
+href="http://flexmock.rubyforge.org/files/doc/GoogleExample_rdoc.html">Google
+Example</a>.
+</p>
+<h2><a href="../classes/Test/Unit.html">Test::Unit</a> Integration</h2>
+<p>
+<a href="../classes/FlexMock.html">FlexMock</a> integrates nicely with <a
+href="../classes/Test/Unit.html">Test::Unit</a>. Just require the
+&#8216;flexmock/test_unit&#8217; file at the top of your test file. The
+<tt>flexmock</tt> method will be available for mock creation, and any
+created mocks will be automatically validated and closed at the end of the
+individual test.
+</p>
+<p>
+Your test case will look something like this:
+</p>
+<pre>
+  require 'flexmock/test_unit'
+
+  class TestDog &lt; Test::Unit::TestCase
+    def test_dog_wags
+      tail_mock = flexmock(:wag =&gt; :happy)
+      assert_equal :happy, tail_mock.wag
+    end
+  end
+</pre>
+<p>
+<b>NOTE:</b> If you don&#8216;t want to automatically extend every TestCase
+with the flexmock methods and overhead, then require the
+&#8216;flexmock&#8217; file and explicitly include the <a
+href="../classes/FlexMock/TestCase.html">FlexMock::TestCase</a> module in
+each test case class where you wish to use mock objects. <a
+href="../classes/FlexMock.html">FlexMock</a> versions prior to 0.6.0
+required the explicit include.
+</p>
+<h2>RSpec Integration</h2>
+<p>
+<a href="../classes/FlexMock.html">FlexMock</a> also supports integration
+with the RSpec behavior specification framework. Starting with version
+0.9.0 of RSpec, you will be able to say:
+</p>
+<pre>
+  Spec::Runner.configure do |config|
+    config.mock_with :flexmock
+  end
+
+  describe &quot;Using FlexMock with RSpec&quot; do
+    it &quot;should be able to create a mock&quot; do
+      m = flexmock(:foo =&gt; :bar)
+      m.foo.should === :bar
+    end
+  end
+</pre>
+<p>
+If you wish to try this prior to the release of RSpec 0.9.0, check out the
+trunk of the RSpec subversion repository.
+</p>
+<h2>Quick Reference</h2>
+<h3>Creating Mock Objects</h3>
+<p>
+The <tt>flexmock</tt> method is used to create mocks in various
+configurations. Here&#8216;s a quick rundown of the most common options.
+See FlexMock::MockContainer#flexmock for more details.
+</p>
+<ul>
+<li><b>mock = flexmock(&quot;joe&quot;)</b>
+
+<p>
+Create a mock object named &quot;joe&quot; (the name is used in reporting
+errors).
+</p>
+</li>
+<li><b>mock = flexmock(:foo =&gt; :bar, :baz =&gt; :froz)</b>
+
+<p>
+Create a mock object and define two mocked methods (:foo and :baz) that
+return the values :bar and :froz respectively. This is useful when creating
+mock objects with just a few methods and simple return values.
+</p>
+</li>
+<li><b>mock = flexmock(&quot;joe&quot;, :foo =&gt; :bar, :bar =&gt; :froz)</b>
+
+<p>
+You can combine the mock name and an expectation hash in the same call to
+flexmock.
+</p>
+</li>
+<li><b>partial_mock = flexmock(real_object)</b>
+
+<p>
+If you you give <tt>flexmock</tt> a real object in the argument list, it
+will treat that real object as a base for a partial mock object. The return
+value <tt>m</tt> may be used to set expectations. The real_object should be
+used in the reference portion of the test.
+</p>
+</li>
+<li><b>partial_mock = flexmock(real_object, &quot;name&quot;, :foo =&gt;
+:baz)</b>
+
+<p>
+Names and expectation hashes may be used with partial mocks as well.
+</p>
+</li>
+<li><b>partial_mock = flexmock(:base, real_string_object)</b>
+
+<p>
+Since Strings (and Symbols for that matter) are used for mock names, <a
+href="../classes/FlexMock.html">FlexMock</a> will not recognize them as the
+base for a partial mock. To force a string to be used as a partial mock
+base, proceed the string object in the calling sequence with :base.
+</p>
+</li>
+<li><b>partial_mock = flexmock(:safe, real_object) { |mock|
+mock.should_receive(...) }</b>
+
+<p>
+When mocking real objects (i.e. &quot;partial mocks&quot;), <a
+href="../classes/FlexMock.html">FlexMock</a> will add a handful of mock
+related methods to the actual object (see below for list of method names).
+If one or more of these added methods collide with an existing method on
+the partial mock, then there are problems.
+</p>
+<p>
+<a href="../classes/FlexMock.html">FlexMock</a> offers a &quot;safe&quot;
+mode for partial mocks that does not add these methods. Indicate safe mode
+by passing the symbol :safe as the first argument of flexmock. A block
+<em>is required</em> when using safe mode (the partial_mock returned in
+safe mode does not have a <tt>should_receive</tt> method).
+</p>
+<p>
+The methods added to partial mocks in non-safe mode are:
+</p>
+<ul>
+<li>should_receive
+
+</li>
+<li>new_instances
+
+</li>
+<li>any_instance (note: deprecated)
+
+</li>
+<li>mock
+
+</li>
+<li>mock_teardown
+
+</li>
+<li>mock_setup
+
+</li>
+</ul>
+</li>
+<li><b>mock = flexmock(&#8230;) { |mock| mock.should_receive(...) }</b>
+
+<p>
+If a block is given to any of the <tt>flexmock</tt> forms, the mock object
+will be passed to the block as an argument. Code in the block can set the
+desired expectations for the mock object.
+</p>
+</li>
+<li><b>mock_model = flexmock(:model, YourModel, &#8230;) { |mock|
+mock.should_receive(...) }</b>
+
+<p>
+When given :model, flexmock() will return a pure mock (not a partial mock)
+that will have some ActiveRecord specific methods defined. YourModel should
+be the class of an ActiveRecord model. These predefined methods make it a
+bit easier to mock out ActiveRecord model objects in a Rails application.
+Other that the predefined mocked methods, the mock returned is a standard
+<a href="../classes/FlexMock.html">FlexMock</a> mock object.
+</p>
+<p>
+The predefined mocked methods are:
+</p>
+<ul>
+<li>id &#8212; returns a unique ID for each mocked model.
+
+</li>
+<li>to_params &#8212; returns a stringified version of the id.
+
+</li>
+<li>new_record? &#8212; returns false.
+
+</li>
+<li>errors &#8212; returns an empty (mocked) errors object.
+
+</li>
+<li>is_a?(other) &#8212; returns true if other == YourModel.
+
+</li>
+<li>instance_of?(class) &#8212; returns true if class == YourModel
+
+</li>
+<li>kind_of?(class) &#8212; returns true if class is YourModel or one of its
+ancestors
+
+</li>
+<li>class &#8212; returns YourModel.
+
+</li>
+</ul>
+</li>
+</ul>
+<p>
+<b>NOTE:</b> Versions of <a href="../classes/FlexMock.html">FlexMock</a>
+prior to 0.6.0 used <tt>flexstub</tt> to create partial mocks. The
+<tt>flexmock</tt> method now assumes all the functionality that was spread
+out between two different methods. <tt>flexstub</tt> is still available for
+backward compatibility.
+</p>
+<h3>Expectation Declarators</h3>
+<p>
+Once a mock is created, you need to define what that mock should expect to
+see. Expectation declarators are used to specify these expectations placed
+upon received method calls. A basic expectation, created with the
+<tt>should_receive</tt> method, just establishes the fact that a method may
+(or may not) be called on the mock object. Refinements to that expectation
+may be additionally declared. <a
+href="../classes/FlexMock.html">FlexMock</a> always starts with the most
+general expectation and adds constraints to that.
+</p>
+<p>
+For example, the following code:
+</p>
+<pre>
+    mock.should_receive(:average).and_return(12)
+</pre>
+<p>
+Means that the mock will now accept method calls to an <tt>average</tt>
+method. The expectation will accept any arguments and may be called any
+number of times (including zero times). Strictly speaking, the
+<tt>and_return</tt> part of the declaration isn&#8216;t exactly a
+constraint, but it does specify what value the mock will return when the
+expectation is matched.
+</p>
+<p>
+If you want to be more specific, you need to add additional constraints to
+your expectation. Here are some examples:
+</p>
+<pre>
+    mock.should_receive(:average).with(12).once
+
+    mock.should_receive(:average).with(Integer).
+        at_least.twice.at_most.times(10).
+        and_return { rand }
+</pre>
+<p>
+The following methods may be used to create and refine expectations on a
+mock object. See theFlexMock::Expectation for more details.
+</p>
+<ul>
+<li><b>should_receive(<em>method_name</em>)</b>
+
+<p>
+Declares that a message named <em>method_name</em> will be sent to the mock
+object. Constraints on this expected message (called expectations) may be
+chained to the <tt>should_receive</tt> call.
+</p>
+</li>
+<li><b>should_receive(<em>method_name1</em>, <em>method_name2</em>,
+&#8230;)</b>
+
+<p>
+Define a number of expected messages that have the same constraints.
+</p>
+</li>
+<li><b>should_receive(<em>meth1</em> =&gt; <em>result1</em>, <em>meth2</em>
+=&gt; <em>result2</em>, &#8230;)</b>
+
+<p>
+Define a number of expected messages that have the same constrants, but
+return different values.
+</p>
+</li>
+<li><b>should_expect { |recorder| &#8230; }</b>
+
+<p>
+Creates a mock recording object that will translate received method calls
+into mock expectations. The recorder is passed to a block supplied with the
+<tt>should_expect</tt> method. See examples below.
+</p>
+</li>
+<li><b>with(<em>arglist</em>)</b>
+
+<p>
+Declares that this expectation matches messages that match the given
+argument list. The <tt>===</tt> operator is used on a argument by argument
+basis to determine matching. This means that most literal values match
+literally, class values match any instance of a class and regular
+expression match any matching string (after a <tt>to_s</tt> conversion).
+See argument validators (below) for details on argument validation options.
+</p>
+</li>
+<li><b>with_any_args</b>
+
+<p>
+Declares that this expectation matches the message with any argument
+(default)
+</p>
+</li>
+<li><b>with_no_args</b>
+
+<p>
+Declares that this expectation matches messages with no arguments
+</p>
+</li>
+<li><b>and_return(<em>value</em>)</b>
+
+<p>
+Declares that the expected message will return the given value.
+</p>
+</li>
+<li><b>and_return(<em>value1</em>, <em>value2</em>, &#8230;)</b>
+
+<p>
+Declares that the expected message will return a series of values. Each
+invocation of the message will return the next value in the series. The
+last value will be repeatably returned if the number of matching calls
+exceeds the number of values.
+</p>
+</li>
+<li><b>and_return { |args, &#8230;| code &#8230; } </b>
+
+<p>
+Declares that the expected message will return the yielded value of the
+block. The block will receive all the arguments in the message. If the
+message was provided a block, it will be passed as the last parameter of
+the block&#8216;s argument list.
+</p>
+</li>
+<li><b>returns( &#8230; )</b>
+
+<p>
+Alias for <tt>and_return</tt>.
+</p>
+</li>
+<li><b>and_raise(exception, *args)</b>
+
+<p>
+Declares that the expected messsage will raise the specified exception. If
+<tt>exception</tt> is an exception class, then the raised exception will be
+constructed from the class with <tt>new</tt> given the supplied arguments.
+If <tt>exception</tt> is an instance of an exception class, then it will be
+raised directly.
+</p>
+</li>
+<li><b>raises( &#8230; )</b>
+
+<p>
+Alias for <tt>and_raise</tt>.
+</p>
+</li>
+<li><b>and_throw(symbol)</b>
+
+</li>
+<li><b>and_throw(symbol, value)</b>
+
+<p>
+Declares that the expected messsage will throw the specified symbol. If an
+optional value is included, then it will be the value returned from the
+corresponding catch statement.
+</p>
+</li>
+<li><b>throws( &#8230; )</b>
+
+<p>
+Alias for <tt>and_throw</tt>.
+</p>
+</li>
+<li><b>and_yield(values, &#8230;)</b>
+
+<p>
+Declares that the mocked method will receive a block, and the mock will
+call that block with the values given. Not providing a block will be an
+error. Providing more than one <tt>and_yield</tt> clause one a single
+expectation will mean that subsquent mock method calls will yield the
+values provided by the additional <tt>and_yield</tt> clause.
+</p>
+</li>
+<li><b>yields( &#8230; )</b>
+
+<p>
+Alias for <tt>and_yield( &#8230; )</tt>.
+</p>
+</li>
+<li><b>zero_or_more_times</b>
+
+<p>
+Declares that the expected message is may be sent zero or more times
+(default, equivalent to <tt>at_least.never</tt>).
+</p>
+</li>
+<li><b>once</b>
+
+<p>
+Declares that the expected message is only sent once. <tt>at_least</tt> /
+<tt>at_most</tt> modifiers are allowed.
+</p>
+</li>
+<li><b>twice</b>
+
+<p>
+Declares that the expected message is only sent twice. <tt>at_least</tt> /
+<tt>at_most</tt> modifiers are allowed.
+</p>
+</li>
+<li><b>never</b>
+
+<p>
+Declares that the expected message is never sent. <tt>at_least</tt> /
+<tt>at_most</tt> modifiers are allowed.
+</p>
+</li>
+<li><b>times(<em>n</em>)</b>
+
+<p>
+Declares that the expected message is sent <em>n</em> times.
+<tt>at_least</tt> / <tt>at_most</tt> modifiers are allowed.
+</p>
+</li>
+<li><b>at_least</b>
+
+<p>
+Modifies the immediately following message count constraint so that it
+means the message is sent at least that number of times. E.g.
+<tt>at_least.once</tt> means the message is sent at least once during the
+test, but may be sent more often. Both <tt>at_least</tt> and
+<tt>at_most</tt> may be specified on the same expectation.
+</p>
+</li>
+<li><b>at_most</b>
+
+<p>
+Similar to <tt>at_least</tt>, but puts an upper limit on the number of
+messages. Both <tt>at_least</tt> and <tt>at_most</tt> may be specified on
+the same expectation.
+</p>
+</li>
+<li><b>ordered</b>
+
+<p>
+Declares that the expected message is ordered and is expected to be
+received in a certain position in a sequence of messages. The message
+should arrive after and previously declared ordered messages and prior to
+any following declared ordered messages. Unordered messages are ignored
+when considering the message order.
+</p>
+<p>
+Normally ordering is performed only against calls in the same mock object.
+If the &quot;globally&quot; adjective is used, then ordering is performed
+against the other globally ordered method calls.
+</p>
+</li>
+<li><b>ordered(<em>group</em>)</b>
+
+<p>
+Declare that the expected message belongs to an order group. Methods within
+an order group may be received in any order. Ordered messages outside the
+group must be received either before or after all of the grouped messages.
+</p>
+<p>
+For example, in the following, messages <tt>flip</tt> and <tt>flop</tt> may
+be received in any order (because they are in the same group), but must
+occur strictly after <tt>start</tt> but before <tt>end</tt>. The message
+<tt>any_time</tt> may be received at any time because it is not ordered.
+</p>
+<pre>
+  m = flexmock()
+  m.should_receive(:any_time)
+  m.should_receive(:start).ordered
+  m.should_receive(:flip).ordered(:flip_flop_group)
+  m.should_receive(:flop).ordered(:flip_flop_group)
+  m.should_receive(:end).ordered
+</pre>
+<p>
+Normally ordering is performed only against calls in the same mock object.
+If the &quot;globally&quot; adjective is used, then ordering is performed
+against the other globally ordered method calls.
+</p>
+</li>
+<li><b>globally.ordered</b>
+
+</li>
+<li><b>globally.ordered(<em>group_name</em>)</b>
+
+<p>
+When modified by the &quot;globally&quot; adjective, the mock call will be
+ordered against other globally ordered methods in any of the mock objects
+in the same container (i.e. same test). All the options of the per-mock
+ordering are available in the globally ordered method calls.
+</p>
+</li>
+<li><b>by_default</b>
+
+<p>
+Marks the expectation as a default. Default expectations act as normal as
+long as there are no non-default expectations for the same method name. As
+soon as a non-default expectation is defined, all default expectations for
+that method name are ignored.
+</p>
+<p>
+Default expectations allow you to setup a set of default behaviors for
+various methods in the setup of a test suite, and then override only the
+methods that need special handling in any given test.
+</p>
+</li>
+<li><b>mock</b>
+
+<p>
+Expectation constraints always return the expectation so that the
+constraints can be chained. If you wish to do a one-liner and assign the
+mock to a variable, the <tt>mock</tt> method on an expectation will return
+the original mock object.
+</p>
+<pre>
+  m = flexmock.should_receive(:hello).once.and_return(&quot;World&quot;).mock
+</pre>
+<p>
+<b>NOTE:</b> &lt;em&gt;Using <b>mock</b> when specifying a Demeter mock
+chain will return the last mock of the chain, which might not be what you
+expect.
+</p>
+</li>
+</ul>
+<h3>Argument Validation</h3>
+<p>
+The values passed to the <tt>with</tt> declarator determine the criteria
+for matching expectations. The first expectation found that matches the
+arguments in a mock method call will be used to validate that mock method
+call.
+</p>
+<p>
+The following rules are used for argument matching:
+</p>
+<ul>
+<li>A <tt>with</tt> parameter that is a class object will match any actual
+argument that is an instance of that class.
+
+<p>
+Examples:
+</p>
+<pre>
+   with(Integer)     will match    f(3)
+</pre>
+</li>
+<li>A regular expression will match any actual argument that matches the
+regular expression. Non-string actual arguments are converted to strings
+via <tt>to_s</tt> before applying the regular expression.
+
+<p>
+Examples:
+</p>
+<pre>
+  with(/^src/)      will match    f(&quot;src_object&quot;)
+  with(/^3\./)      will match    f(3.1415972)
+</pre>
+</li>
+<li>Most other objects will match based on equal values.
+
+<p>
+Examples:
+</p>
+<pre>
+    with(3)         will match    f(3)
+    with(&quot;hello&quot;)   will match    f(&quot;hello&quot;)
+</pre>
+</li>
+<li>If you wish to override the default matching behavior and force matching by
+equality, you can use the FlexMock.eq convenience method. This is mostly
+used when you wish to match class objects, since the default matching
+behavior for class objects is to match instances, not themselves.
+
+<p>
+Examples:
+</p>
+<pre>
+    with(eq(Integer))             will match       f(Integer)
+    with(eq(Integer))             will NOT match   f(3)
+</pre>
+<p>
+<b>Note:</b> If you do not use the <a
+href="../classes/FlexMock/TestCase.html">FlexMock::TestCase</a> <a
+href="../classes/Test.html">Test</a> Unit integration module, or the <a
+href="../classes/FlexMock/ArgumentTypes.html">FlexMock::ArgumentTypes</a>
+module, you will have to fully qualify the <tt>eq</tt> method. This is true
+of all the special argument matches (<tt>eq</tt>, <tt>on</tt>,
+<tt>any</tt>, <tt>hsh</tt> and <tt>ducktype</tt>).
+</p>
+<pre>
+    with(FlexMock.eq(Integer))
+    with(FlexMock.on { code })
+    with(FlexMock.any)
+    with(FlexMock.hsh(:tag =&gt; 3))
+    with(FlexMock.ducktype(:wag =&gt; &quot;dog&quot;))
+</pre>
+</li>
+<li>If you wish to match a hash on <em>some</em> of its values, the
+FlexMock.hsh(...) method will work. Only specify the hash values you are
+interested in, the others will be ignored.
+
+<pre>
+    with(hsh(:run =&gt; true))  will match    f(:run =&gt; true, :stop =&gt; false)
+</pre>
+</li>
+<li>If you wish to match any object that responds to a certain set of methods,
+use the FlexMock.ducktype method.
+
+<pre>
+    with(ducktype(:to_str))     will match   f(&quot;string&quot;)
+    with(ducktype(:wag, :bark)) will match   f(dog)
+                                (assuming dog implements wag and bark)
+</pre>
+</li>
+<li>If you wish to match <em>anything</em>, then use the <tt>FlexMock.any</tt>
+method in the with argument list.
+
+<p>
+Examples (assumes either the <a
+href="../classes/FlexMock/TestCase.html">FlexMock::TestCase</a> or <a
+href="../classes/FlexMock/ArgumentTypes.html">FlexMock::ArgumentTypes</a>
+mix-ins has been included):
+</p>
+<pre>
+    with(any)             will match       f(3)
+    with(any)             will match       f(&quot;hello&quot;)
+    with(any)             will match       f(Integer)
+    with(any)             will match       f(nil)
+</pre>
+</li>
+<li>If you wish to specify a complex matching criteria, use the
+<tt>FlexMock.on(&amp;block)</tt> with the logic contained in the block.
+
+<p>
+Examples (assumes FlexMock::ArguementTypes has been included):
+</p>
+<pre>
+    with(on { |arg| (arg % 2) == 0 } )
+</pre>
+<p>
+will match any even integer.
+</p>
+</li>
+<li>If you wish to match a method call where a block is given, add
+<tt>Proc</tt> as the last argument to <tt>with</tt>.
+
+<p>
+Example:
+</p>
+<pre>
+    m.should_receive(:foo).with(Integer,Proc).and_return(:got_block)
+    m.should_receive(:foo).with(Integer).and_return(:no_block)
+</pre>
+<p>
+will cause the mock to return the following:
+</p>
+<pre>
+   m.foo(1) { } =&gt; returns :got_block
+   m.foo(1)     =&gt; returns :no_block
+</pre>
+</li>
+</ul>
+<h3>Creating Partial Mocks</h3>
+<p>
+Sometimes it is useful to mock the behavior of one or two methods in an
+existing object without changing the behavior of the rest of the object. If
+you pass a real object to the <tt>flexmock</tt> method, it will allow you
+to use that real object in your test and will just mock out the one or two
+methods that you specify.
+</p>
+<p>
+For example, suppose that a Dog object uses a Woofer object to bark. The
+code for Dog looks like this (we will leave the code for Woofer to your
+imagination):
+</p>
+<pre>
+  class Dog
+    def initialize
+      @woofer = Woofer.new
+    end
+    def bark
+      @woofer.woof
+    end
+    def wag
+      :happy
+    end
+  end
+</pre>
+<p>
+Now we want to test Dog, but using a real Woofer object in the test is a
+real pain (why? &#8230; well because Woofer plays a sound file of a dog
+barking, and that&#8216;s really annoying during testing).
+</p>
+<p>
+So, how can we create a Dog object with mocked Woofer? All we need to do is
+allow <a href="../classes/FlexMock.html">FlexMock</a> to replace the
+<tt>bark</tt> method.
+</p>
+<p>
+Here&#8216;s the test code:
+</p>
+<pre>
+  class TestDogBarking &lt; Test::Unit::TestCase
+    include FlexMock::TestCase
+
+    # Setup the tests by mocking the +new+ method of
+    # Woofer and return a mock woofer.
+    def setup
+      @dog = Dog.new
+      flexmock(@dog, :bark =&gt; :grrr)
+    end
+
+    def test_dog
+      assert_equal :grrr, @dog.bark   # Mocked Method
+      assert_equal :happy, @dog.wag    # Normal Method
+    end
+  end
+</pre>
+<p>
+The nice thing about this technique is that after the test is over, the
+mocked out methods are returned to their normal state. Outside the test
+everything is back to normal.
+</p>
+<p>
+<b>NOTE:</b> In previous versions of <a
+href="../classes/FlexMock.html">FlexMock</a>, partial mocking was called
+&quot;stubs&quot; and the <tt>flexstub</tt> method was used to create the
+partial mocks. Although partial mocks were often used as stubs, the
+terminology was not quite correct. The current version of <a
+href="../classes/FlexMock.html">FlexMock</a> uses the <tt>flexmock</tt>
+method to create both regular stubs and partial stubs. A version of the
+<tt>flexstub</tt> method is included for backwards compatibility. See
+Martin Fowler&#8216;s article <em>Mocks Aren&#8216;t Stubs</em> (<a
+href="http://www.martinfowler.com/articles/mocksArentStubs.html">www.martinfowler.com/articles/mocksArentStubs.html</a>)
+for a better understanding of the difference between mocks and stubs.
+</p>
+<p>
+This partial mocking technique was inspired by the <tt>Stuba</tt> library
+in the <tt>Mocha</tt> project.
+</p>
+<h3>Mocking Class Objects</h3>
+<p>
+In the previous example we mocked out the <tt>bark</tt> method of a Dog
+object to avoid invoking the Woofer object. Perhaps a better technique
+would be to mock the Woofer object directly. But Dog uses Woofer explicitly
+so we cannot just pass in a mock object for Dog to use.
+</p>
+<p>
+But wait, we can add mock behavior to any existing object, and classes are
+objects in Ruby. So why don&#8216;t we just mock out the Woofer class
+object to return mocks for us.
+</p>
+<pre>
+  class TestDogBarking &lt; Test::Unit::TestCase
+    include FlexMock::TestCase
+
+    # Setup the tests by mocking the +new+ method of
+    # Woofer and return a mock woofer.
+    def setup
+      flexmock(Woofer).should_receive(:new).
+         and_return(flexmock(:woof =&gt; :grrr))
+      @dog = Dog.new
+    end
+
+    def test_dog
+      assert_equal :grrrr, @dog.bark  # Calls woof on mock object
+                                      # returned by Woofer.new
+    end
+  end
+</pre>
+<h3>Mocking Behavior in All Instances Created by a Class Object</h3>
+<p>
+Sometimes returning a single mock object is not enough. Occasionally you
+want to mock <em>every</em> instance object created by a class. <a
+href="../classes/FlexMock.html">FlexMock</a> makes this very easy.
+</p>
+<pre>
+  class TestDogBarking &lt; Test::Unit::TestCase
+    include FlexMock::TestCase
+
+    # Setup the tests by mocking Woofer to always
+    # return partial mocks.
+    def setup
+      flexmock(Woofer).new_instances.should_receive(:woof =&gt; :grrr)
+    end
+
+    def test_dog
+      assert_equal :grrrr, Dog.new.bark  # All dog objects
+      assert_equal :grrrr, Dog.new.bark  # are mocked.
+    end
+  end
+</pre>
+<p>
+Note that <a href="../classes/FlexMock.html">FlexMock</a> adds the mock
+expectations after the original <tt>new</tt> method has completed. If the
+original version of <tt>new</tt> yields the newly created instance to a
+block, that block will get an non-mocked version of the object.
+</p>
+<p>
+Note that <tt>new_instances</tt> will accept a block if you wish to mock
+several methods at the same time. E.g.
+</p>
+<pre>
+      flexmock(Woofer).new_instances do |m|
+        m.should_receive(:woof).twice.and_return(:grrr)
+        m.should_receive(:wag).at_least.once.and_return(:happy)
+      end
+</pre>
+<h3>Default Expectations on Mocks</h3>
+<p>
+Sometimes you want to setup a bunch of default expectations that are pretty
+much for a number of different tests. Then in the individual tests, you
+would like to override the default behavior on just that one method you are
+testing at the moment. You can do that by using the <tt>by_default</tt>
+modifier.
+</p>
+<p>
+In your test setup you might have:
+</p>
+<pre>
+  def setup
+    @mock_dog = flexmock(&quot;Fido&quot;)
+    @mock_dog.should_receive(:tail =&gt; :a_tail, :bark =&gt; &quot;woof&quot;).by_default
+  end
+</pre>
+<p>
+The behaviors for :tail and :bark are good for most of the tests, but
+perhaps you wish to verify that :bark is called exactly once in a given
+test. Since :bark by default has no count expectations, you can override
+the default in the given test.
+</p>
+<pre>
+  def test_something_where_bark_must_be_called_once
+    @mock_dog.should_receive(:bark =&gt; &quot;woof&quot;).once
+
+    # At this point, the default for :bark is ignored,
+    # and the &quot;woof&quot; value will be returned.
+
+    # However, the default for :tail (which returns :a_tail)
+    # is still active.
+  end
+</pre>
+<p>
+By setting defaults, your individual tests don&#8216;t have to concern
+themselves with details of all the default setup. But the details of the
+overrides are right there in the body of the test.
+</p>
+<h3>Mocking Law of Demeter Violations</h3>
+<p>
+The Law of Demeter says that you should only invoke methods on objects to
+which you have a direct connection, e.g. parameters, instance variables,
+and local variables. You can usually detect Law of Demeter violations by
+the excessive number of periods in an expression. For example:
+</p>
+<pre>
+     car.chassis.axle.universal_joint.cog.turn
+</pre>
+<p>
+The Law of Demeter has a very big impact on mocking. If you need to mock
+the &quot;turn&quot; method on &quot;cog&quot;, you first have to mock
+chassis, axle, and universal_joint.
+</p>
+<pre>
+    # Manually mocking a Law of Demeter violation
+    cog = flexmock(&quot;cog&quot;)
+    cog.should_receive(:turn).once.and_return(:ok)
+    joint = flexmock(&quot;gear&quot;, :cog =&gt; cog)
+    axle = flexmock(&quot;axle&quot;, :universal_joint =&gt; joint)
+    chassis = flexmock(&quot;chassis&quot;, :axle =&gt; axle)
+    car = flexmock(&quot;car&quot;, :chassis =&gt; chassis)
+</pre>
+<p>
+Yuck!
+</p>
+<p>
+The best course of action is to avoid Law of Demeter violations. Then your
+mocking exploits will be very simple. However, sometimes you have to deal
+with code that already has a Demeter chain of method calls. So for those
+cases where you can&#8216;t avoid it, <a
+href="../classes/FlexMock.html">FlexMock</a> will allow you to easily mock
+Demeter method chains.
+</p>
+<p>
+Here&#8216;s an example of Demeter chain mocking:
+</p>
+<pre>
+    # Demeter chain mocking using the short form.
+    car = flexmock(&quot;car&quot;)
+    car.should_receive( &quot;chassis.axle.universal_joint.cog.turn&quot; =&gt; :ok).once
+</pre>
+<p>
+You can also use the long form:
+</p>
+<pre>
+    # Demeter chain mocking using the long form.
+    car = flexmock(&quot;car&quot;)
+    car.should_receive(&quot;chassis.axle.universal_joint.cog.turn&quot;).once.
+      and_return(:ok)
+</pre>
+<p>
+That&#8216;s it. Anywhere <a href="../classes/FlexMock.html">FlexMock</a>
+accepts a method name for mocking, you can use a demeter chain and <a
+href="../classes/FlexMock.html">FlexMock</a> will attempt to do the right
+thing.
+</p>
+<p>
+But beware, there are a few limitations.
+</p>
+<p>
+The all the methods in the chain, except for the last one, will mocked to
+return a mock object. That mock object, in turn, will be mocked so as to
+respond to the next method in the chain, returning the following mock. And
+so on. If you try to manually mock out any of the chained methods, you
+could easily interfer with the mocking specified by the Demeter chain. <a
+href="../classes/FlexMock.html">FlexMock</a> will attempt to catch problems
+when it can, but there are certainly scenarios where it cannot detect the
+problem beforehand.
+</p>
+<h2>Examples</h2>
+<h3>Create a simple mock object that returns a value for a set of method calls</h3>
+<pre>
+   require 'flexmock/test_unit'
+
+   class TestSimple &lt; Test::Unit::TestCase
+     def test_simple_mock
+       m = flexmock(:pi =&gt; 3.1416, :e =&gt; 2.71)
+       assert_equal 3.1416, m.pi
+       assert_equal 2.71, m.e
+     end
+   end
+</pre>
+<h3>Create a mock object that returns an undefined object for method calls</h3>
+<pre>
+   require 'flexmock/test_unit'
+
+   class TestUndefined &lt; Test::Unit::TestCase
+     def test_undefined_values
+       m = flexmock(&quot;mock&quot;)
+       m.should_receive(:divide_by).with(0).
+         and_return_undefined
+       assert_equal FlexMock.undefined, m.divide_by(0)
+     end
+   end
+</pre>
+<h3>Expect multiple queries and a single update</h3>
+<p>
+Multiple calls to the query method will be allows, and calls may have any
+argument list. Each call to query will return the three element array [1,
+2, 3]. The call to update must have a specific argument of 5.
+</p>
+<pre>
+   require 'flexmock/test_unit'
+
+   class TestDb &lt; Test::Unit::TestCase
+     def test_db
+       db = flexmock('db')
+       db.should_receive(:query).and_return([1,2,3])
+       db.should_receive(:update).with(5).and_return(nil).once
+       # test code here
+     end
+   end
+</pre>
+<h3>Expect all queries before any updates</h3>
+<p>
+(This and following examples assume that the
+&#8216;flexmock/test_unit&#8217; file has been required.)
+</p>
+<p>
+All the query message must occur before any of the update messages.
+</p>
+<pre>
+   def test_query_and_update
+     db = flexmock('db')
+     db.should_receive(:query).and_return([1,2,3]).ordered
+     db.should_receive(:update).and_return(nil).ordered
+     # test code here
+   end
+</pre>
+<h3>Expect several queries with different parameters</h3>
+<p>
+The queries should happen after startup but before finish. The queries
+themselves may happen in any order (because they are in the same order
+group). The first two queries should happen exactly once, but the third
+query (which matches any query call with a four character parameter) may be
+called multiple times (but at least once). Startup and finish must also
+happen exactly once.
+</p>
+<p>
+Also note that we use the <tt>with</tt> method to match different argument
+values to figure out what value to return.
+</p>
+<pre>
+   def test_ordered_queries
+     db = flexmock('db')
+     db.should_receive(:startup).once.ordered
+     db.should_receive(:query).with(&quot;CPWR&quot;).and_return(12.3).
+       once.ordered(:queries)
+     db.should_receive(:query).with(&quot;MSFT&quot;).and_return(10.0).
+       once.ordered(:queries)
+     db.should_receive(:query).with(/^....$/).and_return(3.3).
+       at_least.once.ordered(:queries)
+     db.should_receive(:finish).once.ordered
+     # test code here
+   end
+</pre>
+<h3>Same as above, but using the Record Mode interface</h3>
+<p>
+The record mode interface offers much the same features as the
+<tt>should_receive</tt> interface introduced so far, but it allows the
+messages to be sent directly to a recording object rather than be specified
+indirectly using a symbol.
+</p>
+<pre>
+   def test_ordered_queries_in_record_mode
+     db = flexmock('db')
+     db.should_expect do |rec|
+       rec.startup.once.ordered
+       rec.query(&quot;CPWR&quot;) { 12.3 }.once.ordered(:queries)
+       rec.query(&quot;MSFT&quot;) { 10.0 }.once.ordered(:queries)
+       rec.query(/^....$/) { 3.3 }.at_least.once.ordered(:queries)
+       rec.finish.once.ordered
+     end
+     # test code here using +db+.
+   end
+</pre>
+<h3>Using Record Mode to record a known, good algorithm for testing</h3>
+<p>
+Record mode is nice when you have a known, good algorithm that can use a
+recording mock object to record the steps. Then you compare the execution
+of a new algorithm to behavior of the old using the recorded expectations
+in the mock. For this you probably want to put the recorder in
+<em>strict</em> mode so that the recorded expectations use exact matching
+on argument lists, and strict ordering of the method calls.
+</p>
+<p>
+<b>Note:</b> This is most useful when there are no queries on the mock
+objects, because the query responses cannot be programmed into the recorder
+object.
+</p>
+<pre>
+  def test_build_xml
+    builder = flexmock('builder')
+    builder.should_expect do |rec|
+      rec.should_be_strict
+      known_good_way_to_build_xml(rec)  # record the messages
+    end
+    new_way_to_build_xml(builder)       # compare to new way
+  end
+</pre>
+<h3>Expect multiple calls, returning a different value each time</h3>
+<p>
+Sometimes you need to return different values for each call to a mocked
+method. This example shifts values out of a list for this effect.
+</p>
+<pre>
+   def test_multiple_gets
+     file = flexmock('file')
+     file.should_receive(:gets).with_no_args.
+        and_return(&quot;line 1\n&quot;, &quot;line 2\n&quot;)
+     # test code here
+   end
+</pre>
+<h3>Ignore uninteresting messages</h3>
+<p>
+Generally you need to mock only those methods that return an interesting
+value or wish to assert were sent in a particular manner. Use the
+<tt>should_ignore_missing</tt> method to turn on missing method ignoring.
+</p>
+<pre>
+   def test_an_important_message
+     m = flexmock('m')
+     m.should_receive(:an_important_message).and_return(1).once
+     m.should_ignore_missing
+     # test code here
+   end
+</pre>
+<p>
+When <tt>should_ignore_missing</tt> is enabled, ignored missing methods
+will return an undefined object. Any operation on the undefined object will
+return the undefined object.
+</p>
+<h3>Mock just one method on an existing object</h3>
+<p>
+The Portfolio class calculate the value of a set of stocks by talking to a
+quote service via a web service. Since we don&#8216;t want to use a real
+web service in our unit tests, we will mock the quote service.
+</p>
+<pre>
+  def test_portfolio_value
+    flexmock(QuoteService).new_instances do |m|
+      m.should_receive(:quote).and_return(100)
+    end
+    port = Portfolio.new
+    value = port.value     # Portfolio calls QuoteService.quote
+    assert_equal 100, value
+  end
+</pre>
+<h2>Other Mock Objects</h2>
+<table>
+<tr><td valign="top">test-unit-mock :</td><td><a
+href="http://www.deveiate.org/code/Test-Unit-Mock.shtml">www.deveiate.org/code/Test-Unit-Mock.shtml</a>
+
+</td></tr>
+<tr><td valign="top">mocha/stubba   :</td><td><a href="http://mocha.rubyforge.org">mocha.rubyforge.org</a>/
+
+</td></tr>
+<tr><td valign="top">Schmock        :</td><td><a
+href="http://rubyforge.org/projects/schmock">rubyforge.org/projects/schmock</a>/
+
+</td></tr>
+</table>
+<h2>License</h2>
+<p>
+Copyright 2003, 2004, 2005, 2006, 2007 by Jim Weirich
+(jim@weirichhouse.org). All rights reserved.
+</p>
+<p>
+Permission is granted for use, copying, modification, distribution, and
+distribution of modified versions of this work as long as the above
+copyright notice is included.
+</p>
+<h1>Other stuff</h1>
+<table>
+<tr><td valign="top">Author:</td><td>Jim Weirich &lt;jim@weirichhouse.org&gt;
+
+</td></tr>
+<tr><td valign="top">Requires:</td><td>Ruby 1.8.x or later
+
+</td></tr>
+</table>
+<h2>Warranty</h2>
+<p>
+This software is provided &quot;as is&quot; and without any express or
+implied warranties, including, without limitation, the implied warranties
+of merchantibility and fitness for a particular purpose.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

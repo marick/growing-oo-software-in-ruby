@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: FlexMock::PartialMockProxy</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">FlexMock::PartialMockProxy</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/flexmock/deprecated_methods_rb.html">
+                lib/flexmock/deprecated_methods.rb
+                </a>
+        <br />
+                <a href="../../files/lib/flexmock/partial_mock_rb.html">
+                lib/flexmock/partial_mock.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+#########################################################################
+<a href="PartialMockProxy.html">PartialMockProxy</a> is used to mate the
+mock framework to an existing object. The object is &quot;enhanced&quot;
+with a reference to a mock object (stored in <tt>@flexmock_mock</tt>). When
+the <tt><a href="PartialMockProxy.html#M000048">should_receive</a></tt>
+method is sent to the proxy, it overrides the existing object&#8216;s
+method by creating singleton method that forwards to the mock. When testing
+is complete, <a href="PartialMockProxy.html">PartialMockProxy</a> will
+erase the mocking infrastructure from the object being mocked (e.g. remove
+instance variables and mock singleton methods).
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000049">add_mock_method</a>&nbsp;&nbsp;
+      <a href="#M000045">any_instance</a>&nbsp;&nbsp;
+      <a href="#M000053">flexmock_container</a>&nbsp;&nbsp;
+      <a href="#M000054">flexmock_container=</a>&nbsp;&nbsp;
+      <a href="#M000055">flexmock_expectations_for</a>&nbsp;&nbsp;
+      <a href="#M000047">flexmock_get</a>&nbsp;&nbsp;
+      <a href="#M000052">flexmock_teardown</a>&nbsp;&nbsp;
+      <a href="#M000051">flexmock_verify</a>&nbsp;&nbsp;
+      <a href="#M000046">new</a>&nbsp;&nbsp;
+      <a href="#M000050">new_instances</a>&nbsp;&nbsp;
+      <a href="#M000048">should_receive</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Ordering.html">Ordering</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MOCK_METHODS</td>
+          <td>=</td>
+          <td class="context-item-value">[       :should_receive, :new_instances,        :flexmock_get,   :flexmock_teardown, :flexmock_verify</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+The following methods are added to partial mocks so that they can act like
+a mock.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">mock</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000046.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(obj, mock, safe_mode)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initialize a <a href="PartialMockProxy.html">PartialMockProxy</a> object.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000049.html');return false;">
+          <span class="method-name">add_mock_method</span><span class="method-args">(obj, method_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000045.html');return false;">
+          <span class="method-name">any_instance</span><span class="method-args">(&amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="PartialMockProxy.html#M000045">any_instance</a> is present for
+backwards compatibility with version 0.5.0. @deprecated
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000053.html');return false;">
+          <span class="method-name">flexmock_container</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Forward to the mock&#8216;s container.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000054.html');return false;">
+          <span class="method-name">flexmock_container=</span><span class="method-args">(container)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the proxy&#8216;s mock container. This set value is ignored because the
+proxy always uses the container of its mock.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000055.html');return false;">
+          <span class="method-name">flexmock_expectations_for</span><span class="method-args">(method_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Forward the request for the expectation director to the mock.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000047.html');return false;">
+          <span class="method-name">flexmock_get</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the mock object for the partial mock.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000052.html');return false;">
+          <span class="method-name">flexmock_teardown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove all traces of the mocking framework from the existing object.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000051.html');return false;">
+          <span class="method-name">flexmock_verify</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Verify that the mock has been properly called. After verification, detach
+the mocking infrastructure from the existing object.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000050.html');return false;">
+          <span class="method-name">new_instances.should_receive(...)<br />
+new_instances { |instance|  instance.should_receive(...) }<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="PartialMockProxy.html#M000050">new_instances</a> is a short cut
+method for overriding the behavior of any <a
+href="PartialMockProxy.html#M000046">new</a> instances created via a mocked
+class object.
+</p>
+<p>
+By default, <a href="PartialMockProxy.html#M000050">new_instances</a> will
+mock the behaviour of the :<a href="PartialMockProxy.html#M000046">new</a>
+method. If you wish to mock a different set of class methods, just pass a
+list of symbols to as arguments. (previous versions also mocked :allocate
+by default. If you need :allocate to be mocked, just request it
+explicitly).
+</p>
+<p>
+For example, to stub only objects created by :make (and not :<a
+href="PartialMockProxy.html#M000046">new</a>), use:
+</p>
+<pre>
+   flexmock(ClassName).new_instances(:make).should_receive(...)
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="PartialMockProxy.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('PartialMockProxy.src/M000048.html');return false;">
+          <span class="method-name">should_receive(:method_name)<br />
+should_receive(:method1, method2, ...)<br />
+should_receive(:meth1 => result1, :meth2 => result2, ...)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declare that the partial mock should receive a message with the given name.
+</p>
+<p>
+If more than one method name is given, then the mock object should expect
+to receive all the listed melthods. If a hash of method name/value pairs is
+given, then the each method will return the associated result. Any
+expectations applied to the result of <tt><a
+href="PartialMockProxy.html#M000048">should_receive</a></tt> will be
+applied to all the methods defined in the argument list.
+</p>
+<p>
+An expectation object for the method name is returned as the result of this
+method. Further expectation constraints can be added by chaining to the
+result.
+</p>
+<p>
+See <a href="Expectation.html">Expectation</a> for a list of declarators
+that can be used.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

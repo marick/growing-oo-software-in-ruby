@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Validator for call counts greater than or equal to a limit.
+constants: []
+
+full_name: FlexMock::AtLeastCountValidator
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: eligible?
+- !ruby/object:RI::MethodSummary 
+  name: validate
+name: AtLeastCountValidator
+superclass: CountValidator

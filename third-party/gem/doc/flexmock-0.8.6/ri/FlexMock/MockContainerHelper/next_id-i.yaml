@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return the next id for mocked models.
+full_name: FlexMock::MockContainerHelper#next_id
+is_singleton: false
+name: next_id
+params: ()
+visibility: public

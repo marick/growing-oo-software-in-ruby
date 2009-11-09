@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Close all the mock objects in the container. Closing a mock object restores any original behavior that was displaced by the mock.
+full_name: FlexMock::MockContainer#flexmock_close
+is_singleton: false
+name: flexmock_close
+params: ()
+visibility: public

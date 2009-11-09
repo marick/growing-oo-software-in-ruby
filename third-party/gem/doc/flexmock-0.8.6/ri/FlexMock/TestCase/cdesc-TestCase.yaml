@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Test::Unit::TestCase Integration.
+- !ruby/struct:SM::Flow::P 
+  body: Include this module in any TestCase class in a Test::Unit test suite to get integration with FlexMock. When this module is included, the mock container methods (e.g. flexmock(), flexstub()) will be available.
+- !ruby/struct:SM::Flow::P 
+  body: <b>Note:</b> If you define a <tt>teardown</tt> method in the test case, <em>dont' forget to invoke the <tt>super</tt> method!</em> Failure to invoke super will cause all mocks to not be verified.
+constants: []
+
+full_name: FlexMock::TestCase
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: ArgumentTypes
+- !ruby/object:RI::IncludedModule 
+  name: MockContainer
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: teardown
+name: TestCase
+superclass: 

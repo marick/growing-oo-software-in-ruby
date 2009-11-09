@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a PartialMockProxy for the given object. Use <tt>name</tt> as the name of the mock object.
+full_name: FlexMock::MockContainerHelper#make_partial_proxy
+is_singleton: false
+name: make_partial_proxy
+params: (container, obj, name, safe_mode)
+visibility: public

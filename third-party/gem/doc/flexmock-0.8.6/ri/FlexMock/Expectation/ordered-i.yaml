@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the given method must be called in order. All ordered method calls must be received in the order specified by the ordering of the <tt>should_receive</tt> messages. Receiving a methods out of the specified order will cause a test failure.
+- !ruby/struct:SM::Flow::P 
+  body: If the user needs more fine control over ordering (e.g. specifying that a group of messages may be received in any order as long as they all come after another group of messages), a <em>group</em> <em>name</em> may be specified in the <tt>ordered</tt> calls. All messages within the same group may be received in any order.
+- !ruby/struct:SM::Flow::P 
+  body: For example, in the following, messages <tt>flip</tt> and <tt>flop</tt> may be received in any order (because they are in the same group), but must occur strictly after <tt>start</tt> but before <tt>end</tt>. The message <tt>any_time</tt> may be received at any time because it is not ordered.
+- !ruby/struct:SM::Flow::VERB 
+  body: "   m = FlexMock.new\n   m.should_receive(:any_time)\n   m.should_receive(:start).ordered\n   m.should_receive(:flip).ordered(:flip_flop_group)\n   m.should_receive(:flop).ordered(:flip_flop_group)\n   m.should_receive(:end).ordered\n"
+full_name: FlexMock::Expectation#ordered
+is_singleton: false
+name: ordered
+params: (group_name=nil)
+visibility: public

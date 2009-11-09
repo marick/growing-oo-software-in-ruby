@@ -1,0 +1,35 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: returns
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Declare that the method returns a particular value (when the argument list is matched).
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: If a single value is given, it will be returned for all matching calls.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: If multiple values are given, each value will be returned in turn for each successive call. If the number of matching calls is greater than the number of values, the last value will be returned for the extra matching calls.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: If a block is given, it is evaluated on each call and its value is returned.
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "For example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " mock.should_receive(:f).returns(12)   # returns 12\n\n mock.should_receive(:f).with(String). # returns an\n   returns { |str| str.upcase }        # upcased string\n"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>returns</tt> is an alias for <tt>and_return</tt>.
+full_name: FlexMock::Expectation#and_return
+is_singleton: false
+name: and_return
+params: |
+  and_return(value)
+  and_return(value, value, ...)
+  and_return { |*args| code }
+
+visibility: public

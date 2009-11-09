@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "###################################################################### Mock container methods"
+- !ruby/struct:SM::Flow::P 
+  body: Include this module in to get integration with FlexMock. When this module is included, mocks may be created with a simple call to the <tt>flexmock</tt> method. Mocks created with via the method call will automatically be verified in the teardown of the test case.
+constants: []
+
+full_name: FlexMock::MockContainer
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Ordering
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: flexmock
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_close
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_remember
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_teardown
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_verify
+- !ruby/object:RI::MethodSummary 
+  name: flexstub
+- !ruby/object:RI::MethodSummary 
+  name: rails_version
+- !ruby/object:RI::MethodSummary 
+  name: should_render_view
+name: MockContainer
+superclass: 

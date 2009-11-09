@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (FlexMock)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/flexmock/core.rb, line 55</span>
+55:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>=<span class="ruby-value str">&quot;unknown&quot;</span>, <span class="ruby-identifier">container</span>=<span class="ruby-keyword kw">nil</span>)
+56:     <span class="ruby-ivar">@flexmock_name</span> = <span class="ruby-identifier">name</span>
+57:     <span class="ruby-ivar">@expectations</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+58:     <span class="ruby-ivar">@ignore_missing</span> = <span class="ruby-keyword kw">false</span>
+59:     <span class="ruby-ivar">@verified</span> = <span class="ruby-keyword kw">false</span>
+60:     <span class="ruby-identifier">container</span> = <span class="ruby-constant">UseContainer</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">container</span>.<span class="ruby-identifier">nil?</span>
+61:     <span class="ruby-identifier">container</span>.<span class="ruby-identifier">flexmock_remember</span>(<span class="ruby-keyword kw">self</span>)
+62:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

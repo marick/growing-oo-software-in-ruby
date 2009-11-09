@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: mock_ignore_missing
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Ignore all undefined (missing) method calls.
+full_name: FlexMock#should_ignore_missing
+is_singleton: false
+name: should_ignore_missing
+params: ()
+visibility: public

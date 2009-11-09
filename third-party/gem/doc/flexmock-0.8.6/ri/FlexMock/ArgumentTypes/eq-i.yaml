@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return an argument matcher that only matches things equal to (==) the given object.
+full_name: FlexMock::ArgumentTypes#eq
+is_singleton: false
+name: eq
+params: (obj)
+visibility: public

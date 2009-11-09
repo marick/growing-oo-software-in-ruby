@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: flexmock-0.6.4.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>flexmock-0.6.4.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doc/releases/flexmock-0.6.4.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Nov 09 15:24:24 -0600 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../../../classes/FlexMock.html">FlexMock</a> 0.6.4 Released</h1>
+<p>
+<a href="../../../classes/FlexMock.html">FlexMock</a> is a flexible mocking
+library for use in unit testing and behavior specification in Ruby. Version
+0.6.4 and 0.6.3 introduce several enhancements.
+</p>
+<h2>New in 0.6.4 (and 0.6.3)</h2>
+<ul>
+<li>Added the flexmock(:model, &#8230;) method for better support when mocking
+ActiveRecord objects. flexmock(:model, YourModelClass) will return a pure
+mock object that responds to some basic ActiveRecord methods with
+reasonable defaults.
+
+</li>
+<li>The flexmock() method now <em>always</em> returns a combination domain
+object / mock object. This means the object return can handle domain
+methods and mock-specific methods (such as should_receive and
+mock_teardown).
+
+</li>
+<li>A side effect of always returning a domain/mock object is that partial
+mocks are now enhanced with about 5 or 6 extra methods. Since partial mocks
+are real objects with just a few methods mocked, there is a (small)
+potential for a method name conflict. <a
+href="../../../classes/FlexMock.html">FlexMock</a> now supports a safe-mode
+for partial mocks if this is an issue in particular case (see the RDoc
+README file for more details).
+
+</li>
+<li>Fixed a small bug where attempting to mock a method that the partial mock
+claims to respond to, but doesn&#8216;t actually have defined would cause
+an error. This tended to happen on active record objects where attributes
+are dynamically handled.
+
+</li>
+</ul>
+<p>
+NOTE: 0.6.4 improves the interface for mocking ActiveRecord model objects.
+The flexmodel() method was too visually similar to flexmock() and was to
+easy to get confused when reading code. Release 0.6.3&#8216;s flexmodel()
+method has been removed and a new :model mode has been added to flexmock().
+</p>
+<h2>What is <a href="../../../classes/FlexMock.html">FlexMock</a>?</h2>
+<p>
+<a href="../../../classes/FlexMock.html">FlexMock</a> is a flexible
+framework for creating mock object for testing. When running unit tests, it
+is often desirable to use isolate the objects being tested from the
+&quot;real world&quot; by having them interact with simplified test
+objects. Sometimes these test objects simply return values when called,
+other times they verify that certain methods were called with particular
+arguments in a particular order.
+</p>
+<p>
+<a href="../../../classes/FlexMock.html">FlexMock</a> makes creating these
+test objects easy.
+</p>
+<h3>Features</h3>
+<ul>
+<li>Easy integration with both <a
+href="../../../classes/Test/Unit.html">Test::Unit</a> and RSpec. Mocks
+created with the flexmock method are automatically verified at the end of
+the test or example.
+
+</li>
+<li>A fluent interface that allows mock behavior to be specified very easily.
+
+</li>
+<li>A &quot;record mode&quot; where an existing implementation can record its
+interaction with a mock for later validation against a new implementation.
+
+</li>
+<li>Easy mocking of individual methods in existing, non-mock objects.
+
+</li>
+<li>The ability to cause classes to instantiate test instances (instead of real
+instances) for the duration of a test.
+
+</li>
+</ul>
+<h3>Example</h3>
+<p>
+Suppose you had a Dog object that wagged a tail when it was happy.
+Something like this:
+</p>
+<pre>
+  class Dog
+    def initialize(a_tail)
+      @tail = a_tail
+    end
+    def happy
+      @tail.wag
+    end
+  end
+</pre>
+<p>
+To test the <tt>Dog</tt> class without a real <tt>Tail</tt> object (perhaps
+because real <tt>Tail</tt> objects activate servos in some robotic
+equipment), you can do something like this:
+</p>
+<p>
+require &#8216;test/unit&#8217; require &#8216;flexmock/test_unit&#8216;
+</p>
+<pre>
+  class TestDog &lt; Test::Unit::TestCase
+    def test_dog_wags_tail_when_happy
+      tail = flexmock(&quot;tail&quot;)
+      tail.should_receive(:wag).once
+      dog = Dog.new(tail)
+      dog.happy
+    end
+  end
+</pre>
+<p>
+<a href="../../../classes/FlexMock.html">FlexMock</a> will automatically
+verify that the mocked tail object received the message <tt>wag</tt>
+exactly one time. If it doesn&#8216;t, the test will not pass.
+</p>
+<p>
+See the <a href="../../../classes/FlexMock.html">FlexMock</a> documentation
+at <a href="http://flexmock.rubyforge.org">flexmock.rubyforge.org</a> for
+details on specifying arguments and return values on mocked methods, as
+well as a simple technique for mocking tail objects when the Dog class
+creates the tail objects directly.
+</p>
+<h2>Availability</h2>
+<p>
+You can make sure you have the latest version with a quick RubyGems
+command:
+</p>
+<pre>
+  gem install flexmock    (you may need root/admin privileges)
+</pre>
+<p>
+Otherwise, you can get it from the more traditional places:
+</p>
+<table>
+<tr><td valign="top">Download:</td><td><a
+href="http://rubyforge.org/project/showfiles.php?group_id=170">rubyforge.org/project/showfiles.php?group_id=170</a>
+
+</td></tr>
+</table>
+<p>
+You will find documentation at: <a
+href="http://flexmock.rubyforge.org">flexmock.rubyforge.org</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

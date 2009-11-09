@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FlexMock::TestUnitFrameworkAdapter#assertion_failed_error
+is_singleton: false
+name: assertion_failed_error
+params: ()
+visibility: public

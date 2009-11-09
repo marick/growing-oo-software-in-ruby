@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Undefined is normally available as FlexMock.undefined
+full_name: FlexMock::undefined
+is_singleton: true
+name: undefined
+params: ()
+visibility: public

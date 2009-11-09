@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is this expectation eligible to be called again? It is eligible only if all of its count validators agree that it is eligible.
+full_name: FlexMock::Expectation#eligible?
+is_singleton: false
+name: eligible?
+params: ()
+visibility: public

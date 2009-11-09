@@ -1,0 +1,38 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Contexts
+- !ruby/struct:SM::Flow::P 
+  body: A context block groups should statements under a common set of setup/teardown methods. Context blocks can be arbitrarily nested, and can do wonders for improving the maintainability and readability of your test code.
+- !ruby/struct:SM::Flow::P 
+  body: A context block can contain setup, should, should_eventually, and teardown blocks.
+- !ruby/struct:SM::Flow::VERB 
+  body: " class UserTest &lt;&lt; Test::Unit::TestCase\n   context &quot;A User instance&quot; do\n     setup do\n       @user = User.find(:first)\n     end\n\n     should &quot;return its full name&quot;\n       assert_equal 'John Doe', @user.full_name\n     end\n   end\n end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "This code will produce the method <tt>&quot;test: A User instance should return its full name. &quot;</tt>."
+- !ruby/struct:SM::Flow::P 
+  body: Contexts may be nested. Nested contexts run their setup blocks from out to in before each should statement. They then run their teardown blocks from in to out after each should statement.
+- !ruby/struct:SM::Flow::VERB 
+  body: " class UserTest &lt;&lt; Test::Unit::TestCase\n   context &quot;A User instance&quot; do\n     setup do\n       @user = User.find(:first)\n     end\n\n     should &quot;return its full name&quot;\n       assert_equal 'John Doe', @user.full_name\n     end\n\n     context &quot;with a profile&quot; do\n       setup do\n         @user.profile = Profile.find(:first)\n       end\n\n       should &quot;return true when sent :has_profile?&quot;\n         assert @user.has_profile?\n       end\n     end\n   end\n end\n"
+- !ruby/struct:SM::Flow::P 
+  body: This code will produce the following methods
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "<tt>&quot;test: A User instance should return its full name. &quot;</tt>"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "<tt>&quot;test: A User instance with a profile should return true when sent :has_profile?. &quot;</tt>"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: <b>Just like should statements, a context block can exist next to normal <tt>def test_the_old_way; end</tt> tests</b>. This means you do not have to fully commit to the context/should syntax in a test file.
+full_name: Thoughtbot::Shoulda#context
+is_singleton: false
+name: context
+params: (name, &blk)
+visibility: public

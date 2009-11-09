@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>flexmock_verify (FlexMock)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/flexmock/core.rb, line 71</span>
+71:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">flexmock_verify</span>
+72:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@verified</span>
+73:     <span class="ruby-ivar">@verified</span> = <span class="ruby-keyword kw">true</span>
+74:     <span class="ruby-identifier">flexmock_wrap</span> <span class="ruby-keyword kw">do</span>
+75:       <span class="ruby-ivar">@expectations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span>, <span class="ruby-identifier">handler</span><span class="ruby-operator">|</span>
+76:         <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">flexmock_verify</span>
+77:       <span class="ruby-keyword kw">end</span>
+78:     <span class="ruby-keyword kw">end</span>
+79:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>flexmock_teardown (FlexMock::PartialMockProxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/flexmock/partial_mock.rb, line 153</span>
+153:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">flexmock_teardown</span>
+154:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">detached?</span>
+155:         <span class="ruby-ivar">@methods_proxied</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span><span class="ruby-operator">|</span>
+156:           <span class="ruby-identifier">remove_current_method</span>(<span class="ruby-identifier">method_name</span>)
+157:           <span class="ruby-identifier">restore_original_definition</span>(<span class="ruby-identifier">method_name</span>)
+158:         <span class="ruby-keyword kw">end</span>
+159:         <span class="ruby-ivar">@obj</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value str">&quot;@flexmock_proxy&quot;</span>, <span class="ruby-keyword kw">nil</span>)
+160:         <span class="ruby-ivar">@obj</span> = <span class="ruby-keyword kw">nil</span>
+161:       <span class="ruby-keyword kw">end</span>
+162:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

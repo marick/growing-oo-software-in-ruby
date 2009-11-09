@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Teardown the test case, verifying any mocks that might have been defined in this test case.
+full_name: FlexMock::TestCase#teardown
+is_singleton: false
+name: teardown
+params: ()
+visibility: public

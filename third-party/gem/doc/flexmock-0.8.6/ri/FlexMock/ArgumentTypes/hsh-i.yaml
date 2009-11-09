@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return an argument matcher that matches a hash with the given entries.
+full_name: FlexMock::ArgumentTypes#hsh
+is_singleton: false
+name: hsh
+params: (hash)
+visibility: public

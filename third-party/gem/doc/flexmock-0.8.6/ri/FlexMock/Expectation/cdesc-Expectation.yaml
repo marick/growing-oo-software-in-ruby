@@ -1,0 +1,92 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: expected_args
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mock
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: order_number
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An Expectation is returned from each <tt>should_receive</tt> message sent to mock object. Each expectation records how a message matching the message name (argument to <tt>should_receive</tt>) and the argument list (given by <tt>with</tt>) should behave. Mock expectations can be recorded by chaining the declaration methods defined in this class.
+- !ruby/struct:SM::Flow::P 
+  body: "For example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  mock.should_receive(:meth).with(args).and_returns(result)\n"
+constants: []
+
+full_name: FlexMock::Expectation
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: and_raise
+- !ruby/object:RI::MethodSummary 
+  name: and_return
+- !ruby/object:RI::MethodSummary 
+  name: and_return_undefined
+- !ruby/object:RI::MethodSummary 
+  name: and_throw
+- !ruby/object:RI::MethodSummary 
+  name: and_yield
+- !ruby/object:RI::MethodSummary 
+  name: at_least
+- !ruby/object:RI::MethodSummary 
+  name: at_most
+- !ruby/object:RI::MethodSummary 
+  name: by_default
+- !ruby/object:RI::MethodSummary 
+  name: call_count_constrained?
+- !ruby/object:RI::MethodSummary 
+  name: eligible?
+- !ruby/object:RI::MethodSummary 
+  name: flexmock_verify
+- !ruby/object:RI::MethodSummary 
+  name: globally
+- !ruby/object:RI::MethodSummary 
+  name: match_arg
+- !ruby/object:RI::MethodSummary 
+  name: match_args
+- !ruby/object:RI::MethodSummary 
+  name: never
+- !ruby/object:RI::MethodSummary 
+  name: once
+- !ruby/object:RI::MethodSummary 
+  name: ordered
+- !ruby/object:RI::MethodSummary 
+  name: raises
+- !ruby/object:RI::MethodSummary 
+  name: returns
+- !ruby/object:RI::MethodSummary 
+  name: returns_undefined
+- !ruby/object:RI::MethodSummary 
+  name: throws
+- !ruby/object:RI::MethodSummary 
+  name: times
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: twice
+- !ruby/object:RI::MethodSummary 
+  name: verify_call
+- !ruby/object:RI::MethodSummary 
+  name: with
+- !ruby/object:RI::MethodSummary 
+  name: with_any_args
+- !ruby/object:RI::MethodSummary 
+  name: with_no_args
+- !ruby/object:RI::MethodSummary 
+  name: yields
+- !ruby/object:RI::MethodSummary 
+  name: zero_or_more_times
+name: Expectation
+superclass: Object

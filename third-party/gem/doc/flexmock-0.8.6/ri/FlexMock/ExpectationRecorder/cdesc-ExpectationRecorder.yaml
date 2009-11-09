@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An expectation recorder records any expectations received and plays them back on demand. This is used to collect the expectations in the blockless version of the new_instances call.
+constants: []
+
+full_name: FlexMock::ExpectationRecorder
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: apply
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+name: ExpectationRecorder
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: any_instance is present for backwards compatibility with version 0.5.0. @deprecated
+full_name: FlexMock::PartialMockProxy#any_instance
+is_singleton: false
+name: any_instance
+params: (&block)
+visibility: public
