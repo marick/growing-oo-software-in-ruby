@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the item's jid (chaining-friendly)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "val:"
+    body: "[JID]"
+  type: :NOTE
+full_name: Jabber::Discovery::Item#set_jid
+is_singleton: false
+name: set_jid
+params: (val)
+visibility: public

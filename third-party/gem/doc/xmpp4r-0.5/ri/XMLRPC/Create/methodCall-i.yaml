@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: create a Method Call
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name:"
+    body: "[String] name of the method"
+  - !ruby/struct:SM::Flow::LI 
+    label: "params:"
+    body: "[Array] params of the method as a array"
+  type: :NOTE
+full_name: XMLRPC::Create#methodCall
+is_singleton: false
+name: methodCall
+params: (name, *params)
+visibility: public

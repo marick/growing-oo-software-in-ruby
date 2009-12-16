@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: create a response to a method call
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "is_ret:"
+    body: "[TrueClass] is this a return (true) or a error (false)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "params:"
+    body: "[Array] a array of params"
+  type: :NOTE
+full_name: XMLRPC::Create#methodResponse
+is_singleton: false
+name: methodResponse
+params: (is_ret, *params)
+visibility: public

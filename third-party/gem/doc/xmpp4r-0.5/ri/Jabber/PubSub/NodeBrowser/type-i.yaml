@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: get type of node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[Jabber::JID]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::PubSub::NodeBrowser#type
+is_singleton: false
+name: type
+params: (jid,node)
+visibility: public

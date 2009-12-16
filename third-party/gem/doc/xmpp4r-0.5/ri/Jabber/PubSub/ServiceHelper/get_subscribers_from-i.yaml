@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: shows all jids of subscribers of a node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Array] of [String]"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#get_subscribers_from
+is_singleton: false
+name: get_subscribers_from
+params: (node)
+visibility: public

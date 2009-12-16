@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Closing connection: first kill keepaliveThread (but only if it's not me), then call Stream#close!"
+full_name: Jabber::Connection#close!
+is_singleton: false
+name: close!
+params: ()
+visibility: public

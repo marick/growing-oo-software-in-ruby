@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Find the socket a peer is associated to
+- !ruby/struct:SM::Flow::P 
+  body: This method also performs some housekeeping, ie. removing peers with closed sockets.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "addr:"
+    body: "[String] Address like SOCKS5Bytestreams#stream_address"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[TCPSocker] or [nil]"
+  type: :NOTE
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsServer#peer_sock
+is_singleton: false
+name: peer_sock
+params: (addr)
+visibility: public

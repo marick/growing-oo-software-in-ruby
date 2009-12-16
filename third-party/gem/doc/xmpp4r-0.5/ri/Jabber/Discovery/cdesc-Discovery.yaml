@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_DISCO_INFO
+  value: "'http://jabber.org/protocol/disco#info'"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_DISCO_ITEMS
+  value: "'http://jabber.org/protocol/disco#items'"
+full_name: Jabber::Discovery
+includes: []
+
+instance_methods: []
+
+name: Discovery
+superclass: 

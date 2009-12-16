@@ -1,0 +1,58 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Don't use this. It is the base class (unifying shared attributes) of XMUCUserItem and IqQueryMUCAdminItem
+constants: []
+
+full_name: Jabber::MUC::UserItem
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: actors
+- !ruby/object:RI::MethodSummary 
+  name: actors=
+- !ruby/object:RI::MethodSummary 
+  name: affiliation
+- !ruby/object:RI::MethodSummary 
+  name: affiliation=
+- !ruby/object:RI::MethodSummary 
+  name: continue
+- !ruby/object:RI::MethodSummary 
+  name: continue=
+- !ruby/object:RI::MethodSummary 
+  name: jid
+- !ruby/object:RI::MethodSummary 
+  name: jid=
+- !ruby/object:RI::MethodSummary 
+  name: nick
+- !ruby/object:RI::MethodSummary 
+  name: nick=
+- !ruby/object:RI::MethodSummary 
+  name: reason
+- !ruby/object:RI::MethodSummary 
+  name: reason=
+- !ruby/object:RI::MethodSummary 
+  name: role
+- !ruby/object:RI::MethodSummary 
+  name: role=
+- !ruby/object:RI::MethodSummary 
+  name: set_actors
+- !ruby/object:RI::MethodSummary 
+  name: set_affiliation
+- !ruby/object:RI::MethodSummary 
+  name: set_continue
+- !ruby/object:RI::MethodSummary 
+  name: set_jid
+- !ruby/object:RI::MethodSummary 
+  name: set_nick
+- !ruby/object:RI::MethodSummary 
+  name: set_reason
+- !ruby/object:RI::MethodSummary 
+  name: set_role
+name: UserItem
+superclass: XMPPElement

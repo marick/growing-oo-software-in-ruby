@@ -1,0 +1,101 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: file descriptor used
+  name: fd
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: number of stanzas currently being processed
+  name: processing
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: connection status
+  name: status
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The stream class manages a connection stream (a file descriptor using which XML messages are read and sent)
+- !ruby/struct:SM::Flow::P 
+  body: You may register callbacks for the three Jabber stanzas (message, presence and iq) and use the send and send_with_id methods.
+- !ruby/struct:SM::Flow::P 
+  body: To ensure the order of received stanzas, callback blocks are launched in the parser thread. If further blocking operations are intended in those callbacks, run your own thread there.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DISCONNECTED
+  value: "1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONNECTED
+  value: "2"
+full_name: Jabber::Stream
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_iq_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_message_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_presence_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_stanza_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_xml_callback
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: close!
+- !ruby/object:RI::MethodSummary 
+  name: delete_iq_callback
+- !ruby/object:RI::MethodSummary 
+  name: delete_message_callback
+- !ruby/object:RI::MethodSummary 
+  name: delete_presence_callback
+- !ruby/object:RI::MethodSummary 
+  name: delete_stanza_callback
+- !ruby/object:RI::MethodSummary 
+  name: delete_xml_callback
+- !ruby/object:RI::MethodSummary 
+  name: iq_callbacks
+- !ruby/object:RI::MethodSummary 
+  name: is_connected?
+- !ruby/object:RI::MethodSummary 
+  name: is_disconnected?
+- !ruby/object:RI::MethodSummary 
+  name: message_callbacks
+- !ruby/object:RI::MethodSummary 
+  name: on_exception
+- !ruby/object:RI::MethodSummary 
+  name: parse_failure
+- !ruby/object:RI::MethodSummary 
+  name: parser_end
+- !ruby/object:RI::MethodSummary 
+  name: presence_callbacks
+- !ruby/object:RI::MethodSummary 
+  name: receive
+- !ruby/object:RI::MethodSummary 
+  name: send
+- !ruby/object:RI::MethodSummary 
+  name: send_data
+- !ruby/object:RI::MethodSummary 
+  name: send_with_id
+- !ruby/object:RI::MethodSummary 
+  name: stanza_callbacks
+- !ruby/object:RI::MethodSummary 
+  name: start
+- !ruby/object:RI::MethodSummary 
+  name: stop
+- !ruby/object:RI::MethodSummary 
+  name: xml_callbacks
+name: Stream
+superclass: Object

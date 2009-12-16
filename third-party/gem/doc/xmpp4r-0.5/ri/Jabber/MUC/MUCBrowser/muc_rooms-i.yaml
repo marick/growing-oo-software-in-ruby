@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retrieve the existing rooms of a MUC component
+- !ruby/struct:SM::Flow::P 
+  body: The resulting Hash contains pairs of room JID and room name
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " my_mucbrowse_helper.muc_rooms('conference.jabber.org').each { |jid,name| ... }\n"
+- !ruby/struct:SM::Flow::P 
+  body: Throws an exception when receiving <tt>&lt;iq type='error'/&gt;</tt>
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] Target entity (set only domain!)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Hash]"
+  type: :NOTE
+full_name: Jabber::MUC::MUCBrowser#muc_rooms
+is_singleton: false
+name: muc_rooms
+params: (jid)
+visibility: public

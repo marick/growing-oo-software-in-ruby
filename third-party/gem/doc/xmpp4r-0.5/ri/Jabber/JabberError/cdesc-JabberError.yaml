@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: All of our custom errors are superclassed by JabberError &lt; StandardError
+constants: []
+
+full_name: Jabber::JabberError
+includes: []
+
+instance_methods: []
+
+name: JabberError
+superclass: StandardError

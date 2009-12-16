@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set this to false if you don't want to use SOCKS5Bytestreams
+  name: allow_bytestreams
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set this to false if you don't want to use IBB
+  name: allow_ibb
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set this if you want to use this helper in a Component
+  name: my_jid
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The FileTransfer helper provides the ability to respond to incoming and to offer outgoing file-transfers.
+constants: []
+
+full_name: Jabber::FileTransfer::Helper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: accept
+- !ruby/object:RI::MethodSummary 
+  name: add_incoming_callback
+- !ruby/object:RI::MethodSummary 
+  name: decline
+- !ruby/object:RI::MethodSummary 
+  name: offer
+name: Helper
+superclass: Object

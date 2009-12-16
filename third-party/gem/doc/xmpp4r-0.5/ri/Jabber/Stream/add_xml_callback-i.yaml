@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Adds a callback block to process received XML messages, these will be handled before any blocks given to Stream#send or other callbacks.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "priority:"
+    body: "[Integer] The callback's priority, the higher, the sooner"
+  - !ruby/struct:SM::Flow::LI 
+    label: "ref:"
+    body: "[String] The callback's reference"
+  - !ruby/struct:SM::Flow::LI 
+    label: "&block:"
+    body: "[Block] The optional block"
+  type: :NOTE
+full_name: Jabber::Stream#add_xml_callback
+is_singleton: false
+name: add_xml_callback
+params: (priority = 0, ref = nil, &block)
+visibility: public

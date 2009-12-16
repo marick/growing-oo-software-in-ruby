@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Remove all and set one value
+full_name: Jabber::Dataforms::XDataField#value=
+is_singleton: false
+name: value=
+params: (val)
+visibility: public

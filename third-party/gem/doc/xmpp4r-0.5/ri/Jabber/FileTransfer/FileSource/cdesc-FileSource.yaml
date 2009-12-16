@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Simple implementation of TransferSource for sending simple files (supports ranged transfers)
+constants: []
+
+full_name: Jabber::FileTransfer::FileSource
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: TransferSource
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: can_range?
+- !ruby/object:RI::MethodSummary 
+  name: date
+- !ruby/object:RI::MethodSummary 
+  name: filename
+- !ruby/object:RI::MethodSummary 
+  name: length=
+- !ruby/object:RI::MethodSummary 
+  name: mime
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: seek
+- !ruby/object:RI::MethodSummary 
+  name: size
+name: FileSource
+superclass: Object

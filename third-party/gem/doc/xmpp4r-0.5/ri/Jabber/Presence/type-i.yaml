@@ -1,0 +1,47 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get type of presence
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Symbol] or [Nil] Possible values are:"
+  type: :NOTE
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":error"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":probe (Servers send this to request presence information)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":subscribe (Subscription request)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":subscribed (Subscription approval)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":unavailable (User has gone offline)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":unsubscribe (Unsubscription request)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":unsubscribed (Unsubscription approval)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "[nil] (available)"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: See RFC3921 - 2.2.1. for explanation.
+full_name: Jabber::Presence#type
+is_singleton: false
+name: type
+params: ()
+visibility: public

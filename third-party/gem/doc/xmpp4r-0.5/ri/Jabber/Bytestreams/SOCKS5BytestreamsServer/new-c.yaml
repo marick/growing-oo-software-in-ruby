@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Start a local SOCKS5BytestreamsServer
+- !ruby/struct:SM::Flow::P 
+  body: Will start to listen on the given TCP port and accept new peers
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "port:"
+    body: "[Fixnum] TCP port to listen on"
+  - !ruby/struct:SM::Flow::LI 
+    label: "listen_on:"
+    body: "[String] Optional address for the server socket to listen on (i.e. '0.0.0.0' or '::')"
+  type: :NOTE
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsServer::new
+is_singleton: true
+name: new
+params: (port, listen_on=nil)
+visibility: public

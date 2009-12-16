@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns the list of RosterItems which, stripped, are equal to the one you are looking for.
+full_name: Jabber::Roster::Helper#find
+is_singleton: false
+name: find
+params: (jid)
+visibility: public

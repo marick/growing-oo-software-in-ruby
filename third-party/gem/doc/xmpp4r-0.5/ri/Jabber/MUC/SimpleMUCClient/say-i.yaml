@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send a simple text message
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "text:"
+    body: "[String] Message body"
+  - !ruby/struct:SM::Flow::LI 
+    label: "to:"
+    body: "[String] Optional nick if directed to specific user"
+  type: :NOTE
+full_name: Jabber::MUC::SimpleMUCClient#say
+is_singleton: false
+name: say
+params: (text, to=nil)
+visibility: public

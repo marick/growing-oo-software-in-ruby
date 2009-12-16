@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: set the configuration of the node set_configuration(configuration=nil)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "configuration:"
+    body: "[Jabber::XData]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "subid:"
+    body: "[String] default is nil"
+  type: :NOTE
+full_name: Jabber::PubSub::NodeHelper#set_configuration
+is_singleton: false
+name: set_configuration
+params: (configuration,subid = nil)
+visibility: public

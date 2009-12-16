@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the timestamp attribute of this location.
+full_name: Jabber::UserLocation::Location#timestamp
+is_singleton: false
+name: timestamp
+params: ()
+visibility: public

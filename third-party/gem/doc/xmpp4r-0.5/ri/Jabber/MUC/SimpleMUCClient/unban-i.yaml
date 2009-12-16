@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Unban one or more user jids for the room.
+- !ruby/struct:SM::Flow::P 
+  body: Will wait for response, possibly raising ServerError
+- !ruby/struct:SM::Flow::P 
+  body: "Sample usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  my_muc.unban 'pistol@foobar.com'\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "recipients:"
+    body: "[Array] of, or single [String]: JIDs"
+  type: :NOTE
+full_name: Jabber::MUC::SimpleMUCClient#unban
+is_singleton: false
+name: unban
+params: (recipients)
+visibility: public

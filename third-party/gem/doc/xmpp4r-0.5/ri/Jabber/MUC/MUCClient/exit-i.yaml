@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Exit the room
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Sends presence with type='unavailable' with an optional reason in <tt>&lt;status/&gt;</tt>,
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: then waits for a reply from the MUC component (will be processed by leave-callbacks),
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: then deletes callbacks from the stream.
+  type: :BULLET
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "reason:"
+    body: "[String] Optional custom exit message"
+  type: :NOTE
+full_name: Jabber::MUC::MUCClient#exit
+is_singleton: false
+name: exit
+params: (reason=nil)
+visibility: public

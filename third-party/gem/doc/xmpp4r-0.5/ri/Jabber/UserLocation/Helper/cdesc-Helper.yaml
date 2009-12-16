@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Helper for XEP-0080 User Location
+- !ruby/struct:SM::Flow::P 
+  body: Use this helper to send a user's location, or receive them from a specified jid. Described at http://www.xmpp.org/extensions/xep-0080.html
+- !ruby/struct:SM::Flow::P 
+  body: "For example: &lt;pre&gt; h = UserLocation::Helper( @client, 'radio1@hug.hellomatty.com' ) h.add_userlocation_callback do |location|"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  puts &quot;Now in: #{location.locality}&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: end &lt;/pre&gt;
+constants: []
+
+full_name: Jabber::UserLocation::Helper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_userlocation_callback
+- !ruby/object:RI::MethodSummary 
+  name: current_location
+- !ruby/object:RI::MethodSummary 
+  name: stop_publishing
+name: Helper
+superclass: PubSub::ServiceHelper

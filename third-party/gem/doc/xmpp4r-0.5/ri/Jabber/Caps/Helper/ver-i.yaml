@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate 'ver', an opaque hash used to represent this entity's capabilities
+- !ruby/struct:SM::Flow::P 
+  body: See http://www.xmpp.org/extensions/xep-0115.html#ver
+full_name: Jabber::Caps::Helper#ver
+is_singleton: false
+name: ver
+params: ()
+visibility: public

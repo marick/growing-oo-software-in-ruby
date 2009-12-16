@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: returns true if debugging mode is enabled. If you just want to log something if debugging is enabled, use Jabber::debuglog instead.
+full_name: Jabber::debug
+is_singleton: true
+name: debug
+params: ()
+visibility: public

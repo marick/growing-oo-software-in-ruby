@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Factory function to obtain a SASL helper for the specified mechanism
+full_name: Jabber::SASL::new
+is_singleton: true
+name: new
+params: (stream, mechanism)
+visibility: public

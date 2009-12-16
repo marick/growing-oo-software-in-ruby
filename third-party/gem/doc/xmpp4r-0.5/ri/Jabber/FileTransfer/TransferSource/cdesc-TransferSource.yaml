@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The TransferSource is an interface (Mix-in) which sources for FileTransfer#offer should include
+constants: []
+
+full_name: Jabber::FileTransfer::TransferSource
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: can_range?
+- !ruby/object:RI::MethodSummary 
+  name: date
+- !ruby/object:RI::MethodSummary 
+  name: filename
+- !ruby/object:RI::MethodSummary 
+  name: length=
+- !ruby/object:RI::MethodSummary 
+  name: md5
+- !ruby/object:RI::MethodSummary 
+  name: mime
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: seek
+- !ruby/object:RI::MethodSummary 
+  name: size
+name: TransferSource
+superclass: 

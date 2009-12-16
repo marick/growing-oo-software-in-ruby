@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Enable/disable debugging mode. When debug mode is enabled, information can be logged using Jabber::debuglog. When debug mode is disabled, calls to Jabber::debuglog are just ignored.
+full_name: Jabber::debug=
+is_singleton: true
+name: debug=
+params: (debug)
+visibility: public

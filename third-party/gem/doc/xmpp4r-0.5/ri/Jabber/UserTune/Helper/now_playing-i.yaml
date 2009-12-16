@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send out the tune currently playing.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "track:"
+    body: "[Jabber::UserTune::Tune] the tune currently playing"
+  type: :NOTE
+full_name: Jabber::UserTune::Helper#now_playing
+is_singleton: false
+name: now_playing
+params: (track)
+visibility: public

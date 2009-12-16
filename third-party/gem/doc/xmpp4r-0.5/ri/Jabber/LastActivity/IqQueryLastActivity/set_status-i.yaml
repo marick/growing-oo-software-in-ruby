@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: For an offline user query, set the last status. (chaining-friendly)
+full_name: Jabber::LastActivity::IqQueryLastActivity#set_status
+is_singleton: false
+name: set_status
+params: (val)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add an external IP address
+- !ruby/struct:SM::Flow::P 
+  body: This is a must-have, as SOCKS5BytestreamsInitiator must inform the target where to connect
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsServer#add_address
+is_singleton: false
+name: add_address
+params: (address)
+visibility: public

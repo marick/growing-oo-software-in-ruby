@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use this method to indicate that you have stopped playing a tune.
+full_name: Jabber::UserTune::Helper#stop_playing
+is_singleton: false
+name: stop_playing
+params: ()
+visibility: public

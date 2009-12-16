@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize responder for a specific node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Jabber::Stream]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[nil] or [String]"
+  type: :NOTE
+full_name: Jabber::Discovery::Responder::new
+is_singleton: true
+name: new
+params: (stream, node=nil, identities=[], features=[], items=[])
+visibility: public

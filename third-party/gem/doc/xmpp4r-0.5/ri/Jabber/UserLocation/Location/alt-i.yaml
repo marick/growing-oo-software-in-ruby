@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the alt attribute of this location.
+full_name: Jabber::UserLocation::Location#alt
+is_singleton: false
+name: alt
+params: ()
+visibility: public

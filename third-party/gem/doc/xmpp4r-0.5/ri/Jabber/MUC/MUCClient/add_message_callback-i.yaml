@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a callback for &lt;message/&gt; stanza directed to the whole room.
+- !ruby/struct:SM::Flow::P 
+  body: See MUCClient#add_private_message_callback for private messages between MUC participants.
+full_name: Jabber::MUC::MUCClient#add_message_callback
+is_singleton: false
+name: add_message_callback
+params: (prio = 0, ref = nil, &block)
+visibility: public

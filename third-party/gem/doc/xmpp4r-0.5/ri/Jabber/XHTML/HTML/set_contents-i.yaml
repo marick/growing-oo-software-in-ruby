@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: HTML#contents= chainable
+full_name: Jabber::XHTML::HTML#set_contents
+is_singleton: false
+name: set_contents
+params: (contents)
+visibility: public

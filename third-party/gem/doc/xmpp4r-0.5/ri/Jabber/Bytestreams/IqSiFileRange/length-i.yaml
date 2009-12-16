@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: File length (if not to transfer whole file)
+full_name: Jabber::Bytestreams::IqSiFileRange#length
+is_singleton: false
+name: length
+params: ()
+visibility: public

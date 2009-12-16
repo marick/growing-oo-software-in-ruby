@@ -1,0 +1,59 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Helper representing a PubSub Service
+constants: []
+
+full_name: Jabber::PubSub::ServiceHelper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_event_callback
+- !ruby/object:RI::MethodSummary 
+  name: create_collection_node
+- !ruby/object:RI::MethodSummary 
+  name: create_node
+- !ruby/object:RI::MethodSummary 
+  name: delete_item_from
+- !ruby/object:RI::MethodSummary 
+  name: delete_node
+- !ruby/object:RI::MethodSummary 
+  name: get_affiliations
+- !ruby/object:RI::MethodSummary 
+  name: get_config_from
+- !ruby/object:RI::MethodSummary 
+  name: get_items_from
+- !ruby/object:RI::MethodSummary 
+  name: get_options_from
+- !ruby/object:RI::MethodSummary 
+  name: get_subscribers_from
+- !ruby/object:RI::MethodSummary 
+  name: get_subscriptions_from
+- !ruby/object:RI::MethodSummary 
+  name: get_subscriptions_from_all_nodes
+- !ruby/object:RI::MethodSummary 
+  name: publish_item_to
+- !ruby/object:RI::MethodSummary 
+  name: publish_item_with_id_to
+- !ruby/object:RI::MethodSummary 
+  name: purge_items_from
+- !ruby/object:RI::MethodSummary 
+  name: set_affiliations
+- !ruby/object:RI::MethodSummary 
+  name: set_config_for
+- !ruby/object:RI::MethodSummary 
+  name: set_options_for
+- !ruby/object:RI::MethodSummary 
+  name: subscribe_to
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: unsubscribe_from
+name: ServiceHelper
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set and send a Presence
+full_name: Jabber::Framework::Bot#set_presence
+is_singleton: false
+name: set_presence
+params: (show=nil, status=nil)
+visibility: public

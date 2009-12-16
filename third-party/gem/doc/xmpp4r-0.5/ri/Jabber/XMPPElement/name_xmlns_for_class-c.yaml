@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Find the name and namespace for a given class. This class must have registered these two values by calling name_xmlns at definition time.
+- !ruby/struct:SM::Flow::P 
+  body: Raises an exception if none was found
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "klass:"
+    body: "[Class]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[String, String] name and namespace"
+  type: :NOTE
+full_name: Jabber::XMPPElement::name_xmlns_for_class
+is_singleton: true
+name: name_xmlns_for_class
+params: (klass)
+visibility: public

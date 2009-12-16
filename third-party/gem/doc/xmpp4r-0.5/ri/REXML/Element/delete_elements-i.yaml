@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Deletes one or more children elements, not just one like REXML::Element#delete_element
+full_name: REXML::Element#delete_elements
+is_singleton: false
+name: delete_elements
+params: (element)
+visibility: public

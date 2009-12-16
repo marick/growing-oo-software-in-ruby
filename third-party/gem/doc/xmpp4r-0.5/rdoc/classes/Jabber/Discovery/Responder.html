@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Discovery::Responder</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Discovery::Responder</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/discovery/helper/responder_rb.html">
+                lib/xmpp4r/discovery/helper/responder.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Responds to Service <a href="../Discovery.html">Discovery</a> queries on a
+given node
+</p>
+<p>
+Modify returned elements by these attributes:
+</p>
+<ul>
+<li>Responder#identities
+
+</li>
+<li>Responder#features (<a
+href="Responder.html#M000470">Responder#add_features</a> is a short-cut
+accepting an Array of Strings, too)
+
+</li>
+<li>Responder#forms
+
+</li>
+<li>Responder#items
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000469">add_feature</a>&nbsp;&nbsp;
+      <a href="#M000470">add_features</a>&nbsp;&nbsp;
+      <a href="#M000471">generate_caps</a>&nbsp;&nbsp;
+      <a href="#M000472">generate_item</a>&nbsp;&nbsp;
+      <a href="#M000468">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CALLBACK_PRIORITY</td>
+          <td>=</td>
+          <td class="context-item-value">180</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">features</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Features returned on <a href="../Discovery.html">Discovery</a> Info query,
+
+<p>
+Array of [<a href="Feature.html">Discovery::Feature</a>]
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">forms</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Forms returned on <a href="../Discovery.html">Discovery</a> Info query
+(such as Software Information)
+
+<p>
+Array of [<a href="../Dataforms/XData.html">Dataforms::XData</a>]
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">identities</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Identities returned on <a href="../Discovery.html">Discovery</a> Info query
+
+<p>
+Array of [<a href="Identity.html">Discovery::Identity</a>]
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">items</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Children returned on <a href="../Discovery.html">Discovery</a> <a
+href="Item.html">Item</a> query
+
+<p>
+May contain other <a href="Responder.html">Discovery::Responder</a>
+instances which will generate an item dynamically from their first identity
+</p>
+<p>
+Array of [<a href="Item.html">Discovery::Item</a>] or [<a
+href="Responder.html">Discovery::Responder</a>] (mixed)
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">my_jid</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Set the <a href="../JID.html">JID</a> this helper feels responsible for
+(default: nil, responsible for any <a href="../JID.html">JID</a>)
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">node</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+Service <a href="../Discovery.html">Discovery</a> node this <a
+href="Responder.html">Responder</a> is responsible for (will not answer
+queries for other nodes)
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000468" class="method-detail">
+        <a name="M000468"></a>
+
+        <div class="method-heading">
+          <a href="#M000468" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(stream, node=nil, identities=[], features=[], items=[])</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initialize responder for a specific node
+</p>
+<table>
+<tr><td valign="top">stream:</td><td>[<a href="../Stream.html">Jabber::Stream</a>]
+
+</td></tr>
+<tr><td valign="top">node:</td><td>[nil] or [String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000468-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000468-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/helper/responder.rb, line 64</span>
+ 64:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">stream</span>, <span class="ruby-identifier">node</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">identities</span>=[], <span class="ruby-identifier">features</span>=[], <span class="ruby-identifier">items</span>=[])
+ 65:         <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">stream</span>
+ 66:         <span class="ruby-ivar">@my_jid</span> = <span class="ruby-keyword kw">nil</span>
+ 67:         <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">node</span>
+ 68:         <span class="ruby-ivar">@identities</span> = <span class="ruby-identifier">identities</span>
+ 69:         <span class="ruby-ivar">@features</span> = []
+ 70:         <span class="ruby-identifier">add_features</span>(<span class="ruby-identifier">features</span>)
+ 71:         <span class="ruby-ivar">@forms</span> = []
+ 72:         <span class="ruby-ivar">@items</span> = <span class="ruby-identifier">items</span>
+ 73: 
+ 74:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">add_iq_callback</span>(<span class="ruby-constant">CALLBACK_PRIORITY</span>, <span class="ruby-keyword kw">self</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">iq</span><span class="ruby-operator">|</span>
+ 75:           <span class="ruby-identifier">my_nodes</span> = [<span class="ruby-ivar">@node</span>, <span class="ruby-node">&quot;#{@node}##{generate_ver}&quot;</span>]
+ 76: 
+ 77:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:get</span> <span class="ruby-keyword kw">and</span>
+ 78:              <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">IqQueryDiscoInfo</span> <span class="ruby-keyword kw">and</span>
+ 79:              <span class="ruby-identifier">my_nodes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">node</span>)
+ 80: 
+ 81:             <span class="ruby-identifier">answer</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">answer</span>(<span class="ruby-keyword kw">false</span>)
+ 82:             <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">:result</span>
+ 83:             <span class="ruby-identifier">query</span> = <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">IqQueryDiscoInfo</span>.<span class="ruby-identifier">new</span>)
+ 84:             <span class="ruby-identifier">query</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">node</span>
+ 85:             (<span class="ruby-ivar">@identities</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@features</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@forms</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+ 86:               <span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">element</span>)
+ 87:             <span class="ruby-keyword kw">end</span>
+ 88:             <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">answer</span>)
+ 89: 
+ 90:             <span class="ruby-keyword kw">true</span>  <span class="ruby-comment cmt"># handled</span>
+ 91: 
+ 92:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:get</span> <span class="ruby-keyword kw">and</span>
+ 93:                 <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">IqQueryDiscoItems</span> <span class="ruby-keyword kw">and</span>
+ 94:                 <span class="ruby-identifier">my_nodes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">node</span>)
+ 95: 
+ 96:             <span class="ruby-identifier">answer</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">answer</span>(<span class="ruby-keyword kw">false</span>)
+ 97:             <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">:result</span>
+ 98:             <span class="ruby-identifier">query</span> = <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">IqQueryDiscoItems</span>.<span class="ruby-identifier">new</span>)
+ 99:             <span class="ruby-identifier">query</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">node</span>
+100:             <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+101:               <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Responder</span>
+102:                 <span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item</span>.<span class="ruby-identifier">generate_item</span>)
+103:               <span class="ruby-keyword kw">else</span>
+104:                 <span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item</span>)
+105:               <span class="ruby-keyword kw">end</span>
+106:             <span class="ruby-keyword kw">end</span>
+107:             <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">answer</span>)
+108: 
+109:             <span class="ruby-keyword kw">true</span>  <span class="ruby-comment cmt"># handled</span>
+110: 
+111:           <span class="ruby-keyword kw">else</span>
+112:             <span class="ruby-keyword kw">false</span> <span class="ruby-comment cmt"># not handled</span>
+113:           <span class="ruby-keyword kw">end</span>
+114:         <span class="ruby-keyword kw">end</span>
+115:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000469" class="method-detail">
+        <a name="M000469"></a>
+
+        <div class="method-heading">
+          <a href="#M000469" class="method-signature">
+          <span class="method-name">add_feature</span><span class="method-args">(feature)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a feature
+</p>
+<table>
+<tr><td valign="top">feature:</td><td>[<a href="Feature.html">Jabber::Discovery::Feature</a>] or [String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000469-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000469-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/helper/responder.rb, line 120</span>
+120:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_feature</span>(<span class="ruby-identifier">feature</span>)
+121:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">feature</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Feature</span>
+122:           <span class="ruby-ivar">@features</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">feature</span>
+123:         <span class="ruby-keyword kw">else</span>
+124:           <span class="ruby-ivar">@features</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Feature</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">feature</span>.<span class="ruby-identifier">to_s</span>)
+125:         <span class="ruby-keyword kw">end</span>
+126:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000470" class="method-detail">
+        <a name="M000470"></a>
+
+        <div class="method-heading">
+          <a href="#M000470" class="method-signature">
+          <span class="method-name">add_features</span><span class="method-args">(features)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a series of features
+</p>
+<table>
+<tr><td valign="top">features:</td><td>Array of [<a href="Feature.html">Jabber::Discovery::Feature</a>] or
+[String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000470-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000470-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/helper/responder.rb, line 131</span>
+131:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_features</span>(<span class="ruby-identifier">features</span>)
+132:         <span class="ruby-identifier">features</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">feature</span><span class="ruby-operator">|</span>
+133:           <span class="ruby-identifier">add_feature</span>(<span class="ruby-identifier">feature</span>)
+134:         }
+135:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000471" class="method-detail">
+        <a name="M000471"></a>
+
+        <div class="method-heading">
+          <a href="#M000471" class="method-signature">
+          <span class="method-name">generate_caps</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generate a XEP-0115: Entity Capabilities &lt;c/&gt; element for inclusion
+in <a href="../Presence.html">Presence</a> stanzas. This enables efficient
+caching of Service <a href="../Discovery.html">Discovery</a> information.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000471-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000471-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/helper/responder.rb, line 141</span>
+141:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_caps</span>
+142:         <span class="ruby-constant">Caps</span><span class="ruby-operator">::</span><span class="ruby-constant">C</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@node</span>, <span class="ruby-identifier">generate_ver</span>)
+143:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000472" class="method-detail">
+        <a name="M000472"></a>
+
+        <div class="method-heading">
+          <a href="#M000472" class="method-signature">
+          <span class="method-name">generate_item</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generate an item for inclusion in items discovery in other responders
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[<a href="Item.html">Discovery::Item</a>] or nil
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000472-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000472-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/helper/responder.rb, line 149</span>
+149:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_item</span>
+150:         <span class="ruby-identifier">i</span> = <span class="ruby-ivar">@identities</span>.<span class="ruby-identifier">first</span>
+151:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">i</span>
+152:           <span class="ruby-constant">Item</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@my_jid</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">jid</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">iname</span>, <span class="ruby-ivar">@node</span>)
+153:         <span class="ruby-keyword kw">else</span>
+154:           <span class="ruby-keyword kw">nil</span>
+155:         <span class="ruby-keyword kw">end</span>
+156:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

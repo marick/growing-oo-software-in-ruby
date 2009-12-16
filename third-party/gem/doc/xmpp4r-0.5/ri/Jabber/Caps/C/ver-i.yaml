@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the value of this element's 'ver' attribute, an opaque hash representing this entity's capabilities.
+full_name: Jabber::Caps::C#ver
+is_singleton: false
+name: ver
+params: ()
+visibility: public

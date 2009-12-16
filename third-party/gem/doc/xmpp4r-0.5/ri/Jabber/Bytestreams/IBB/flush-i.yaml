@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Empty the send-buffer by sending remaining data
+full_name: Jabber::Bytestreams::IBB#flush
+is_singleton: false
+name: flush
+params: ()
+visibility: public

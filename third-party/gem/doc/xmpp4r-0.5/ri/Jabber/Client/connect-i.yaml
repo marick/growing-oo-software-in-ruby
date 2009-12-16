@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: connect to the server (chaining-friendly)
+- !ruby/struct:SM::Flow::P 
+  body: If you omit the optional host argument SRV records for your jid will be resolved. If none works, fallback is connecting to the domain part of the jid.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "host:"
+    body: "[String] Optional c2s host, will be extracted from jid if nil"
+  - !ruby/struct:SM::Flow::LI 
+    label: "use_ssl:"
+    body: "[Boolean] Optional. Use (old, deprecated) SSL when connecting."
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: self
+  type: :NOTE
+full_name: Jabber::Client#connect
+is_singleton: false
+name: connect
+params: (host = nil, port = 5222)
+visibility: public

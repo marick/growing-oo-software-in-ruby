@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a new Roster helper
+- !ruby/struct:SM::Flow::P 
+  body: Registers its cbs (prio = 120, ref = self)
+- !ruby/struct:SM::Flow::P 
+  body: Request a roster (Remember to send initial presence afterwards!)
+- !ruby/struct:SM::Flow::P 
+  body: The initialization will not wait for the roster being received, use wait_for_roster.
+- !ruby/struct:SM::Flow::P 
+  body: <b>Attention:</b> If you send presence and receive presences before the roster has arrived, the Roster helper will let them pass through and does <b>not</b> keep them!
+full_name: Jabber::Roster::Helper::new
+is_singleton: true
+name: new
+params: (stream, startnow = true)
+visibility: public

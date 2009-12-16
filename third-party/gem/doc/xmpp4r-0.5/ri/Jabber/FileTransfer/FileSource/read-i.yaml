@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Because it can_range?, this method implements length checking
+full_name: Jabber::FileTransfer::FileSource#read
+is_singleton: false
+name: read
+params: (length=512)
+visibility: public

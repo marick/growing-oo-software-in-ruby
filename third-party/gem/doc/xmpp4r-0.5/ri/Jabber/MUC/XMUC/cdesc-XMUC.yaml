@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Class for &lt;x/&gt; elements with namespace http://jabber.org/protocol/muc
+- !ruby/struct:SM::Flow::P 
+  body: See JEP-0045 for details
+constants: []
+
+full_name: Jabber::MUC::XMUC
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: password
+- !ruby/object:RI::MethodSummary 
+  name: password=
+name: XMUC
+superclass: X

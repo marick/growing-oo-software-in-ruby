@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Reliable::Connection::new
+is_singleton: true
+name: new
+params: (full_jid, config)
+visibility: public

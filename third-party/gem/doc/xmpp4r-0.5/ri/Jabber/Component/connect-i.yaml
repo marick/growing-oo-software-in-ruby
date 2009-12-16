@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Connect to the server (chaining-friendly)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "server:"
+    body: "[String] Hostname"
+  - !ruby/struct:SM::Flow::LI 
+    label: "port:"
+    body: "[Integer] TCP port (5347)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: self
+  type: :NOTE
+full_name: Jabber::Component#connect
+is_singleton: false
+name: connect
+params: (server=nil, port=5347)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "add the OAuth sauce (XEP-0235) The `options` hash may contain the following parameters:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " :oauth_nonce            =&gt; nonce (one will be generated otherwise)\n :oauth_timestamp        =&gt; timestamp (one will be generated otherwise)\n :oauth_signature_method =&gt; signature method (defaults to HMAC-SHA1)\n :oauth_version          =&gt; OAuth version (defaults to &quot;1.0&quot;)\n"
+full_name: Jabber::PubSub::OAuthServiceHelper::create_oauth_node
+is_singleton: true
+name: create_oauth_node
+params: (jid, pubsubjid, oauth_consumer, oauth_token, options = {})
+visibility: public

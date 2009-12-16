@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Block to be invoked when a message <b>from</b> the room arrives
+- !ruby/struct:SM::Flow::P 
+  body: "Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Astro has joined this session\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "block:"
+    body: "Takes two arguments: time, text"
+  type: :NOTE
+full_name: Jabber::MUC::SimpleMUCClient#on_room_message
+is_singleton: false
+name: on_room_message
+params: (&block)
+visibility: public

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Item discovery on a JID.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Jabber::Discovery::IqQueryDiscoItems]"
+  type: :NOTE
+full_name: Jabber::Discovery::Helper#get_items_for
+is_singleton: false
+name: get_items_for
+params: (jid, node = nil)
+visibility: public

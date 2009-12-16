@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns a string representation of the JID
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;domain&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;node@domain&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;domain/resource&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;node@domain/resource&quot;"
+  type: :BULLET
+full_name: Jabber::JID#to_s
+is_singleton: false
+name: to_s
+params: ()
+visibility: public

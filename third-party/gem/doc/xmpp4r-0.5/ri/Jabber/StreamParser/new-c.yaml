@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Constructs a parser for the supplied stream (socket input)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[IO] Socket input stream"
+  - !ruby/struct:SM::Flow::LI 
+    label: "listener:"
+    body: "[Object.receive(XMPPStanza)] The listener (usually a Jabber::Protocol::Connection instance)"
+  type: :NOTE
+full_name: Jabber::StreamParser::new
+is_singleton: true
+name: new
+params: (stream, listener)
+visibility: public

@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Unsubscribe from a node with an optional subscription id
+- !ruby/struct:SM::Flow::P 
+  body: May raise ServerError
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "subid:"
+    body: "[String] or nil (not supported)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "true"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#unsubscribe_from
+is_singleton: false
+name: unsubscribe_from
+params: (node, subid=nil)
+visibility: public

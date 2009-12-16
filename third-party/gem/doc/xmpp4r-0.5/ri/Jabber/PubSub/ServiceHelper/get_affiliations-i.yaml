@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: shows the affiliations on a pubsub service
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Hash] of { node =&gt; symbol }"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#get_affiliations
+is_singleton: false
+name: get_affiliations
+params: (node = nil)
+visibility: public

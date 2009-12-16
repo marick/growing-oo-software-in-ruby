@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new message
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ">to:"
+    body: a JID or a String object to send the message to.
+  - !ruby/struct:SM::Flow::LI 
+    label: ">body:"
+    body: the message's body
+  type: :NOTE
+full_name: Jabber::Message::new
+is_singleton: true
+name: new
+params: (to = nil, body = nil)
+visibility: public

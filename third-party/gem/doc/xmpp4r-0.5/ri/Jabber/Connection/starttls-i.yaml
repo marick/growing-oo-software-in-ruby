@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Do a &lt;starttls/&gt; (will be automatically done by connect if stream peer supports this)
+full_name: Jabber::Connection#starttls
+is_singleton: false
+name: starttls
+params: ()
+visibility: public

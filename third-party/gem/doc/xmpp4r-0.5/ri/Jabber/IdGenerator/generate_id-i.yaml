@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::IdGenerator#generate_id
+is_singleton: false
+name: generate_id
+params: ()
+visibility: public

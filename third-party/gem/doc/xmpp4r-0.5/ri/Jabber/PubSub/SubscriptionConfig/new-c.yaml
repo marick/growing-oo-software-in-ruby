@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Construct a new Options stanza
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String] the node to which this subscription applies"
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[String] or [Jabber::JID] the jid that holds the subscription"
+  - !ruby/struct:SM::Flow::LI 
+    label: "options:"
+    body: "[Hash] the configuration for this subscription"
+  - !ruby/struct:SM::Flow::LI 
+    label: "subid:"
+    body: "[String] (optional) subscription id"
+  type: :NOTE
+full_name: Jabber::PubSub::SubscriptionConfig::new
+is_singleton: true
+name: new
+params: (node = nil, jid = nil, options = nil, subid = nil)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Mime-type of the offered file, can be nil
+full_name: Jabber::FileTransfer::TransferSource#mime
+is_singleton: false
+name: mime
+params: ()
+visibility: public

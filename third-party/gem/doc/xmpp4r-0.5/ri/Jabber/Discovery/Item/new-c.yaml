@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a new Service Discovery &lt;item/&gt; to be added to IqQueryDiscoItems
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "iname:"
+    body: "[String] Item name"
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String] Service Discovery node (<em>not</em> JID#node)"
+  type: :NOTE
+full_name: Jabber::Discovery::Item::new
+is_singleton: true
+name: new
+params: (jid=nil, iname=nil, node=nil)
+visibility: public

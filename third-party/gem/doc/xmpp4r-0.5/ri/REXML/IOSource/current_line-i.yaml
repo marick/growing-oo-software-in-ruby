@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: REXML::IOSource#current_line
+is_singleton: false
+name: current_line
+params: ()
+visibility: public

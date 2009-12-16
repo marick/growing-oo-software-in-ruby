@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the options (in a Data Form with type='form')
+full_name: Jabber::Dataforms::XDataField#options
+is_singleton: false
+name: options
+params: ()
+visibility: public

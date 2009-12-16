@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: get all subscribers subscribed on this node get_subscribers
+full_name: Jabber::PubSub::NodeHelper#get_subscribers
+is_singleton: false
+name: get_subscribers
+params: ()
+visibility: public

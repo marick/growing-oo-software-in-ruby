@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::MUC::UserItem#nick=
+is_singleton: false
+name: nick=
+params: (n)
+visibility: public

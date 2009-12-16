@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::FileTransfer::FileSource#date
+is_singleton: false
+name: date
+params: ()
+visibility: public

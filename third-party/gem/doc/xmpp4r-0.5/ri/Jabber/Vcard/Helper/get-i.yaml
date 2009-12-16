@@ -1,0 +1,25 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retrieve vCard of an entity
+- !ruby/struct:SM::Flow::P 
+  body: Raises exception upon retrieval error, please catch that! (The exception is ServerError and is raisen by Stream#send_with_id.
+- !ruby/struct:SM::Flow::P 
+  body: Usage of Threads is suggested here as vCards can be very big (see <tt>/iq/vCard/PHOTO/BINVAL</tt>).
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[Jabber::JID] or nil (should be stripped, nil for the client's own vCard)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Jabber::IqVcard] or nil (nil results may be handled as empty vCards)"
+  type: :NOTE
+full_name: Jabber::Vcard::Helper#get
+is_singleton: false
+name: get
+params: (jid=nil)
+visibility: public

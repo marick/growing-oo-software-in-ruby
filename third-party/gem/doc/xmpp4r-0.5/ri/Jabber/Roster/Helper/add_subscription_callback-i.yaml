@@ -1,0 +1,35 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Add a callback for subscription updates, which will be called upon receiving a <tt>&lt;presence/&gt;</tt> stanza with type:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":subscribed"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":unsubscribe"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":unsubscribed"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "The block receives two objects:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: the Jabber::Roster::Helper::RosterItem (or nil)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: the <tt>&lt;presence/&gt;</tt> stanza
+  type: :BULLET
+full_name: Jabber::Roster::Helper#add_subscription_callback
+is_singleton: false
+name: add_subscription_callback
+params: (prio = 0, ref = nil, &block)
+visibility: public

@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Unsubscribe
+constants: []
+
+full_name: Jabber::PubSub::Unsubscribe
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: jid
+- !ruby/object:RI::MethodSummary 
+  name: jid=
+- !ruby/object:RI::MethodSummary 
+  name: node
+- !ruby/object:RI::MethodSummary 
+  name: node=
+name: Unsubscribe
+superclass: XMPPElement

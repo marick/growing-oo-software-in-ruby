@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: bared?
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Test id jid is strepped
+full_name: Jabber::JID#stripped?
+is_singleton: false
+name: stripped?
+params: ()
+visibility: public

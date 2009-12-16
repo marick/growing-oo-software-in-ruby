@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: get the 'subid' attribute
+full_name: Jabber::PubSub::SubscriptionConfig#subid
+is_singleton: false
+name: subid
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Enable/disable warnings mode.
+full_name: Jabber::warnings=
+is_singleton: true
+name: warnings=
+params: (warnings)
+visibility: public

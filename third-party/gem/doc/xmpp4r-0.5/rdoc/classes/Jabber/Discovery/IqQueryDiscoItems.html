@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Discovery::IqQueryDiscoItems</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Discovery::IqQueryDiscoItems</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/discovery/iq/discoitems_rb.html">
+                lib/xmpp4r/discovery/iq/discoitems.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                IqQuery
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Class for handling Service <a href="../Discovery.html">Discovery</a>
+queries, <a href="IqQueryDiscoItems.html#M000490">items</a> (JEP 0030)
+</p>
+<p>
+This &lt;query/&gt; may contain multiple <a href="Item.html">Item</a>
+elements, describing multiple services to be browsed by <a
+href="../../Jabber.html">Jabber</a> clients. These may then get further
+information about these <a href="IqQueryDiscoItems.html#M000490">items</a>
+by querying <a href="IqQueryDiscoInfo.html">IqQueryDiscoInfo</a> and
+further sub-<a href="IqQueryDiscoItems.html#M000490">items</a> by querying
+<a href="IqQueryDiscoItems.html">IqQueryDiscoItems</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000490">items</a>&nbsp;&nbsp;
+      <a href="#M000487">node</a>&nbsp;&nbsp;
+      <a href="#M000488">node=</a>&nbsp;&nbsp;
+      <a href="#M000489">set_node</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000490" class="method-detail">
+        <a name="M000490"></a>
+
+        <div class="method-heading">
+          <a href="#M000490" class="method-signature">
+          <span class="method-name">items</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get all item children
+</p>
+<table>
+<tr><td valign="top">result:</td><td>Array of [<a href="Item.html">Discovery::Item</a>]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000490-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000490-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/iq/discoitems.rb, line 51</span>
+51:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">items</span>
+52:         <span class="ruby-identifier">get_elements</span>(<span class="ruby-value str">'item'</span>)
+53:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000487" class="method-detail">
+        <a name="M000487"></a>
+
+        <div class="method-heading">
+          <a href="#M000487" class="method-signature">
+          <span class="method-name">node</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the queried Service <a href="../Discovery.html">Discovery</a> <a
+href="IqQueryDiscoItems.html#M000487">node</a> or nil
+</p>
+<p>
+A Service <a href="../Discovery.html">Discovery</a> <a
+href="IqQueryDiscoItems.html#M000487">node</a> is <em>not</em> a <a
+href="../JID.html">JID</a> <a
+href="IqQueryDiscoItems.html#M000487">node</a>, this may be a bit
+confusing. It&#8216;s just to make Service <a
+href="../Discovery.html">Discovery</a> browsing a bit more structured.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000487-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000487-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/iq/discoitems.rb, line 30</span>
+30:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node</span>
+31:         <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>]
+32:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000488" class="method-detail">
+        <a name="M000488"></a>
+
+        <div class="method-heading">
+          <a href="#M000488" class="method-signature">
+          <span class="method-name">node=</span><span class="method-args">(val)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the queried Service <a href="../Discovery.html">Discovery</a> <a
+href="IqQueryDiscoItems.html#M000487">node</a> or nil
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000488-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000488-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/iq/discoitems.rb, line 36</span>
+36:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node=</span>(<span class="ruby-identifier">val</span>)
+37:         <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">val</span>
+38:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000489" class="method-detail">
+        <a name="M000489"></a>
+
+        <div class="method-heading">
+          <a href="#M000489" class="method-signature">
+          <span class="method-name">set_node</span><span class="method-args">(val)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the queried Service <a href="../Discovery.html">Discovery</a> <a
+href="IqQueryDiscoItems.html#M000487">node</a> or nil (chaining-friendly)
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000489-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000489-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/discovery/iq/discoitems.rb, line 43</span>
+43:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_node</span>(<span class="ruby-identifier">val</span>)
+44:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">val</span>
+45:         <span class="ruby-keyword kw">self</span>
+46:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

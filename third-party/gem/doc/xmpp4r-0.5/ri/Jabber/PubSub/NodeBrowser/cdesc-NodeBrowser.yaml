@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Jabber::PubSub::NodeBrowser
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: category
+- !ruby/object:RI::MethodSummary 
+  name: get_info
+- !ruby/object:RI::MethodSummary 
+  name: get_metadata
+- !ruby/object:RI::MethodSummary 
+  name: items
+- !ruby/object:RI::MethodSummary 
+  name: nodes
+- !ruby/object:RI::MethodSummary 
+  name: nodes_names
+- !ruby/object:RI::MethodSummary 
+  name: type
+name: NodeBrowser
+superclass: Object

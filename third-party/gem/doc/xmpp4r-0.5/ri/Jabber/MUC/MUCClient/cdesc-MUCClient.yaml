@@ -1,0 +1,92 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: MUC JID
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "jid:"
+      body: "[JID] room@component/nick"
+    type: :NOTE
+  name: jid
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Sender JID, set this to use MUCClient from Components
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "my_jid:"
+      body: "[JID] Defaults to nil"
+    type: :NOTE
+  name: my_jid
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: MUC room roster
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "roster:"
+      body: "[Hash] of [String] Nick =&gt; [Presence]"
+    type: :NOTE
+  name: roster
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The MUCClient Helper handles low-level stuff of the Multi-User Chat (JEP 0045).
+- !ruby/struct:SM::Flow::P 
+  body: Use one instance per room.
+- !ruby/struct:SM::Flow::P 
+  body: Note that one client cannot join a single room multiple times. At least the clients' resources must be different. This is a protocol design issue. But don't consider it as a bug, it is just a clone-preventing feature.
+constants: []
+
+full_name: Jabber::MUC::MUCClient
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: active?
+- !ruby/object:RI::MethodSummary 
+  name: add_join_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_leave_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_message_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_presence_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_private_message_callback
+- !ruby/object:RI::MethodSummary 
+  name: configure
+- !ruby/object:RI::MethodSummary 
+  name: exit
+- !ruby/object:RI::MethodSummary 
+  name: from_room?
+- !ruby/object:RI::MethodSummary 
+  name: get_room_configuration
+- !ruby/object:RI::MethodSummary 
+  name: join
+- !ruby/object:RI::MethodSummary 
+  name: nick
+- !ruby/object:RI::MethodSummary 
+  name: nick=
+- !ruby/object:RI::MethodSummary 
+  name: owner?
+- !ruby/object:RI::MethodSummary 
+  name: room
+- !ruby/object:RI::MethodSummary 
+  name: send
+- !ruby/object:RI::MethodSummary 
+  name: send_affiliations
+- !ruby/object:RI::MethodSummary 
+  name: submit_room_configuration
+name: MUCClient
+superclass: Object

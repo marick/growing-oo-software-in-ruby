@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Process an element through all my callbacks. returns e.consumed?
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "e:"
+    body: "[Object] The elements to pass to the callback. You can pass"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: several, but of course, you block must know how to handle them.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Boolean] true if the element has been consumed"
+  type: :NOTE
+full_name: Jabber::CallbackList#process
+is_singleton: false
+name: process
+params: (*e)
+visibility: public

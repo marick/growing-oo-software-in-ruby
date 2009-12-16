@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: subscribe to this node do_subscribe
+full_name: Jabber::PubSub::NodeHelper#do_subscribe
+is_singleton: false
+name: do_subscribe
+params: ()
+visibility: public

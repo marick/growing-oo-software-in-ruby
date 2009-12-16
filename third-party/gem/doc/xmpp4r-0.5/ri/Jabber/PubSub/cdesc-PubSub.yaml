@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_PUBSUB
+  value: "'http://jabber.org/protocol/pubsub'"
+full_name: Jabber::PubSub
+includes: []
+
+instance_methods: []
+
+name: PubSub
+superclass: 

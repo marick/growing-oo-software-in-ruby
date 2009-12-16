@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the 'XMPP error condition'
+- !ruby/struct:SM::Flow::P 
+  body: This can be anything that possess the specific namespace, checks don't apply here
+full_name: Jabber::ErrorResponse#error
+is_singleton: false
+name: error
+params: ()
+visibility: public

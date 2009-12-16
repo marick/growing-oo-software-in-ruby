@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set file offset
+full_name: Jabber::Bytestreams::IqSiFileRange#offset=
+is_singleton: false
+name: offset=
+params: (o)
+visibility: public

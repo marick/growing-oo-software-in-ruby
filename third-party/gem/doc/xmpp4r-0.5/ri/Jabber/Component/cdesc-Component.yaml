@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The component's JID
+  name: jid
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The server's address
+  name: server_address
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The server's port
+  name: server_port
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The component class provides everything needed to build a XMPP Component.
+- !ruby/struct:SM::Flow::P 
+  body: Components are more flexible as they are only restricted in the use of a fixed domain. node and resource of JIDs are freely choosable for all stanzas.
+constants: []
+
+full_name: Jabber::Component
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: auth
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: connect
+- !ruby/object:RI::MethodSummary 
+  name: start
+name: Component
+superclass: Connection

@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get Availability Status (RFC3921 - 5.2)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Symbol] or [Nil] Valid values according to RFC3921:"
+  type: :NOTE
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: nil (Available, no &lt;show/&gt; element)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":away"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":chat (Free for chat)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":dnd (Do not disturb)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":xa (Extended away)"
+  type: :BULLET
+full_name: Jabber::Presence#show
+is_singleton: false
+name: show
+params: ()
+visibility: public

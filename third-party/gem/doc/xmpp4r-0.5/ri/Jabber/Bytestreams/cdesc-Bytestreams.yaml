@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_BYTESTREAMS
+  value: "'http://jabber.org/protocol/bytestreams'"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PROFILE_FILETRANSFER
+  value: "'http://jabber.org/protocol/si/profile/file-transfer'"
+full_name: Jabber::Bytestreams
+includes: []
+
+instance_methods: []
+
+name: Bytestreams
+superclass: 

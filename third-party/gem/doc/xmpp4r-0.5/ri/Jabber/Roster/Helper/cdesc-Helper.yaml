@@ -1,0 +1,58 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: All items in your roster
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "items:"
+      body: "[Hash] ([JID] =&gt; [Roster::Helper::RosterItem])"
+    type: :NOTE
+  name: items
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Roster helper intercepts <tt>&lt;iq/&gt;</tt> stanzas with Jabber::IqQueryRoster and <tt>&lt;presence/&gt;</tt> stanzas, but provides cbs which allow the programmer to keep track of updates.
+- !ruby/struct:SM::Flow::P 
+  body: A thread for any received stanza is spawned, so the user can invoke accept_subscription et al in the callback blocks, without stopping the current (= parser) thread when waiting for a reply.
+constants: []
+
+full_name: Jabber::Roster::Helper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: accept_subscription
+- !ruby/object:RI::MethodSummary 
+  name: add
+- !ruby/object:RI::MethodSummary 
+  name: add_presence_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_query_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_subscription_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_subscription_request_callback
+- !ruby/object:RI::MethodSummary 
+  name: add_update_callback
+- !ruby/object:RI::MethodSummary 
+  name: decline_subscription
+- !ruby/object:RI::MethodSummary 
+  name: find
+- !ruby/object:RI::MethodSummary 
+  name: find_by_group
+- !ruby/object:RI::MethodSummary 
+  name: get_roster
+- !ruby/object:RI::MethodSummary 
+  name: groups
+- !ruby/object:RI::MethodSummary 
+  name: wait_for_roster
+name: Helper
+superclass: Object

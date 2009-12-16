@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Close the session by sending &lt;presence type='unavailable'/&gt;
+full_name: Jabber::HTTPBinding::Client#close
+is_singleton: false
+name: close
+params: ()
+visibility: public

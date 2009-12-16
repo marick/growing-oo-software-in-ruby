@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (pres)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Iterate through all received <tt>&lt;presence/&gt;</tt> stanzas
+full_name: Jabber::Roster::Helper::RosterItem#each_presence
+is_singleton: false
+name: each_presence
+params: (&block) {|pres| ...}
+visibility: public

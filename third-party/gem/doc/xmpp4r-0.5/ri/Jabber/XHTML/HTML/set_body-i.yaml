@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Replace first XHTML::Body child (chainable)
+full_name: Jabber::XHTML::HTML#set_body
+is_singleton: false
+name: set_body
+params: (body)
+visibility: public

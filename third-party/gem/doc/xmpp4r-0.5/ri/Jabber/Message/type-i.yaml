@@ -1,0 +1,38 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the type of the Message stanza
+- !ruby/struct:SM::Flow::P 
+  body: "The following Symbols are allowed:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":chat"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":error"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":groupchat"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":headline"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":normal"
+  type: :BULLET
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Symbol] or nil"
+  type: :NOTE
+full_name: Jabber::Message#type
+is_singleton: false
+name: type
+params: ()
+visibility: public

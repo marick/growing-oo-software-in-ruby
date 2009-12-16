@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: new_update if block_given?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns an array of presence updates received since the last time presence_updates was called. Passing a block will yield each update in turn, allowing you to break part-way through processing (especially useful when your presence handling code is not thread-safe (e.g., ActiveRecord).
+- !ruby/struct:SM::Flow::P 
+  body: "e.g.:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  jabber.presence_updates do |friend, new_presence|\n    puts &quot;Received presence update from #{friend}: #{new_presence}&quot;\n  end\n"
+full_name: Jabber::Simple#presence_updates
+is_singleton: false
+name: presence_updates
+params: (&block) {|new_update if block_given?| ...}
+visibility: public

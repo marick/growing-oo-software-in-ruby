@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the logger to use for debug and warn (if enabled)
+full_name: Jabber::logger=
+is_singleton: true
+name: logger=
+params: (logger)
+visibility: public

@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The MUCBrowser helper can be used to discover Multi-User-Chat components via Service Discovery
+- !ruby/struct:SM::Flow::P 
+  body: See JEP 0045 sections 6.1. and 6.2.
+- !ruby/struct:SM::Flow::P 
+  body: Usage of its functions should be threaded as responses can take a while
+constants: []
+
+full_name: Jabber::MUC::MUCBrowser
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: muc_name
+- !ruby/object:RI::MethodSummary 
+  name: muc_rooms
+name: MUCBrowser
+superclass: Object

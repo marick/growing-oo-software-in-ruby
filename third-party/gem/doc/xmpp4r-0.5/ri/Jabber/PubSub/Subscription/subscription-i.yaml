@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #state"
+full_name: Jabber::PubSub::Subscription#subscription
+is_singleton: false
+name: subscription
+params: ()
+visibility: public

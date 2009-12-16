@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Caps::generate_ver_str
+is_singleton: true
+name: generate_ver_str
+params: (identities, features, forms=[])
+visibility: public

@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_RPC
+  value: "'jabber:iq:rpc'"
+full_name: Jabber::RPC::IqQueryRPC
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: typed_add
+name: IqQueryRPC
+superclass: IqQuery

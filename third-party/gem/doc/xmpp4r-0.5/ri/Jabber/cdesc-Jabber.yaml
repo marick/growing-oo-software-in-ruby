@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: debug
+- !ruby/object:RI::MethodSummary 
+  name: debug=
+- !ruby/object:RI::MethodSummary 
+  name: debuglog
+- !ruby/object:RI::MethodSummary 
+  name: logger
+- !ruby/object:RI::MethodSummary 
+  name: logger=
+- !ruby/object:RI::MethodSummary 
+  name: warnings=
+- !ruby/object:RI::MethodSummary 
+  name: warnlog
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Jabber module is the root namespace of the library.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: XMPP4R Version number. This is the ONLY place where the version number should be specified. This constant is used to determine the version of package tarballs and generated gems.
+  name: XMPP4R_VERSION
+  value: "'0.5'"
+full_name: Jabber
+includes: []
+
+instance_methods: []
+
+name: Jabber
+superclass: 

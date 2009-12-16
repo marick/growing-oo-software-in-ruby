@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Helper for XEP-0118 User Tune
+- !ruby/struct:SM::Flow::P 
+  body: Use this helper to send user tunes, or receive them from a specified jid. Described at http://www.xmpp.org/extensions/xep-0118.html
+- !ruby/struct:SM::Flow::P 
+  body: "For example: &lt;pre&gt; h = UserTune::Helper( @client, 'radio1@hug.hellomatty.com' ) h.add_usertune_callback do |tune|"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  puts &quot;Now playing: #{tune.title} by #{tune.artist}&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: end &lt;/pre&gt;
+- !ruby/struct:SM::Flow::P 
+  body: Also see the examples provided.
+constants: []
+
+full_name: Jabber::UserTune::Helper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_usertune_callback
+- !ruby/object:RI::MethodSummary 
+  name: now_playing
+- !ruby/object:RI::MethodSummary 
+  name: stop_playing
+name: Helper
+superclass: PubSub::ServiceHelper

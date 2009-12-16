@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Delete a pubsub node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "true"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#delete_node
+is_singleton: false
+name: delete_node
+params: (node)
+visibility: public

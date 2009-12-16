@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Data Forms (JEP-0004) implementation
+constants: []
+
+full_name: Jabber::Dataforms::XData
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: field
+- !ruby/object:RI::MethodSummary 
+  name: fields
+- !ruby/object:RI::MethodSummary 
+  name: instructions
+- !ruby/object:RI::MethodSummary 
+  name: instructions=
+- !ruby/object:RI::MethodSummary 
+  name: title
+- !ruby/object:RI::MethodSummary 
+  name: title=
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type=
+name: XData
+superclass: X

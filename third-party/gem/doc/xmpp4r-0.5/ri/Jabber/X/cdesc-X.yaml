@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A class used to build/parse &lt;x/&gt; elements
+- !ruby/struct:SM::Flow::P 
+  body: These elements may occur as &quot;attachments&quot; in [Message] and [Presence] stanzas
+constants: []
+
+full_name: Jabber::X
+includes: []
+
+instance_methods: []
+
+name: X
+superclass: XMPPElement

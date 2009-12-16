@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Service Discovery feature to add() to IqQueryDiscoInfo
+- !ruby/struct:SM::Flow::P 
+  body: "Please note that JEP 0030 requires var to be set, for a reference see: http://www.xmpp.org/registrar/disco-features.html"
+constants: []
+
+full_name: Jabber::Discovery::Feature
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: set_var
+- !ruby/object:RI::MethodSummary 
+  name: var
+- !ruby/object:RI::MethodSummary 
+  name: var=
+name: Feature
+superclass: XMPPElement

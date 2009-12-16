@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: my_jid
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: XMLRPC Client
+constants: []
+
+full_name: Jabber::RPC::Client
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: XMLRPC::ParserWriterChooseMixin
+- !ruby/object:RI::IncludedModule 
+  name: XMLRPC::ParseContentType
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: call2
+- !ruby/object:RI::MethodSummary 
+  name: do_rpc
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: multicall
+- !ruby/object:RI::MethodSummary 
+  name: multicall2
+name: Client
+superclass: Object

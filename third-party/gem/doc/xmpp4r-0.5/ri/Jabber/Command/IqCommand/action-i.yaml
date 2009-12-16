@@ -1,0 +1,38 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the action of the Command stanza
+- !ruby/struct:SM::Flow::P 
+  body: "The following Symbols are allowed:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":execute"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":cancel"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":prev"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":next"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":complete"
+  type: :BULLET
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Symbol] or nil"
+  type: :NOTE
+full_name: Jabber::Command::IqCommand#action
+is_singleton: false
+name: action
+params: ()
+visibility: public

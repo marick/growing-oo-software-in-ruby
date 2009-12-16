@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: vCard container for User Information (can be specified by users themselves, mostly kept on servers) (JEP 0054)
+constants: []
+
+full_name: Jabber::Vcard::IqVcard
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: fields
+- !ruby/object:RI::MethodSummary 
+  name: photo_binval
+name: IqVcard
+superclass: XMPPElement

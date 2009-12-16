@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implementation of JEP 0091 for &lt;x xmlns='jabber:x:delay' stamp='...' .../&gt; applied on &lt;message/&gt; and &lt;presence/&gt; stanzas
+- !ruby/struct:SM::Flow::P 
+  body: One may also use XDelay#text for a descriptive reason for the delay.
+- !ruby/struct:SM::Flow::P 
+  body: Please note that you must require 'xmpp4r/xdelay' to use this class as it's not required by a basic XMPP implementation. &lt;x/&gt; elements with the specific namespace will then be converted to XDelay automatically.
+constants: []
+
+full_name: Jabber::Delay::XDelay
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from
+- !ruby/object:RI::MethodSummary 
+  name: from=
+- !ruby/object:RI::MethodSummary 
+  name: set_from
+- !ruby/object:RI::MethodSummary 
+  name: set_stamp
+- !ruby/object:RI::MethodSummary 
+  name: stamp
+- !ruby/object:RI::MethodSummary 
+  name: stamp=
+name: XDelay
+superclass: X

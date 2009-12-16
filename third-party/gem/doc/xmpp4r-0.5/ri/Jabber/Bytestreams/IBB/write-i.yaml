@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send data
+- !ruby/struct:SM::Flow::P 
+  body: Data is buffered to match block_size in each packet. If you need the data to be sent immediately, use flush afterwards.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "buf:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::Bytestreams::IBB#write
+is_singleton: false
+name: write
+params: (buf)
+visibility: public

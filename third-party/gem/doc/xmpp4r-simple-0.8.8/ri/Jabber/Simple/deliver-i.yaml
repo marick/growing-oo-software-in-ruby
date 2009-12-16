@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send a message to jabber user jid.
+- !ruby/struct:SM::Flow::P 
+  body: "Valid message types are:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  * :normal (default): a normal message.\n  * :chat: a one-to-one chat message.\n  * :groupchat: a group-chat message.\n  * :headline: a &quot;headline&quot; message.\n  * :error: an error message.\n"
+- !ruby/struct:SM::Flow::P 
+  body: If the recipient is not in your contacts list, the message will be queued for later delivery, and the Contact will be automatically asked for authorization (see Jabber::Simple#add).
+- !ruby/struct:SM::Flow::P 
+  body: message should be a string or a valid Jabber::Message object. In either case, the message recipient will be set to jid.
+full_name: Jabber::Simple#deliver
+is_singleton: false
+name: deliver
+params: (jid, message, type=:chat)
+visibility: public

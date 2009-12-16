@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Reports whether or not anonymous authentication is reported by the client.
+- !ruby/struct:SM::Flow::P 
+  body: Returns true or false
+full_name: Jabber::Client#supports_anonymous?
+is_singleton: false
+name: supports_anonymous?
+params: ()
+visibility: public

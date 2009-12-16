@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Construct a new Caps Helper.
+- !ruby/struct:SM::Flow::P 
+  body: This will send a &lt;presence&gt; message containing a &lt;c/&gt; (Jabber::Caps::C) stanza to your server.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "client:"
+    body: "[Jabber::Stream]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "i:"
+    body: "[Array] of [Jabber::Discovery::Identity] objects that this entity will advertise"
+  - !ruby/struct:SM::Flow::LI 
+    label: "f:"
+    body: "[Array] of [Jabber::Discovery::Feature] objects that this entity will advertise"
+  - !ruby/struct:SM::Flow::LI 
+    label: "n:"
+    body: "[String] an identifier representing the software underlying this entity"
+  type: :NOTE
+full_name: Jabber::Caps::Helper::new
+is_singleton: true
+name: new
+params: (client,i=[],f=[],n="http://home.gna.org/xmpp4r/
+visibility: public

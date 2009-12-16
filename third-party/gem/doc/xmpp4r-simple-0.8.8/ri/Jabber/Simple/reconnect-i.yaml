@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use this to force the client to reconnect after a force_disconnect.
+full_name: Jabber::Simple#reconnect
+is_singleton: false
+name: reconnect
+params: ()
+visibility: public

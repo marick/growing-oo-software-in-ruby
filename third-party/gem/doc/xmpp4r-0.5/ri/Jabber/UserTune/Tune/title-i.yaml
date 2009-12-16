@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the title of this tune.
+full_name: Jabber::UserTune::Tune#title
+is_singleton: false
+name: title
+params: ()
+visibility: public

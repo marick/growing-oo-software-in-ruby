@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Deny the contact to see your presence.
+- !ruby/struct:SM::Flow::P 
+  body: This method will not wait and returns immediately as you will need no confirmation for this action.
+- !ruby/struct:SM::Flow::P 
+  body: Though, you will get a roster update for that item, carrying either subscription='to' or 'none'.
+full_name: Jabber::Roster::Helper::RosterItem#cancel_subscription
+is_singleton: false
+name: cancel_subscription
+params: ()
+visibility: public

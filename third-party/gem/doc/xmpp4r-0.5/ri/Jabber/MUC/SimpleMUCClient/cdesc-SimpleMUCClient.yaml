@@ -1,0 +1,59 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class attempts to implement a lot of complexity of the Multi-User Chat protocol. If you want to implement JEP0045 yourself, use Jabber::MUC::MUCClient for some minor abstraction.
+- !ruby/struct:SM::Flow::P 
+  body: "Minor flexibility penalty: the on_* callbacks are no CallbackLists and may therefore only used once. A second invocation will overwrite the previous set up block."
+- !ruby/struct:SM::Flow::P 
+  body: "*Hint:* the parameter time may be nil if the server didn't send it."
+- !ruby/struct:SM::Flow::P 
+  body: "Example usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  my_muc = Jabber::MUC::SimpleMUCClient.new(my_client)\n  my_muc.on_message { |time,nick,text|\n    puts (time || Time.new).strftime('%I:%M') + &quot; &lt;#{nick}&gt; #{text}&quot;\n  }\n  my_muc.join(Jabber::JID.new('jdev@conference.jabber.org/XMPP4R-Bot'))\n"
+- !ruby/struct:SM::Flow::P 
+  body: Please take a look at Jabber::MUC::MUCClient for derived methods, such as MUCClient#join, MUCClient#exit, ...
+constants: []
+
+full_name: Jabber::MUC::SimpleMUCClient
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ban
+- !ruby/object:RI::MethodSummary 
+  name: demote
+- !ruby/object:RI::MethodSummary 
+  name: invite
+- !ruby/object:RI::MethodSummary 
+  name: kick
+- !ruby/object:RI::MethodSummary 
+  name: on_join
+- !ruby/object:RI::MethodSummary 
+  name: on_leave
+- !ruby/object:RI::MethodSummary 
+  name: on_message
+- !ruby/object:RI::MethodSummary 
+  name: on_private_message
+- !ruby/object:RI::MethodSummary 
+  name: on_room_message
+- !ruby/object:RI::MethodSummary 
+  name: on_self_leave
+- !ruby/object:RI::MethodSummary 
+  name: on_subject
+- !ruby/object:RI::MethodSummary 
+  name: promote
+- !ruby/object:RI::MethodSummary 
+  name: say
+- !ruby/object:RI::MethodSummary 
+  name: subject
+- !ruby/object:RI::MethodSummary 
+  name: subject=
+- !ruby/object:RI::MethodSummary 
+  name: unban
+name: SimpleMUCClient
+superclass: MUCClient

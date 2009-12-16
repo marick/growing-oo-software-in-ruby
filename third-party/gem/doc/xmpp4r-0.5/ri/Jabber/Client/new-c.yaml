@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new Client.
+- !ruby/struct:SM::Flow::P 
+  body: Remember to <b>always</b> put a resource in your JID unless the server can do SASL.
+full_name: Jabber::Client::new
+is_singleton: true
+name: new
+params: (jid)
+visibility: public

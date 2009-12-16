@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Everything is 'application/octet-stream'
+full_name: Jabber::FileTransfer::FileSource#mime
+is_singleton: false
+name: mime
+params: ()
+visibility: public

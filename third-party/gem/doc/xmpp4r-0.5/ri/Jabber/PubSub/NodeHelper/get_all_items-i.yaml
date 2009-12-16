@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: gets all items from the node get_all_items
+full_name: Jabber::PubSub::NodeHelper#get_all_items
+is_singleton: false
+name: get_all_items
+params: ()
+visibility: public

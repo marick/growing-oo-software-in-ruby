@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Jabber::Simple)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/xmpp4r-simple.rb, line 86</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">jid</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status_message</span> = <span class="ruby-value str">&quot;Available&quot;</span>)
+      <span class="ruby-ivar">@jid</span> = <span class="ruby-identifier">jid</span>
+      <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">password</span>
+      <span class="ruby-ivar">@disconnected</span> = <span class="ruby-keyword kw">false</span>
+      <span class="ruby-identifier">status</span>(<span class="ruby-identifier">status</span>, <span class="ruby-identifier">status_message</span>)
+      <span class="ruby-identifier">start_deferred_delivery_thread</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

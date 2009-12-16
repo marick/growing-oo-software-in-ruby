@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Send a response
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Wait for the server's challenge (which aren't checked)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Send a blind response to the server's challenge
+  type: :BULLET
+full_name: Jabber::SASL::DigestMD5#auth
+is_singleton: false
+name: auth
+params: (password)
+visibility: public

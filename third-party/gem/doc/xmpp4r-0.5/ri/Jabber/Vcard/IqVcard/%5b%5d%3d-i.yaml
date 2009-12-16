@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set an elements/fields text
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name:"
+    body: "[String] XPath"
+  - !ruby/struct:SM::Flow::LI 
+    label: "text:"
+    body: "[String] Value"
+  type: :NOTE
+full_name: Jabber::Vcard::IqVcard#[]=
+is_singleton: false
+name: "[]="
+params: (name, text)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Open the stream to the peer, waits for successful result
+- !ruby/struct:SM::Flow::P 
+  body: May throw ServerError
+full_name: Jabber::Bytestreams::IBBInitiator#open
+is_singleton: false
+name: open
+params: ()
+visibility: public

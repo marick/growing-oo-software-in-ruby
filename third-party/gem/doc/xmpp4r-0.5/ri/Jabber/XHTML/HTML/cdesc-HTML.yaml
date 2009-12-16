@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: XHTML-IM (XEP-0071) container
+- !ruby/struct:SM::Flow::P 
+  body: "The important methods are:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: HTML#contents=
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: HTML#to_text
+  type: :BULLET
+constants: []
+
+full_name: Jabber::XHTML::HTML
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: body
+- !ruby/object:RI::MethodSummary 
+  name: body=
+- !ruby/object:RI::MethodSummary 
+  name: contents=
+- !ruby/object:RI::MethodSummary 
+  name: set_body
+- !ruby/object:RI::MethodSummary 
+  name: set_contents
+- !ruby/object:RI::MethodSummary 
+  name: to_text
+name: HTML
+superclass: XMPPElement

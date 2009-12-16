@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize element with HTML contents (see HTML#contents=)
+full_name: Jabber::XHTML::HTML::new
+is_singleton: true
+name: new
+params: (contents=[])
+visibility: public

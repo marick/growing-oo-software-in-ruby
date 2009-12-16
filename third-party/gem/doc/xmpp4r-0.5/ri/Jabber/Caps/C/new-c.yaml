@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Caps::C::new
+is_singleton: true
+name: new
+params: (node = nil, ver = nil)
+visibility: public

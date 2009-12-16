@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set up the stream using uri as the HTTP Binding URI
+- !ruby/struct:SM::Flow::P 
+  body: You may optionally pass host and port parameters to make use of the JEP0124 'route' feature.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "uri:"
+    body: "[URI::Generic or String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "host:"
+    body: "[String] Optional host to route to"
+  - !ruby/struct:SM::Flow::LI 
+    label: "port:"
+    body: "[Fixnum] Port for route feature"
+  type: :NOTE
+full_name: Jabber::HTTPBinding::Client#connect
+is_singleton: false
+name: connect
+params: (uri, host=nil, port=5222)
+visibility: public

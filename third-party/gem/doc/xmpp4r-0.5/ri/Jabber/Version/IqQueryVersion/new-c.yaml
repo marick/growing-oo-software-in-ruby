@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new &lt;query xmlns='jabber:iq:version'/&gt; element
+full_name: Jabber::Version::IqQueryVersion::new
+is_singleton: true
+name: new
+params: (iname=nil, version=nil, os=nil)
+visibility: public

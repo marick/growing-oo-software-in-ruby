@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the values (in a Data Form with type='submit')
+full_name: Jabber::Dataforms::XDataField#values
+is_singleton: false
+name: values
+params: ()
+visibility: public

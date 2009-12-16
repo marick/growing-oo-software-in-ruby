@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Helper to manage discovery of Last Activity.
+constants: []
+
+full_name: Jabber::LastActivity::Helper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: get_last_activity_from
+name: Helper
+superclass: Object

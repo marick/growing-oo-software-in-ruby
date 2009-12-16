@@ -1,0 +1,69 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: escape
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The JID class represents a Jabber Identifier as described by RFC3920 section 3.1.
+- !ruby/struct:SM::Flow::P 
+  body: Note that you can use JIDs also for Sorting, Hash keys, ...
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PATTERN
+  value: /^(?:([^@]*)@)??([^@\/]*)(?:\/(.*?))?$/
+- !ruby/object:RI::Constant 
+  comment: 
+  name: USE_STRINGPREP
+  value: "true"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: USE_STRINGPREP
+  value: "false"
+full_name: Jabber::JID
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Comparable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: <=>
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: bare
+- !ruby/object:RI::MethodSummary 
+  name: bare!
+- !ruby/object:RI::MethodSummary 
+  name: bared?
+- !ruby/object:RI::MethodSummary 
+  name: domain
+- !ruby/object:RI::MethodSummary 
+  name: domain=
+- !ruby/object:RI::MethodSummary 
+  name: empty?
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: hash
+- !ruby/object:RI::MethodSummary 
+  name: node
+- !ruby/object:RI::MethodSummary 
+  name: node=
+- !ruby/object:RI::MethodSummary 
+  name: resource
+- !ruby/object:RI::MethodSummary 
+  name: resource=
+- !ruby/object:RI::MethodSummary 
+  name: strip
+- !ruby/object:RI::MethodSummary 
+  name: strip!
+- !ruby/object:RI::MethodSummary 
+  name: stripped?
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: JID
+superclass: Object

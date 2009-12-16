@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Search a field by it's var-name
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "var:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[XDataField] or [nil]"
+  type: :NOTE
+full_name: Jabber::Dataforms::XData#field
+is_singleton: false
+name: field
+params: (var)
+visibility: public

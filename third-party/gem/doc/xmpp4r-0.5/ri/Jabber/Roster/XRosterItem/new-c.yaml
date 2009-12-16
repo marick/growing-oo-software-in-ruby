@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Construct a new roster item
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] Jabber ID"
+  - !ruby/struct:SM::Flow::LI 
+    label: "iname:"
+    body: "[String] Name in the roster"
+  type: :NOTE
+full_name: Jabber::Roster::XRosterItem::new
+is_singleton: true
+name: new
+params: (jid=nil, iname=nil)
+visibility: public

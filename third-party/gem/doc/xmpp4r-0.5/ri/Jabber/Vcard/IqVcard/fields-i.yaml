@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get vCard field names
+- !ruby/struct:SM::Flow::P 
+  body: "Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " [&quot;NICKNAME&quot;, &quot;BDAY&quot;, &quot;ORG/ORGUNIT&quot;, &quot;PHOTO/TYPE&quot;, &quot;PHOTO/BINVAL&quot;]\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Array] of [String]"
+  type: :NOTE
+full_name: Jabber::Vcard::IqVcard#fields
+is_singleton: false
+name: fields
+params: ()
+visibility: public

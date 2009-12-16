@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Unlocks guarded section, increments number of free tickets
+full_name: Jabber::Semaphore#run
+is_singleton: false
+name: run
+params: ()
+visibility: public

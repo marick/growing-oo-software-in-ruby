@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get JID of roster item Resource of the JID will <em>not</em> be stripped
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[JID]"
+  type: :NOTE
+full_name: Jabber::Roster::RosterItem#jid
+is_singleton: false
+name: jid
+params: ()
+visibility: public

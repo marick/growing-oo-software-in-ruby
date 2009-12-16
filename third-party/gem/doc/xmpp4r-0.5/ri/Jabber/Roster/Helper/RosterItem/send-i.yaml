@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send the updated RosterItem to the server, i.e. if you modified iname, groups, ...
+full_name: Jabber::Roster::Helper::RosterItem#send
+is_singleton: false
+name: send
+params: ()
+visibility: public

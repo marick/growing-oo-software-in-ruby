@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: File-transfer meta-information, may appear as &lt;file/&gt; in IqSi
+constants: []
+
+full_name: Jabber::Bytestreams::IqSiFile
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: date
+- !ruby/object:RI::MethodSummary 
+  name: date=
+- !ruby/object:RI::MethodSummary 
+  name: description
+- !ruby/object:RI::MethodSummary 
+  name: description=
+- !ruby/object:RI::MethodSummary 
+  name: fname
+- !ruby/object:RI::MethodSummary 
+  name: fname=
+- !ruby/object:RI::MethodSummary 
+  name: hash
+- !ruby/object:RI::MethodSummary 
+  name: hash=
+- !ruby/object:RI::MethodSummary 
+  name: range
+- !ruby/object:RI::MethodSummary 
+  name: size
+- !ruby/object:RI::MethodSummary 
+  name: size=
+name: IqSiFile
+superclass: XMPPElement

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::PubSub::Items#subid=
+is_singleton: false
+name: subid=
+params: (mysubid)
+visibility: public

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>presence_updates (Jabber::Simple)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/xmpp4r-simple.rb, line 245</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">presence_updates</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">updates</span> = []
+      <span class="ruby-ivar">@presence_mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">dequeue</span>(<span class="ruby-identifier">:presence_updates</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">friend</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">presence</span> = <span class="ruby-ivar">@presence_updates</span>[<span class="ruby-identifier">friend</span>]
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">presence</span>
+          <span class="ruby-identifier">new_update</span> = [<span class="ruby-identifier">friend</span>, <span class="ruby-identifier">presence</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">presence</span>[<span class="ruby-value">1</span>]]
+          <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">new_update</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+          <span class="ruby-identifier">updates</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_update</span>
+          <span class="ruby-ivar">@presence_updates</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">friend</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">updates</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

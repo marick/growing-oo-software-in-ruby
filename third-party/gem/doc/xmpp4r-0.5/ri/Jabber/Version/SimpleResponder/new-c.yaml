@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a new version responder
+- !ruby/struct:SM::Flow::P 
+  body: Registers it's callback (prio = 180, ref = self)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Stream] Where to register callback handlers"
+  - !ruby/struct:SM::Flow::LI 
+    label: "name:"
+    body: "[String] Software name for answers"
+  - !ruby/struct:SM::Flow::LI 
+    label: "version:"
+    body: "[String] Software versio for answers"
+  - !ruby/struct:SM::Flow::LI 
+    label: "os:"
+    body: "[String] Optional operating system name for answers"
+  type: :NOTE
+full_name: Jabber::Version::SimpleResponder::new
+is_singleton: true
+name: new
+params: (stream, name, version, os=nil)
+visibility: public

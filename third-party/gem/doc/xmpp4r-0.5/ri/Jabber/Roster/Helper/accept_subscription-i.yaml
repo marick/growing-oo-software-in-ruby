@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Accept a subscription request
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Sends a &lt;presence type='subscribed'/&gt; stanza
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Adds the contact to your roster
+  type: :BULLET
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] of contact"
+  - !ruby/struct:SM::Flow::LI 
+    label: "iname:"
+    body: "[String] Optional roster item name"
+  type: :NOTE
+full_name: Jabber::Roster::Helper#accept_subscription
+is_singleton: false
+name: accept_subscription
+params: (jid, iname=nil)
+visibility: public

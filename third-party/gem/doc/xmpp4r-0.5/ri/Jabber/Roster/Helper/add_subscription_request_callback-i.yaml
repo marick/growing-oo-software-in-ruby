@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a callback for subscription requests, which will be called upon receiving a <tt>&lt;presence type='subscribe'/&gt;</tt> stanza
+- !ruby/struct:SM::Flow::P 
+  body: "The block receives two objects:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: the Jabber::Roster::Helper::RosterItem (or nil)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: the <tt>&lt;presence/&gt;</tt> stanza
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: Response to this event can be taken with accept_subscription and decline_subscription.
+- !ruby/struct:SM::Flow::P 
+  body: "Example usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " my_roster.add_subscription_request_callback do |item,presence|\n   if accept_subscription_requests\n     my_roster.accept_subscription(presence.from)\n   else\n     my_roster.decline_subscription(presence.from)\n   end\n end\n"
+full_name: Jabber::Roster::Helper#add_subscription_request_callback
+is_singleton: false
+name: add_subscription_request_callback
+params: (prio = 0, ref = nil, &block)
+visibility: public

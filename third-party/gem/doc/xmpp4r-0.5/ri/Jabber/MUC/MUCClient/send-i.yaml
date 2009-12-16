@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send a stanza to the room
+- !ruby/struct:SM::Flow::P 
+  body: If stanza is a Jabber::Message, <tt>stanza.type</tt> will be automatically set to :groupchat if directed to room or :chat if directed to participant.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stanza:"
+    body: "[XMPPStanza] to send"
+  - !ruby/struct:SM::Flow::LI 
+    label: "to:"
+    body: "[String] Stanza destination recipient, or room if <tt>nil</tt>"
+  type: :NOTE
+full_name: Jabber::MUC::MUCClient#send
+is_singleton: false
+name: send
+params: (stanza, to=nil)
+visibility: public

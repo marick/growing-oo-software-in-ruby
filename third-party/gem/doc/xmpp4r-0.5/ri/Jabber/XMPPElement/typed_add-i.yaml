@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a child element which will be imported according to the child's name and xmlns
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "element:"
+    body: "[REXML::Element] Child"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[REXML::Element or descendant of XMPPElement] New child"
+  type: :NOTE
+full_name: Jabber::XMPPElement#typed_add
+is_singleton: false
+name: typed_add
+params: (element)
+visibility: public

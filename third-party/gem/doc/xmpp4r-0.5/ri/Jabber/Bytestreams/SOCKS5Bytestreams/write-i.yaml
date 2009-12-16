@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send to the stream-host
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "buf:"
+    body: "[String] Data"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Fixnum] Amount of bytes sent"
+  type: :NOTE
+full_name: Jabber::Bytestreams::SOCKS5Bytestreams#write
+is_singleton: false
+name: write
+params: (buf)
+visibility: public

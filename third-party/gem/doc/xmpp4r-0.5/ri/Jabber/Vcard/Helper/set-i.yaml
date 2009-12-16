@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set your own vCard (Clients only)
+- !ruby/struct:SM::Flow::P 
+  body: Raises exception when setting fails
+- !ruby/struct:SM::Flow::P 
+  body: Usage of Threads suggested here, too. The function waits for approval from the server.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "iqvcard:"
+    body: "[Jabber::IqVcard]"
+  type: :NOTE
+full_name: Jabber::Vcard::Helper#set
+is_singleton: false
+name: set
+params: (iqvcard)
+visibility: public

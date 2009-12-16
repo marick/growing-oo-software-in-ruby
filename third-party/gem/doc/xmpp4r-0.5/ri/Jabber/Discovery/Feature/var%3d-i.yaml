@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the feature's var
+- !ruby/struct:SM::Flow::P 
+  body: This is a namespace the identity supports.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "val:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::Discovery::Feature#var=
+is_singleton: false
+name: var=
+params: (val)
+visibility: public

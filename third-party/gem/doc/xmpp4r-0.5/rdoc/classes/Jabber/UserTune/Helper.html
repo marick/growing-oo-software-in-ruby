@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::UserTune::Helper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::UserTune::Helper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/tune/helper/helper_rb.html">
+                lib/xmpp4r/tune/helper/helper.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                PubSub::ServiceHelper
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A <a href="Helper.html">Helper</a> for XEP-0118 User <a
+href="Tune.html">Tune</a>
+</p>
+<p>
+Use this helper to send user tunes, or receive them from a specified jid.
+Described at <a
+href="http://www.xmpp.org/extensions/xep-0118.html">www.xmpp.org/extensions/xep-0118.html</a>
+</p>
+<p>
+For example: &lt;pre&gt; h = <a href="Helper.html">UserTune::Helper</a>(
+@client, &#8216;radio1@hug.hellomatty.com&#8217; ) h.add_usertune_callback
+do |tune|
+</p>
+<pre>
+  puts &quot;Now playing: #{tune.title} by #{tune.artist}&quot;
+</pre>
+<p>
+end &lt;/pre&gt;
+</p>
+<p>
+Also see the examples provided.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000340">add_usertune_callback</a>&nbsp;&nbsp;
+      <a href="#M000338">now_playing</a>&nbsp;&nbsp;
+      <a href="#M000339">stop_playing</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000340" class="method-detail">
+        <a name="M000340"></a>
+
+        <div class="method-heading">
+          <a href="#M000340" class="method-signature">
+          <span class="method-name">add_usertune_callback</span><span class="method-args">(prio = 200, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback that will be invoked when a tune is received from the jid
+specified when you constructed the <a href="Helper.html">Helper</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000340-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000340-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/helper/helper.rb, line 48</span>
+48:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_usertune_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">200</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+49:         <span class="ruby-identifier">add_event_callback</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+50:           <span class="ruby-identifier">tune</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'items/item/tune'</span>)
+51:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tune</span>
+52:             <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">tune</span>)
+53:           <span class="ruby-keyword kw">end</span>
+54:         <span class="ruby-keyword kw">end</span>
+55:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000338" class="method-detail">
+        <a name="M000338"></a>
+
+        <div class="method-heading">
+          <a href="#M000338" class="method-signature">
+          <span class="method-name">now_playing</span><span class="method-args">(track)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send out the tune currently playing.
+</p>
+<table>
+<tr><td valign="top">track:</td><td>[<a href="Tune.html">Jabber::UserTune::Tune</a>] the tune currently playing
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000338-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000338-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/helper/helper.rb, line 31</span>
+31:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">now_playing</span>(<span class="ruby-identifier">track</span>)
+32:         <span class="ruby-identifier">item</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Item</span>.<span class="ruby-identifier">new</span>()
+33:         <span class="ruby-identifier">item</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">track</span>)
+34: 
+35:         <span class="ruby-identifier">publish_item_to</span>(<span class="ruby-constant">NS_USERTUNE</span>, <span class="ruby-identifier">item</span>)
+36:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000339" class="method-detail">
+        <a name="M000339"></a>
+
+        <div class="method-heading">
+          <a href="#M000339" class="method-signature">
+          <span class="method-name">stop_playing</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Use this method to indicate that you have stopped playing a tune.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000339-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000339-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/helper/helper.rb, line 41</span>
+41:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stop_playing</span>
+42:         <span class="ruby-identifier">now_playing</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">UserTune</span><span class="ruby-operator">::</span><span class="ruby-constant">Tune</span>.<span class="ruby-identifier">new</span>())
+43:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

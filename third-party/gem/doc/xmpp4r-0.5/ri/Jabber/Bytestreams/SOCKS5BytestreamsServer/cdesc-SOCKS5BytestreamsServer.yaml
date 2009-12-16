@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The SOCKS5BytestreamsServer is an implementation of a SOCKS5 server.
+- !ruby/struct:SM::Flow::P 
+  body: You can use it if you're reachable by your SOCKS5Bytestreams peers, thus avoiding use of an external proxy.
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: "Usage:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Instantiate with an unfirewalled port
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Add your external IP addresses with SOCKS5BytestreamsServer#add_address
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Once you've got an <b>outgoing</b> SOCKS5BytestreamsInitiator, do <tt>SOCKS5BytestreamsInitiator#add_streamhost(my_socks5bytestreamsserver)</tt> <b>before</b> you do <tt>SOCKS5BytestreamsInitiator#open</tt>
+  type: :BULLET
+constants: []
+
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsServer
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_address
+- !ruby/object:RI::MethodSummary 
+  name: each_streamhost
+- !ruby/object:RI::MethodSummary 
+  name: peer_sock
+name: SOCKS5BytestreamsServer
+superclass: Object

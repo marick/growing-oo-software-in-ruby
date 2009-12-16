@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: get the 'jid' attribute for this stanza
+full_name: Jabber::PubSub::SubscriptionConfig#jid
+is_singleton: false
+name: jid
+params: ()
+visibility: public

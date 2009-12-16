@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a MUCClient
+- !ruby/struct:SM::Flow::P 
+  body: Call MUCClient#join <b>after</b> you have registered your callbacks to avoid reception of stanzas after joining and before registration of callbacks.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Stream] to operate on"
+  type: :NOTE
+full_name: Jabber::MUC::MUCClient::new
+is_singleton: true
+name: new
+params: (stream)
+visibility: public

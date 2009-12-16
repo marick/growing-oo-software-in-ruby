@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: MD5-Sum of the offered file, can be nil
+full_name: Jabber::FileTransfer::TransferSource#md5
+is_singleton: false
+name: md5
+params: ()
+visibility: public

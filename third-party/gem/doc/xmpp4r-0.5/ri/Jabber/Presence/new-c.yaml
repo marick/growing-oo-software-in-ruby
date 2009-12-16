@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create presence stanza
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "show:"
+    body: "[Symbol] Initial Availability Status (see show)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "status:"
+    body: "[String] Initial status message"
+  - !ruby/struct:SM::Flow::LI 
+    label: "priority:"
+    body: "[Fixnum] Initial priority value"
+  type: :NOTE
+full_name: Jabber::Presence::new
+is_singleton: true
+name: new
+params: (show=nil, status=nil, priority=nil)
+visibility: public

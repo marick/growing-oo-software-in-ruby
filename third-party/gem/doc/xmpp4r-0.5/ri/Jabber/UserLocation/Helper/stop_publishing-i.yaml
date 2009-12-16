@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use this method to indicate that you wish to stop publishing a location.
+full_name: Jabber::UserLocation::Helper#stop_publishing
+is_singleton: false
+name: stop_publishing
+params: ()
+visibility: public

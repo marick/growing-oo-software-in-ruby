@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Test::ListenerMocker::mock_out_all_connections
+is_singleton: true
+name: mock_out_all_connections
+params: ()
+visibility: public

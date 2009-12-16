@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the timestamp's origin (chaining-friendly)
+full_name: Jabber::Delay::XDelay#set_from
+is_singleton: false
+name: set_from
+params: (jid)
+visibility: public

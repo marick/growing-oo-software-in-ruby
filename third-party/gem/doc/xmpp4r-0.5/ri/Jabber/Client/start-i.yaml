@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Start the stream-parser and send the client-specific stream opening element
+full_name: Jabber::Client#start
+is_singleton: false
+name: start
+params: ()
+visibility: public

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns an array of subscription notifications received since the last time new_subscriptions was called. Passing a block will yield each update in turn, allowing you to break part-way through processing (especially useful when your subscription handling code is not thread-safe (e.g., ActiveRecord).
+- !ruby/struct:SM::Flow::P 
+  body: "e.g.:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  jabber.new_subscriptions do |friend, presence|\n    puts &quot;Received presence update from #{friend.to_s}: #{presence}&quot;\n  end\n"
+full_name: Jabber::Simple#new_subscriptions
+is_singleton: false
+name: new_subscriptions
+params: (&block)
+visibility: public

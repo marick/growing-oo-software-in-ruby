@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Close the stream-host connection
+full_name: Jabber::Bytestreams::SOCKS5Bytestreams#close
+is_singleton: false
+name: close
+params: ()
+visibility: public

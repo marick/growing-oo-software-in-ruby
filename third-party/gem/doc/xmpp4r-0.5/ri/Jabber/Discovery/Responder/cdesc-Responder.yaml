@@ -1,0 +1,90 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Features returned on Discovery Info query,
+  - !ruby/struct:SM::Flow::P 
+    body: Array of [Discovery::Feature]
+  name: features
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Forms returned on Discovery Info query (such as Software Information)
+  - !ruby/struct:SM::Flow::P 
+    body: Array of [Dataforms::XData]
+  name: forms
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Identities returned on Discovery Info query
+  - !ruby/struct:SM::Flow::P 
+    body: Array of [Discovery::Identity]
+  name: identities
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Children returned on Discovery Item query
+  - !ruby/struct:SM::Flow::P 
+    body: May contain other Discovery::Responder instances which will generate an item dynamically from their first identity
+  - !ruby/struct:SM::Flow::P 
+    body: Array of [Discovery::Item] or [Discovery::Responder] (mixed)
+  name: items
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Set the JID this helper feels responsible for (default: nil, responsible for any JID)"
+  name: my_jid
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Service Discovery node this Responder is responsible for (will not answer queries for other nodes)
+  name: node
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Responds to Service Discovery queries on a given node
+- !ruby/struct:SM::Flow::P 
+  body: "Modify returned elements by these attributes:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Responder#identities
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Responder#features (Responder#add_features is a short-cut accepting an Array of Strings, too)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Responder#forms
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Responder#items
+  type: :BULLET
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CALLBACK_PRIORITY
+  value: "180"
+full_name: Jabber::Discovery::Responder
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_feature
+- !ruby/object:RI::MethodSummary 
+  name: add_features
+- !ruby/object:RI::MethodSummary 
+  name: generate_caps
+- !ruby/object:RI::MethodSummary 
+  name: generate_item
+name: Responder
+superclass: Object

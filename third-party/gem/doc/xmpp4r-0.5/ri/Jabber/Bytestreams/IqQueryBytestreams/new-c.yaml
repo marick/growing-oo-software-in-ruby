@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize such a &lt;query/&gt;
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "sid:"
+    body: "[String] Session-ID"
+  - !ruby/struct:SM::Flow::LI 
+    label: "mode:"
+    body: "[Symbol] :tcp or :udp"
+  type: :NOTE
+full_name: Jabber::Bytestreams::IqQueryBytestreams::new
+is_singleton: true
+name: new
+params: (sid=nil, mode=nil)
+visibility: public

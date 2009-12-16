@@ -1,0 +1,44 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Compose a response by doing the following:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Create a new XMPPStanza of the same subclass with the same element-name
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Import xmppstanza if import is true
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Swap 'to' and 'from'
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Copy 'id'
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Does not take care about the type
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "<b>Attention</b>: Be careful when answering to stanzas with <tt>type == :error</tt> - answering to an error may generate another error on the other side, which could be leading to a ping-pong effect quickly!"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "xmppstanza:"
+    body: "[XMPPStanza] source"
+  - !ruby/struct:SM::Flow::LI 
+    label: "import:"
+    body: "[true or false] Copy attributes and children of source"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[XMPPStanza] answer stanza"
+  type: :NOTE
+full_name: Jabber::XMPPStanza::answer
+is_singleton: true
+name: answer
+params: (xmppstanza, import=true)
+visibility: public

@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Roster::Helper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Roster::Helper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/roster/helper/roster_rb.html">
+                lib/xmpp4r/roster/helper/roster.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="../Roster.html">Roster</a> helper intercepts
+<tt>&lt;iq/&gt;</tt> stanzas with Jabber::IqQueryRoster and
+<tt>&lt;presence/&gt;</tt> stanzas, but provides cbs which allow the
+programmer to keep track of updates.
+</p>
+<p>
+A thread for any received stanza is spawned, so the user can invoke <a
+href="Helper.html#M000052">accept_subscription</a> et al in the callback
+blocks, without stopping the current (= parser) thread when waiting for a
+reply.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000047">[]</a>&nbsp;&nbsp;
+      <a href="#M000052">accept_subscription</a>&nbsp;&nbsp;
+      <a href="#M000051">add</a>&nbsp;&nbsp;
+      <a href="#M000044">add_presence_callback</a>&nbsp;&nbsp;
+      <a href="#M000042">add_query_callback</a>&nbsp;&nbsp;
+      <a href="#M000045">add_subscription_callback</a>&nbsp;&nbsp;
+      <a href="#M000046">add_subscription_request_callback</a>&nbsp;&nbsp;
+      <a href="#M000043">add_update_callback</a>&nbsp;&nbsp;
+      <a href="#M000053">decline_subscription</a>&nbsp;&nbsp;
+      <a href="#M000048">find</a>&nbsp;&nbsp;
+      <a href="#M000050">find_by_group</a>&nbsp;&nbsp;
+      <a href="#M000040">get_roster</a>&nbsp;&nbsp;
+      <a href="#M000049">groups</a>&nbsp;&nbsp;
+      <a href="#M000039">new</a>&nbsp;&nbsp;
+      <a href="#M000041">wait_for_roster</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Helper/RosterItem.html" class="link">Jabber::Roster::Helper::RosterItem</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">items</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+All items in your roster
+
+<table>
+<tr><td valign="top">items:</td><td>[Hash] ([<a href="../JID.html">JID</a>] =&gt; [<a
+href="Helper/RosterItem.html">Roster::Helper::RosterItem</a>])
+
+</td></tr>
+</table>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="#M000039" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(stream, startnow = true)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initialize a <a href="Helper.html#M000039">new</a> <a
+href="../Roster.html">Roster</a> helper
+</p>
+<p>
+Registers its cbs (prio = 120, ref = self)
+</p>
+<p>
+Request a roster (Remember to send initial presence afterwards!)
+</p>
+<p>
+The initialization will not wait for the roster being received, use <a
+href="Helper.html#M000041">wait_for_roster</a>.
+</p>
+<p>
+<b>Attention:</b> If you send presence and receive presences before the
+roster has arrived, the <a href="../Roster.html">Roster</a> helper will let
+them pass through and does <b>not</b> keep them!
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 39</span>
+39:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">stream</span>, <span class="ruby-identifier">startnow</span> = <span class="ruby-keyword kw">true</span>)
+40:         <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">stream</span>
+41:         <span class="ruby-ivar">@items</span> = {}
+42:         <span class="ruby-ivar">@items_lock</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+43:         <span class="ruby-ivar">@roster_wait</span> = <span class="ruby-constant">Semaphore</span>.<span class="ruby-identifier">new</span>
+44:         <span class="ruby-ivar">@query_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+45:         <span class="ruby-ivar">@update_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+46:         <span class="ruby-ivar">@presence_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+47:         <span class="ruby-ivar">@subscription_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+48:         <span class="ruby-ivar">@subscription_request_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+49: 
+50:         <span class="ruby-comment cmt"># Register cbs</span>
+51:         <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">add_iq_callback</span>(<span class="ruby-value">120</span>, <span class="ruby-keyword kw">self</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">iq</span><span class="ruby-operator">|</span>
+52:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">IqQueryRoster</span>)
+53:             <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+54:               <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword kw">true</span>
+55:               <span class="ruby-identifier">handle_iq_query_roster</span>(<span class="ruby-identifier">iq</span>)
+56:             <span class="ruby-keyword kw">end</span>
+57: 
+58:             <span class="ruby-keyword kw">true</span>
+59:           <span class="ruby-keyword kw">else</span>
+60:             <span class="ruby-keyword kw">false</span>
+61:           <span class="ruby-keyword kw">end</span>
+62:         }
+63:         <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">add_presence_callback</span>(<span class="ruby-value">120</span>, <span class="ruby-keyword kw">self</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">pres</span><span class="ruby-operator">|</span>
+64:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+65:             <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword kw">true</span>
+66:             <span class="ruby-identifier">handle_presence</span>(<span class="ruby-identifier">pres</span>)
+67:           <span class="ruby-keyword kw">end</span>
+68:         }
+69:         <span class="ruby-identifier">get_roster</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">startnow</span>
+70:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="#M000047" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(jid)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get an item by jid
+</p>
+<p>
+If not available tries to look for it with the resource stripped
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000047-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 247</span>
+247:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">jid</span>)
+248:         <span class="ruby-identifier">jid</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">JID</span>
+249: 
+250:         <span class="ruby-ivar">@items_lock</span>.<span class="ruby-identifier">synchronize</span> {
+251:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">jid</span>)
+252:             <span class="ruby-ivar">@items</span>[<span class="ruby-identifier">jid</span>]
+253:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+254:             <span class="ruby-ivar">@items</span>[<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>]
+255:           <span class="ruby-keyword kw">else</span>
+256:             <span class="ruby-keyword kw">nil</span>
+257:           <span class="ruby-keyword kw">end</span>
+258:         }
+259:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="#M000052" class="method-signature">
+          <span class="method-name">accept_subscription</span><span class="method-args">(jid, iname=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accept a subscription request
+</p>
+<ul>
+<li>Sends a &lt;presence type=&#8216;subscribed&#8217;/&gt; stanza
+
+</li>
+<li>Adds the contact to your roster
+
+</li>
+</ul>
+<table>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">JID</a>] of contact
+
+</td></tr>
+<tr><td valign="top">iname:</td><td>[String] Optional roster item name
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000052-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 350</span>
+350:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">accept_subscription</span>(<span class="ruby-identifier">jid</span>, <span class="ruby-identifier">iname</span>=<span class="ruby-keyword kw">nil</span>)
+351:         <span class="ruby-identifier">pres</span> = <span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">set_type</span>(<span class="ruby-identifier">:subscribed</span>).<span class="ruby-identifier">set_to</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+352:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pres</span>)
+353: 
+354:         <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>]
+355:           <span class="ruby-identifier">request</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new_rosterset</span>
+356:           <span class="ruby-identifier">request</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Roster</span><span class="ruby-operator">::</span><span class="ruby-constant">RosterItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>, <span class="ruby-identifier">iname</span>))
+357:           <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">request</span>)
+358:         <span class="ruby-keyword kw">end</span>
+359:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="#M000051" class="method-signature">
+          <span class="method-name">add</span><span class="method-args">(jid, iname=nil, subscribe=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a user to your roster
+</p>
+<p>
+Threading is encouraged as the function waits for a result. ServerError is
+thrown upon error.
+</p>
+<p>
+See <a
+href="Helper/RosterItem.html#M000061">Jabber::Roster::Helper::RosterItem#subscribe</a>
+for details about subscribing. (This method isn&#8216;t used here but the
+same functionality applies.)
+</p>
+<p>
+If the item is already in the local roster it will simply send itself
+</p>
+<table>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">JID</a>] to <a href="Helper.html#M000051">add</a>
+
+</td></tr>
+<tr><td valign="top">iname:</td><td>[String] Optional item name
+
+</td></tr>
+<tr><td valign="top">subscribe:</td><td>[Boolean] Whether to subscribe to this jid
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000051-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 326</span>
+326:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">jid</span>, <span class="ruby-identifier">iname</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">subscribe</span>=<span class="ruby-keyword kw">false</span>)
+327:         <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">jid</span>]
+328:           <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">jid</span>].<span class="ruby-identifier">send</span>
+329:         <span class="ruby-keyword kw">else</span>
+330:           <span class="ruby-identifier">request</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new_rosterset</span>
+331:           <span class="ruby-identifier">request</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Roster</span><span class="ruby-operator">::</span><span class="ruby-constant">RosterItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>, <span class="ruby-identifier">iname</span>))
+332:           <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">request</span>)
+333:           <span class="ruby-comment cmt"># Adding to list is handled by handle_iq_query_roster</span>
+334:         <span class="ruby-keyword kw">end</span>
+335: 
+336:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">subscribe</span>
+337:           <span class="ruby-comment cmt"># Actually the item *should* already be known now,</span>
+338:           <span class="ruby-comment cmt"># but we do it manually to exclude conditions.</span>
+339:           <span class="ruby-identifier">pres</span> = <span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">set_type</span>(<span class="ruby-identifier">:subscribe</span>).<span class="ruby-identifier">set_to</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+340:           <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pres</span>)
+341:         <span class="ruby-keyword kw">end</span>
+342:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="#M000044" class="method-signature">
+          <span class="method-name">add_presence_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for <a href="../Presence.html">Jabber::Presence</a> updates
+</p>
+<p>
+This will be called for <tt>&lt;presence/&gt;</tt> stanzas for known
+RosterItems. Unknown JIDs may still pass and can be caught via <a
+href="../Stream.html#M000653">Jabber::Stream#add_presence_callback</a>.
+</p>
+<p>
+The block receives three objects:
+</p>
+<ul>
+<li>the <a href="Helper/RosterItem.html">Jabber::Roster::Helper::RosterItem</a>
+
+</li>
+<li>the old <a href="../Presence.html">Jabber::Presence</a> (or nil)
+
+</li>
+<li>the <a href="Helper.html#M000039">new</a> <a
+href="../Presence.html">Jabber::Presence</a> (or nil)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000044-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 119</span>
+119:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_presence_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+120:         <span class="ruby-ivar">@presence_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+121:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="#M000042" class="method-signature">
+          <span class="method-name">add_query_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback to be called when a query has been processed
+</p>
+<p>
+Because update callbacks are called for each roster item, this may be
+appropriate to notify that <b>anything</b> has updated.
+</p>
+<p>
+Arguments for callback block: The received <tt>&lt;iq/&gt;</tt> stanza
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 92</span>
+92:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_query_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+93:         <span class="ruby-ivar">@query_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+94:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="#M000045" class="method-signature">
+          <span class="method-name">add_subscription_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for subscription updates, which will be called upon
+receiving a <tt>&lt;presence/&gt;</tt> stanza with type:
+</p>
+<ul>
+<li>:subscribed
+
+</li>
+<li>:unsubscribe
+
+</li>
+<li>:unsubscribed
+
+</li>
+</ul>
+<p>
+The block receives two objects:
+</p>
+<ul>
+<li>the <a href="Helper/RosterItem.html">Jabber::Roster::Helper::RosterItem</a>
+(or nil)
+
+</li>
+<li>the <tt>&lt;presence/&gt;</tt> stanza
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000045-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000045-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 134</span>
+134:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_subscription_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+135:         <span class="ruby-ivar">@subscription_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+136:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="#M000046" class="method-signature">
+          <span class="method-name">add_subscription_request_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for subscription requests, which will be called upon
+receiving a <tt>&lt;presence type=&#8216;subscribe&#8217;/&gt;</tt> stanza
+</p>
+<p>
+The block receives two objects:
+</p>
+<ul>
+<li>the <a href="Helper/RosterItem.html">Jabber::Roster::Helper::RosterItem</a>
+(or nil)
+
+</li>
+<li>the <tt>&lt;presence/&gt;</tt> stanza
+
+</li>
+</ul>
+<p>
+Response to this event can be taken with <a
+href="Helper.html#M000052">accept_subscription</a> and <a
+href="Helper.html#M000053">decline_subscription</a>.
+</p>
+<p>
+Example usage:
+</p>
+<pre>
+ my_roster.add_subscription_request_callback do |item,presence|
+   if accept_subscription_requests
+     my_roster.accept_subscription(presence.from)
+   else
+     my_roster.decline_subscription(presence.from)
+   end
+ end
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000046-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 157</span>
+157:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_subscription_request_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+158:         <span class="ruby-ivar">@subscription_request_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+159:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="#M000043" class="method-signature">
+          <span class="method-name">add_update_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for <a
+href="Helper/RosterItem.html">Jabber::Roster::Helper::RosterItem</a>
+updates
+</p>
+<p>
+Note that this will be called much after initialization for the answer of
+the initial roster request
+</p>
+<p>
+The block receives two objects:
+</p>
+<ul>
+<li>the old <a
+href="Helper/RosterItem.html">Jabber::Roster::Helper::RosterItem</a>
+
+</li>
+<li>the <a href="Helper.html#M000039">new</a> <a
+href="Helper/RosterItem.html">Jabber::Roster::Helper::RosterItem</a>
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000043-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 105</span>
+105:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_update_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+106:         <span class="ruby-ivar">@update_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+107:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="#M000053" class="method-signature">
+          <span class="method-name">decline_subscription</span><span class="method-args">(jid)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decline a subscription request
+</p>
+<ul>
+<li>Sends a &lt;presence type=&#8216;unsubscribed&#8217;/&gt; stanza
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000053-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 364</span>
+364:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">decline_subscription</span>(<span class="ruby-identifier">jid</span>)
+365:         <span class="ruby-identifier">pres</span> = <span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">set_type</span>(<span class="ruby-identifier">:unsubscribed</span>).<span class="ruby-identifier">set_to</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+366:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pres</span>)
+367:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="#M000048" class="method-signature">
+          <span class="method-name">find</span><span class="method-args">(jid)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the list of RosterItems which, stripped, are equal to the one you
+are looking for.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000048-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 264</span>
+264:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">jid</span>)
+265:         <span class="ruby-identifier">jid</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">JID</span>
+266: 
+267:         <span class="ruby-identifier">j</span> = <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>
+268:         <span class="ruby-identifier">l</span> = {}
+269:         <span class="ruby-ivar">@items_lock</span>.<span class="ruby-identifier">synchronize</span> {
+270:           <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+271:             <span class="ruby-identifier">l</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">j</span>
+272:           <span class="ruby-keyword kw">end</span>
+273:         }
+274:         <span class="ruby-identifier">l</span>
+275:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">find_by_group</span><span class="method-args">(group)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get items in a group
+</p>
+<p>
+When group is nil, return ungrouped items
+</p>
+<table>
+<tr><td valign="top">group:</td><td>[String] Group name
+
+</td></tr>
+<tr><td valign="top">result:</td><td>Array of [<a href="Helper/RosterItem.html">RosterItem</a>]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 300</span>
+300:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_by_group</span>(<span class="ruby-identifier">group</span>)
+301:         <span class="ruby-identifier">res</span> = []
+302:         <span class="ruby-ivar">@items_lock</span>.<span class="ruby-identifier">synchronize</span> {
+303:           <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">jid</span>,<span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+304:             <span class="ruby-identifier">res</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">item</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">group</span>)
+305:             <span class="ruby-identifier">res</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">item</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">groups</span> <span class="ruby-operator">==</span> [] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">nil?</span>
+306:           <span class="ruby-keyword kw">end</span>
+307:         }
+308:         <span class="ruby-identifier">res</span>
+309:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="#M000040" class="method-signature">
+          <span class="method-name">get_roster</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 72</span>
+72:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_roster</span>
+73:         <span class="ruby-comment cmt"># Request the roster</span>
+74:         <span class="ruby-identifier">rosterget</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new_rosterget</span>
+75:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">rosterget</span>)
+76:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">groups</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Groups in this <a href="../Roster.html">Roster</a>, sorted by name
+</p>
+<p>
+Contains <tt>nil</tt> if there are ungrouped items
+</p>
+<table>
+<tr><td valign="top">result:</td><td>[Array] containing group names (String)
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 283</span>
+283:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">groups</span>
+284:         <span class="ruby-identifier">res</span> = []
+285:         <span class="ruby-ivar">@items_lock</span>.<span class="ruby-identifier">synchronize</span> {
+286:           <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">jid</span>,<span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+287:             <span class="ruby-identifier">res</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">groups</span>
+288:             <span class="ruby-identifier">res</span> <span class="ruby-operator">+=</span> [<span class="ruby-keyword kw">nil</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">groups</span> <span class="ruby-operator">==</span> []
+289:           <span class="ruby-keyword kw">end</span>
+290:         }
+291:         <span class="ruby-identifier">res</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sort</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">to_s</span> }
+292:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="#M000041" class="method-signature">
+          <span class="method-name">wait_for_roster</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for first roster query result to arrive
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/roster/helper/roster.rb, line 80</span>
+80:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wait_for_roster</span>
+81:         <span class="ruby-ivar">@roster_wait</span>.<span class="ruby-identifier">wait</span>
+82:         <span class="ruby-ivar">@roster_wait</span>.<span class="ruby-identifier">run</span>
+83:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the floor attribute of this location.
+full_name: Jabber::UserLocation::Location#floor
+is_singleton: false
+name: floor
+params: ()
+visibility: public

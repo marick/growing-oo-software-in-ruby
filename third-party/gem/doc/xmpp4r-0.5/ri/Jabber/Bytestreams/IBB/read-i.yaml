@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Receive data
+- !ruby/struct:SM::Flow::P 
+  body: Will wait until the Message with the next sequence number is in the stanza queue.
+full_name: Jabber::Bytestreams::IBB#read
+is_singleton: false
+name: read
+params: ()
+visibility: public

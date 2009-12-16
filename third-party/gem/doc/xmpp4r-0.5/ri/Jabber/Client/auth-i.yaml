@@ -1,0 +1,34 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Authenticate with the server
+- !ruby/struct:SM::Flow::P 
+  body: Throws ClientAuthenticationFailure
+- !ruby/struct:SM::Flow::P 
+  body: "Authentication mechanisms are used in the following preference:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: SASL DIGEST-MD5
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: SASL PLAIN
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Non-SASL digest
+  type: :BULLET
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "password:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::Client#auth
+is_singleton: false
+name: auth
+params: (password)
+visibility: public

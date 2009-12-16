@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The &lt;reported/&gt; element, can contain XDataField elements
+constants: []
+
+full_name: Jabber::Dataforms::XDataReported
+includes: []
+
+instance_methods: []
+
+name: XDataReported
+superclass: XMPPElement

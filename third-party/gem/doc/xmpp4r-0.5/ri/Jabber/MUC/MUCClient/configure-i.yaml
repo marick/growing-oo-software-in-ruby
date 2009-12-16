@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Use this method to configure a MUC room of which you are the owner.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "options:"
+    body: "[Hash] where keys are the features of the room you wish"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: to configure. See http://www.xmpp.org/extensions/xep-0045.html#registrar-formtype-owner
+full_name: Jabber::MUC::MUCClient#configure
+is_singleton: false
+name: configure
+params: (options={})
+visibility: public

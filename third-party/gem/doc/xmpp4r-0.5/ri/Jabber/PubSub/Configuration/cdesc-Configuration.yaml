@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Jabber::PubSub::Configuration
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: form
+- !ruby/object:RI::MethodSummary 
+  name: form=
+- !ruby/object:RI::MethodSummary 
+  name: form_type
+- !ruby/object:RI::MethodSummary 
+  name: node
+- !ruby/object:RI::MethodSummary 
+  name: node=
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: options=
+name: Configuration
+superclass: XMPPElement

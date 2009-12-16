@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get roster item by JID
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] or [Nil]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[RosterItem]"
+  type: :NOTE
+full_name: Jabber::Roster::IqQueryRoster#[]
+is_singleton: false
+name: "[]"
+params: (jid)
+visibility: public

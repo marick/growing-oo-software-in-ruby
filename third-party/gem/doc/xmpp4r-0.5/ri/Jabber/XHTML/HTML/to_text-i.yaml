@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convert contents of this XHTML container to plain text for easy usage with an additional fall-back &lt;body/&gt; in message stanzas
+- !ruby/struct:SM::Flow::P 
+  body: "The resulting string is recursively composed of the text nodes of all children. This works because of the design criteria of HTML/XHTML: readable content is not being put into attributes but as text children."
+- !ruby/struct:SM::Flow::P 
+  body: If you require clickable links and proper information representation then compose the text yourself!
+full_name: Jabber::XHTML::HTML#to_text
+is_singleton: false
+name: to_text
+params: ()
+visibility: public

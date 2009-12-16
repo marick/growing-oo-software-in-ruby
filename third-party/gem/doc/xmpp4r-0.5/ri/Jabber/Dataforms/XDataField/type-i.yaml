@@ -1,0 +1,51 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Type of this field
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "* :boolean"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":fixed"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":hidden"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":jid_multi"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":jid_single"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":list_multi"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":list_single"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":text_multi"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":text_private"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":text_single"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: nil
+    type: :BULLET
+  type: :NOTE
+full_name: Jabber::Dataforms::XDataField#type
+is_singleton: false
+name: type
+params: ()
+visibility: public

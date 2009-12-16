@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set XML language attribute (chainable)
+full_name: Jabber::XMPPElement#set_xml_lang
+is_singleton: false
+name: set_xml_lang
+params: (l)
+visibility: public

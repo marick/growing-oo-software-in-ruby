@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if this Jabber account is subscribed to status updates for the jabber user jid, false otherwise.
+full_name: Jabber::Simple#subscribed_to?
+is_singleton: false
+name: subscribed_to?
+params: (jid)
+visibility: public

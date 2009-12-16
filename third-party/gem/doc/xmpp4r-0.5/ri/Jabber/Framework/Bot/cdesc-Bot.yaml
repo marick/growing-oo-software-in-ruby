@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Abstract handler methods that <b>may</b> be implemented by a deriving class:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: on_message(text)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: on_message_xhtml(html_body, text)
+  type: :BULLET
+constants: []
+
+full_name: Jabber::Framework::Bot
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: accept_subscription_from?
+- !ruby/object:RI::MethodSummary 
+  name: add_cap
+- !ruby/object:RI::MethodSummary 
+  name: add_pep_notification
+- !ruby/object:RI::MethodSummary 
+  name: send_message
+- !ruby/object:RI::MethodSummary 
+  name: send_message_xhtml
+- !ruby/object:RI::MethodSummary 
+  name: set_presence
+name: Bot
+superclass: Base

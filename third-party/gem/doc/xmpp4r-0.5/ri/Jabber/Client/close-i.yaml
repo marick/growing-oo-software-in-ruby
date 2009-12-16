@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Close the connection, sends <tt>&lt;/stream:stream&gt;</tt> tag first
+full_name: Jabber::Client#close
+is_singleton: false
+name: close
+params: ()
+visibility: public

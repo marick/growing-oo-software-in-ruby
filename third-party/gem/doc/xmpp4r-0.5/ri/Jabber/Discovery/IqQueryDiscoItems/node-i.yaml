@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the queried Service Discovery node or nil
+- !ruby/struct:SM::Flow::P 
+  body: A Service Discovery node is <em>not</em> a JID node, this may be a bit confusing. It's just to make Service Discovery browsing a bit more structured.
+full_name: Jabber::Discovery::IqQueryDiscoItems#node
+is_singleton: false
+name: node
+params: ()
+visibility: public

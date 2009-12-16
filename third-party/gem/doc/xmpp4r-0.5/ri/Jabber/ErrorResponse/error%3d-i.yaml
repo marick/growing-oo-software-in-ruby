@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the 'XMPP error condition'
+- !ruby/struct:SM::Flow::P 
+  body: One previous element with that namespace will be deleted before
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "s:"
+    body: "[String] Name of the element to be added,"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: namespace will be added automatically, checks don't apply here
+full_name: Jabber::ErrorResponse#error=
+is_singleton: false
+name: error=
+params: (s)
+visibility: public

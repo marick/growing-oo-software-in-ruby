@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Receive from the stream-host
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "length:"
+    body: "[Fixnum] Amount of bytes (Will be passed to TCPSocket#read for the underlying SOCKS5 connection)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[String] (or [nil] if finished)"
+  type: :NOTE
+full_name: Jabber::Bytestreams::SOCKS5Bytestreams#read
+is_singleton: false
+name: read
+params: (length=nil)
+visibility: public

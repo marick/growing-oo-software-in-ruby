@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Dataforms::XData</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Dataforms::XData</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/dataforms/x/data_rb.html">
+                lib/xmpp4r/dataforms/x/data.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                X
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Data Forms (JEP-0004) implementation
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000529">field</a>&nbsp;&nbsp;
+      <a href="#M000530">fields</a>&nbsp;&nbsp;
+      <a href="#M000535">instructions</a>&nbsp;&nbsp;
+      <a href="#M000536">instructions=</a>&nbsp;&nbsp;
+      <a href="#M000528">new</a>&nbsp;&nbsp;
+      <a href="#M000533">title</a>&nbsp;&nbsp;
+      <a href="#M000534">title=</a>&nbsp;&nbsp;
+      <a href="#M000531">type</a>&nbsp;&nbsp;
+      <a href="#M000532">type=</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000528" class="method-detail">
+        <a name="M000528"></a>
+
+        <div class="method-heading">
+          <a href="#M000528" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(type=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000528-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000528-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 15</span>
+15:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">type</span>=<span class="ruby-keyword kw">nil</span>)
+16:         <span class="ruby-keyword kw">super</span>()
+17:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">type</span>
+18:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000529" class="method-detail">
+        <a name="M000529"></a>
+
+        <div class="method-heading">
+          <a href="#M000529" class="method-signature">
+          <span class="method-name">field</span><span class="method-args">(var)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search a <a href="XData.html#M000529">field</a> by it&#8216;s var-name
+</p>
+<table>
+<tr><td valign="top">var:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">result:</td><td>[<a href="XDataField.html">XDataField</a>] or [nil]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000529-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000529-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 24</span>
+24:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">field</span>(<span class="ruby-identifier">var</span>)
+25:         <span class="ruby-identifier">each_element</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">xe</span><span class="ruby-operator">|</span>
+26:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">xe</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">xe</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">XDataField</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">xe</span>.<span class="ruby-identifier">var</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">var</span>
+27:         }
+28:         <span class="ruby-keyword kw">nil</span>
+29:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000530" class="method-detail">
+        <a name="M000530"></a>
+
+        <div class="method-heading">
+          <a href="#M000530" class="method-signature">
+          <span class="method-name">fields</span><span class="method-args">(including_hidden=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000530-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000530-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 31</span>
+31:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fields</span>(<span class="ruby-identifier">including_hidden</span>=<span class="ruby-keyword kw">false</span>)
+32:         <span class="ruby-identifier">fields</span> = []
+33:         <span class="ruby-identifier">each_element</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xe</span><span class="ruby-operator">|</span>
+34:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">xe</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">XDataField</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">including_hidden</span> <span class="ruby-keyword kw">or</span>
+35:                                           (<span class="ruby-identifier">xe</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">:hidden</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">xe</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">:fixed</span>))
+36:             <span class="ruby-identifier">fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">xe</span>
+37:           <span class="ruby-keyword kw">end</span>
+38:         <span class="ruby-keyword kw">end</span>
+39:         <span class="ruby-identifier">fields</span>
+40:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000535" class="method-detail">
+        <a name="M000535"></a>
+
+        <div class="method-heading">
+          <a href="#M000535" class="method-signature">
+          <span class="method-name">instructions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the Data Form <a href="XData.html#M000535">instructions</a>
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[Array] of [<a href="XDataInstructions.html">XDataInstructions</a>] or nil
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000535-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000535-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 89</span>
+89:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">instructions</span>
+90:         <span class="ruby-identifier">fields</span> = []
+91:         <span class="ruby-identifier">each_element</span>(<span class="ruby-value str">'instructions'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xe</span><span class="ruby-operator">|</span>
+92:           <span class="ruby-identifier">fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">xe</span>
+93:         <span class="ruby-keyword kw">end</span>
+94:         <span class="ruby-identifier">fields</span>
+95:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000536" class="method-detail">
+        <a name="M000536"></a>
+
+        <div class="method-heading">
+          <a href="#M000536" class="method-signature">
+          <span class="method-name">instructions=</span><span class="method-args">(i)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add Data Form <a href="XData.html#M000535">instructions</a>
+</p>
+<table>
+<tr><td valign="top">i:</td><td>[String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000536-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000536-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 100</span>
+100:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">instructions=</span>(<span class="ruby-identifier">i</span>)
+101:         <span class="ruby-identifier">add</span>(<span class="ruby-constant">XDataInstructions</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">i</span>))
+102:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000533" class="method-detail">
+        <a name="M000533"></a>
+
+        <div class="method-heading">
+          <a href="#M000533" class="method-signature">
+          <span class="method-name">title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the Data Form <a href="XData.html#M000533">title</a>
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[<a href="XDataTitle.html">XDataTitle</a>] or nil
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000533-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000533-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 74</span>
+74:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>
+75:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'title'</span>)
+76:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000534" class="method-detail">
+        <a name="M000534"></a>
+
+        <div class="method-heading">
+          <a href="#M000534" class="method-signature">
+          <span class="method-name">title=</span><span class="method-args">(title)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the Data Form <a href="XData.html#M000533">title</a>
+</p>
+<table>
+<tr><td valign="top"><a href="XData.html#M000533">title</a>:</td><td>[String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000534-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000534-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 81</span>
+81:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title=</span>(<span class="ruby-identifier">title</span>)
+82:         <span class="ruby-identifier">delete_elements</span>(<span class="ruby-value str">'title'</span>)
+83:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">XDataTitle</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">title</span>))
+84:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000531" class="method-detail">
+        <a name="M000531"></a>
+
+        <div class="method-heading">
+          <a href="#M000531" class="method-signature">
+          <span class="method-name">type</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Type of this Data Form
+</p>
+<table>
+<tr><td valign="top">result:</td><td>* :cancel
+
+<ul>
+<li>:form
+
+</li>
+<li>:result
+
+</li>
+<li>:submit
+
+</li>
+<li>nil
+
+</li>
+</ul>
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000531-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000531-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 49</span>
+49:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type</span>
+50:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'type'</span>]
+51:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'cancel'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:cancel</span>
+52:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'form'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:form</span>
+53:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'result'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:result</span>
+54:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'submit'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:submit</span>
+55:           <span class="ruby-keyword kw">else</span> <span class="ruby-keyword kw">nil</span>
+56:         <span class="ruby-keyword kw">end</span>
+57:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000532" class="method-detail">
+        <a name="M000532"></a>
+
+        <div class="method-heading">
+          <a href="#M000532" class="method-signature">
+          <span class="method-name">type=</span><span class="method-args">(t)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the <a href="XData.html#M000531">type</a> (see <a
+href="XData.html#M000531">type</a>)
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000532-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000532-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/dataforms/x/data.rb, line 61</span>
+61:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type=</span>(<span class="ruby-identifier">t</span>)
+62:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">t</span>
+63:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:cancel</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'type'</span>] = <span class="ruby-value str">'cancel'</span>
+64:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:form</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'type'</span>] = <span class="ruby-value str">'form'</span>
+65:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:result</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'type'</span>] = <span class="ruby-value str">'result'</span>
+66:           <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:submit</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'type'</span>] = <span class="ruby-value str">'submit'</span>
+67:           <span class="ruby-keyword kw">else</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'type'</span>] = <span class="ruby-keyword kw">nil</span>
+68:         <span class="ruby-keyword kw">end</span>
+69:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

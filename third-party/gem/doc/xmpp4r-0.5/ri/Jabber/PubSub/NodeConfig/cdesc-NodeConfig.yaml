@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: NodeConfig
+- !ruby/struct:SM::Flow::P 
+  body: A &lt;configure&gt; XMPP element for pubsub nodes, see example 123 in http://www.xmpp.org/extensions/xep-0060.html#owner-create-and-configure
+constants: []
+
+full_name: Jabber::PubSub::NodeConfig
+includes: []
+
+instance_methods: []
+
+name: NodeConfig
+superclass: Configuration

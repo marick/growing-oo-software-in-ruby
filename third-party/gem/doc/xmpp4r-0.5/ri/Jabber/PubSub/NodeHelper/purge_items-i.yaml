@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: purge all items from this node purge_items
+full_name: Jabber::PubSub::NodeHelper#purge_items
+is_singleton: false
+name: purge_items
+params: ()
+visibility: public

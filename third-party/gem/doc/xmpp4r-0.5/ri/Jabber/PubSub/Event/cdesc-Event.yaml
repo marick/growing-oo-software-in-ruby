@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Event a publishing event
+constants: []
+
+full_name: Jabber::PubSub::Event
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: event_type?
+- !ruby/object:RI::MethodSummary 
+  name: payload
+- !ruby/object:RI::MethodSummary 
+  name: payload=
+name: Event
+superclass: XMPPElement

@@ -1,0 +1,91 @@
+XMPP4R 0.5 (15/06/2009)
+=======================
+* Many bugs fixed and tests cleanups (better Ruby 1.9 support, in
+  particular)
+* Support for reliable connections (that auto-reconnect when being
+  disconnected, without losing messages)
+* Better notification of server disconnects
+
+XMPP4R 0.4 (05/08/2008)
+=======================
+* Initial support for Ruby 1.9 (see README_ruby19.txt)
+* Complete PubSub API Change - more logical and better for 
+  childclasses, support for collection node creation
+* a Helper to assist with XEP-0115 Entity Capabilities 
+* SASL anonymous support
+* File transfer fixes
+* MUC room configuration fixes
+* initial support for XEP-0118 User Tune
+* fix for an xmlrpc exception-during-serialisation bug, which would cause
+  a hang
+* Support auto-gem generation on GitHub with improved and DRY'er RakeFile and
+  gemspec.
+* Add support for the old SSL protocol (needed to connect to GTalk)
+* Changed API for Client, Component, Connection, Stream to remove
+  need for antiquated 'threaded' param in the initializer.
+* Use a Logger instance instead of directly writing to stdout
+* Re-factored & consolidated Error classes.  See xmpp4r/errors.rb for all
+  custom errors that can be caught.  All inherit from Jabber::Error which
+  itself inherits from Ruby's StandardError. This is a first step in
+  re-factoring errors.  The next step will be to convert all 'raise' calls to
+  raise a custom Jabber::Error or one of its children instead of anonymous
+  RuntimeErrors.  This allows much more granularity in catching and handling
+  errors later.
+  If you were catching Jabber::ErrorException before you should probably
+  change that in your code to now catch Jabber::Error if you want to
+  catch everything or one of the custom children of Jabber::Error defined in
+  'lib/xmpp4r/errors.rb'.  Additionally, the Error class which encapsulated
+  the xmpp error response, has been renamed to ErrorResponse to reflect its
+  real usage.  This free's up 'Jabber::Error' for use as our base Error class.
+
+XMPP4R 0.3.2 (15/10/2007)
+=========================
+* Serious bug involving Ruby threading fixed (caused exceptions with
+  ruby 1.8.6)
+* vCard helper fixes
+* Jabber RPC (JEP0009) support
+* HTTP Binding (JEP0124) support
+* Publish-Subscribe support
+* XMPPElement: a framework for classes representing XML elements
+* Ad-hoc commands support
+* Improvements to Dataforms: XData, XDataTitle and XDataInstructions
+
+XMPP4R 0.3.1 (23/04/2007)
+=========================
+* SASL fixes
+* Message#x and Presence#x support element selection by namespace
+* Proper XML entity escaping for REXML text nodes
+* Improvements to FileTransfer::Helper and SOCKS5BytestreamsServer
+* Vcard::Helper fixes
+* Update Digest module usage to reflect recent Ruby versions
+* More documentation
+
+XMPP4R 0.3 (20/07/2006)
+=======================
+* SRV lookup capability in Client#connect
+* Stringprep support for JIDs
+* TLS & SASL support
+* Basic Dataforms support
+* Multi-User Chat Helpers
+* Helpers for File-Transfer, SOCKS5 Bytestreams, In-Band Bytestreams
+* Roster helper has modified subscription-request semantics (see Roster#add_subscription_request_callback)
+* A lot of features have renamed namespaces (see UPDATING file)
+
+XMPP4R 0.2 (20/10/2005)
+=======================
+* Workarounds for REXML bugs.
+* Presences are now Comparable according to priority or interest
+* fixed a serious bug in Stream#send which caused some lockups. Reported by
+  chunlinyao@gmail.com.
+* Moved REXML::Element#add to REXML::Element#typed_add to keep add accessible
+* Rewritten Roster helper
+* Added Vcard helper and improved IqVcard
+* XMLStanza id generator
+* Support for Roster Item Exchange (JEP-0093 and JEP-0144)
+* Client#password= to change client's account password
+* Documentation fixes
+
+XMPP4R 0.1 (12/09/2005)
+=======================
+* first public release.
+

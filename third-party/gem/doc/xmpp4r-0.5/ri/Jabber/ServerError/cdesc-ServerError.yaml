@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An error returned from the server
+- !ruby/struct:SM::Flow::P 
+  body: e.g. This exception can be raised by helpers when they receive a server reply with <tt>type='error'</tt>
+- !ruby/struct:SM::Flow::P 
+  body: The ServerError carries a Jabber::ErrorResponse element
+constants: []
+
+full_name: Jabber::ServerError
+includes: []
+
+instance_methods: []
+
+name: ServerError
+superclass: JabberError

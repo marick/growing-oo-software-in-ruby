@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Construct a &lt;configure&gt; element.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String] the node to configure"
+  - !ruby/struct:SM::Flow::LI 
+    label: "options:"
+    body: "[Hash] the configuration to apply"
+  type: :NOTE
+full_name: Jabber::PubSub::NodeConfig::new
+is_singleton: true
+name: new
+params: (node = nil, options = nil)
+visibility: public

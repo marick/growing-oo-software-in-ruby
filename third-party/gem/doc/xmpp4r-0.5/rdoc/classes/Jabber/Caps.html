@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Jabber::Caps</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Jabber::Caps</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/xmpp4r/caps/c_rb.html">
+                lib/xmpp4r/caps/c.rb
+                </a>
+        <br />
+                <a href="../../files/lib/xmpp4r/caps/helper/generator_rb.html">
+                lib/xmpp4r/caps/helper/generator.rb
+                </a>
+        <br />
+                <a href="../../files/lib/xmpp4r/caps/helper/helper_rb.html">
+                lib/xmpp4r/caps/helper/helper.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000213">generate_ver</a>&nbsp;&nbsp;
+      <a href="#M000214">generate_ver_from_discoinfo</a>&nbsp;&nbsp;
+      <a href="#M000212">generate_ver_str</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Caps/C.html" class="link">Jabber::Caps::C</a><br />
+Class <a href="Caps/Helper.html" class="link">Jabber::Caps::Helper</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">NS_CAPS</td>
+          <td>=</td>
+          <td class="context-item-value">'http://jabber.org/protocol/caps'</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000213" class="method-detail">
+        <a name="M000213"></a>
+
+        <div class="method-heading">
+          <a href="#M000213" class="method-signature">
+          <span class="method-name">generate_ver</span><span class="method-args">(identities, features, forms=[], hash='sha-1')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Implementation of the algorithm defined at: <a
+href="http://www.xmpp.org/extensions/xep-0115.html#ver-gen">www.xmpp.org/extensions/xep-0115.html#ver-gen</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000213-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000213-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/generator.rb, line 114</span>
+114:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate_ver</span>(<span class="ruby-identifier">identities</span>, <span class="ruby-identifier">features</span>, <span class="ruby-identifier">forms</span>=[], <span class="ruby-identifier">hash</span>=<span class="ruby-value str">'sha-1'</span>)
+115:       <span class="ruby-identifier">s</span> = <span class="ruby-identifier">generate_ver_str</span>(<span class="ruby-identifier">identities</span>, <span class="ruby-identifier">features</span>, <span class="ruby-identifier">forms</span>)
+116: 
+117:       <span class="ruby-comment cmt"># 9. Compute the verification string by hashing S using the</span>
+118:       <span class="ruby-comment cmt"># algorithm specified in the 'hash' attribute (e.g., SHA-1 as</span>
+119:       <span class="ruby-comment cmt"># defined in RFC 3174 [17]). The hashed data MUST be generated</span>
+120:       <span class="ruby-comment cmt"># with binary output and encoded using Base64 as specified in</span>
+121:       <span class="ruby-comment cmt"># Section 4 of RFC 4648 [18] (note: the Base64 output MUST NOT</span>
+122:       <span class="ruby-comment cmt"># include whitespace and MUST set padding bits to zero). [19]</span>
+123: 
+124:       <span class="ruby-comment cmt"># See http://www.iana.org/assignments/hash-function-text-names</span>
+125:       <span class="ruby-identifier">hash_klass</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">hash</span>
+126:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'md2'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-keyword kw">nil</span>
+127:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'md5'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>
+128:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'sha-1'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>
+129:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'sha-224'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-keyword kw">nil</span>
+130:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'sha-256'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA256</span>
+131:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'sha-384'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA384</span>
+132:                      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'sha-512'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA512</span>
+133:                    <span class="ruby-keyword kw">end</span>
+134:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hash_klass</span>
+135:         <span class="ruby-constant">Base64</span><span class="ruby-operator">::</span><span class="ruby-identifier">encode64</span>(<span class="ruby-identifier">hash_klass</span><span class="ruby-operator">::</span><span class="ruby-identifier">digest</span>(<span class="ruby-identifier">s</span>)).<span class="ruby-identifier">strip</span>
+136:       <span class="ruby-keyword kw">else</span>
+137:         <span class="ruby-keyword kw">nil</span>
+138:       <span class="ruby-keyword kw">end</span>
+139:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000214" class="method-detail">
+        <a name="M000214"></a>
+
+        <div class="method-heading">
+          <a href="#M000214" class="method-signature">
+          <span class="method-name">generate_ver_from_discoinfo</span><span class="method-args">(query, hash='sha-1')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generate a ver hash from a <a
+href="Discovery/IqQueryDiscoInfo.html">Jabber::Discovery::IqQueryDiscoInfo</a>
+result
+</p>
+<table>
+<tr><td valign="top">query:</td><td>[<a
+href="Discovery/IqQueryDiscoInfo.html">Jabber::Discovery::IqQueryDiscoInfo</a>]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000214-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000214-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/generator.rb, line 144</span>
+144:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate_ver_from_discoinfo</span>(<span class="ruby-identifier">query</span>, <span class="ruby-identifier">hash</span>=<span class="ruby-value str">'sha-1'</span>)
+145:       <span class="ruby-identifier">identities</span> = []
+146:       <span class="ruby-identifier">features</span> = []
+147:       <span class="ruby-identifier">forms</span> = []
+148:       <span class="ruby-identifier">query</span>.<span class="ruby-identifier">each_element</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+149:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Discovery</span><span class="ruby-operator">::</span><span class="ruby-constant">Identity</span>
+150:           <span class="ruby-identifier">identities</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+151:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Discovery</span><span class="ruby-operator">::</span><span class="ruby-constant">Feature</span>
+152:           <span class="ruby-identifier">features</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+153:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Dataforms</span><span class="ruby-operator">::</span><span class="ruby-constant">XData</span>
+154:           <span class="ruby-identifier">forms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+155:         <span class="ruby-keyword kw">end</span>
+156:       <span class="ruby-keyword kw">end</span>
+157:       <span class="ruby-identifier">generate_ver</span>(<span class="ruby-identifier">identities</span>, <span class="ruby-identifier">features</span>, <span class="ruby-identifier">forms</span>, <span class="ruby-identifier">hash</span>)
+158:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000212" class="method-detail">
+        <a name="M000212"></a>
+
+        <div class="method-heading">
+          <a href="#M000212" class="method-signature">
+          <span class="method-name">generate_ver_str</span><span class="method-args">(identities, features, forms=[])</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000212-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000212-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/generator.rb, line 14</span>
+ 14:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate_ver_str</span>(<span class="ruby-identifier">identities</span>, <span class="ruby-identifier">features</span>, <span class="ruby-identifier">forms</span>=[])
+ 15:       <span class="ruby-comment cmt"># 1.  Initialize an empty string S.</span>
+ 16:       <span class="ruby-identifier">s</span> = <span class="ruby-value str">''</span>
+ 17: 
+ 18:       <span class="ruby-comment cmt"># 2. Sort the service discovery identities [14] by category and</span>
+ 19:       <span class="ruby-comment cmt"># then by type (if it exists) and then by xml:lang (if it</span>
+ 20:       <span class="ruby-comment cmt"># exists), formatted as CATEGORY '/' [TYPE] '/' [LANG] '/'</span>
+ 21:       <span class="ruby-comment cmt"># [NAME]. Note that each slash is included even if the TYPE,</span>
+ 22:       <span class="ruby-comment cmt"># LANG, or NAME is not included.</span>
+ 23:       <span class="ruby-identifier">identities</span>.<span class="ruby-identifier">sort!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">identity1</span>,<span class="ruby-identifier">identity2</span><span class="ruby-operator">|</span>
+ 24:         <span class="ruby-identifier">cmp_result</span> = <span class="ruby-keyword kw">nil</span>
+ 25:         [<span class="ruby-identifier">:category</span>, <span class="ruby-identifier">:type</span>, <span class="ruby-identifier">:xml_lang</span>, <span class="ruby-identifier">:iname</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+ 26:           <span class="ruby-identifier">value1</span> = <span class="ruby-identifier">identity1</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">field</span>)
+ 27:           <span class="ruby-identifier">value2</span> = <span class="ruby-identifier">identity2</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">field</span>)
+ 28: 
+ 29:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value1</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">value2</span>
+ 30:             <span class="ruby-identifier">cmp_result</span> = <span class="ruby-identifier">value1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">value2</span>
+ 31:             <span class="ruby-keyword kw">break</span>
+ 32:           <span class="ruby-keyword kw">end</span>
+ 33:         <span class="ruby-keyword kw">end</span>
+ 34: 
+ 35: 
+ 36:         <span class="ruby-identifier">cmp_result</span>
+ 37:       <span class="ruby-keyword kw">end</span>
+ 38: 
+ 39:       <span class="ruby-comment cmt"># 3. For each identity, append the 'category/type/lang/name' to</span>
+ 40:       <span class="ruby-comment cmt"># S, followed by the '&lt;' character.</span>
+ 41:       <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">identities</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">identity</span><span class="ruby-operator">|</span>
+ 42:         [<span class="ruby-identifier">:category</span>, <span class="ruby-identifier">:type</span>, <span class="ruby-identifier">:xml_lang</span>, <span class="ruby-identifier">:iname</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+ 43:           <span class="ruby-identifier">identity</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">field</span>).<span class="ruby-identifier">to_s</span>
+ 44:         <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'/'</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;'</span>
+ 45:       <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>
+ 46: 
+ 47:       <span class="ruby-comment cmt"># 4. Sort the supported service discovery features. [15]</span>
+ 48:       <span class="ruby-identifier">features</span>.<span class="ruby-identifier">sort!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">feature1</span>,<span class="ruby-identifier">feature2</span><span class="ruby-operator">|</span>
+ 49:         <span class="ruby-identifier">feature1</span>.<span class="ruby-identifier">var</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">feature2</span>.<span class="ruby-identifier">var</span>
+ 50:       <span class="ruby-keyword kw">end</span>
+ 51: 
+ 52:       <span class="ruby-comment cmt"># 5. For each feature, append the feature to S, followed by the</span>
+ 53:       <span class="ruby-comment cmt"># '&lt;' character.</span>
+ 54:       <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">features</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">feature</span><span class="ruby-operator">|</span>
+ 55:         <span class="ruby-identifier">feature</span>.<span class="ruby-identifier">var</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;'</span>
+ 56:       <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>
+ 57: 
+ 58:       <span class="ruby-comment cmt"># 6. If the service discovery information response includes</span>
+ 59:       <span class="ruby-comment cmt"># XEP-0128 data forms, sort the forms by the FORM_TYPE (i.e., by</span>
+ 60:       <span class="ruby-comment cmt"># the XML character data of the &lt;value/&gt; element).</span>
+ 61:       <span class="ruby-identifier">forms</span>.<span class="ruby-identifier">sort!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">form1</span>,<span class="ruby-identifier">form2</span><span class="ruby-operator">|</span>
+ 62:         <span class="ruby-identifier">fform_type1</span> = <span class="ruby-identifier">form1</span>.<span class="ruby-identifier">field</span>(<span class="ruby-value str">'FORM_TYPE'</span>)
+ 63:         <span class="ruby-identifier">fform_type2</span> = <span class="ruby-identifier">form2</span>.<span class="ruby-identifier">field</span>(<span class="ruby-value str">'FORM_TYPE'</span>)
+ 64:         <span class="ruby-identifier">form_type1</span> = <span class="ruby-identifier">fform_type1</span> <span class="ruby-value">? </span><span class="ruby-identifier">fform_type1</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+ 65:         <span class="ruby-identifier">form_type2</span> = <span class="ruby-identifier">fform_type2</span> <span class="ruby-value">? </span><span class="ruby-identifier">fform_type2</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+ 66:         <span class="ruby-identifier">form_type1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">form_type2</span>
+ 67:       <span class="ruby-keyword kw">end</span>
+ 68: 
+ 69:       <span class="ruby-comment cmt"># 7. For each extended service discovery information form:</span>
+ 70:       <span class="ruby-identifier">forms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">form</span><span class="ruby-operator">|</span>
+ 71:         <span class="ruby-comment cmt"># 7.1. Append the XML character data of the FORM_TYPE field's</span>
+ 72:         <span class="ruby-comment cmt"># &lt;value/&gt; element, followed by the '&lt;' character.</span>
+ 73:         <span class="ruby-identifier">fform_type</span> = <span class="ruby-identifier">form</span>.<span class="ruby-identifier">field</span>(<span class="ruby-value str">'FORM_TYPE'</span>)
+ 74:         <span class="ruby-identifier">form_type</span> = <span class="ruby-identifier">fform_type</span> <span class="ruby-value">? </span><span class="ruby-identifier">fform_type</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+ 75:         <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{form_type}&lt;&quot;</span>
+ 76: 
+ 77:         <span class="ruby-comment cmt"># 7.2. Sort the fields by the value of the &quot;var&quot; attribute.</span>
+ 78:         <span class="ruby-identifier">fields</span> = <span class="ruby-identifier">form</span>.<span class="ruby-identifier">fields</span>(<span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">sort</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field1</span>,<span class="ruby-identifier">field2</span><span class="ruby-operator">|</span>
+ 79:           <span class="ruby-identifier">field1</span>.<span class="ruby-identifier">var</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">field2</span>.<span class="ruby-identifier">var</span>
+ 80:         <span class="ruby-keyword kw">end</span>
+ 81: 
+ 82:         <span class="ruby-comment cmt"># 7.3. For each field:</span>
+ 83: 
+ 84:         <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+ 85:           <span class="ruby-comment cmt"># 7.3.1. Append the value of the &quot;var&quot; attribute, followed by</span>
+ 86:           <span class="ruby-comment cmt"># the '&lt;' character.</span>
+ 87:           <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{field.var}&lt;&quot;</span>
+ 88: 
+ 89:           <span class="ruby-comment cmt"># 7.3.2. Sort values by the XML character data of the &lt;value/&gt;</span>
+ 90:           <span class="ruby-comment cmt"># element.</span>
+ 91:           <span class="ruby-identifier">values</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">sort</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value1</span>,<span class="ruby-identifier">value2</span><span class="ruby-operator">|</span>
+ 92:             <span class="ruby-identifier">value1</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">value2</span>
+ 93:           <span class="ruby-keyword kw">end</span>
+ 94: 
+ 95:           <span class="ruby-comment cmt"># 7.3.3. For each &lt;value/&gt; element, append the XML character</span>
+ 96:           <span class="ruby-comment cmt"># data, followed by the '&lt;' character.</span>
+ 97:           <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+ 98:             <span class="ruby-node">&quot;#{value}&lt;&quot;</span>
+ 99:           <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>
+100:         <span class="ruby-keyword kw">end</span>
+101:       <span class="ruby-keyword kw">end</span>
+102: 
+103:       <span class="ruby-comment cmt"># 8. Ensure that S is encoded according to the UTF-8 encoding</span>
+104:       <span class="ruby-comment cmt"># (RFC 3269 [16]).</span>
+105: 
+106:       <span class="ruby-comment cmt"># (given in XMPP4R)</span>
+107: 
+108:       <span class="ruby-identifier">s</span>
+109:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

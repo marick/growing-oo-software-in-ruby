@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "TODO: Is typed_add with a String right here?"
+full_name: Jabber::RPC::IqQueryRPC#typed_add
+is_singleton: false
+name: typed_add
+params: (e)
+visibility: public

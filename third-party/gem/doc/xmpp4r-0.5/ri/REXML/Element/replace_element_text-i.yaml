@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Replaces or adds a child element of name <tt>e</tt> with text <tt>t</tt>.
+full_name: REXML::Element#replace_element_text
+is_singleton: false
+name: replace_element_text
+params: (e, t)
+visibility: public

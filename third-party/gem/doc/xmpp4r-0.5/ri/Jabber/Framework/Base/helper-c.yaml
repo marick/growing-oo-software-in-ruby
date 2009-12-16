@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Framework::Base::helper
+is_singleton: true
+name: helper
+params: (name, klass=nil, &factory)
+visibility: public

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Update roster by &lt;iq/&gt; stanza (to be fed by an iq_callback)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "iq:"
+    body: "[Iq] Containing new roster"
+  - !ruby/struct:SM::Flow::LI 
+    label: "filter:"
+    body: "[Boolean] If false import non-roster-like results too"
+  type: :NOTE
+full_name: Jabber::Roster::IqQueryRoster#receive_iq
+is_singleton: false
+name: receive_iq
+params: (iq, filter=true)
+visibility: public

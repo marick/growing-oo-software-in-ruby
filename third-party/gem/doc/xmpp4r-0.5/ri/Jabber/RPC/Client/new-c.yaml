@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: xmppstream
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Stream]"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: jid where you want to send the rpc requests to
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] rpcserver@jabberserver/ressource"
+  type: :NOTE
+full_name: Jabber::RPC::Client::new
+is_singleton: true
+name: new
+params: (stream,jid)
+visibility: public

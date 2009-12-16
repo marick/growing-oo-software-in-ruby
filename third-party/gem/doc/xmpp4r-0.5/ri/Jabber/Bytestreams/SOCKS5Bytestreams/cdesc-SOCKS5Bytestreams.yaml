@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: SOCKS connection timeout (for trying multiple streamhosts)
+  - !ruby/struct:SM::Flow::P 
+    body: "default: nil, use the OS' default timeout"
+  name: connect_timeout
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: StreamHost
+      body: the SOCKS connection is using
+    type: :LABELED
+  name: streamhost_used
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: query_streamhost
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: SOCKS5 Bytestreams (JEP-0065) implementation
+- !ruby/struct:SM::Flow::P 
+  body: Don't use directly, use SOCKS5BytestreamsInitiator and SOCKS5BytestreamsTarget
+constants: []
+
+full_name: Jabber::Bytestreams::SOCKS5Bytestreams
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_streamhost_callback
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: flush
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: write
+name: SOCKS5Bytestreams
+superclass: Object

@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: features
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: identities
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: node
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A Helper to manage advertising and discovery of entity capabilities.
+- !ruby/struct:SM::Flow::P 
+  body: "Following XEP-0115 (ver 1.4 http://www.xmpp.org/extensions/xep-0115.html). you can use this Helper to, for example, advertise that your client wishes to receive XEP-0118 User Tune notifications, eg:"
+- !ruby/struct:SM::Flow::P 
+  body: caps_helper=Jabber::Caps::Helper(cl,
+- !ruby/struct:SM::Flow::VERB 
+  body: "  [Jabber::Discovery::Identity.new('client',nil,'bot')],\n  [Jabber::Discovery::Feature.new('http://jabber.org/protocol/tune+notify')]\n"
+- !ruby/struct:SM::Flow::P 
+  body: )
+constants: []
+
+full_name: Jabber::Caps::Helper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: c
+- !ruby/object:RI::MethodSummary 
+  name: handle_discoinfo_query
+- !ruby/object:RI::MethodSummary 
+  name: ver
+name: Helper
+superclass: Object

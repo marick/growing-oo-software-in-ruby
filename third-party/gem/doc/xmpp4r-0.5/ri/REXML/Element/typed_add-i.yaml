@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This method does exactly the same thing as add(), but it can be overriden by subclasses to provide on-the-fly object creations. For example, if you import a REXML::Element of name 'plop', and you have a Plop class that subclasses REXML::Element, with typed_add you can get your REXML::Element to be &quot;magically&quot; converted to Plop.
+full_name: REXML::Element#typed_add
+is_singleton: false
+name: typed_add
+params: (e)
+visibility: public

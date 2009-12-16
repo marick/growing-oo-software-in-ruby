@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add feature namespace to Capabilities Discovery
+full_name: Jabber::Framework::Bot#add_cap
+is_singleton: false
+name: add_cap
+params: (capability)
+visibility: public

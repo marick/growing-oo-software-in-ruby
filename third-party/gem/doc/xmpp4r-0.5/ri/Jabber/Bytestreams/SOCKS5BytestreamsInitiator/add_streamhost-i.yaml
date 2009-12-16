@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a streamhost which will be offered to the target
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "streamhost:"
+    body: "can be:"
+  type: :NOTE
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "[StreamHost] if already got all information (host/port)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "[SOCKS5BytestreamsServer] if this is the local streamhost"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "[String] or [JID] if information should be automatically resolved by SOCKS5Bytestreams::query_streamhost"
+  type: :BULLET
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsInitiator#add_streamhost
+is_singleton: false
+name: add_streamhost
+params: (streamhost)
+visibility: public

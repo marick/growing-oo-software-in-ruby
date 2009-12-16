@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: See Client#auth_anonymous_sasl
+full_name: Jabber::Client#auth_anonymous
+is_singleton: false
+name: auth_anonymous
+params: ()
+visibility: public

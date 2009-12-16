@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: OwnerNodeConfig
+- !ruby/struct:SM::Flow::P 
+  body: A &lt;configure&gt; stanza for 'Owner' use cases
+- !ruby/struct:SM::Flow::P 
+  body: see example 125 in http://www.xmpp.org/extensions/xep-0060.html#owner-configure-request
+constants: []
+
+full_name: Jabber::PubSub::OwnerNodeConfig
+includes: []
+
+instance_methods: []
+
+name: OwnerNodeConfig
+superclass: NodeConfig

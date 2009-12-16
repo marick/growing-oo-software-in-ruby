@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Whether this element is always built with an xmlns attribute
+full_name: Jabber::XMPPElement::force_xmlns?
+is_singleton: true
+name: force_xmlns?
+params: ()
+visibility: public

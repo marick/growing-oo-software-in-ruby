@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::MUC::XMUCUserInvite#from=
+is_singleton: false
+name: from=
+params: (j)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Dataforms::XDataTitle#title
+is_singleton: false
+name: title
+params: ()
+visibility: public

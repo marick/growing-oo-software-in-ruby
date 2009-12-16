@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Resource binding (RFC3920bis-06 - section 8.)
+- !ruby/struct:SM::Flow::P 
+  body: XMPP allows to bind to multiple resources
+full_name: Jabber::Client#bind
+is_singleton: false
+name: bind
+params: (desired_resource=nil)
+visibility: public

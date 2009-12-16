@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Find a class for given name and namespace
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "name:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "xmlns:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: A descendant of XMPPElement or REXML::Element
+  type: :NOTE
+full_name: Jabber::XMPPElement::class_for_name_xmlns
+is_singleton: true
+name: class_for_name_xmlns
+params: (name, xmlns)
+visibility: public

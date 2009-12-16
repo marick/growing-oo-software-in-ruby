@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Import another REXML::Element descendant to:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Either an element class that registered with name and xmlns before
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: Or if none was found to the class itself (you may call this class method on a deriving class)
+  type: :BULLET
+full_name: Jabber::XMPPElement::import
+is_singleton: true
+name: import
+params: (element)
+visibility: public

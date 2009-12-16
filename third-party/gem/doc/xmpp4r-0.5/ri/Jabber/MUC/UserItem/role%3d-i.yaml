@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::MUC::UserItem#role=
+is_singleton: false
+name: role=
+params: (r)
+visibility: public

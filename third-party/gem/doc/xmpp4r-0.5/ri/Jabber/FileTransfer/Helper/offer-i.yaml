@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Offer a file to somebody
+- !ruby/struct:SM::Flow::P 
+  body: Will wait for a response from the peer
+- !ruby/struct:SM::Flow::P 
+  body: The result is a stream which you can configure, or nil if the peer responded with an invalid stream-method.
+- !ruby/struct:SM::Flow::P 
+  body: May raise an ServerError
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] to send the file to"
+  - !ruby/struct:SM::Flow::LI 
+    label: "source:"
+    body: File-transfer source, implementing the FileSource interface
+  - !ruby/struct:SM::Flow::LI 
+    label: "desc:"
+    body: "[String] or [nil] Optional file description"
+  - !ruby/struct:SM::Flow::LI 
+    label: "from:"
+    body: "[String] or [nil] Optional jid for components"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Bytestreams::SOCKS5BytestreamsInitiator] or [Bytestreams::IBBInitiator] or [nil]"
+  type: :NOTE
+full_name: Jabber::FileTransfer::Helper#offer
+is_singleton: false
+name: offer
+params: (jid, source, desc=nil, from=nil)
+visibility: public

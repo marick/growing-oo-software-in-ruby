@@ -1,0 +1,19 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: bare!
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Removes the resource (sets it to nil)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[JID] self"
+  type: :NOTE
+full_name: Jabber::JID#strip!
+is_singleton: false
+name: strip!
+params: ()
+visibility: public

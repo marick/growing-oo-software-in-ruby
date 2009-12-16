@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retrieve the nodes Throws an ServerError when receiving <tt>&lt;iq type='error'/&gt;</tt>
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] Target entity (set only domain!)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Array] of [String] or [nil]"
+  type: :NOTE
+full_name: Jabber::PubSub::NodeBrowser#nodes
+is_singleton: false
+name: nodes
+params: (jid)
+visibility: public

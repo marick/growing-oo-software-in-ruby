@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::FileTransfer::FileSource#can_range?
+is_singleton: false
+name: can_range?
+params: ()
+visibility: public

@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Join a room
+- !ruby/struct:SM::Flow::P 
+  body: This registers its own callbacks on the stream provided to initialize and sends initial presence to the room. May throw ServerError if joining fails.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] room@component/nick"
+  - !ruby/struct:SM::Flow::LI 
+    label: "password:"
+    body: "[String] Optional password"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[MUCClient] self (chain-able)"
+  type: :NOTE
+full_name: Jabber::MUC::MUCClient#join
+is_singleton: false
+name: join
+params: (jid, password=nil)
+visibility: public

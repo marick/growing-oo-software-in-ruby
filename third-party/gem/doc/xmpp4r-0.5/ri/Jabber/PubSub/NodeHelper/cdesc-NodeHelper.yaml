@@ -1,0 +1,56 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: jid
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: my_subscriptions
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: nodename
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Jabber::PubSub::NodeHelper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: create_node
+- !ruby/object:RI::MethodSummary 
+  name: delete_node
+- !ruby/object:RI::MethodSummary 
+  name: do_subscribe
+- !ruby/object:RI::MethodSummary 
+  name: do_unsubscribe
+- !ruby/object:RI::MethodSummary 
+  name: get_affiliations
+- !ruby/object:RI::MethodSummary 
+  name: get_all_items
+- !ruby/object:RI::MethodSummary 
+  name: get_configuration
+- !ruby/object:RI::MethodSummary 
+  name: get_items
+- !ruby/object:RI::MethodSummary 
+  name: get_subscribers
+- !ruby/object:RI::MethodSummary 
+  name: get_subscriptions
+- !ruby/object:RI::MethodSummary 
+  name: publish_content
+- !ruby/object:RI::MethodSummary 
+  name: purge_items
+- !ruby/object:RI::MethodSummary 
+  name: set_configuration
+name: NodeHelper
+superclass: ServiceHelper

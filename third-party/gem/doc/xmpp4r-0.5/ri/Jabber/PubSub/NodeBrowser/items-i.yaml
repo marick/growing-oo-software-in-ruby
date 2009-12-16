@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retrieve the items from a node Throws an ServerError when receiving <tt>&lt;iq type='error'/&gt;</tt>
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[Jabber::JID] Target entity (set only domain!)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Array] of [Hash] with keys 'name' =&gt; [String] and 'jid' =&gt; [Jabber::JID]"
+  type: :NOTE
+full_name: Jabber::PubSub::NodeBrowser#items
+is_singleton: false
+name: items
+params: (jid,node)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is this a legacy caps response, as defined by version 1.3 of the XEP-0115 specification?
+full_name: Jabber::Caps::C#legacy?
+is_singleton: false
+name: legacy?
+params: ()
+visibility: public

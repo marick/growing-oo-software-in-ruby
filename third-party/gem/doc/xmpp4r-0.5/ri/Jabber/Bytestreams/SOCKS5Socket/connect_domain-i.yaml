@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Issue a CONNECT request to a host name which is to be resolved by the proxy.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "domain:"
+    body: "[String] Host name"
+  - !ruby/struct:SM::Flow::LI 
+    label: "port:"
+    body: "[Fixnum] Port number"
+  type: :NOTE
+full_name: Jabber::Bytestreams::SOCKS5Socket#connect_domain
+is_singleton: false
+name: connect_domain
+params: (domain, port)
+visibility: public

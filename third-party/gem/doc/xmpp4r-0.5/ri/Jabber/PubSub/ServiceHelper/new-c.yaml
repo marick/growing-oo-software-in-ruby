@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates a new representation of a pubsub service
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Jabber::Stream]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "pubsubjid:"
+    body: "[String] or [Jabber::JID]"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper::new
+is_singleton: true
+name: new
+params: (stream, pubsubjid)
+visibility: public

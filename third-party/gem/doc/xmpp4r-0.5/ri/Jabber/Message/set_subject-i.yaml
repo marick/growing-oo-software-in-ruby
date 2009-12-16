@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: sets the message's subject
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "s:"
+    body: "[String] subject to set"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[REXML::Element] self for chaining"
+  type: :NOTE
+full_name: Jabber::Message#set_subject
+is_singleton: false
+name: set_subject
+params: (s)
+visibility: public

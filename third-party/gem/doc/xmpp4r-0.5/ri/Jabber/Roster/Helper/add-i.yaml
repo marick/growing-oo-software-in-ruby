@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a user to your roster
+- !ruby/struct:SM::Flow::P 
+  body: Threading is encouraged as the function waits for a result. ServerError is thrown upon error.
+- !ruby/struct:SM::Flow::P 
+  body: See Jabber::Roster::Helper::RosterItem#subscribe for details about subscribing. (This method isn't used here but the same functionality applies.)
+- !ruby/struct:SM::Flow::P 
+  body: If the item is already in the local roster it will simply send itself
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] to add"
+  - !ruby/struct:SM::Flow::LI 
+    label: "iname:"
+    body: "[String] Optional item name"
+  - !ruby/struct:SM::Flow::LI 
+    label: "subscribe:"
+    body: "[Boolean] Whether to subscribe to this jid"
+  type: :NOTE
+full_name: Jabber::Roster::Helper#add
+is_singleton: false
+name: add
+params: (jid, iname=nil, subscribe=false)
+visibility: public

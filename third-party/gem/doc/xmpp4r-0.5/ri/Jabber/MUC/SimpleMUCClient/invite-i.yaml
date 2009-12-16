@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Request the MUC to invite users to this room
+- !ruby/struct:SM::Flow::P 
+  body: "Sample usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  my_muc.invite( {'wiccarocks@shakespeare.lit/laptop' =&gt; 'This coven needs both wiccarocks and hag66.',\n                  'hag66@shakespeare.lit' =&gt; 'This coven needs both hag66 and wiccarocks.'} )\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "recipients:"
+    body: "[Hash] of [JID] =&gt; [String] Reason"
+  type: :NOTE
+full_name: Jabber::MUC::SimpleMUCClient#invite
+is_singleton: false
+name: invite
+params: (recipients)
+visibility: public

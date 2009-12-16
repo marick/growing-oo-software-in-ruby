@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a new Identity
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "category:"
+    body: "[String] Initial category or nil"
+  - !ruby/struct:SM::Flow::LI 
+    label: "iname:"
+    body: "[String] Initial identity name or nil"
+  - !ruby/struct:SM::Flow::LI 
+    label: "type:"
+    body: "[String] Initial type or nil"
+  type: :NOTE
+full_name: Jabber::Discovery::Identity::new
+is_singleton: true
+name: new
+params: (category=nil, iname=nil, type=nil)
+visibility: public

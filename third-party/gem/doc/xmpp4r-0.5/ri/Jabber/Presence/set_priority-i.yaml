@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set presence priority (chaining-friendly)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "val:"
+    body: "[Integer] Priority value between -128 and +127"
+  type: :NOTE
+full_name: Jabber::Presence#set_priority
+is_singleton: false
+name: set_priority
+params: (val)
+visibility: public

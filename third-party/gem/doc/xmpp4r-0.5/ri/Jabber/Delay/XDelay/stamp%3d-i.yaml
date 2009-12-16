@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the timestamp
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "t:"
+    body: "[Time] or nil"
+  type: :NOTE
+full_name: Jabber::Delay::XDelay#stamp=
+is_singleton: false
+name: stamp=
+params: (t)
+visibility: public

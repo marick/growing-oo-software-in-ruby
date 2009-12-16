@@ -1,0 +1,113 @@
+= XMPP4R
+
+== Project Home
+
+You can find info about the xmpp4r project and how to contribute
+at the project home page:
+
+http://home.gna.org/xmpp4r/
+
+If you need to ask questions, or want feedback on proposed changes
+please feel free to ask them on the 'xmpp4r-devel@gna.org' mailing
+list.  You can join or view archives of the mailing list at:
+
+https://gna.org/mail/?group=xmpp4r
+
+If you are having a problem and would like to report it
+to the mailing list please include a protocol dump
+which can be enabled in your code with:
+
+  Jabber::debug = true
+
+
+== Contributors
+
+  Lucas Nussbaum <lucas@lucas-nussbaum.net>
+  Stephan Maka <stephan@spaceboyz.net>
+  Kirill A. Shutemov <k.shutemov@gmail.com>
+  Glenn Rempe <glenn@rempe.us>
+  Jacob Burkhart <jacob@brontes3d.com>
+  Yuki Mitsui
+  Peter Schrammel
+  Olli
+  Vojtech Vobr
+  Andreas Wiese
+  Chris Zelenak
+  Matthew Wood
+  Sam Ruby
+  Tim Carey-Smith
+  Scott Lillibridge
+  Joshua Sierles
+  Ripta Pasay <github@r8y.org>
+  Seth Fitzsimmons
+
+
+== Source Code
+
+The source for xmpp4r is managed using the Git SCM and can be
+found in our GitHub.com project page:
+
+http://github.com/ln/xmpp4r/tree/master
+
+
+== Installation
+
+There are a number of ways that you can install xmpp4r depending
+on your needs and the methods you prefer.
+
+=== Install over the network using RubyGems
+
+You can install the current release of the xmpp4r library from a stable
+release gem on RubyForge using RubyGems:
+
+  sudo gem install xmpp4r
+
+=== Install over the network using a Debian package
+
+You can install the current release of the xmpp4r library from a stable release copy
+on your .deb friendly linux system (e.g. Debian or Ubuntu) using apt:
+
+  sudo apt-get install libxmpp4r-ruby
+
+=== Install from local source code (Developers Only)
+
+If you have a local Git clone of the source repository or a tarball
+you can install xmpp4r using several methods.  First you'll
+need to get a local copy.
+
+Clone the Git repository (recommended):
+
+  git clone git://github.com/ln/xmpp4r.git
+
+OR download a stable release tarball from:
+
+  http://download.gna.org/xmpp4r/xmpp4r-0.3.2.tgz
+
+OR download a snapshot of the latest source in .tar.gz format from:
+
+  http://github.com/ln/xmpp4r/tarball/master
+
+==== Install : Using Rake
+
+  # Show all available rake tasks
+  cd xmpp4r/
+  rake -T
+
+  # Package up the gem file and install it
+  rake gem:install
+
+==== Install : Using setup.rb
+
+This will install a copy of the library in your Ruby path and does not
+require RubyGems to be installed.
+
+  cd xmpp4r/
+  ./setup.rb
+
+
+== License
+
+XMPP4R is released under the Ruby license (see the LICENSE file), which is
+compatible with the GNU GPL (see the COPYING file) via an explicit
+dual-licensing clause.
+

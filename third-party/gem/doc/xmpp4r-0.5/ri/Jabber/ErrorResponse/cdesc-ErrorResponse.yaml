@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "A class used to build/parse &lt;error/&gt; elements. Look at XEP-0086 for explanation: http://www.xmpp.org/extensions/xep-0086.html"
+- !ruby/struct:SM::Flow::P 
+  body: "FIXME : XEP-0086 is officially deprecated. What effect does that have on this class? Any?"
+constants: []
+
+full_name: Jabber::ErrorResponse
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: code
+- !ruby/object:RI::MethodSummary 
+  name: code=
+- !ruby/object:RI::MethodSummary 
+  name: error
+- !ruby/object:RI::MethodSummary 
+  name: error=
+- !ruby/object:RI::MethodSummary 
+  name: set_code
+- !ruby/object:RI::MethodSummary 
+  name: set_error
+- !ruby/object:RI::MethodSummary 
+  name: set_text
+- !ruby/object:RI::MethodSummary 
+  name: set_type
+- !ruby/object:RI::MethodSummary 
+  name: text
+- !ruby/object:RI::MethodSummary 
+  name: text=
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type=
+name: ErrorResponse
+superclass: XMPPElement

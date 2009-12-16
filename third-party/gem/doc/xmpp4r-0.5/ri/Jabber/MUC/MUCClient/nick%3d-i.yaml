@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Change nick
+- !ruby/struct:SM::Flow::P 
+  body: Threading is, again, suggested. This method waits for two &lt;presence/&gt; stanzas, one indicating unavailabilty of the old transient JID, one indicating availability of the new transient JID.
+- !ruby/struct:SM::Flow::P 
+  body: If the service denies nick-change, ServerError will be raised.
+full_name: Jabber::MUC::MUCClient#nick=
+is_singleton: false
+name: nick=
+params: (new_nick)
+visibility: public

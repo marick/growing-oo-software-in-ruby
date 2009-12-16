@@ -1,0 +1,91 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "errorcondition:"
+    body: "[nil] or [String] of the following:"
+  type: :NOTE
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;bad-request&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;conflict&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;feature-not-implemented&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;forbidden&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;gone&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;internal-server-error&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;item-not-found&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;jid-malformed&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;not-acceptable&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;not-allowed&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;not-authorized&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;payment-required&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;recipient-unavailable&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;redirect&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;registration-required&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;remote-server-not-found&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;remote-server-timeout&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;resource-constraint&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;service-unavailable&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;subscription-required&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;undefined-condition&quot;"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "&quot;unexpected-request&quot;"
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: Will raise an [Exception] if not [nil] and none of the above
+- !ruby/struct:SM::Flow::P 
+  body: Also sets type and code to appropriate values according to errorcondition
+- !ruby/struct:SM::Flow::P 
+  body: "text: [nil] or [String] ErrorResponse text"
+full_name: Jabber::ErrorResponse::new
+is_singleton: true
+name: new
+params: (errorcondition=nil, text=nil)
+visibility: public

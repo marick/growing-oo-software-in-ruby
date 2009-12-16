@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Test::ListenerMocker#connect
+is_singleton: false
+name: connect
+params: ()
+visibility: public

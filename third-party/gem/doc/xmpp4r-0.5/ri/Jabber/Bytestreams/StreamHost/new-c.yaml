@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a &lt;streamhost/&gt; element
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "host:"
+    body: "[String] Hostname or IP address"
+  - !ruby/struct:SM::Flow::LI 
+    label: "port:"
+    body: "[Fixnum] Port number"
+  type: :NOTE
+full_name: Jabber::Bytestreams::StreamHost::new
+is_singleton: true
+name: new
+params: (jid=nil, host=nil, port=nil)
+visibility: public

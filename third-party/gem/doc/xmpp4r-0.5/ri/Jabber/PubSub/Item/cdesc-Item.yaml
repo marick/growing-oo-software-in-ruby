@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Item One PubSub Item
+constants: []
+
+full_name: Jabber::PubSub::Item
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: id
+- !ruby/object:RI::MethodSummary 
+  name: id=
+name: Item
+superclass: XMPPElement

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a callback for &lt;query&gt; stanzas asking for the list of ad-hoc commands
+full_name: Jabber::Command::Responder#add_commands_disco_callback
+is_singleton: false
+name: add_commands_disco_callback
+params: (priority = 0, ref = nil, &block)
+visibility: public

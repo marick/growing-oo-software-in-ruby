@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new node on the pubsub service
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String] the node name - otherwise you get a automatically generated one (in most cases)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "configure:"
+    body: "[Jabber::PubSub::NodeConfig] if you want to configure your node (default nil)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#create_node
+is_singleton: false
+name: create_node
+params: (node = nil, configure = Jabber::PubSub::NodeConfig.new)
+visibility: public

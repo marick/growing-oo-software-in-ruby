@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is any presence of this person on-line?
+- !ruby/struct:SM::Flow::P 
+  body: (Or is there any presence? Unavailable presences are deleted.)
+full_name: Jabber::Roster::Helper::RosterItem#online?
+is_singleton: false
+name: online?
+params: ()
+visibility: public

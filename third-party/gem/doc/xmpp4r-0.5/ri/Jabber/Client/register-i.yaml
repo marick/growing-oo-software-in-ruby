@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Register a new user account (may be used instead of Client#auth)
+- !ruby/struct:SM::Flow::P 
+  body: This method may raise ServerError if the registration was not successful.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "password:"
+    body: String
+  - !ruby/struct:SM::Flow::LI 
+    label: "fields:"
+    body: "{String=&gt;String} additional registration information"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "XEP-0077 Defines the following fields for registration information: http://www.xmpp.org/extensions/xep-0077.html"
+- !ruby/struct:SM::Flow::P 
+  body: "'username' =&gt; 'Account name associated with the user' 'nick' =&gt; 'Familiar name of the user' 'password' =&gt; 'Password or secret for the user' 'name' =&gt; 'Full name of the user' 'first' =&gt; 'First name or given name of the user' 'last' =&gt; 'Last name, surname, or family name of the user' 'email' =&gt; 'Email address of the user' 'address' =&gt; 'Street portion of a physical or mailing address' 'city' =&gt; 'Locality portion of a physical or mailing address' 'state' =&gt; 'Region portion of a physical or mailing address' 'zip' =&gt; 'Postal code portion of a physical or mailing address' 'phone' =&gt; 'Telephone number of the user' 'url' =&gt; 'URL to web page describing the user' 'date' =&gt; 'Some date (e.g., birth date, hire date, sign-up date)'"
+full_name: Jabber::Client#register
+is_singleton: false
+name: register
+params: (password, fields={})
+visibility: public

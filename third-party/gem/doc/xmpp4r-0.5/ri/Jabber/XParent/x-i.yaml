@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the first &lt;x/&gt; element in this stanza, or nil if none found.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "wanted_xmlns:"
+    body: "[String] Optional, find the first &lt;x/&gt; element having this xmlns,"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: wanted_xmlns can also be a derivate of XMPPElement from which the namespace will be taken
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[REXML::Element] or nil"
+  type: :NOTE
+full_name: Jabber::XParent#x
+is_singleton: false
+name: x
+params: (wanted_xmlns=nil)
+visibility: public

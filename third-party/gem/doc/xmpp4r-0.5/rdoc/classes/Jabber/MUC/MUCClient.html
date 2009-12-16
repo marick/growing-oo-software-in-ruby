@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::MUC::MUCClient</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::MUC::MUCClient</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/muc/helper/mucclient_rb.html">
+                lib/xmpp4r/muc/helper/mucclient.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="MUCClient.html">MUCClient</a> Helper handles low-level stuff
+of the Multi-User Chat (JEP 0045).
+</p>
+<p>
+Use one instance per <a href="MUCClient.html#M000304">room</a>.
+</p>
+<p>
+Note that one client cannot <a href="MUCClient.html#M000299">join</a> a
+single <a href="MUCClient.html#M000304">room</a> multiple times. At least
+the clients&#8217; resources must be different. This is a protocol design
+issue. But don&#8216;t consider it as a bug, it is just a clone-preventing
+feature.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000301">active?</a>&nbsp;&nbsp;
+      <a href="#M000306">add_join_callback</a>&nbsp;&nbsp;
+      <a href="#M000307">add_leave_callback</a>&nbsp;&nbsp;
+      <a href="#M000309">add_message_callback</a>&nbsp;&nbsp;
+      <a href="#M000308">add_presence_callback</a>&nbsp;&nbsp;
+      <a href="#M000310">add_private_message_callback</a>&nbsp;&nbsp;
+      <a href="#M000313">configure</a>&nbsp;&nbsp;
+      <a href="#M000300">exit</a>&nbsp;&nbsp;
+      <a href="#M000311">from_room?</a>&nbsp;&nbsp;
+      <a href="#M000314">get_room_configuration</a>&nbsp;&nbsp;
+      <a href="#M000299">join</a>&nbsp;&nbsp;
+      <a href="#M000298">new</a>&nbsp;&nbsp;
+      <a href="#M000302">nick</a>&nbsp;&nbsp;
+      <a href="#M000303">nick=</a>&nbsp;&nbsp;
+      <a href="#M000312">owner?</a>&nbsp;&nbsp;
+      <a href="#M000304">room</a>&nbsp;&nbsp;
+      <a href="#M000305">send</a>&nbsp;&nbsp;
+      <a href="#M000316">send_affiliations</a>&nbsp;&nbsp;
+      <a href="#M000315">submit_room_configuration</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">jid</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+<a href="../MUC.html">MUC</a> <a href="../JID.html">JID</a>
+
+<table>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">JID</a>] <a
+href="MUCClient.html#M000304">room</a>@component/nick
+
+</td></tr>
+</table>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">my_jid</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Sender <a href="../JID.html">JID</a>, set this to use <a
+href="MUCClient.html">MUCClient</a> from Components
+
+<table>
+<tr><td valign="top">my_jid:</td><td>[<a href="../JID.html">JID</a>] Defaults to nil
+
+</td></tr>
+</table>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">roster</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+<a href="../MUC.html">MUC</a> <a href="MUCClient.html#M000304">room</a>
+roster
+
+<table>
+<tr><td valign="top">roster:</td><td>[Hash] of [String] Nick =&gt; [<a href="../Presence.html">Presence</a>]
+
+</td></tr>
+</table>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000298" class="method-detail">
+        <a name="M000298"></a>
+
+        <div class="method-heading">
+          <a href="#M000298" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(stream)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initialize a <a href="MUCClient.html">MUCClient</a>
+</p>
+<p>
+Call <a href="MUCClient.html#M000299">MUCClient#join</a> <b>after</b> you
+have registered your callbacks to avoid reception of stanzas after joining
+and before registration of callbacks.
+</p>
+<table>
+<tr><td valign="top">stream:</td><td>[<a href="../Stream.html">Stream</a>] to operate on
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000298-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000298-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 45</span>
+45:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">stream</span>)
+46:         <span class="ruby-comment cmt"># Attributes initialization</span>
+47:         <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">stream</span>
+48:         <span class="ruby-ivar">@my_jid</span> = <span class="ruby-keyword kw">nil</span>
+49:         <span class="ruby-ivar">@jid</span> = <span class="ruby-keyword kw">nil</span>
+50:         <span class="ruby-ivar">@roster</span> = {}
+51:         <span class="ruby-ivar">@roster_lock</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+52: 
+53:         <span class="ruby-ivar">@active</span> = <span class="ruby-keyword kw">false</span>
+54: 
+55:         <span class="ruby-ivar">@join_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+56:         <span class="ruby-ivar">@leave_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+57:         <span class="ruby-ivar">@presence_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+58:         <span class="ruby-ivar">@message_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+59:         <span class="ruby-ivar">@private_message_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+60:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000301" class="method-detail">
+        <a name="M000301"></a>
+
+        <div class="method-heading">
+          <a href="#M000301" class="method-signature">
+          <span class="method-name">active?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Is the <a href="../MUC.html">MUC</a> client <a
+href="MUCClient.html#M000301">active?</a>
+</p>
+<p>
+This is false after initialization, true after joining and false after
+exit/kick
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000301-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000301-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 161</span>
+161:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">active?</span>
+162:         <span class="ruby-ivar">@active</span>
+163:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000306" class="method-detail">
+        <a name="M000306"></a>
+
+        <div class="method-heading">
+          <a href="#M000306" class="method-signature">
+          <span class="method-name">add_join_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for &lt;presence/&gt; stanzas indicating availability of a
+<a href="../MUC.html">MUC</a> participant
+</p>
+<p>
+This callback will <b>not</b> be called for initial presences when a client
+joins a <a href="MUCClient.html#M000304">room</a>, but only for the
+presences afterwards.
+</p>
+<p>
+The callback will be called from MUCClient#handle_presence with one
+argument: the &lt;presence/&gt; stanza. Note that this stanza will have
+been already inserted into MUCClient#roster.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000306-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000306-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 268</span>
+268:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_join_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+269:         <span class="ruby-ivar">@join_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+270:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000307" class="method-detail">
+        <a name="M000307"></a>
+
+        <div class="method-heading">
+          <a href="#M000307" class="method-signature">
+          <span class="method-name">add_leave_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for &lt;presence/&gt; stanzas indicating unavailability of a
+<a href="../MUC.html">MUC</a> participant
+</p>
+<p>
+The callback will be called with one argument: the &lt;presence/&gt;
+stanza.
+</p>
+<p>
+Note that this is called just <b>before</b> the stanza is removed from
+MUCClient#roster, so it is still possible to see the last presence in the
+given block.
+</p>
+<p>
+If the presence&#8216;s origin is your <a href="../MUC.html">MUC</a> <a
+href="../JID.html">JID</a>, the <a href="MUCClient.html">MUCClient</a> will
+be deactivated <b>afterwards</b>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000307-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000307-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 284</span>
+284:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_leave_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+285:         <span class="ruby-ivar">@leave_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+286:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000309" class="method-detail">
+        <a name="M000309"></a>
+
+        <div class="method-heading">
+          <a href="#M000309" class="method-signature">
+          <span class="method-name">add_message_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for &lt;message/&gt; stanza directed to the whole <a
+href="MUCClient.html#M000304">room</a>.
+</p>
+<p>
+See <a
+href="MUCClient.html#M000310">MUCClient#add_private_message_callback</a>
+for private messages between <a href="../MUC.html">MUC</a> participants.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000309-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000309-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 301</span>
+301:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_message_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+302:         <span class="ruby-ivar">@message_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+303:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000308" class="method-detail">
+        <a name="M000308"></a>
+
+        <div class="method-heading">
+          <a href="#M000308" class="method-signature">
+          <span class="method-name">add_presence_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for a &lt;presence/&gt; stanza which is neither a <a
+href="MUCClient.html#M000299">join</a> nor a leave. This will be called
+when a <a href="MUCClient.html#M000304">room</a> participant simply changes
+his status.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000308-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000308-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 292</span>
+292:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_presence_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+293:         <span class="ruby-ivar">@presence_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+294:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000310" class="method-detail">
+        <a name="M000310"></a>
+
+        <div class="method-heading">
+          <a href="#M000310" class="method-signature">
+          <span class="method-name">add_private_message_callback</span><span class="method-args">(prio = 0, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a callback for &lt;message/&gt; stanza with type=&#8216;chat&#8217;.
+</p>
+<p>
+These stanza are normally not broadcasted to all <a
+href="MUCClient.html#M000304">room</a> occupants but are some sort of
+private messaging.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000310-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000310-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 310</span>
+310:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_private_message_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+311:         <span class="ruby-ivar">@private_message_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+312:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000313" class="method-detail">
+        <a name="M000313"></a>
+
+        <div class="method-heading">
+          <a href="#M000313" class="method-signature">
+          <span class="method-name">configure</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Use this method to <a href="MUCClient.html#M000313">configure</a> a <a
+href="../MUC.html">MUC</a> <a href="MUCClient.html#M000304">room</a> of
+which you are the owner.
+</p>
+<table>
+<tr><td valign="top">options:</td><td>[Hash] where keys are the features of the <a
+href="MUCClient.html#M000304">room</a> you wish
+
+</td></tr>
+</table>
+<p>
+to <a href="MUCClient.html#M000313">configure</a>. See <a
+href="http://www.xmpp.org/extensions/xep-0045.html#registrar-formtype-owner">www.xmpp.org/extensions/xep-0045.html#registrar-formtype-owner</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000313-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000313-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 399</span>
+399:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">configure</span>(<span class="ruby-identifier">options</span>={})
+400:         <span class="ruby-identifier">get_room_configuration</span>
+401:         <span class="ruby-identifier">submit_room_configuration</span>(<span class="ruby-identifier">options</span>)
+402:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000300" class="method-detail">
+        <a name="M000300"></a>
+
+        <div class="method-heading">
+          <a href="#M000300" class="method-signature">
+          <span class="method-name">exit</span><span class="method-args">(reason=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Exit the <a href="MUCClient.html#M000304">room</a>
+</p>
+<ul>
+<li>Sends presence with type=&#8216;unavailable&#8217; with an optional reason
+in <tt>&lt;status/&gt;</tt>,
+
+</li>
+<li>then waits for a reply from the <a href="../MUC.html">MUC</a> component
+(will be processed by leave-callbacks),
+
+</li>
+<li>then deletes callbacks from the stream.
+
+</li>
+</ul>
+<table>
+<tr><td valign="top">reason:</td><td>[String] Optional custom <a href="MUCClient.html#M000300">exit</a> message
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000300-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000300-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 130</span>
+130:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">reason</span>=<span class="ruby-keyword kw">nil</span>)
+131:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">active?</span>
+132:           <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;MUCClient hasn't yet joined&quot;</span>
+133:         <span class="ruby-keyword kw">end</span>
+134: 
+135:         <span class="ruby-identifier">pres</span> = <span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>
+136:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">:unavailable</span>
+137:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">to</span> = <span class="ruby-identifier">jid</span>
+138:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">from</span> = <span class="ruby-ivar">@my_jid</span>
+139:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">status</span> = <span class="ruby-identifier">reason</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reason</span>
+140:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pres</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+141:           <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-identifier">debuglog</span> <span class="ruby-node">&quot;exit: #{r.to_s.inspect}&quot;</span>
+142:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Presence</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:unavailable</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">from</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">jid</span>
+143:             <span class="ruby-ivar">@leave_cbs</span>.<span class="ruby-identifier">process</span>(<span class="ruby-identifier">r</span>)
+144:             <span class="ruby-keyword kw">true</span>
+145:           <span class="ruby-keyword kw">else</span>
+146:             <span class="ruby-keyword kw">false</span>
+147:           <span class="ruby-keyword kw">end</span>
+148:         }
+149: 
+150:         <span class="ruby-identifier">deactivate</span>
+151: 
+152:         <span class="ruby-keyword kw">self</span>
+153:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000311" class="method-detail">
+        <a name="M000311"></a>
+
+        <div class="method-heading">
+          <a href="#M000311" class="method-signature">
+          <span class="method-name">from_room?</span><span class="method-args">(jid)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Does this <a href="../JID.html">JID</a> belong to that room?
+</p>
+<table>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">JID</a>]
+
+</td></tr>
+<tr><td valign="top">result:</td><td>[true] or [false]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000311-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000311-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 318</span>
+318:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">from_room?</span>(<span class="ruby-identifier">jid</span>)
+319:         <span class="ruby-ivar">@jid</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>
+320:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000314" class="method-detail">
+        <a name="M000314"></a>
+
+        <div class="method-heading">
+          <a href="#M000314" class="method-signature">
+          <span class="method-name">get_room_configuration</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000314-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000314-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 404</span>
+404:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_room_configuration</span>
+405:         <span class="ruby-identifier">raise</span> <span class="ruby-value str">'You are not the owner'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">owner?</span>
+406: 
+407:         <span class="ruby-identifier">iq</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:get</span>, <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+408:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">from</span> = <span class="ruby-identifier">my_jid</span>
+409:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">IqQueryMUCOwner</span>.<span class="ruby-identifier">new</span>)
+410: 
+411:         <span class="ruby-identifier">fields</span> = []
+412: 
+413:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">answer</span><span class="ruby-operator">|</span>
+414:           <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Configuration not possible for this room&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">query</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">x</span>(<span class="ruby-constant">Dataforms</span><span class="ruby-operator">::</span><span class="ruby-constant">XData</span>)
+415: 
+416:           <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">x</span>(<span class="ruby-constant">Dataforms</span><span class="ruby-operator">::</span><span class="ruby-constant">XData</span>).<span class="ruby-identifier">fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+417:             <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">var</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'var'</span>])
+418:               <span class="ruby-identifier">fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">var</span>
+419:             <span class="ruby-keyword kw">end</span>
+420:           <span class="ruby-keyword kw">end</span>
+421:         <span class="ruby-keyword kw">end</span>
+422: 
+423:         <span class="ruby-identifier">fields</span>
+424:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000299" class="method-detail">
+        <a name="M000299"></a>
+
+        <div class="method-heading">
+          <a href="#M000299" class="method-signature">
+          <span class="method-name">join</span><span class="method-args">(jid, password=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Join a <a href="MUCClient.html#M000304">room</a>
+</p>
+<p>
+This registers its own callbacks on the stream provided to initialize and
+sends initial presence to the <a href="MUCClient.html#M000304">room</a>.
+May throw ServerError if joining fails.
+</p>
+<table>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">JID</a>] <a
+href="MUCClient.html#M000304">room</a>@component/nick
+
+</td></tr>
+<tr><td valign="top">password:</td><td>[String] Optional password
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="MUCClient.html">MUCClient</a>] self (chain-able)
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000299-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000299-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 72</span>
+ 72:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-identifier">jid</span>, <span class="ruby-identifier">password</span>=<span class="ruby-keyword kw">nil</span>)
+ 73:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">active?</span>
+ 74:           <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;MUCClient already active&quot;</span>
+ 75:         <span class="ruby-keyword kw">end</span>
+ 76: 
+ 77:         <span class="ruby-ivar">@jid</span> = (<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">JID</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">jid</span> <span class="ruby-operator">:</span> <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>))
+ 78:         <span class="ruby-identifier">activate</span>
+ 79: 
+ 80:         <span class="ruby-comment cmt"># Joining</span>
+ 81:         <span class="ruby-identifier">pres</span> = <span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>
+ 82:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">to</span> = <span class="ruby-ivar">@jid</span>
+ 83:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">from</span> = <span class="ruby-ivar">@my_jid</span>
+ 84:         <span class="ruby-identifier">xmuc</span> = <span class="ruby-constant">XMUC</span>.<span class="ruby-identifier">new</span>
+ 85:         <span class="ruby-identifier">xmuc</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">password</span>
+ 86:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">xmuc</span>)
+ 87: 
+ 88:         <span class="ruby-comment cmt"># We don't use Stream#send_with_id here as it's unknown</span>
+ 89:         <span class="ruby-comment cmt"># if the MUC component *always* uses our stanza id.</span>
+ 90:         <span class="ruby-identifier">error</span> = <span class="ruby-keyword kw">nil</span>
+ 91:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pres</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+ 92:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">from_room?</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">from</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Presence</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:error</span>
+ 93:             <span class="ruby-comment cmt"># Error from room</span>
+ 94:             <span class="ruby-identifier">error</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">error</span>
+ 95:             <span class="ruby-keyword kw">true</span>
+ 96:           <span class="ruby-comment cmt"># type='unavailable' may occur when the MUC kills our previous instance,</span>
+ 97:           <span class="ruby-comment cmt"># but all join-failures should be type='error'</span>
+ 98:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">from</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">jid</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Presence</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">:unavailable</span>
+ 99:             <span class="ruby-comment cmt"># Our own presence reflected back - success</span>
+100:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">x</span>(<span class="ruby-constant">XMUCUser</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">i</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">x</span>(<span class="ruby-constant">XMUCUser</span>).<span class="ruby-identifier">items</span>.<span class="ruby-identifier">first</span>)
+101:               <span class="ruby-ivar">@affiliation</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">affiliation</span>  <span class="ruby-comment cmt"># we're interested in if it's :owner</span>
+102:               <span class="ruby-ivar">@role</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">role</span>                <span class="ruby-comment cmt"># :moderator ?</span>
+103:             <span class="ruby-keyword kw">end</span>
+104: 
+105:             <span class="ruby-identifier">handle_presence</span>(<span class="ruby-identifier">r</span>, <span class="ruby-keyword kw">false</span>)
+106:             <span class="ruby-keyword kw">true</span>
+107:           <span class="ruby-keyword kw">else</span>
+108:             <span class="ruby-comment cmt"># Everything else</span>
+109:             <span class="ruby-keyword kw">false</span>
+110:           <span class="ruby-keyword kw">end</span>
+111:         }
+112: 
+113:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">error</span>
+114:           <span class="ruby-identifier">deactivate</span>
+115:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ServerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">error</span>)
+116:         <span class="ruby-keyword kw">end</span>
+117: 
+118:         <span class="ruby-keyword kw">self</span>
+119:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000302" class="method-detail">
+        <a name="M000302"></a>
+
+        <div class="method-heading">
+          <a href="#M000302" class="method-signature">
+          <span class="method-name">nick</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The <a href="MUCClient.html">MUCClient</a>&#8216;s own <a
+href="MUCClient.html#M000302">nick</a> (= resource)
+</p>
+<table>
+<tr><td valign="top">result:</td><td>[String] Nickname
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000302-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000302-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 169</span>
+169:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nick</span>
+170:         <span class="ruby-ivar">@jid</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@jid</span>.<span class="ruby-identifier">resource</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+171:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000303" class="method-detail">
+        <a name="M000303"></a>
+
+        <div class="method-heading">
+          <a href="#M000303" class="method-signature">
+          <span class="method-name">nick=</span><span class="method-args">(new_nick)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Change <a href="MUCClient.html#M000302">nick</a>
+</p>
+<p>
+Threading is, again, suggested. This method waits for two &lt;presence/&gt;
+stanzas, one indicating unavailabilty of the old transient <a
+href="../JID.html">JID</a>, one indicating availability of the <a
+href="MUCClient.html#M000298">new</a> transient <a
+href="../JID.html">JID</a>.
+</p>
+<p>
+If the service denies <a href="MUCClient.html#M000302">nick</a>-change,
+ServerError will be raised.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000303-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000303-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 182</span>
+182:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nick=</span>(<span class="ruby-identifier">new_nick</span>)
+183:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">active?</span>
+184:           <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;MUCClient not active&quot;</span>
+185:         <span class="ruby-keyword kw">end</span>
+186: 
+187:         <span class="ruby-identifier">new_jid</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@jid</span>.<span class="ruby-identifier">node</span>, <span class="ruby-ivar">@jid</span>.<span class="ruby-identifier">domain</span>, <span class="ruby-identifier">new_nick</span>)
+188: 
+189:         <span class="ruby-comment cmt"># Joining</span>
+190:         <span class="ruby-identifier">pres</span> = <span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>
+191:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">to</span> = <span class="ruby-identifier">new_jid</span>
+192:         <span class="ruby-identifier">pres</span>.<span class="ruby-identifier">from</span> = <span class="ruby-ivar">@my_jid</span>
+193: 
+194:         <span class="ruby-identifier">error</span> = <span class="ruby-keyword kw">nil</span>
+195:         <span class="ruby-comment cmt"># Keeping track of the two stanzas enables us to process stanzas</span>
+196:         <span class="ruby-comment cmt"># which don't arrive in the order specified by JEP-0045</span>
+197:         <span class="ruby-identifier">presence_unavailable</span> = <span class="ruby-keyword kw">false</span>
+198:         <span class="ruby-identifier">presence_available</span> = <span class="ruby-keyword kw">false</span>
+199:         <span class="ruby-comment cmt"># We don't use Stream#send_with_id here as it's unknown</span>
+200:         <span class="ruby-comment cmt"># if the MUC component *always* uses our stanza id.</span>
+201:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pres</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+202:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">from_room?</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">from</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Presence</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:error</span>
+203:             <span class="ruby-comment cmt"># Error from room</span>
+204:             <span class="ruby-identifier">error</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">error</span>
+205:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">from</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@jid</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Presence</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:unavailable</span> <span class="ruby-keyword kw">and</span>
+206:                 <span class="ruby-identifier">r</span>.<span class="ruby-identifier">x</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">XMUCUser</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">status_code</span> <span class="ruby-operator">==</span> <span class="ruby-value">303</span>
+207:             <span class="ruby-comment cmt"># Old JID is offline, but wait for the new JID and let stanza be handled</span>
+208:             <span class="ruby-comment cmt"># by the standard callback</span>
+209:             <span class="ruby-identifier">presence_unavailable</span> = <span class="ruby-keyword kw">true</span>
+210:             <span class="ruby-identifier">handle_presence</span>(<span class="ruby-identifier">r</span>)
+211:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">from</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">new_jid</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Presence</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">:unavailable</span>
+212:             <span class="ruby-comment cmt"># Our own presence reflected back - success</span>
+213:             <span class="ruby-identifier">presence_available</span> = <span class="ruby-keyword kw">true</span>
+214:             <span class="ruby-identifier">handle_presence</span>(<span class="ruby-identifier">r</span>)
+215:           <span class="ruby-keyword kw">end</span>
+216: 
+217:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">error</span> <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">presence_available</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">presence_unavailable</span>)
+218:             <span class="ruby-keyword kw">true</span>
+219:           <span class="ruby-keyword kw">else</span>
+220:             <span class="ruby-keyword kw">false</span>
+221:           <span class="ruby-keyword kw">end</span>
+222:         }
+223: 
+224:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">error</span>
+225:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ServerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">error</span>)
+226:         <span class="ruby-keyword kw">end</span>
+227: 
+228:         <span class="ruby-comment cmt"># Apply new JID</span>
+229:         <span class="ruby-ivar">@jid</span> = <span class="ruby-identifier">new_jid</span>
+230:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000312" class="method-detail">
+        <a name="M000312"></a>
+
+        <div class="method-heading">
+          <a href="#M000312" class="method-signature">
+          <span class="method-name">owner?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000312-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000312-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 390</span>
+390:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">owner?</span>
+391:         <span class="ruby-ivar">@affiliation</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:owner</span>
+392:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000304" class="method-detail">
+        <a name="M000304"></a>
+
+        <div class="method-heading">
+          <a href="#M000304" class="method-signature">
+          <span class="method-name">room</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The <a href="MUCClient.html#M000304">room</a> name (= node)
+</p>
+<table>
+<tr><td valign="top">result:</td><td>[String] Room name
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000304-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000304-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 236</span>
+236:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">room</span>
+237:         <span class="ruby-ivar">@jid</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@jid</span>.<span class="ruby-identifier">node</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+238:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000305" class="method-detail">
+        <a name="M000305"></a>
+
+        <div class="method-heading">
+          <a href="#M000305" class="method-signature">
+          <span class="method-name">send</span><span class="method-args">(stanza, to=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send a stanza to the <a href="MUCClient.html#M000304">room</a>
+</p>
+<p>
+If stanza is a <a href="../Message.html">Jabber::Message</a>,
+<tt>stanza.type</tt> will be automatically set to :groupchat if directed to
+<a href="MUCClient.html#M000304">room</a> or :chat if directed to
+participant.
+</p>
+<table>
+<tr><td valign="top">stanza:</td><td>[<a href="../XMPPStanza.html">XMPPStanza</a>] to <a
+href="MUCClient.html#M000305">send</a>
+
+</td></tr>
+<tr><td valign="top">to:</td><td>[String] Stanza destination recipient, or <a
+href="MUCClient.html#M000304">room</a> if <tt>nil</tt>
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000305-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000305-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 248</span>
+248:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">stanza</span>, <span class="ruby-identifier">to</span>=<span class="ruby-keyword kw">nil</span>)
+249:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stanza</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Message</span>
+250:           <span class="ruby-identifier">stanza</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">to</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">chat</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:groupchat</span>
+251:         <span class="ruby-keyword kw">end</span>
+252:         <span class="ruby-identifier">stanza</span>.<span class="ruby-identifier">from</span> = <span class="ruby-ivar">@my_jid</span>
+253:         <span class="ruby-identifier">stanza</span>.<span class="ruby-identifier">to</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">node</span>, <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">domain</span>, <span class="ruby-identifier">to</span>)
+254:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">stanza</span>)
+255:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000316" class="method-detail">
+        <a name="M000316"></a>
+
+        <div class="method-heading">
+          <a href="#M000316" class="method-signature">
+          <span class="method-name">send_affiliations</span><span class="method-args">(items)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Push a list of <a href="MUCClient.html#M000298">new</a> affiliations to the
+<a href="MUCClient.html#M000304">room</a>
+</p>
+<table>
+<tr><td valign="top">items:</td><td>[Array] of, or single [<a
+href="IqQueryMUCAdminItem.html">IqQueryMUCAdminItem</a>]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000316-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000316-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 448</span>
+448:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_affiliations</span>(<span class="ruby-identifier">items</span>)
+449:         <span class="ruby-identifier">iq</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:set</span>, <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+450:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">from</span> = <span class="ruby-identifier">my_jid</span>
+451:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">IqQueryMUCAdmin</span>.<span class="ruby-identifier">new</span>)
+452: 
+453:         <span class="ruby-identifier">items</span> = [<span class="ruby-identifier">item</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Array</span>
+454:         <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+455:           <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item</span>)
+456:         }
+457: 
+458:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+459:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000315" class="method-detail">
+        <a name="M000315"></a>
+
+        <div class="method-heading">
+          <a href="#M000315" class="method-signature">
+          <span class="method-name">submit_room_configuration</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000315-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000315-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/muc/helper/mucclient.rb, line 426</span>
+426:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">submit_room_configuration</span>(<span class="ruby-identifier">options</span>)
+427:         <span class="ruby-comment cmt"># fill out the reply form</span>
+428:         <span class="ruby-identifier">iq</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:set</span>, <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>)
+429:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">from</span> = <span class="ruby-identifier">my_jid</span>
+430:         <span class="ruby-identifier">query</span> = <span class="ruby-constant">IqQueryMUCOwner</span>.<span class="ruby-identifier">new</span>
+431:         <span class="ruby-identifier">form</span> = <span class="ruby-constant">Dataforms</span><span class="ruby-operator">::</span><span class="ruby-constant">XData</span>.<span class="ruby-identifier">new</span>
+432:         <span class="ruby-identifier">form</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">:submit</span>
+433:         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span>, <span class="ruby-identifier">values</span><span class="ruby-operator">|</span>
+434:           <span class="ruby-identifier">field</span> = <span class="ruby-constant">Dataforms</span><span class="ruby-operator">::</span><span class="ruby-constant">XDataField</span>.<span class="ruby-identifier">new</span>
+435:           <span class="ruby-identifier">values</span> = [<span class="ruby-identifier">values</span>] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+436:           <span class="ruby-identifier">field</span>.<span class="ruby-identifier">var</span>, <span class="ruby-identifier">field</span>.<span class="ruby-identifier">values</span> = <span class="ruby-identifier">var</span>, <span class="ruby-identifier">values</span>
+437:           <span class="ruby-identifier">form</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">field</span>)
+438:         <span class="ruby-keyword kw">end</span>
+439:         <span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">form</span>)
+440:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">query</span>)
+441: 
+442:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+443:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

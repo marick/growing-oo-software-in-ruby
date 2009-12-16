@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Class for handling roster updates
+- !ruby/struct:SM::Flow::P 
+  body: You must do 'client.send(Iq.new_rosterget)' or else you will have nothing to put in receive_iq()
+- !ruby/struct:SM::Flow::P 
+  body: You must require 'xmpp4r/rosterquery' to use this class as its functionality is not needed for a working XMPP implementation. This will make [IqQuery] convert all Queries with namespace 'jabber:iq:roster' to [IqQueryRoster]
+- !ruby/struct:SM::Flow::P 
+  body: This &lt;query/&gt; contains multiple &lt;item/&gt; children. See RosterItem.
+constants: []
+
+full_name: Jabber::Roster::IqQueryRoster
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: each
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: receive_iq
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+name: IqQueryRoster
+superclass: IqQuery

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get first XHTML::Body child
+full_name: Jabber::XHTML::HTML#body
+is_singleton: false
+name: body
+params: ()
+visibility: public

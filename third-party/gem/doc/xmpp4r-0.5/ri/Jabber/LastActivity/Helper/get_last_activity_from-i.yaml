@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Gets the last activity from a JID.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Jabber::LastActivity::IqQueryLastActivity]"
+  type: :NOTE
+full_name: Jabber::LastActivity::Helper#get_last_activity_from
+is_singleton: false
+name: get_last_activity_from
+params: (jid)
+visibility: public

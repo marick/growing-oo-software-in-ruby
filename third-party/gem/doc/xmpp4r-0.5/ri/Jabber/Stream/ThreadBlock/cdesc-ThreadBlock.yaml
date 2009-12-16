@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This is used by Jabber::Stream internally to keep track of any blocks which were passed to Stream#send.
+constants: []
+
+full_name: Jabber::Stream::ThreadBlock
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: raise
+- !ruby/object:RI::MethodSummary 
+  name: wait
+- !ruby/object:RI::MethodSummary 
+  name: wakeup
+name: ThreadBlock
+superclass: Object

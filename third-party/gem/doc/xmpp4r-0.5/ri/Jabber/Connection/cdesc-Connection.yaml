@@ -1,0 +1,72 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Allow TLS negotiation? Defaults to true
+  name: allow_tls
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: How many seconds to wait for &lt;stream:features/&gt; before proceeding
+  name: features_timeout
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: host
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Keep-alive interval in seconds, defaults to 60 (see private method keepalive_loop for implementation details)
+  name: keepalive_interval
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: port
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Optional CA-Path for TLS-handshake
+  name: ssl_capath
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Optional callback for verification of SSL peer
+  name: ssl_verifycb
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: whether to use the old and deprecated SSL protocol Defaults to false
+  name: use_ssl
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The connection class manages the TCP connection to the Jabber server
+constants: []
+
+full_name: Jabber::Connection
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: accept_features
+- !ruby/object:RI::MethodSummary 
+  name: close!
+- !ruby/object:RI::MethodSummary 
+  name: connect
+- !ruby/object:RI::MethodSummary 
+  name: is_tls?
+- !ruby/object:RI::MethodSummary 
+  name: start
+- !ruby/object:RI::MethodSummary 
+  name: starttls
+name: Connection
+superclass: Stream

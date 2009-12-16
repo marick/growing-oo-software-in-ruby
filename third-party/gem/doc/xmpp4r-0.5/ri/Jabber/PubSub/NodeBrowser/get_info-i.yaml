@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: get_metadata
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: get disco info for a node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[Jabber::JID]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:: [Hash] with possible keys type:: [String] ,category:: [String],features:: [Array] of feature, nodeinformation:"
+    body: "[Jabber::XData]"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: check http://www.xmpp.org/extensions/xep-0060.html#entity for more infos
+full_name: Jabber::PubSub::NodeBrowser#get_info
+is_singleton: false
+name: get_info
+params: (jid,node)
+visibility: public

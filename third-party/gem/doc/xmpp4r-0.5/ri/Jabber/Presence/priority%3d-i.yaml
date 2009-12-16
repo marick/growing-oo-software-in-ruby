@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set presence priority
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "val:"
+    body: "[Integer] Priority value between -128 and +127"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "*Warning:* negative values make you receive no subscription requests etc. (RFC3921 - 2.2.2.3.)"
+full_name: Jabber::Presence#priority=
+is_singleton: false
+name: priority=
+params: (val)
+visibility: public

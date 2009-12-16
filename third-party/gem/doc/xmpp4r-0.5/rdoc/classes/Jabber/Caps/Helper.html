@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Caps::Helper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Caps::Helper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/caps/helper/helper_rb.html">
+                lib/xmpp4r/caps/helper/helper.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A <a href="Helper.html">Helper</a> to manage advertising and discovery of
+entity capabilities.
+</p>
+<p>
+Following XEP-0115 (<a href="Helper.html#M000224">ver</a> 1.4 <a
+href="http://www.xmpp.org/extensions/xep-0115.html">www.xmpp.org/extensions/xep-0115.html</a>).
+you can use this <a href="Helper.html">Helper</a> to, for example,
+advertise that your client wishes to receive XEP-0118 User Tune
+notifications, eg:
+</p>
+<p>
+caps_helper=Jabber::Caps::Helper(cl,
+</p>
+<pre>
+  [Jabber::Discovery::Identity.new('client',nil,'bot')],
+  [Jabber::Discovery::Feature.new('http://jabber.org/protocol/tune+notify')]
+</pre>
+<p>
+)
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000222">c</a>&nbsp;&nbsp;
+      <a href="#M000223">handle_discoinfo_query</a>&nbsp;&nbsp;
+      <a href="#M000221">new</a>&nbsp;&nbsp;
+      <a href="#M000224">ver</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">features</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">identities</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">node</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000221" class="method-detail">
+        <a name="M000221"></a>
+
+        <div class="method-heading">
+          <a href="#M000221" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(client,i=[],f=[],n=&quot;http://home.gna.org/xmpp4r/</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Construct a <a href="Helper.html#M000221">new</a> <a
+href="../Caps.html">Caps</a> <a href="Helper.html">Helper</a>.
+</p>
+<p>
+This will send a &lt;presence&gt; message containing a &lt;<a
+href="Helper.html#M000222">c</a>/&gt; (<a
+href="C.html">Jabber::Caps::C</a>) stanza to your server.
+</p>
+<table>
+<tr><td valign="top">client:</td><td>[<a href="../Stream.html">Jabber::Stream</a>]
+
+</td></tr>
+<tr><td valign="top">i:</td><td>[Array] of [<a
+href="../Discovery/Identity.html">Jabber::Discovery::Identity</a>] objects
+that this entity will advertise
+
+</td></tr>
+<tr><td valign="top">f:</td><td>[Array] of [<a
+href="../Discovery/Feature.html">Jabber::Discovery::Feature</a>] objects
+that this entity will advertise
+
+</td></tr>
+<tr><td valign="top">n:</td><td>[String] an identifier representing the software underlying this entity
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000221-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000221-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/helper.rb, line 35</span>
+35:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>,<span class="ruby-identifier">i</span>=[],<span class="ruby-identifier">f</span>=[],<span class="ruby-identifier">n</span>=<span class="ruby-node">&quot;http://home.gna.org/xmpp4r/##{Jabber::XMPP4R_VERSION}&quot;</span>)
+36:         <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">client</span>
+37:         <span class="ruby-ivar">@identities</span> = <span class="ruby-identifier">i</span>
+38:         <span class="ruby-ivar">@features</span> = <span class="ruby-identifier">f</span>
+39:         <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">n</span>
+40: 
+41:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">add_iq_callback</span>(<span class="ruby-value">250</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">iq</span><span class="ruby-operator">|</span>
+42:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:get</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Discovery</span><span class="ruby-operator">::</span><span class="ruby-constant">IqQueryDiscoInfo</span>
+43:             <span class="ruby-identifier">handle_discoinfo_query</span>(<span class="ruby-identifier">iq</span>)
+44:             <span class="ruby-keyword kw">true</span>
+45:           <span class="ruby-keyword kw">else</span>
+46:             <span class="ruby-keyword kw">false</span>
+47:           <span class="ruby-keyword kw">end</span>
+48:         <span class="ruby-keyword kw">end</span>
+49: 
+50:         <span class="ruby-identifier">p</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Presence</span>.<span class="ruby-identifier">new</span>()
+51:         <span class="ruby-identifier">p</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">c</span>)
+52:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">p</span>)
+53:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000222" class="method-detail">
+        <a name="M000222"></a>
+
+        <div class="method-heading">
+          <a href="#M000222" class="method-signature">
+          <span class="method-name">c</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return a &lt;<a href="Helper.html#M000222">c</a>/&gt; element for inclusion
+in your own &lt;presence&gt; stanzas.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000222-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000222-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/helper.rb, line 58</span>
+58:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">c</span>
+59:         <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Caps</span><span class="ruby-operator">::</span><span class="ruby-constant">C</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">ver</span>)
+60:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000223" class="method-detail">
+        <a name="M000223"></a>
+
+        <div class="method-heading">
+          <a href="#M000223" class="method-signature">
+          <span class="method-name">handle_discoinfo_query</span><span class="method-args">(iq)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send actual identities/ features back to a requesting entity
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000223-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000223-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/helper.rb, line 64</span>
+64:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">handle_discoinfo_query</span>(<span class="ruby-identifier">iq</span>)
+65:         <span class="ruby-identifier">caps_reply</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">XMPPStanza</span>.<span class="ruby-identifier">answer</span>(<span class="ruby-identifier">iq</span>)
+66:         <span class="ruby-identifier">caps_reply</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">:result</span>
+67:         <span class="ruby-identifier">caps_reply</span>.<span class="ruby-identifier">query</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Discovery</span><span class="ruby-operator">::</span><span class="ruby-constant">IqQueryDiscoInfo</span>.<span class="ruby-identifier">new</span>
+68:         <span class="ruby-ivar">@identities</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">caps_reply</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">i</span>) }
+69:         <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">caps_reply</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">f</span>) }
+70: 
+71:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">caps_reply</span>)
+72:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000224" class="method-detail">
+        <a name="M000224"></a>
+
+        <div class="method-heading">
+          <a href="#M000224" class="method-signature">
+          <span class="method-name">ver</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generate &#8216;<a href="Helper.html#M000224">ver</a>&#8217;, an opaque
+hash used to represent this entity&#8216;s capabilities
+</p>
+<p>
+See <a
+href="http://www.xmpp.org/extensions/xep-0115.html#ver">www.xmpp.org/extensions/xep-0115.html#ver</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000224-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000224-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/caps/helper/helper.rb, line 79</span>
+79:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ver</span>
+80:         <span class="ruby-constant">Caps</span><span class="ruby-operator">::</span><span class="ruby-identifier">generate_ver</span>(<span class="ruby-ivar">@identities</span>, <span class="ruby-ivar">@features</span>)
+81:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

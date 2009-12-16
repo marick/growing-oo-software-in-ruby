@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mock_clients
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: tracker_of_callers
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: with_socket_mocked_callback_proc
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: mock_out
+- !ruby/object:RI::MethodSummary 
+  name: mock_out_all_connections
+- !ruby/object:RI::MethodSummary 
+  name: mocker_proc
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: setup_connection
+- !ruby/object:RI::MethodSummary 
+  name: with_socket_mocked
+comment: 
+constants: []
+
+full_name: Jabber::Test::ListenerMocker
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: auth
+- !ruby/object:RI::MethodSummary 
+  name: auth_nonsasl
+- !ruby/object:RI::MethodSummary 
+  name: close!
+- !ruby/object:RI::MethodSummary 
+  name: connect
+- !ruby/object:RI::MethodSummary 
+  name: is_connected?
+- !ruby/object:RI::MethodSummary 
+  name: send
+name: ListenerMocker
+superclass: Object

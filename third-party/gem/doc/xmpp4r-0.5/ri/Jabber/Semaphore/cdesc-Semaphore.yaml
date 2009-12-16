@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class implements semaphore for threads synchronization.
+constants: []
+
+full_name: Jabber::Semaphore
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: wait
+name: Semaphore
+superclass: Object

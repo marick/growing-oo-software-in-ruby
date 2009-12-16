@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Unsubscribe from a contact's presence
+- !ruby/struct:SM::Flow::P 
+  body: This method waits for a presence with type='unsubscribed' from the contact. It may throw ServerError upon failure.
+- !ruby/struct:SM::Flow::P 
+  body: subscription attribute of the item is <b>from</b> or <b>none</b> afterwards. As long as you don't remove that item and subscription='from' the contact is subscribed to your presence.
+full_name: Jabber::Roster::Helper::RosterItem#unsubscribe
+is_singleton: false
+name: unsubscribe
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::PubSub::Subscription#state=
+is_singleton: false
+name: state=
+params: (mystate)
+visibility: public

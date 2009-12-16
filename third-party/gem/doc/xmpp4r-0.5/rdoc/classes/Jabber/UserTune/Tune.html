@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::UserTune::Tune</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::UserTune::Tune</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/tune/tune_rb.html">
+                lib/xmpp4r/tune/tune.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                XMPPElement
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The &lt;tune&gt; XMPP element, as defined in XEP-0118 User <a
+href="Tune.html">Tune</a>
+</p>
+<p>
+See <a
+href="http://www.xmpp.org/extensions/xep-0118.html">www.xmpp.org/extensions/xep-0118.html</a>
+- this element encapsulates metadata (<a
+href="Tune.html#M000331">artist</a>, <a href="Tune.html#M000334">track</a>
+etc) about a tune the user is currently playing. These are expressed as
+child elements such as &lt;<a href="Tune.html#M000331">artist</a>&gt;,
+&lt;<a href="Tune.html#M000332">title</a>&gt; etc which are also managed by
+this class.
+</p>
+<p>
+If the element has no children then it indicates that the user has stopped
+playing a tune. Use the Tune#playing? method to discover this?
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000331">artist</a>&nbsp;&nbsp;
+      <a href="#M000333">length</a>&nbsp;&nbsp;
+      <a href="#M000329">new</a>&nbsp;&nbsp;
+      <a href="#M000330">playing?</a>&nbsp;&nbsp;
+      <a href="#M000337">rating</a>&nbsp;&nbsp;
+      <a href="#M000335">source</a>&nbsp;&nbsp;
+      <a href="#M000332">title</a>&nbsp;&nbsp;
+      <a href="#M000334">track</a>&nbsp;&nbsp;
+      <a href="#M000336">uri</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000329" class="method-detail">
+        <a name="M000329"></a>
+
+        <div class="method-heading">
+          <a href="#M000329" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(artist = nil, title = nil, length = nil, track = nil, source = nil, uri = nil, rating = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Construct a <a href="Tune.html#M000329">new</a> &lt;tune&gt; element.
+</p>
+<p>
+Supply no arguments to make an empty element to indicate that tune playing
+has stopped.
+</p>
+<table>
+<tr><td valign="top"><a href="Tune.html#M000331">artist</a>:</td><td>[String] the <a href="Tune.html#M000331">artist</a> or performer of the
+song or piece
+
+</td></tr>
+<tr><td valign="top"><a href="Tune.html#M000332">title</a>:</td><td>[String] the <a href="Tune.html#M000332">title</a> of the song or piece
+
+</td></tr>
+<tr><td valign="top"><a href="Tune.html#M000333">length</a>:</td><td>[Fixnum] the duration of the song or piece in seconds
+
+</td></tr>
+<tr><td valign="top"><a href="Tune.html#M000334">track</a>:</td><td>[String] a unique identifier for the tune; e.g., the <a
+href="Tune.html#M000334">track</a> number within a collection or the
+specific URI for the object (e.g., a stream or audio file)
+
+</td></tr>
+<tr><td valign="top"><a href="Tune.html#M000335">source</a>:</td><td>[String] the collection (e.g., album) or other <a
+href="Tune.html#M000335">source</a> (e.g., a band website that hosts
+streams or audio files)
+
+</td></tr>
+<tr><td valign="top"><a href="Tune.html#M000336">uri</a>:</td><td>[String] a URI or URL pointing to information about the song, collection,
+or <a href="Tune.html#M000331">artist</a>
+
+</td></tr>
+<tr><td valign="top"><a href="Tune.html#M000337">rating</a>:</td><td>[Numeric] a number indicating how much you like this song - will be clamped
+into an integer 0 &lt;= x &lt;= 10
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000329-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000329-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 40</span>
+40:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">artist</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">title</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">length</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">track</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">source</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">uri</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">rating</span> = <span class="ruby-keyword kw">nil</span>)
+41:         <span class="ruby-keyword kw">super</span>()
+42: 
+43:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'artist'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">artist</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">artist</span>
+44: 
+45:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'title'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">title</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span>
+46: 
+47:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'length'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">length</span>
+48: 
+49:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'track'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">track</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">track</span>
+50: 
+51:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'source'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">source</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">source</span>
+52: 
+53:         <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'uri'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">uri</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">uri</span>
+54: 
+55:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rating</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">rating</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Numeric</span>)
+56:           <span class="ruby-identifier">r</span> = <span class="ruby-identifier">rating</span>.<span class="ruby-identifier">to_i</span>
+57:           <span class="ruby-identifier">r</span> = <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+58:           <span class="ruby-identifier">r</span> = <span class="ruby-value">10</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+59:           <span class="ruby-identifier">add_element</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'rating'</span>)).<span class="ruby-identifier">text</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">to_s</span>
+60:         <span class="ruby-keyword kw">end</span>
+61:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000331" class="method-detail">
+        <a name="M000331"></a>
+
+        <div class="method-heading">
+          <a href="#M000331" class="method-signature">
+          <span class="method-name">artist</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Tune.html#M000331">artist</a> for this tune.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000331-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000331-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 72</span>
+72:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">artist</span>
+73:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'artist'</span>).<span class="ruby-identifier">text</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'artist'</span>)
+74:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000333" class="method-detail">
+        <a name="M000333"></a>
+
+        <div class="method-heading">
+          <a href="#M000333" class="method-signature">
+          <span class="method-name">length</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Tune.html#M000333">length</a> of this tune, in seconds.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000333-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000333-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 84</span>
+84:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">length</span>
+85:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'length'</span>).<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'length'</span>)
+86:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000330" class="method-detail">
+        <a name="M000330"></a>
+
+        <div class="method-heading">
+          <a href="#M000330" class="method-signature">
+          <span class="method-name">playing?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if a tune is currently playing, otherwise false.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000330-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000330-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 66</span>
+66:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">playing?</span>
+67:         (<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+68:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000337" class="method-detail">
+        <a name="M000337"></a>
+
+        <div class="method-heading">
+          <a href="#M000337" class="method-signature">
+          <span class="method-name">rating</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Tune.html#M000337">rating</a> for this <a
+href="Tune.html#M000334">track</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000337-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000337-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 108</span>
+108:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rating</span>
+109:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'rating'</span>).<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'rating'</span>)
+110:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000335" class="method-detail">
+        <a name="M000335"></a>
+
+        <div class="method-heading">
+          <a href="#M000335" class="method-signature">
+          <span class="method-name">source</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Tune.html#M000335">source</a> of this tune, such as an
+album.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000335-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000335-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 96</span>
+96:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">source</span>
+97:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'source'</span>).<span class="ruby-identifier">text</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'source'</span>)
+98:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000332" class="method-detail">
+        <a name="M000332"></a>
+
+        <div class="method-heading">
+          <a href="#M000332" class="method-signature">
+          <span class="method-name">title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Tune.html#M000332">title</a> of this tune.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000332-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000332-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 78</span>
+78:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>
+79:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'title'</span>).<span class="ruby-identifier">text</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'title'</span>)
+80:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000334" class="method-detail">
+        <a name="M000334"></a>
+
+        <div class="method-heading">
+          <a href="#M000334" class="method-signature">
+          <span class="method-name">track</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get an identitier for this tune.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000334-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000334-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 90</span>
+90:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">track</span>
+91:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'track'</span>).<span class="ruby-identifier">text</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'track'</span>)
+92:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000336" class="method-detail">
+        <a name="M000336"></a>
+
+        <div class="method-heading">
+          <a href="#M000336" class="method-signature">
+          <span class="method-name">uri</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get a URI that represents this tune.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000336-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000336-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/tune/tune.rb, line 102</span>
+102:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">uri</span>
+103:         <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'uri'</span>).<span class="ruby-identifier">text</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'uri'</span>)
+104:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

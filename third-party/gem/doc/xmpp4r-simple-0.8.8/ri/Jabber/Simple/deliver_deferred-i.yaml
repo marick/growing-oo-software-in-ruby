@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Queue messages for delivery once a user has accepted our authorization request. Works in conjunction with the deferred delivery thread.
+- !ruby/struct:SM::Flow::P 
+  body: You can use this method if you want to manually add friends and still have the message queued for later delivery.
+full_name: Jabber::Simple#deliver_deferred
+is_singleton: false
+name: deliver_deferred
+params: (jid, message, type)
+visibility: public

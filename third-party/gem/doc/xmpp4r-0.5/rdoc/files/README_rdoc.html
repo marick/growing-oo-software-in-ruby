@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Dec 09 14:26:41 -0600 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>XMPP4R</h1>
+<h2>Project Home</h2>
+<p>
+You can find info about the xmpp4r project and how to contribute at the
+project home page:
+</p>
+<p>
+<a href="http://home.gna.org/xmpp4r">home.gna.org/xmpp4r</a>/
+</p>
+<p>
+If you need to ask questions, or want feedback on proposed changes please
+feel free to ask them on the &#8216;xmpp4r-devel@gna.org&#8217; mailing
+list. You can join or view archives of the mailing list at:
+</p>
+<p>
+<a href="https://gna.org/mail/?group=xmpp4r">gna.org/mail/?group=xmpp4r</a>
+</p>
+<p>
+If you are having a problem and would like to report it to the mailing list
+please include a protocol dump which can be enabled in your code with:
+</p>
+<pre>
+  Jabber::debug = true
+</pre>
+<h2>Contributors</h2>
+<pre>
+  Lucas Nussbaum &lt;lucas@lucas-nussbaum.net&gt;
+  Stephan Maka &lt;stephan@spaceboyz.net&gt;
+  Kirill A. Shutemov &lt;k.shutemov@gmail.com&gt;
+  Glenn Rempe &lt;glenn@rempe.us&gt;
+  Jacob Burkhart &lt;jacob@brontes3d.com&gt;
+  Yuki Mitsui
+  Peter Schrammel
+  Olli
+  Vojtech Vobr
+  Andreas Wiese
+  Chris Zelenak
+  Matthew Wood
+  Sam Ruby
+  Tim Carey-Smith
+  Scott Lillibridge
+  Joshua Sierles
+  Ripta Pasay &lt;github@r8y.org&gt;
+  Seth Fitzsimmons
+</pre>
+<h2>Source Code</h2>
+<p>
+The source for xmpp4r is managed using the Git SCM and can be found in our
+GitHub.com project page:
+</p>
+<p>
+<a
+href="http://github.com/ln/xmpp4r/tree/master">github.com/ln/xmpp4r/tree/master</a>
+</p>
+<h2>Installation</h2>
+<p>
+There are a number of ways that you can install xmpp4r depending on your
+needs and the methods you prefer.
+</p>
+<h3>Install over the network using RubyGems</h3>
+<p>
+You can install the current release of the xmpp4r library from a stable
+release gem on RubyForge using RubyGems:
+</p>
+<pre>
+  sudo gem install xmpp4r
+</pre>
+<h3>Install over the network using a Debian package</h3>
+<p>
+You can install the current release of the xmpp4r library from a stable
+release copy on your .deb friendly linux system (e.g. Debian or Ubuntu)
+using apt:
+</p>
+<pre>
+  sudo apt-get install libxmpp4r-ruby
+</pre>
+<h3>Install from local source code (Developers Only)</h3>
+<p>
+If you have a local Git clone of the source repository or a tarball you can
+install xmpp4r using several methods. First you&#8216;ll need to get a
+local copy.
+</p>
+<p>
+Clone the Git repository (recommended):
+</p>
+<pre>
+  git clone git://github.com/ln/xmpp4r.git
+</pre>
+<p>
+OR download a stable release tarball from:
+</p>
+<pre>
+  http://download.gna.org/xmpp4r/xmpp4r-0.3.2.tgz
+</pre>
+<p>
+OR download a snapshot of the latest source in .tar.gz format from:
+</p>
+<pre>
+  http://github.com/ln/xmpp4r/tarball/master
+</pre>
+<h4>Install : Using Rake</h4>
+<pre>
+  # Show all available rake tasks
+  cd xmpp4r/
+  rake -T
+
+  # Package up the gem file and install it
+  rake gem:install
+</pre>
+<h4>Install : Using setup.rb</h4>
+<p>
+This will install a copy of the library in your Ruby path and does not
+require RubyGems to be installed.
+</p>
+<pre>
+  cd xmpp4r/
+  ./setup.rb
+</pre>
+<h2>License</h2>
+<p>
+XMPP4R is released under the Ruby license (see the LICENSE file), which is
+compatible with the GNU GPL (see the COPYING file) via an explicit
+dual-licensing clause.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

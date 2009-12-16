@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Start the parser on the previously connected socket
+full_name: Jabber::Connection#start
+is_singleton: false
+name: start
+params: ()
+visibility: public

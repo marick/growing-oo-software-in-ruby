@@ -1,0 +1,25 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "item:"
+    body: "[REXML::Element]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "id:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "true"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#publish_item_with_id_to
+is_singleton: false
+name: publish_item_with_id_to
+params: (node,item,id)
+visibility: public

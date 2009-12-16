@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate an unique ID.
+- !ruby/struct:SM::Flow::P 
+  body: This is kind of boring this way, as it just counts up a number. Maybe something more random somewhen...
+full_name: Jabber::IdGenerator::generate_id
+is_singleton: true
+name: generate_id
+params: ()
+visibility: public

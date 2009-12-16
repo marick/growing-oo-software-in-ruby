@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The Callback's block to execute
+  name: block
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The Callback's priority
+  name: priority
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The Callback's reference, using for deleting purposes
+  name: ref
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class is used to store callbacks inside CallbackList. See the CallbackList class for more detailed explanations.
+constants: []
+
+full_name: Jabber::Callback
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: Callback
+superclass: Object

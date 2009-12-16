@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is the MUC client active?
+- !ruby/struct:SM::Flow::P 
+  body: This is false after initialization, true after joining and false after exit/kick
+full_name: Jabber::MUC::MUCClient#active?
+is_singleton: false
+name: active?
+params: ()
+visibility: public

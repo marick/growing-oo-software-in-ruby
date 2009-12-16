@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Does implement the methods seek and length= ?
+- !ruby/struct:SM::Flow::P 
+  body: FileTransfer will only then offer a ranged transfer.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[false] or [true]"
+  type: :NOTE
+full_name: Jabber::FileTransfer::TransferSource#can_range?
+is_singleton: false
+name: can_range?
+params: ()
+visibility: public

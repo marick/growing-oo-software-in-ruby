@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the type of the Message stanza (see Message#type for details)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "v:"
+    body: "[Symbol] or nil"
+  type: :NOTE
+full_name: Jabber::Message#type=
+is_singleton: false
+name: type=
+params: (v)
+visibility: public

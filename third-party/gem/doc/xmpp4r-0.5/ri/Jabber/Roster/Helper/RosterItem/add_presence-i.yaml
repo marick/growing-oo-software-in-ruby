@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add presence and sort presences (unless type is :unavailable or :error)
+- !ruby/struct:SM::Flow::P 
+  body: This overwrites previous stanzas with the same destination JID to keep track of resources. Presence stanzas with <tt>type == :unavailable</tt> or <tt>type == :error</tt> will be deleted as this indicates that this resource has gone offline.
+- !ruby/struct:SM::Flow::P 
+  body: If <tt>type == :error</tt> and the presence's origin has no specific resource the contact is treated completely offline.
+full_name: Jabber::Roster::Helper::RosterItem#add_presence
+is_singleton: false
+name: add_presence
+params: (newpres)
+visibility: public

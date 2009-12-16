@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send actual identities/ features back to a requesting entity
+full_name: Jabber::Caps::Helper#handle_discoinfo_query
+is_singleton: false
+name: handle_discoinfo_query
+params: (iq)
+visibility: public

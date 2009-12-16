@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Shortcut for anonymous connection to server
+- !ruby/struct:SM::Flow::P 
+  body: Throws ClientAuthenticationFailure
+full_name: Jabber::Client#auth_anonymous_sasl
+is_singleton: false
+name: auth_anonymous_sasl
+params: ()
+visibility: public

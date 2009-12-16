@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns true if there are unprocessed presence updates waiting in the queue, false otherwise.
+full_name: Jabber::Simple#new_subscriptions?
+is_singleton: false
+name: new_subscriptions?
+params: ()
+visibility: public

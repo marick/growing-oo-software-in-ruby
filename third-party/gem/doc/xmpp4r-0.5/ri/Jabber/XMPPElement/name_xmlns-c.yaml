@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Specify XML element name and xmlns for a deriving class, this pair and the class will be added to a global pool
+- !ruby/struct:SM::Flow::P 
+  body: If the namespace is nil the class is a &quot;wildcard class&quot; matching elements with any xmlns if no other class with that namespace was defined
+full_name: Jabber::XMPPElement::name_xmlns
+is_singleton: true
+name: name_xmlns
+params: (name, xmlns=nil)
+visibility: public

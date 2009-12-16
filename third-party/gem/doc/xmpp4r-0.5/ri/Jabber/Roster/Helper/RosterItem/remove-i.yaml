@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Remove item
+- !ruby/struct:SM::Flow::P 
+  body: This cancels both subscription <b>from</b> the contact to you and from you <b>to</b> the contact.
+- !ruby/struct:SM::Flow::P 
+  body: The methods waits for a roster push from the server (success) or throws ServerError upon failure.
+full_name: Jabber::Roster::Helper::RosterItem#remove
+is_singleton: false
+name: remove
+params: ()
+visibility: public

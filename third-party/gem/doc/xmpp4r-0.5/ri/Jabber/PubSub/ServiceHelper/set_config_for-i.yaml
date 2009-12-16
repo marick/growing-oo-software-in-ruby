@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: set configuration for a node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "options:"
+    body: "[Jabber::PubSub::NodeConfig]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: true on success
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#set_config_for
+is_singleton: false
+name: set_config_for
+params: (node, config)
+visibility: public

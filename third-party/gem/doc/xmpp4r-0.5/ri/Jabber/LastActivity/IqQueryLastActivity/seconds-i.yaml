@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the number of seconds since last activity.
+- !ruby/struct:SM::Flow::P 
+  body: With a bare jid, this will return the number of seconds since the client was last seen (offline user query).
+- !ruby/struct:SM::Flow::P 
+  body: With a full jid, this will return the number of seconds that the client has been idle (online user query).
+- !ruby/struct:SM::Flow::P 
+  body: With a server, this will return the server or component's uptime in seconds (server / component query).
+full_name: Jabber::LastActivity::IqQueryLastActivity#seconds
+is_singleton: false
+name: seconds
+params: ()
+visibility: public

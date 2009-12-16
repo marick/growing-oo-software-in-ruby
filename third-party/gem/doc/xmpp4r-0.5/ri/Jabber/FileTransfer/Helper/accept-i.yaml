@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Accept an incoming file-transfer, to be used in a block given to add_incoming_callback
+- !ruby/struct:SM::Flow::P 
+  body: offset and length will be ignored if there is no 'si/file/range' in iq.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "iq:"
+    body: "[Iq] of file-transfer we want to accept"
+  - !ruby/struct:SM::Flow::LI 
+    label: "offset:"
+    body: "[Fixnum] or [nil]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "length:"
+    body: "[Fixnum] or [nil]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Bytestreams::SOCKS5BytestreamsTarget] or [Bytestreams::IBBTarget] or [nil] if no valid stream-method"
+  type: :NOTE
+full_name: Jabber::FileTransfer::Helper#accept
+is_singleton: false
+name: accept
+params: (iq, offset=nil, length=nil)
+visibility: public

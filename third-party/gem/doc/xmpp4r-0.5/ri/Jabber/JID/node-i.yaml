@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the JID's node
+full_name: Jabber::JID#node
+is_singleton: false
+name: node
+params: ()
+visibility: public

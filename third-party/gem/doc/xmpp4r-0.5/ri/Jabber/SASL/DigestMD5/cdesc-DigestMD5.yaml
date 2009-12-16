@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: SASL DIGEST-MD5 authentication helper (RFC2831)
+constants: []
+
+full_name: Jabber::SASL::DigestMD5
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: auth
+- !ruby/object:RI::MethodSummary 
+  name: decode_challenge
+name: DigestMD5
+superclass: Base

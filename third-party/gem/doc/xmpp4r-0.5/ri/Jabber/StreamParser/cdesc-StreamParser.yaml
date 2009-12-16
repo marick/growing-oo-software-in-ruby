@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: status if the parser is started
+  name: started
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The StreamParser uses REXML to parse the incoming XML stream of the Jabber protocol and fires XMPPStanza at the Connection instance.
+constants: []
+
+full_name: Jabber::StreamParser
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: parse
+name: StreamParser
+superclass: Object

@@ -1,0 +1,38 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Construct a new &lt;tune&gt; element.
+- !ruby/struct:SM::Flow::P 
+  body: Supply no arguments to make an empty element to indicate that tune playing has stopped.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "artist:"
+    body: "[String] the artist or performer of the song or piece"
+  - !ruby/struct:SM::Flow::LI 
+    label: "title:"
+    body: "[String] the title of the song or piece"
+  - !ruby/struct:SM::Flow::LI 
+    label: "length:"
+    body: "[Fixnum] the duration of the song or piece in seconds"
+  - !ruby/struct:SM::Flow::LI 
+    label: "track:"
+    body: "[String] a unique identifier for the tune; e.g., the track number within a collection or the specific URI for the object (e.g., a stream or audio file)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "source:"
+    body: "[String] the collection (e.g., album) or other source (e.g., a band website that hosts streams or audio files)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "uri:"
+    body: "[String] a URI or URL pointing to information about the song, collection, or artist"
+  - !ruby/struct:SM::Flow::LI 
+    label: "rating:"
+    body: "[Numeric] a number indicating how much you like this song - will be clamped into an integer 0 &lt;= x &lt;= 10"
+  type: :NOTE
+full_name: Jabber::UserTune::Tune::new
+is_singleton: true
+name: new
+params: (artist = nil, title = nil, length = nil, track = nil, source = nil, uri = nil, rating = nil)
+visibility: public

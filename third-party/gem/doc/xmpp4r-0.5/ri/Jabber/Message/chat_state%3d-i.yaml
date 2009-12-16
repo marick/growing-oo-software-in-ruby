@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the chat state :active, :composing, :gone, :inactive, :paused
+full_name: Jabber::Message#chat_state=
+is_singleton: false
+name: chat_state=
+params: (s)
+visibility: public

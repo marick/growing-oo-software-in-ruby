@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: generate_ver
+- !ruby/object:RI::MethodSummary 
+  name: generate_ver_from_discoinfo
+- !ruby/object:RI::MethodSummary 
+  name: generate_ver_str
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_CAPS
+  value: "'http://jabber.org/protocol/caps'"
+full_name: Jabber::Caps
+includes: []
+
+instance_methods: []
+
+name: Caps
+superclass: 

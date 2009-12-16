@@ -1,0 +1,33 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Type of this Data Form
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "* :cancel"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":form"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":result"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: ":submit"
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: nil
+    type: :BULLET
+  type: :NOTE
+full_name: Jabber::Dataforms::XData#type
+is_singleton: false
+name: type
+params: ()
+visibility: public

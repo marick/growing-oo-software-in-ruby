@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The presence class is used to construct presence messages to send to the Jabber service.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Compare two presences. The most suitable to talk with is the biggest.
+  name: PRESENCE_STATUS
+  value: "{ :chat => 4,                         nil => 3,                         :dnd => 2,                         :away => 1,                         :xa => 0,                         :unavailable => -1,                         :error => -2 }"
+full_name: Jabber::Presence
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Comparable
+- !ruby/object:RI::IncludedModule 
+  name: XParent
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: <=>
+- !ruby/object:RI::MethodSummary 
+  name: cmp_interest
+- !ruby/object:RI::MethodSummary 
+  name: priority
+- !ruby/object:RI::MethodSummary 
+  name: priority=
+- !ruby/object:RI::MethodSummary 
+  name: set_priority
+- !ruby/object:RI::MethodSummary 
+  name: set_show
+- !ruby/object:RI::MethodSummary 
+  name: set_status
+- !ruby/object:RI::MethodSummary 
+  name: set_type
+- !ruby/object:RI::MethodSummary 
+  name: show
+- !ruby/object:RI::MethodSummary 
+  name: show=
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: status=
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type=
+name: Presence
+superclass: XMPPStanza

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a callback that will be invoked when a location is received from the jid specified when you constructed the Helper.
+full_name: Jabber::UserLocation::Helper#add_userlocation_callback
+is_singleton: false
+name: add_userlocation_callback
+params: (prio = 200, ref = nil, &block)
+visibility: public

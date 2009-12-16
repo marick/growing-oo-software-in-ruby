@@ -1,0 +1,60 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Jabber::Simple
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: DRb::DRbUndumped
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: accept_subscriptions=
+- !ruby/object:RI::MethodSummary 
+  name: accept_subscriptions?
+- !ruby/object:RI::MethodSummary 
+  name: add
+- !ruby/object:RI::MethodSummary 
+  name: client
+- !ruby/object:RI::MethodSummary 
+  name: connected?
+- !ruby/object:RI::MethodSummary 
+  name: contacts
+- !ruby/object:RI::MethodSummary 
+  name: deliver
+- !ruby/object:RI::MethodSummary 
+  name: deliver_deferred
+- !ruby/object:RI::MethodSummary 
+  name: disconnect
+- !ruby/object:RI::MethodSummary 
+  name: new_subscriptions
+- !ruby/object:RI::MethodSummary 
+  name: new_subscriptions?
+- !ruby/object:RI::MethodSummary 
+  name: presence_updates
+- !ruby/object:RI::MethodSummary 
+  name: presence_updates?
+- !ruby/object:RI::MethodSummary 
+  name: received_messages
+- !ruby/object:RI::MethodSummary 
+  name: received_messages?
+- !ruby/object:RI::MethodSummary 
+  name: reconnect
+- !ruby/object:RI::MethodSummary 
+  name: remove
+- !ruby/object:RI::MethodSummary 
+  name: roster
+- !ruby/object:RI::MethodSummary 
+  name: send!
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: subscribed_to?
+- !ruby/object:RI::MethodSummary 
+  name: subscription_requests
+name: Simple
+superclass: Object

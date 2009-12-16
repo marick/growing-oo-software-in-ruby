@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Change whether or not subscriptions (friend requests) are automatically accepted.
+full_name: Jabber::Simple#accept_subscriptions=
+is_singleton: false
+name: accept_subscriptions=
+params: (accept_status)
+visibility: public

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: deletes an item from a persistent node
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "item_id:"
+    body: "[String] or [Array] of [String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "true"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#delete_item_from
+is_singleton: false
+name: delete_item_from
+params: (node, item_id)
+visibility: public

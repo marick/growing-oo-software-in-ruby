@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Ccompare to another JID
+- !ruby/struct:SM::Flow::P 
+  body: String representations are compared, see JID#to_s
+full_name: Jabber::JID#eql?
+is_singleton: false
+name: eql?
+params: (o)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Direct access to the underlying Roster helper.
+full_name: Jabber::Simple#roster
+is_singleton: false
+name: roster
+params: ()
+visibility: public

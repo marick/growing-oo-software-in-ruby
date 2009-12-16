@@ -1,0 +1,51 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Content-Type to be used for communication (you can set this to &quot;text/html&quot;)
+  name: http_content_type
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The server may hold this amount of stanzas to reduce number of HTTP requests
+  name: http_hold
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The server should wait this value seconds if there is no stanza to be received
+  name: http_wait
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class implements an alternative Client using HTTP Binding (JEP0124).
+- !ruby/struct:SM::Flow::P 
+  body: This class is designed to be a drop-in replacement for Jabber::Client, except for the Jabber::HTTP::Client#connect method which takes an URI as argument.
+- !ruby/struct:SM::Flow::P 
+  body: HTTP requests are buffered to not exceed the negotiated 'polling' and 'requests' parameters.
+- !ruby/struct:SM::Flow::P 
+  body: Stanzas in HTTP resonses may be delayed to arrive in the order defined by 'rid' parameters.
+- !ruby/struct:SM::Flow::H 
+  level: 1
+  text: Debugging
+- !ruby/struct:SM::Flow::P 
+  body: Turning Jabber::debug to true will make debug output not only spit out stanzas but HTTP request/response bodies, too.
+constants: []
+
+full_name: Jabber::HTTPBinding::Client
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: connect
+- !ruby/object:RI::MethodSummary 
+  name: ensure_one_pending_request
+name: Client
+superclass: Jabber::Client

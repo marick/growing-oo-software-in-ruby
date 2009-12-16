@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Iq child 'si' for Stream-Initiation
+constants: []
+
+full_name: Jabber::Bytestreams::IqSi
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: feature
+- !ruby/object:RI::MethodSummary 
+  name: file
+- !ruby/object:RI::MethodSummary 
+  name: id
+- !ruby/object:RI::MethodSummary 
+  name: id=
+- !ruby/object:RI::MethodSummary 
+  name: mime_type
+- !ruby/object:RI::MethodSummary 
+  name: mime_type=
+- !ruby/object:RI::MethodSummary 
+  name: profile
+- !ruby/object:RI::MethodSummary 
+  name: profile=
+name: IqSi
+superclass: XMPPElement

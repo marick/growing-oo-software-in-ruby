@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the value of this element's 'ext' attribute, the list of extensions for legacy clients.
+full_name: Jabber::Caps::C#ext
+is_singleton: false
+name: ext
+params: ()
+visibility: public

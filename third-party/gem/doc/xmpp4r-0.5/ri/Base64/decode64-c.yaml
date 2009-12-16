@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decode a Base64-encoded String
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "data64:"
+    body: "[String] Binary in Base64"
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[String] Binary"
+  type: :NOTE
+full_name: Base64::decode64
+is_singleton: true
+name: decode64
+params: (data64)
+visibility: public

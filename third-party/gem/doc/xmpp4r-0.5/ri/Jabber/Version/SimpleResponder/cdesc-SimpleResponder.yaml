@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: os
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: version
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A class to answer version requests using IqQueryVersion
+- !ruby/struct:SM::Flow::P 
+  body: This is simplification as one doesn't need dynamic version answering normally.
+- !ruby/struct:SM::Flow::P 
+  body: "Example usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " Jabber::Version::SimpleResponder.new(my_client, &quot;My cool XMPP4R script&quot;, &quot;1.0&quot;, &quot;Younicks&quot;)\n"
+constants: []
+
+full_name: Jabber::Version::SimpleResponder
+includes: []
+
+instance_methods: []
+
+name: SimpleResponder
+superclass: Responder

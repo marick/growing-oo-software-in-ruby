@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class manages a list of callbacks.
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Callbacks management and priority
+- !ruby/struct:SM::Flow::P 
+  body: Callbacks are managed by the class CallbackList. When they are added, a priority (just a number or anything Comparable with other priorities) is specified. The biggest the priority is, the earliest the callback will be considered.
+- !ruby/struct:SM::Flow::P 
+  body: "Callbacks are processed for a given set of objects as long as they return false. If you want to stop processing, you must return true. Example :"
+- !ruby/struct:SM::Flow::VERB 
+  body: " cbl = CallbackList.new\n c1 = false\n c2 = false\n c3 = false\n cbl.add(10) { c1 = true; 1 }\n cbl.add(5) { c2 = true; true }\n cbl.add(0) { c3 = true }\n cbl.process('aa')\n puts &quot;#{c1} #{c2} #{c3}&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: This example would display &quot;true true false&quot; as callbacks processing was stopped after the second callback returned true.
+- !ruby/struct:SM::Flow::P 
+  body: "In XMPP4R, callbacks' priorities are quite normalized since we want to be able to &quot;cascade&quot; callbacks in a clean way. Here are values your code should take into account :"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: ">= 200:"
+    body: logging &amp; debugging callbacks. Those callbacks should not consume elements.
+  - !ruby/struct:SM::Flow::LI 
+    label: "100-199:"
+    body: Where Helpers register their callbacks. The normal value is 100, and Helpers shouldn't register something else unless there's a very good reason to.
+  - !ruby/struct:SM::Flow::LI 
+    label: "< 100:"
+    body: all those numbers are normally available for your application. That's enough, don't you think ?
+  type: :NOTE
+constants: []
+
+full_name: Jabber::CallbackList
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Enumerable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: each
+- !ruby/object:RI::MethodSummary 
+  name: length
+- !ruby/object:RI::MethodSummary 
+  name: process
+name: CallbackList
+superclass: Object

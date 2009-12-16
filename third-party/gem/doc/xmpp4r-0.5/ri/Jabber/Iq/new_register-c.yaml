@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new jabber:iq:register set stanza for service/server registration
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "username:"
+    body: "[String] (Element will be ommited if unset)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "password:"
+    body: "[String] (Element will be ommited if unset)"
+  type: :NOTE
+full_name: Jabber::Iq::new_register
+is_singleton: true
+name: new_register
+params: (username=nil, password=nil)
+visibility: public

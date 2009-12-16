@@ -1,0 +1,51 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The Message class manages the &lt;message/&gt; stanzas, which is used for all messaging communication.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CHAT_STATES
+  value: "%w(active composing gone inactive paused).freeze"
+full_name: Jabber::Message
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: XParent
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: body
+- !ruby/object:RI::MethodSummary 
+  name: body=
+- !ruby/object:RI::MethodSummary 
+  name: chat_state
+- !ruby/object:RI::MethodSummary 
+  name: chat_state=
+- !ruby/object:RI::MethodSummary 
+  name: set_body
+- !ruby/object:RI::MethodSummary 
+  name: set_chat_state
+- !ruby/object:RI::MethodSummary 
+  name: set_subject
+- !ruby/object:RI::MethodSummary 
+  name: set_thread
+- !ruby/object:RI::MethodSummary 
+  name: set_type
+- !ruby/object:RI::MethodSummary 
+  name: subject
+- !ruby/object:RI::MethodSummary 
+  name: subject=
+- !ruby/object:RI::MethodSummary 
+  name: thread
+- !ruby/object:RI::MethodSummary 
+  name: thread=
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type=
+name: Message
+superclass: XMPPStanza

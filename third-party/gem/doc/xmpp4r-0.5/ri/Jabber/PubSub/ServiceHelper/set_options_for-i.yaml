@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: set options for a subscription
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "node:"
+    body: "[String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[Jabber::JID] or [String]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "options:"
+    body: "[Jabber::PubSub::SubscriptionConfig} specifying configuration options"
+  - !ruby/struct:SM::Flow::LI 
+    label: "subid:"
+    body: "[String] or nil"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "true"
+  type: :NOTE
+full_name: Jabber::PubSub::ServiceHelper#set_options_for
+is_singleton: false
+name: set_options_for
+params: (node, jid, options, subid = nil)
+visibility: public

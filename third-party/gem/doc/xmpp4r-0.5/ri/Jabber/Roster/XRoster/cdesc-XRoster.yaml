@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implementation of JEP-0144 for <tt>&lt;x xmlns='http://jabber.org/protocol/rosterx'/&gt;</tt> attached to <tt>&lt;message/&gt;</tt> stanzas
+- !ruby/struct:SM::Flow::P 
+  body: Should be backwards compatible to JEP-0093, as only action attribute of roster items are missing there. Pay attention to the namespace which is <tt>jabber:x:roster</tt> for JEP-0093!
+constants: []
+
+full_name: Jabber::Roster::XRoster
+includes: []
+
+instance_methods: []
+
+name: XRoster
+superclass: X

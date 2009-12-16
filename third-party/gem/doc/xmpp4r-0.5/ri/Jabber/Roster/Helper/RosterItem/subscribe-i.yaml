@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send subscription request to the user
+- !ruby/struct:SM::Flow::P 
+  body: The block given to Jabber::Roster::Roster#add_update_callback will be called, carrying the RosterItem with ask=&quot;subscribe&quot;
+- !ruby/struct:SM::Flow::P 
+  body: This function returns immediately after sending the subscription request and will not wait of approval or declination as it may take months for the contact to decide. ;-)
+full_name: Jabber::Roster::Helper::RosterItem#subscribe
+is_singleton: false
+name: subscribe
+params: ()
+visibility: public

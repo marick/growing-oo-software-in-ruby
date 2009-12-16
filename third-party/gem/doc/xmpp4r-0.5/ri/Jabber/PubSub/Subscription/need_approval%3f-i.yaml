@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::PubSub::Subscription#need_approval?
+is_singleton: false
+name: need_approval?
+params: ()
+visibility: public

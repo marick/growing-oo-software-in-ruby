@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: return child &lt;item&gt; elements
+full_name: Jabber::PubSub::Publish#items
+is_singleton: false
+name: items
+params: ()
+visibility: public

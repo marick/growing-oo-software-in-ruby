@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: address
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: socket
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class will be instantiated by SOCKS5BytestreamsServer upon accepting a new connection
+constants: []
+
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsPeer
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: start
+name: SOCKS5BytestreamsPeer
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get an identitier for this tune.
+full_name: Jabber::UserTune::Tune#track
+is_singleton: false
+name: track
+params: ()
+visibility: public

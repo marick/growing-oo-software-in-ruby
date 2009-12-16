@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the JID's resource
+full_name: Jabber::JID#resource=
+is_singleton: false
+name: resource=
+params: (v)
+visibility: public

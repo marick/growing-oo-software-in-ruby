@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns text of first element of name <tt>e</tt>
+full_name: REXML::Element#first_element_text
+is_singleton: false
+name: first_element_text
+params: (e)
+visibility: public

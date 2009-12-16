@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: "@contacts[jid] if block_given?"
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If contacts is a single contact, returns a Jabber::Contact object representing that user; if contacts is an array, returns an array of Jabber::Contact objects.
+- !ruby/struct:SM::Flow::P 
+  body: When called with a block, contacts will yield each Jabber::Contact object in turn. This is mainly used internally, but exposed as an utility function.
+full_name: Jabber::Simple#contacts
+is_singleton: false
+name: contacts
+params: (*contacts, &block) {|@contacts[jid] if block_given?| ...}
+visibility: public

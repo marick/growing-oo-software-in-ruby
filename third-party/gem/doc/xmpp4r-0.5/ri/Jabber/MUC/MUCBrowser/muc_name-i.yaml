@@ -1,0 +1,25 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retrieve the name of a MUC component, depending upon whether the target entity supports the MUC protocol.
+- !ruby/struct:SM::Flow::P 
+  body: A return-value of nil does <b>not</b> mean that the entity does not exist or does not support Service Discovery! nil just means that this is not a MUC-compliant service.
+- !ruby/struct:SM::Flow::P 
+  body: Throws an ServerError when receiving <tt>&lt;iq type='error'/&gt;</tt>
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[JID] Target entity (set only domain!)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[String] or [nil]"
+  type: :NOTE
+full_name: Jabber::MUC::MUCBrowser#muc_name
+is_singleton: false
+name: muc_name
+params: (jid)
+visibility: public

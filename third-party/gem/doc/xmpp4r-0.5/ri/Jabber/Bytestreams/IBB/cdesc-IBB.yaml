@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: In-Band Bytestreams (JEP-0047) implementation
+- !ruby/struct:SM::Flow::P 
+  body: Don't use directly, use IBBInitiator and IBBTarget
+- !ruby/struct:SM::Flow::P 
+  body: In-Band Bytestreams should only be used when transferring very small amounts of binary data, because it is slow and increases server load drastically.
+- !ruby/struct:SM::Flow::P 
+  body: Note that the constructor takes a lot of arguments. In-Band Bytestreams do not specify a way to initiate the stream, this should be done via Stream Initiation.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_IBB
+  value: "'http://jabber.org/protocol/ibb'"
+full_name: Jabber::Bytestreams::IBB
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: active?
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: flush
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: write
+name: IBB
+superclass: Object

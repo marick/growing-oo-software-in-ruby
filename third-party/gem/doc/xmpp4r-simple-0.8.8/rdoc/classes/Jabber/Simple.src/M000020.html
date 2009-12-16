@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>send! (Jabber::Simple)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/xmpp4r-simple.rb, line 327</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send!</span>(<span class="ruby-identifier">msg</span>)
+      <span class="ruby-identifier">attempts</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">attempts</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">client</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">msg</span>)
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>, <span class="ruby-constant">IOError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">disconnect</span>
+        <span class="ruby-identifier">reconnect</span>
+        <span class="ruby-keyword kw">retry</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">attempts</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNRESET</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">sleep</span> (<span class="ruby-identifier">attempts</span><span class="ruby-operator">^</span><span class="ruby-value">2</span>) <span class="ruby-operator">*</span> <span class="ruby-value">60</span> <span class="ruby-operator">+</span> <span class="ruby-value">60</span>
+        <span class="ruby-identifier">disconnect</span>
+        <span class="ruby-identifier">reconnect</span>
+        <span class="ruby-keyword kw">retry</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">attempts</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

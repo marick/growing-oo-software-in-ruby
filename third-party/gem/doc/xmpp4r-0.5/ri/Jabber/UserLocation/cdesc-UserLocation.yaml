@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NS_USERLOCATION
+  value: "'http://jabber.org/protocol/geoloc'"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALLOWABLE_ATTRIBUTES
+  value: "%w(accuracy alt area bearing building country       datum description floor lat locality lon postalcode region room       speed street text timestamp uri)"
+full_name: Jabber::UserLocation
+includes: []
+
+instance_methods: []
+
+name: UserLocation
+superclass: 

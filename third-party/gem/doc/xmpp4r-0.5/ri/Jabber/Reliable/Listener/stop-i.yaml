@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Stop the listener. (close the connection)
+full_name: Jabber::Reliable::Listener#stop
+is_singleton: false
+name: stop
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Connect to the Jabber server through a TCP Socket, start the Jabber parser, invoke to accept_features to wait for TLS, start the keep-alive thread
+full_name: Jabber::Connection#connect
+is_singleton: false
+name: connect
+params: (host, port)
+visibility: public

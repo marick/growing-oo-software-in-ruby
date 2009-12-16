@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the building attribute of this location.
+full_name: Jabber::UserLocation::Location#building
+is_singleton: false
+name: building
+params: ()
+visibility: public

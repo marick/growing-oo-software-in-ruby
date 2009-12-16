@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A class used to build/parse IQ Query requests/responses
+constants: []
+
+full_name: Jabber::IqQuery
+includes: []
+
+instance_methods: []
+
+name: IqQuery
+superclass: XMPPElement

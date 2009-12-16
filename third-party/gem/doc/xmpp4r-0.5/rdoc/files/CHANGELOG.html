@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: CHANGELOG</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>CHANGELOG</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>CHANGELOG
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Dec 09 14:26:41 -0600 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+XMPP4R 0.5 (15/06/2009)
+</p>
+<h6>=================</h6>
+<ul>
+<li>Many bugs fixed and tests cleanups (better Ruby 1.9 support, in particular)
+
+</li>
+<li>Support for reliable connections (that auto-reconnect when being
+disconnected, without losing messages)
+
+</li>
+<li>Better notification of server disconnects
+
+</li>
+</ul>
+<p>
+XMPP4R 0.4 (05/08/2008)
+</p>
+<h6>=================</h6>
+<ul>
+<li>Initial support for Ruby 1.9 (see README_ruby19.txt)
+
+</li>
+<li>Complete PubSub API Change - more logical and better for childclasses,
+support for collection node creation
+
+</li>
+<li>a Helper to assist with XEP-0115 Entity Capabilities
+
+</li>
+<li>SASL anonymous support
+
+</li>
+<li>File transfer fixes
+
+</li>
+<li>MUC room configuration fixes
+
+</li>
+<li>initial support for XEP-0118 User Tune
+
+</li>
+<li>fix for an xmlrpc exception-during-serialisation bug, which would cause a
+hang
+
+</li>
+<li>Support auto-gem generation on GitHub with improved and DRY&#8216;er
+RakeFile and gemspec.
+
+</li>
+<li>Add support for the old SSL protocol (needed to connect to GTalk)
+
+</li>
+<li>Changed API for Client, Component, Connection, Stream to remove need for
+antiquated &#8216;threaded&#8217; param in the initializer.
+
+</li>
+<li>Use a Logger instance instead of directly writing to stdout
+
+</li>
+<li>Re-factored &amp; consolidated Error classes. See xmpp4r/errors.rb for all
+custom errors that can be caught. All inherit from Jabber::Error which
+itself inherits from Ruby&#8216;s StandardError. This is a first step in
+re-factoring errors. The next step will be to convert all
+&#8216;raise&#8217; calls to raise a custom Jabber::Error or one of its
+children instead of anonymous RuntimeErrors. This allows much more
+granularity in catching and handling errors later. If you were catching
+Jabber::ErrorException before you should probably change that in your code
+to now catch Jabber::Error if you want to catch everything or one of the
+custom children of Jabber::Error defined in
+&#8216;lib/xmpp4r/errors.rb&#8217;. Additionally, the Error class which
+encapsulated the xmpp error response, has been renamed to ErrorResponse to
+reflect its real usage. This free&#8216;s up &#8216;Jabber::Error&#8217;
+for use as our base Error class.
+
+</li>
+</ul>
+<p>
+XMPP4R 0.3.2 (15/10/2007)
+</p>
+<h6>===================</h6>
+<ul>
+<li>Serious bug involving Ruby threading fixed (caused exceptions with ruby
+1.8.6)
+
+</li>
+<li>vCard helper fixes
+
+</li>
+<li><a href="../classes/Jabber.html">Jabber</a> RPC (JEP0009) support
+
+</li>
+<li>HTTP Binding (JEP0124) support
+
+</li>
+<li>Publish-Subscribe support
+
+</li>
+<li>XMPPElement: a framework for classes representing XML elements
+
+</li>
+<li>Ad-hoc commands support
+
+</li>
+<li>Improvements to Dataforms: XData, XDataTitle and XDataInstructions
+
+</li>
+</ul>
+<p>
+XMPP4R 0.3.1 (23/04/2007)
+</p>
+<h6>===================</h6>
+<ul>
+<li>SASL fixes
+
+</li>
+<li>Message#x and Presence#x support element selection by namespace
+
+</li>
+<li>Proper XML entity escaping for <a href="../classes/REXML.html">REXML</a>
+text nodes
+
+</li>
+<li>Improvements to FileTransfer::Helper and SOCKS5BytestreamsServer
+
+</li>
+<li>Vcard::Helper fixes
+
+</li>
+<li>Update Digest module usage to reflect recent Ruby versions
+
+</li>
+<li>More documentation
+
+</li>
+</ul>
+<p>
+XMPP4R 0.3 (20/07/2006)
+</p>
+<h6>=================</h6>
+<ul>
+<li>SRV lookup capability in Client#connect
+
+</li>
+<li>Stringprep support for JIDs
+
+</li>
+<li>TLS &amp; SASL support
+
+</li>
+<li>Basic Dataforms support
+
+</li>
+<li>Multi-User Chat Helpers
+
+</li>
+<li>Helpers for File-Transfer, SOCKS5 Bytestreams, In-Band Bytestreams
+
+</li>
+<li>Roster helper has modified subscription-request semantics (see
+Roster#add_subscription_request_callback)
+
+</li>
+<li>A lot of features have renamed namespaces (see UPDATING file)
+
+</li>
+</ul>
+<p>
+XMPP4R 0.2 (20/10/2005)
+</p>
+<h6>=================</h6>
+<ul>
+<li>Workarounds for <a href="../classes/REXML.html">REXML</a> bugs.
+
+</li>
+<li>Presences are now Comparable according to priority or interest
+
+</li>
+<li>fixed a serious bug in Stream#send which caused some lockups. Reported by
+chunlinyao@gmail.com.
+
+</li>
+<li>Moved REXML::Element#add to REXML::Element#typed_add to keep add accessible
+
+</li>
+<li>Rewritten Roster helper
+
+</li>
+<li>Added Vcard helper and improved IqVcard
+
+</li>
+<li>XMLStanza id generator
+
+</li>
+<li>Support for Roster Item Exchange (JEP-0093 and JEP-0144)
+
+</li>
+<li>Client#password= to change client&#8216;s account password
+
+</li>
+<li>Documentation fixes
+
+</li>
+</ul>
+<p>
+XMPP4R 0.1 (12/09/2005)
+</p>
+<h6>=================</h6>
+<ul>
+<li>first public release.
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

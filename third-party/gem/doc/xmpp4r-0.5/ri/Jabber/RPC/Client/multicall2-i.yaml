@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: generate a multicall
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "methods:"
+    body: "[Array]"
+  type: :NOTE
+full_name: Jabber::RPC::Client#multicall2
+is_singleton: false
+name: multicall2
+params: (*methods)
+visibility: public

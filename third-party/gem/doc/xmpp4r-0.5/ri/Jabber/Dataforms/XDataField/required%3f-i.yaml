@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Is this field required (has the &lt;required/&gt; child)?
+full_name: Jabber::Dataforms::XDataField#required?
+is_singleton: false
+name: required?
+params: ()
+visibility: public

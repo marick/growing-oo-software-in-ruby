@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: server
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A subclass of StreamHost which possesses a server attribute, to let SOCKS5BytestreamsInitiator know this is the local SOCKS5BytestreamsServer
+constants: []
+
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsServerStreamHost
+includes: []
+
+instance_methods: []
+
+name: SOCKS5BytestreamsServerStreamHost
+superclass: StreamHost

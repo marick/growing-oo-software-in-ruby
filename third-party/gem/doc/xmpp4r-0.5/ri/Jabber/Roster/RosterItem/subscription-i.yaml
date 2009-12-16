@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get subscription type of roster item
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Symbol] or [Nil] The following values are valid according to RFC3921:"
+  type: :NOTE
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":both"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":from"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":none"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":remove"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":to"
+  type: :BULLET
+full_name: Jabber::Roster::RosterItem#subscription
+is_singleton: false
+name: subscription
+params: ()
+visibility: public

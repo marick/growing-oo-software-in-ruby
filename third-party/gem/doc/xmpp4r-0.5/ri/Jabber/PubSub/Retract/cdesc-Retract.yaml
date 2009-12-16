@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Retract
+- !ruby/struct:SM::Flow::P 
+  body: A &lt;retract&gt; XMPP element, see example 103 in http://xmpp.org/extensions/xep-0060.html#publisher-delete
+constants: []
+
+full_name: Jabber::PubSub::Retract
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: items
+- !ruby/object:RI::MethodSummary 
+  name: node
+- !ruby/object:RI::MethodSummary 
+  name: node=
+name: Retract
+superclass: XMPPElement

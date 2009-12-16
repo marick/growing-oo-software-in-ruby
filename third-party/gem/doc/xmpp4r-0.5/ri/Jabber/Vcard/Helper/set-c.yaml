@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Quickly initialize a Vcard helper and set your vCard. See Vcard#set
+full_name: Jabber::Vcard::Helper::set
+is_singleton: true
+name: set
+params: (stream, iqvcard)
+visibility: public

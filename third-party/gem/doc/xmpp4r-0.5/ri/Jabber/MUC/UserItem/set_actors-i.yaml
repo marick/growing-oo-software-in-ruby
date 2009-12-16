@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::MUC::UserItem#set_actors
+is_singleton: false
+name: set_actors
+params: (a)
+visibility: public

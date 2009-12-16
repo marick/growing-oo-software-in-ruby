@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the identity's category
+- !ruby/struct:SM::Flow::P 
+  body: Service Discovery categories should be somewhat standardized by some registry, so clients may represent specific categories by specific icons... (see http://www.jabber.org/registrar/disco-categories.html)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "val:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::Discovery::Identity#category=
+is_singleton: false
+name: category=
+params: (val)
+visibility: public

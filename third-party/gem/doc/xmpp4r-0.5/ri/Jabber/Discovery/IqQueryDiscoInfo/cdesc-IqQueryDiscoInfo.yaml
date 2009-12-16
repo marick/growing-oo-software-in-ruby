@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Class for handling Service Discovery queries, info (JEP 0030)
+- !ruby/struct:SM::Flow::P 
+  body: This &lt;query/&gt; may contain multiple Identity and Feature elements, describing the type and the supported namespaces of the service.
+constants: []
+
+full_name: Jabber::Discovery::IqQueryDiscoInfo
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: features
+- !ruby/object:RI::MethodSummary 
+  name: identities
+- !ruby/object:RI::MethodSummary 
+  name: identity
+- !ruby/object:RI::MethodSummary 
+  name: node
+- !ruby/object:RI::MethodSummary 
+  name: node=
+- !ruby/object:RI::MethodSummary 
+  name: set_node
+name: IqQueryDiscoInfo
+superclass: IqQuery

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: get all node affiliations get_affiliations
+full_name: Jabber::PubSub::NodeHelper#get_affiliations
+is_singleton: false
+name: get_affiliations
+params: ()
+visibility: public

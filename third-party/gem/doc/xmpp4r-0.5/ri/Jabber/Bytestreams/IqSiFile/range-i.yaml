@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "&lt;range/&gt; child"
+- !ruby/struct:SM::Flow::P 
+  body: A file-transfer offer may contain this with no attributes set, indicating the ability to do ranged transfers.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[IqSiFileRange]"
+  type: :NOTE
+full_name: Jabber::Bytestreams::IqSiFile#range
+is_singleton: false
+name: range
+params: ()
+visibility: public

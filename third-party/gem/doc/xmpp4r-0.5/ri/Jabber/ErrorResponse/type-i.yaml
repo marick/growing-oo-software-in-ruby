@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Get the type of error (meaning how to proceed)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "result:"
+    body: "[Symbol] or [nil] as following:"
+  type: :NOTE
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":auth"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":cancel"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":continue"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":modify"
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: ":wait"
+  type: :BULLET
+full_name: Jabber::ErrorResponse#type
+is_singleton: false
+name: type
+params: ()
+visibility: public

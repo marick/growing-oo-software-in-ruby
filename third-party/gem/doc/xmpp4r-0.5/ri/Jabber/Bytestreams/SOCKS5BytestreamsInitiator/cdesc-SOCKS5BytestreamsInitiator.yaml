@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: streamhosts
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: SOCKS5Bytestreams implementation for the initiator side
+constants: []
+
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsInitiator
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_streamhost
+- !ruby/object:RI::MethodSummary 
+  name: open
+name: SOCKS5BytestreamsInitiator
+superclass: SOCKS5Bytestreams

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::PubSub::Unsubscribe::new
+is_singleton: true
+name: new
+params: (myjid=nil,mynode=nil)
+visibility: public

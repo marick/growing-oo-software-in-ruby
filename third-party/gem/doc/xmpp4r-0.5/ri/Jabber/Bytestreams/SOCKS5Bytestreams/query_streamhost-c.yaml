@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Query a JID for its stream-host information
+- !ruby/struct:SM::Flow::P 
+  body: SOCKS5BytestreamsInitiator#add_streamhost can do this for you. Use this method if you plan to do multiple transfers, so you can cache the result.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Stream] to operate on"
+  - !ruby/struct:SM::Flow::LI 
+    label: "streamhost:"
+    body: "[JID] of the proxy"
+  - !ruby/struct:SM::Flow::LI 
+    label: "my_jid:"
+    body: "[JID] Optional sender JID for Component operation"
+  type: :NOTE
+full_name: Jabber::Bytestreams::SOCKS5Bytestreams::query_streamhost
+is_singleton: true
+name: query_streamhost
+params: (stream, streamhost, my_jid=nil)
+visibility: public

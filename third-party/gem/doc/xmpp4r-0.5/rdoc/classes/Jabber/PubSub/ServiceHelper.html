@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::PubSub::ServiceHelper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::PubSub::ServiceHelper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/xmpp4r/pubsub/helper/servicehelper_rb.html">
+                lib/xmpp4r/pubsub/helper/servicehelper.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A Helper representing a <a href="../PubSub.html">PubSub</a> Service
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000399">add_event_callback</a>&nbsp;&nbsp;
+      <a href="#M000388">create_collection_node</a>&nbsp;&nbsp;
+      <a href="#M000387">create_node</a>&nbsp;&nbsp;
+      <a href="#M000385">delete_item_from</a>&nbsp;&nbsp;
+      <a href="#M000391">delete_node</a>&nbsp;&nbsp;
+      <a href="#M000393">get_affiliations</a>&nbsp;&nbsp;
+      <a href="#M000389">get_config_from</a>&nbsp;&nbsp;
+      <a href="#M000382">get_items_from</a>&nbsp;&nbsp;
+      <a href="#M000396">get_options_from</a>&nbsp;&nbsp;
+      <a href="#M000395">get_subscribers_from</a>&nbsp;&nbsp;
+      <a href="#M000394">get_subscriptions_from</a>&nbsp;&nbsp;
+      <a href="#M000379">get_subscriptions_from_all_nodes</a>&nbsp;&nbsp;
+      <a href="#M000378">new</a>&nbsp;&nbsp;
+      <a href="#M000383">publish_item_to</a>&nbsp;&nbsp;
+      <a href="#M000384">publish_item_with_id_to</a>&nbsp;&nbsp;
+      <a href="#M000386">purge_items_from</a>&nbsp;&nbsp;
+      <a href="#M000392">set_affiliations</a>&nbsp;&nbsp;
+      <a href="#M000390">set_config_for</a>&nbsp;&nbsp;
+      <a href="#M000397">set_options_for</a>&nbsp;&nbsp;
+      <a href="#M000380">subscribe_to</a>&nbsp;&nbsp;
+      <a href="#M000398">to_s</a>&nbsp;&nbsp;
+      <a href="#M000381">unsubscribe_from</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000378" class="method-detail">
+        <a name="M000378"></a>
+
+        <div class="method-heading">
+          <a href="#M000378" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(stream, pubsubjid)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="ServiceHelper.html#M000378">new</a> representation of a
+pubsub service
+</p>
+<table>
+<tr><td valign="top">stream:</td><td>[<a href="../Stream.html">Jabber::Stream</a>]
+
+</td></tr>
+<tr><td valign="top">pubsubjid:</td><td>[String] or [<a href="../JID.html">Jabber::JID</a>]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000378-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000378-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 61</span>
+61:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">stream</span>, <span class="ruby-identifier">pubsubjid</span>)
+62:         <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">stream</span>
+63:         <span class="ruby-ivar">@pubsubjid</span> = <span class="ruby-identifier">pubsubjid</span>
+64:         <span class="ruby-ivar">@event_cbs</span> = <span class="ruby-constant">CallbackList</span>.<span class="ruby-identifier">new</span>
+65:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">add_message_callback</span>(<span class="ruby-value">200</span>,<span class="ruby-keyword kw">self</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
+66:           <span class="ruby-identifier">handle_message</span>(<span class="ruby-identifier">message</span>)
+67:         }
+68:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000399" class="method-detail">
+        <a name="M000399"></a>
+
+        <div class="method-heading">
+          <a href="#M000399" class="method-signature">
+          <span class="method-name">add_event_callback</span><span class="method-args">(prio = 200, ref = nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Register callbacks for incoming events (i.e. <a
+href="../Message.html">Message</a> stanzas containing) <a
+href="../PubSub.html">PubSub</a> notifications
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000399-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000399-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 423</span>
+423:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_event_callback</span>(<span class="ruby-identifier">prio</span> = <span class="ruby-value">200</span>, <span class="ruby-identifier">ref</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+424:         <span class="ruby-ivar">@event_cbs</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">prio</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">block</span>)
+425:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000388" class="method-detail">
+        <a name="M000388"></a>
+
+        <div class="method-heading">
+          <a href="#M000388" class="method-signature">
+          <span class="method-name">create_collection_node</span><span class="method-args">(node = nil, configure = Jabber::PubSub::NodeConfig.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="ServiceHelper.html#M000378">new</a> collection node on
+the pubsub service
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String] the node name - otherwise you get an automatically generated one
+(in most cases)
+
+</td></tr>
+<tr><td valign="top">configure:</td><td>[<a href="NodeConfig.html">Jabber::PubSub::NodeConfig</a>] if you want to
+configure your node (default nil)
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000388-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000388-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 257</span>
+257:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_collection_node</span>(<span class="ruby-identifier">node</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">configure</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeConfig</span>.<span class="ruby-identifier">new</span>)
+258:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">configure</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value str">'pubsub#node_type'</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">configure</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value str">'pubsub#node_type'</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">'collection'</span>
+259:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Invalid node_type specified in node configuration. Either do not specify one, or use 'collection'&quot;</span>
+260:         <span class="ruby-keyword kw">end</span>
+261:         <span class="ruby-identifier">configure</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">configure</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'pubsub#node_type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'collection'</span>})
+262:         <span class="ruby-identifier">create_node</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">configure</span>)
+263:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000387" class="method-detail">
+        <a name="M000387"></a>
+
+        <div class="method-heading">
+          <a href="#M000387" class="method-signature">
+          <span class="method-name">create_node</span><span class="method-args">(node = nil, configure = Jabber::PubSub::NodeConfig.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="ServiceHelper.html#M000378">new</a> node on the pubsub
+service
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String] the node name - otherwise you get a automatically generated one
+(in most cases)
+
+</td></tr>
+<tr><td valign="top">configure:</td><td>[<a href="NodeConfig.html">Jabber::PubSub::NodeConfig</a>] if you want to
+configure your node (default nil)
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000387-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000387-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 233</span>
+233:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_node</span>(<span class="ruby-identifier">node</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">configure</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeConfig</span>.<span class="ruby-identifier">new</span>)
+234:         <span class="ruby-identifier">rnode</span> = <span class="ruby-keyword kw">nil</span>
+235:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+236:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'create'</span>)).<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+237:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">configure</span>
+238:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">configure</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">NodeConfig</span>)
+239:             <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">configure</span>)
+240:           <span class="ruby-keyword kw">end</span>
+241:         <span class="ruby-keyword kw">end</span>
+242: 
+243:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+244:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:result</span>
+245:             <span class="ruby-identifier">rnode</span> = <span class="ruby-identifier">node</span>
+246:           <span class="ruby-keyword kw">end</span>
+247:         <span class="ruby-keyword kw">end</span>
+248: 
+249:         <span class="ruby-identifier">rnode</span>
+250:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000385" class="method-detail">
+        <a name="M000385"></a>
+
+        <div class="method-heading">
+          <a href="#M000385" class="method-signature">
+          <span class="method-name">delete_item_from</span><span class="method-args">(node, item_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+deletes an item from a persistent node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">item_id:</td><td>[String] or [Array] of [String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000385-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000385-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 195</span>
+195:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_item_from</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">item_id</span>)
+196:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+197:         <span class="ruby-identifier">retract</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Retract</span>.<span class="ruby-identifier">new</span>)
+198:         <span class="ruby-identifier">retract</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>
+199: 
+200:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item_id</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Array</span>
+201:           <span class="ruby-identifier">item_id</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">id</span><span class="ruby-operator">|</span>
+202:             <span class="ruby-identifier">xmlitem</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Item</span>.<span class="ruby-identifier">new</span>
+203:             <span class="ruby-identifier">xmlitem</span>.<span class="ruby-identifier">id</span> = <span class="ruby-identifier">id</span>
+204:             <span class="ruby-identifier">retract</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">xmlitem</span>)
+205:           }
+206:         <span class="ruby-keyword kw">else</span>
+207:           <span class="ruby-identifier">xmlitem</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Item</span>.<span class="ruby-identifier">new</span>
+208:           <span class="ruby-identifier">xmlitem</span>.<span class="ruby-identifier">id</span> = <span class="ruby-identifier">item_id</span>
+209:           <span class="ruby-identifier">retract</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">xmlitem</span>)
+210:         <span class="ruby-keyword kw">end</span>
+211: 
+212:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+213:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000391" class="method-detail">
+        <a name="M000391"></a>
+
+        <div class="method-heading">
+          <a href="#M000391" class="method-signature">
+          <span class="method-name">delete_node</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Delete a pubsub node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000391-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000391-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 294</span>
+294:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_node</span>(<span class="ruby-identifier">node</span>)
+295:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>,<span class="ruby-keyword kw">true</span>)
+296:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'delete'</span>)).<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+297:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+298:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000393" class="method-detail">
+        <a name="M000393"></a>
+
+        <div class="method-heading">
+          <a href="#M000393" class="method-signature">
+          <span class="method-name">get_affiliations</span><span class="method-args">(node = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+shows the affiliations on a pubsub service
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Hash] of { node =&gt; symbol }
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000393-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000393-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 318</span>
+318:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_affiliations</span>(<span class="ruby-identifier">node</span> = <span class="ruby-keyword kw">nil</span>)
+319:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:get</span>)
+320:         <span class="ruby-identifier">affiliations</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'affiliations'</span>))
+321:         <span class="ruby-identifier">affiliations</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+322:         <span class="ruby-identifier">res</span> = <span class="ruby-keyword kw">nil</span>
+323:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+324:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'affiliations'</span>)
+325:             <span class="ruby-identifier">res</span> = {}
+326:             <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'affiliations'</span>).<span class="ruby-identifier">each_element</span>(<span class="ruby-value str">'affiliation'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">affiliation</span><span class="ruby-operator">|</span>
+327:               <span class="ruby-comment cmt"># TODO: This should be handled by an affiliation element class</span>
+328:               <span class="ruby-identifier">aff</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">affiliation</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'affiliation'</span>]
+329:                       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'owner'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:owner</span>
+330:                       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'publisher'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:publisher</span>
+331:                       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'none'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:none</span>
+332:                       <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'outcast'</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:outcast</span>
+333:                       <span class="ruby-keyword kw">else</span> <span class="ruby-keyword kw">nil</span>
+334:                     <span class="ruby-keyword kw">end</span>
+335:               <span class="ruby-identifier">res</span>[<span class="ruby-identifier">affiliation</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>]] = <span class="ruby-identifier">aff</span>
+336:             <span class="ruby-keyword kw">end</span>
+337:           <span class="ruby-keyword kw">end</span>
+338:           <span class="ruby-keyword kw">true</span>
+339:         }
+340:         <span class="ruby-identifier">res</span>
+341:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000389" class="method-detail">
+        <a name="M000389"></a>
+
+        <div class="method-heading">
+          <a href="#M000389" class="method-signature">
+          <span class="method-name">get_config_from</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+get configuration from a node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Jabber::PubSub::Configure]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000389-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000389-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 269</span>
+269:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_config_from</span>(<span class="ruby-identifier">node</span>)
+270:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:get</span>, <span class="ruby-keyword kw">true</span>)
+271:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">OwnerNodeConfig</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>))
+272:         <span class="ruby-identifier">ret</span> = <span class="ruby-keyword kw">nil</span>
+273:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+274:           <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'configure'</span>)
+275:         <span class="ruby-keyword kw">end</span>
+276:         <span class="ruby-identifier">ret</span>
+277:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000382" class="method-detail">
+        <a name="M000382"></a>
+
+        <div class="method-heading">
+          <a href="#M000382" class="method-signature">
+          <span class="method-name">get_items_from</span><span class="method-args">(node, count=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+gets all items from a pubsub node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">count:</td><td>[Fixnum]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Hash] { id =&gt; [<a href="Item.html">Jabber::PubSub::Item</a>] }
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000382-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000382-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 133</span>
+133:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_items_from</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">count</span>=<span class="ruby-keyword kw">nil</span>)
+134:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:get</span>)
+135:         <span class="ruby-identifier">items</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Items</span>.<span class="ruby-identifier">new</span>
+136:         <span class="ruby-identifier">items</span>.<span class="ruby-identifier">max_items</span> = <span class="ruby-identifier">count</span>
+137:         <span class="ruby-identifier">items</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>
+138:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">items</span>)
+139:         <span class="ruby-identifier">res</span> = <span class="ruby-keyword kw">nil</span>
+140:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+141:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Iq</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'items'</span>)
+142:             <span class="ruby-identifier">res</span> = {}
+143:             <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'items'</span>).<span class="ruby-identifier">each_element</span>(<span class="ruby-value str">'item'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+144:               <span class="ruby-identifier">res</span>[<span class="ruby-identifier">item</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'id'</span>]] = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">first</span>
+145:             <span class="ruby-keyword kw">end</span>
+146:           <span class="ruby-keyword kw">end</span>
+147:           <span class="ruby-keyword kw">true</span>
+148:         }
+149:         <span class="ruby-identifier">res</span>
+150:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000396" class="method-detail">
+        <a name="M000396"></a>
+
+        <div class="method-heading">
+          <a href="#M000396" class="method-signature">
+          <span class="method-name">get_options_from</span><span class="method-args">(node, jid, subid = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+get options from a subscription
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">Jabber::JID</a>] or [String]
+
+</td></tr>
+<tr><td valign="top">subid:</td><td>[String] or nil
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Jabber::PubSub::OwnerConfigure]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000396-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000396-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 385</span>
+385:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_options_from</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">jid</span>, <span class="ruby-identifier">subid</span> = <span class="ruby-keyword kw">nil</span>)
+386:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:get</span>)
+387:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">SubscriptionConfig</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>).<span class="ruby-identifier">strip</span><span class="ruby-operator">:</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>, <span class="ruby-identifier">subid</span>))
+388:         <span class="ruby-identifier">ret</span> = <span class="ruby-keyword kw">nil</span>
+389:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+390:           <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'options'</span>)
+391:         <span class="ruby-keyword kw">end</span>
+392:         <span class="ruby-identifier">ret</span>
+393:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000395" class="method-detail">
+        <a name="M000395"></a>
+
+        <div class="method-heading">
+          <a href="#M000395" class="method-signature">
+          <span class="method-name">get_subscribers_from</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+shows all jids of subscribers of a node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Array] of [String]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000395-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000395-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 370</span>
+370:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_subscribers_from</span>(<span class="ruby-identifier">node</span>)
+371:         <span class="ruby-identifier">res</span> = []
+372:         <span class="ruby-identifier">get_subscriptions_from</span>(<span class="ruby-identifier">node</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">sub</span><span class="ruby-operator">|</span>
+373:           <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sub</span>.<span class="ruby-identifier">jid</span>
+374:         }
+375:         <span class="ruby-identifier">res</span>
+376:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000394" class="method-detail">
+        <a name="M000394"></a>
+
+        <div class="method-heading">
+          <a href="#M000394" class="method-signature">
+          <span class="method-name">get_subscriptions_from</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+shows all subscriptions on the given node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Array] of [Jabber::Pubsub::Subscription]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000394-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000394-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 347</span>
+347:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_subscriptions_from</span>(<span class="ruby-identifier">node</span>)
+348:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:get</span>)
+349:         <span class="ruby-identifier">entities</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'subscriptions'</span>))
+350:         <span class="ruby-identifier">entities</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+351:         <span class="ruby-identifier">res</span> = <span class="ruby-keyword kw">nil</span>
+352:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+353:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscriptions'</span>)
+354:             <span class="ruby-identifier">res</span> = []
+355:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscriptions'</span>).<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">node</span>
+356:               <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscriptions'</span>).<span class="ruby-identifier">each_element</span>(<span class="ruby-value str">'subscription'</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">subscription</span><span class="ruby-operator">|</span>
+357:                 <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">subscription</span>)
+358:               }
+359:             <span class="ruby-keyword kw">end</span>
+360:           <span class="ruby-keyword kw">end</span>
+361:           <span class="ruby-keyword kw">true</span>
+362:         }
+363:         <span class="ruby-identifier">res</span>
+364:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000379" class="method-detail">
+        <a name="M000379"></a>
+
+        <div class="method-heading">
+          <a href="#M000379" class="method-signature">
+          <span class="method-name">get_subscriptions_from_all_nodes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+get all subscriptions on a pubsub component
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[Hash] of [<a href="Subscription.html">PubSub::Subscription</a>]
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000379-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000379-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 73</span>
+73:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_subscriptions_from_all_nodes</span>
+74:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:get</span>)
+75:         <span class="ruby-identifier">entities</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'subscriptions'</span>))
+76:         <span class="ruby-identifier">res</span> = <span class="ruby-keyword kw">nil</span>
+77:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+78:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscriptions'</span>)
+79:             <span class="ruby-identifier">res</span> = []
+80:             <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscriptions'</span>).<span class="ruby-identifier">each_element</span>(<span class="ruby-value str">'subscription'</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">subscription</span><span class="ruby-operator">|</span>
+81:               <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">subscription</span>)
+82:             }
+83:           <span class="ruby-keyword kw">end</span>
+84:         }
+85: 
+86:         <span class="ruby-identifier">res</span>
+87:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000383" class="method-detail">
+        <a name="M000383"></a>
+
+        <div class="method-heading">
+          <a href="#M000383" class="method-signature">
+          <span class="method-name">publish_item_to</span><span class="method-args">(node,item)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+NOTE: this method sends only one item per publish request because some
+services may not allow batch processing. Maybe this will changed in the
+future?
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">item:</td><td>[<a href="Item.html">Jabber::PubSub::Item</a>]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000383-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000383-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 158</span>
+158:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">publish_item_to</span>(<span class="ruby-identifier">node</span>,<span class="ruby-identifier">item</span>)
+159:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+160:               <span class="ruby-identifier">publish</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'publish'</span>))
+161:         <span class="ruby-identifier">publish</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+162: 
+163:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Item</span>)
+164:           <span class="ruby-identifier">publish</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item</span>)
+165:           <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+166:         <span class="ruby-keyword kw">end</span>
+167:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000384" class="method-detail">
+        <a name="M000384"></a>
+
+        <div class="method-heading">
+          <a href="#M000384" class="method-signature">
+          <span class="method-name">publish_item_with_id_to</span><span class="method-args">(node,item,id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">item:</td><td>[<a href="../../REXML/Element.html">REXML::Element</a>]
+
+</td></tr>
+<tr><td valign="top">id:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000384-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000384-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 174</span>
+174:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">publish_item_with_id_to</span>(<span class="ruby-identifier">node</span>,<span class="ruby-identifier">item</span>,<span class="ruby-identifier">id</span>)
+175:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+176:         <span class="ruby-identifier">publish</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'publish'</span>))
+177:         <span class="ruby-identifier">publish</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+178: 
+179:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+180:           <span class="ruby-identifier">xmlitem</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Item</span>.<span class="ruby-identifier">new</span>
+181:           <span class="ruby-identifier">xmlitem</span>.<span class="ruby-identifier">id</span> = <span class="ruby-identifier">id</span>
+182:           <span class="ruby-identifier">xmlitem</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">item</span>)
+183:           <span class="ruby-identifier">publish</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">xmlitem</span>)
+184:         <span class="ruby-keyword kw">else</span>
+185:           <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;given item is not a proper xml document or Jabber::PubSub::Item&quot;</span>
+186:         <span class="ruby-keyword kw">end</span>
+187:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+188:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000386" class="method-detail">
+        <a name="M000386"></a>
+
+        <div class="method-heading">
+          <a href="#M000386" class="method-signature">
+          <span class="method-name">purge_items_from</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+purges all items on a persistent node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000386-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000386-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 220</span>
+220:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">purge_items_from</span>(<span class="ruby-identifier">node</span>)
+221:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+222:         <span class="ruby-identifier">purge</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'purge'</span>)
+223:         <span class="ruby-identifier">purge</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+224:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">purge</span>)
+225:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+226:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000392" class="method-detail">
+        <a name="M000392"></a>
+
+        <div class="method-heading">
+          <a href="#M000392" class="method-signature">
+          <span class="method-name">set_affiliations</span><span class="method-args">(node, jid, role = 'publisher')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000392-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000392-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 300</span>
+300:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_affiliations</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">jid</span>, <span class="ruby-identifier">role</span> = <span class="ruby-value str">'publisher'</span>)
+301:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>, <span class="ruby-keyword kw">true</span>)
+302:         <span class="ruby-identifier">affiliations</span> = <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'affiliations'</span>))
+303:         <span class="ruby-identifier">affiliations</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+304:         <span class="ruby-identifier">affiliation</span> = <span class="ruby-identifier">affiliations</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'affiliation'</span>))
+305:         <span class="ruby-identifier">affiliation</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'jid'</span>] = <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">to_s</span>
+306:         <span class="ruby-identifier">affiliation</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'affiliation'</span>] = <span class="ruby-identifier">role</span>.<span class="ruby-identifier">to_s</span>
+307:         <span class="ruby-identifier">res</span> = <span class="ruby-keyword kw">nil</span>
+308:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+309:           <span class="ruby-keyword kw">true</span>
+310:         }
+311:         <span class="ruby-identifier">res</span>
+312:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000390" class="method-detail">
+        <a name="M000390"></a>
+
+        <div class="method-heading">
+          <a href="#M000390" class="method-signature">
+          <span class="method-name">set_config_for</span><span class="method-args">(node, config)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+set configuration for a node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">options:</td><td>[<a href="NodeConfig.html">Jabber::PubSub::NodeConfig</a>]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true on success
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000390-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000390-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 284</span>
+284:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_config_for</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">config</span>)
+285:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>, <span class="ruby-keyword kw">true</span>)
+286:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">config</span>)
+287:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>)
+288:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000397" class="method-detail">
+        <a name="M000397"></a>
+
+        <div class="method-heading">
+          <a href="#M000397" class="method-signature">
+          <span class="method-name">set_options_for</span><span class="method-args">(node, jid, options, subid = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+set options for a subscription
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">jid:</td><td>[<a href="../JID.html">Jabber::JID</a>] or [String]
+
+</td></tr>
+<tr><td valign="top">options:</td><td>[<a href="SubscriptionConfig.html">Jabber::PubSub::SubscriptionConfig</a>}
+specifying configuration options
+
+</td></tr>
+<tr><td valign="top">subid:</td><td>[String] or nil
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000397-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000397-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 402</span>
+402:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_options_for</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">jid</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">subid</span> = <span class="ruby-keyword kw">nil</span>)
+403:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+404:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">SubscriptionConfig</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>).<span class="ruby-identifier">strip</span><span class="ruby-operator">:</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">subid</span>))
+405:         <span class="ruby-identifier">ret</span> = <span class="ruby-keyword kw">false</span>
+406:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) <span class="ruby-keyword kw">do</span>  <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+407:           <span class="ruby-identifier">ret</span> = ( <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:result</span> )
+408:         <span class="ruby-keyword kw">end</span>
+409: 
+410:         <span class="ruby-identifier">ret</span>
+411:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000380" class="method-detail">
+        <a name="M000380"></a>
+
+        <div class="method-heading">
+          <a href="#M000380" class="method-signature">
+          <span class="method-name">subscribe_to</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+subscribe to a node
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[Hash] of { attributename =&gt; value }
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000380-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000380-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 92</span>
+ 92:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">subscribe_to</span>(<span class="ruby-identifier">node</span>)
+ 93:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+ 94:         <span class="ruby-identifier">sub</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'subscribe'</span>)
+ 95:         <span class="ruby-identifier">sub</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'node'</span>] = <span class="ruby-identifier">node</span>
+ 96:         <span class="ruby-identifier">sub</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'jid'</span>] = <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">to_s</span>
+ 97:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">sub</span>)
+ 98:         <span class="ruby-identifier">res</span> = <span class="ruby-keyword kw">nil</span>
+ 99:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+100:           <span class="ruby-identifier">pubsubanswer</span> = <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">pubsub</span>
+101:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">pubsubanswer</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscription'</span>)
+102:             <span class="ruby-identifier">res</span> = <span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Subscription</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">pubsubanswer</span>.<span class="ruby-identifier">first_element</span>(<span class="ruby-value str">'subscription'</span>))
+103:           <span class="ruby-keyword kw">end</span>
+104:         <span class="ruby-keyword kw">end</span> <span class="ruby-comment cmt"># @stream.send_with_id(iq)</span>
+105:         <span class="ruby-identifier">res</span>
+106:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000398" class="method-detail">
+        <a name="M000398"></a>
+
+        <div class="method-heading">
+          <a href="#M000398" class="method-signature">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+String representation
+</p>
+<table>
+<tr><td valign="top">result:</td><td>[String] The <a href="../PubSub.html">PubSub</a> service&#8216;s <a
+href="../JID.html">JID</a>
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000398-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000398-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 416</span>
+416:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+417:         <span class="ruby-ivar">@pubsubjid</span>.<span class="ruby-identifier">to_s</span>
+418:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000381" class="method-detail">
+        <a name="M000381"></a>
+
+        <div class="method-heading">
+          <a href="#M000381" class="method-signature">
+          <span class="method-name">unsubscribe_from</span><span class="method-args">(node, subid=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Unsubscribe.html">Unsubscribe</a> from a node with an optional
+subscription id
+</p>
+<p>
+May raise ServerError
+</p>
+<table>
+<tr><td valign="top">node:</td><td>[String]
+
+</td></tr>
+<tr><td valign="top">subid:</td><td>[String] or nil (not supported)
+
+</td></tr>
+<tr><td valign="top">return:</td><td>true
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000381-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000381-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/xmpp4r/pubsub/helper/servicehelper.rb, line 115</span>
+115:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unsubscribe_from</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">subid</span>=<span class="ruby-keyword kw">nil</span>)
+116:         <span class="ruby-identifier">iq</span> = <span class="ruby-identifier">basic_pubsub_query</span>(<span class="ruby-identifier">:set</span>)
+117:         <span class="ruby-identifier">unsub</span> = <span class="ruby-constant">PubSub</span><span class="ruby-operator">::</span><span class="ruby-constant">Unsubscribe</span>.<span class="ruby-identifier">new</span>
+118:         <span class="ruby-identifier">unsub</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>
+119:         <span class="ruby-identifier">unsub</span>.<span class="ruby-identifier">jid</span> = <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip</span>
+120:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">pubsub</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">unsub</span>)
+121:         <span class="ruby-identifier">ret</span> = <span class="ruby-keyword kw">false</span>
+122:         <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">send_with_id</span>(<span class="ruby-identifier">iq</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+123:           <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:result</span>
+124:         } <span class="ruby-comment cmt"># @stream.send_with_id(iq)</span>
+125:         <span class="ruby-identifier">ret</span>
+126:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

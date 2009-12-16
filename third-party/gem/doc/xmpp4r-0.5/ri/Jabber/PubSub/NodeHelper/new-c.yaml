@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: creates a new node new(client,service,nodename)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "stream:"
+    body: "[Jabber::Stream]"
+  - !ruby/struct:SM::Flow::LI 
+    label: "jid:"
+    body: "[String] (jid of the pubsub service)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "nodename:"
+    body: "[String]"
+  type: :NOTE
+full_name: Jabber::PubSub::NodeHelper::new
+is_singleton: true
+name: new
+params: (stream, jid, nodename = nil, create_if_not_exist = true)
+visibility: public

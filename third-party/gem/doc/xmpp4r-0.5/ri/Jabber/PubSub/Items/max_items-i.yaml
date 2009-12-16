@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::PubSub::Items#max_items
+is_singleton: false
+name: max_items
+params: ()
+visibility: public

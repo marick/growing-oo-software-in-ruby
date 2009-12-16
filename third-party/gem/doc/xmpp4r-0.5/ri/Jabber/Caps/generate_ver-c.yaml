@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Implementation of the algorithm defined at: http://www.xmpp.org/extensions/xep-0115.html#ver-gen"
+full_name: Jabber::Caps::generate_ver
+is_singleton: true
+name: generate_ver
+params: (identities, features, forms=[], hash='sha-1')
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "TODO: test and fix situation where we get disconnected while sending but then successfully reconnect"
+- !ruby/struct:SM::Flow::VERB 
+  body: " (and make sure in such cases we resent)\n"
+full_name: Jabber::Reliable::Listener#send_message
+is_singleton: false
+name: send_message
+params: (message)
+visibility: public

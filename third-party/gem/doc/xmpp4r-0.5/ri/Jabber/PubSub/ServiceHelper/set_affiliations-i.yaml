@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::PubSub::ServiceHelper#set_affiliations
+is_singleton: false
+name: set_affiliations
+params: (node, jid, role = 'publisher')
+visibility: public

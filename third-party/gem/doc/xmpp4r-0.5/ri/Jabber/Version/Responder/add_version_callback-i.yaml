@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a callback for Iq stanzas with IqQueryVersion
+- !ruby/struct:SM::Flow::P 
+  body: First argument passed to block is the Iq stanza, second argument is a block, which can be called with software name, version and os
+- !ruby/struct:SM::Flow::P 
+  body: "Example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  my_version_helper.add_version_callback { |iq,block|\n    block.call('Cool client', '6.0', 'Cool OS')\n  }\n"
+full_name: Jabber::Version::Responder#add_version_callback
+is_singleton: false
+name: add_version_callback
+params: (priority = 0, ref = nil, &block)
+visibility: public

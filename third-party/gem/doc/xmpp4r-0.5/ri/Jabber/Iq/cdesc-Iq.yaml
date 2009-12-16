@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new_authset
+- !ruby/object:RI::MethodSummary 
+  name: new_authset_digest
+- !ruby/object:RI::MethodSummary 
+  name: new_browseget
+- !ruby/object:RI::MethodSummary 
+  name: new_query
+- !ruby/object:RI::MethodSummary 
+  name: new_register
+- !ruby/object:RI::MethodSummary 
+  name: new_registerget
+- !ruby/object:RI::MethodSummary 
+  name: new_rosterget
+- !ruby/object:RI::MethodSummary 
+  name: new_rosterset
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "IQ: Information/Query (see RFC3920 - 9.2.3"
+- !ruby/struct:SM::Flow::P 
+  body: A class used to build/parse IQ requests/responses
+constants: []
+
+full_name: Jabber::Iq
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: command
+- !ruby/object:RI::MethodSummary 
+  name: pubsub
+- !ruby/object:RI::MethodSummary 
+  name: query
+- !ruby/object:RI::MethodSummary 
+  name: query=
+- !ruby/object:RI::MethodSummary 
+  name: queryns
+- !ruby/object:RI::MethodSummary 
+  name: set_type
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type=
+- !ruby/object:RI::MethodSummary 
+  name: vcard
+name: Iq
+superclass: XMPPStanza

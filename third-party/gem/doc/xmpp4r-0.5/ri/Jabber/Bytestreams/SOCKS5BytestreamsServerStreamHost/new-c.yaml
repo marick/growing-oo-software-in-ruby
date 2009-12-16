@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jabber::Bytestreams::SOCKS5BytestreamsServerStreamHost::new
+is_singleton: true
+name: new
+params: (server, jid=nil, host=nil, port=nil)
+visibility: public

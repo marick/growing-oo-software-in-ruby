@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Mounts a block to handle exceptions if they occur during the poll send. This will likely be the first indication that the socket dropped in a Jabber Session.
+- !ruby/struct:SM::Flow::P 
+  body: "The block has to take three arguments:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: the Exception
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: the Jabber::Stream object (self)
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: a symbol where it happened, namely :start, :parser, :sending and :end
+  type: :BULLET
+full_name: Jabber::Stream#on_exception
+is_singleton: false
+name: on_exception
+params: (&block)
+visibility: public

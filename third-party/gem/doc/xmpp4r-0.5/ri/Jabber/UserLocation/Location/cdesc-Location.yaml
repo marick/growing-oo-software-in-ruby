@@ -1,0 +1,63 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The &lt;geoloc&gt; XMPP element, as defined in XEP-0080 User Location
+- !ruby/struct:SM::Flow::P 
+  body: See http://xmpp.org/extensions/xep-0080.html - this element encapsulates data about a user's current location. These are expressed as child elements such as &lt;locality&gt;, &lt;lat&gt;, etc. which are also managed by this class.
+- !ruby/struct:SM::Flow::P 
+  body: If the element has no children then it indicates that the user has stopped publishing their location.
+constants: []
+
+full_name: Jabber::UserLocation::Location
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: accuracy
+- !ruby/object:RI::MethodSummary 
+  name: alt
+- !ruby/object:RI::MethodSummary 
+  name: area
+- !ruby/object:RI::MethodSummary 
+  name: bearing
+- !ruby/object:RI::MethodSummary 
+  name: building
+- !ruby/object:RI::MethodSummary 
+  name: country
+- !ruby/object:RI::MethodSummary 
+  name: datum
+- !ruby/object:RI::MethodSummary 
+  name: description
+- !ruby/object:RI::MethodSummary 
+  name: floor
+- !ruby/object:RI::MethodSummary 
+  name: lat
+- !ruby/object:RI::MethodSummary 
+  name: locality
+- !ruby/object:RI::MethodSummary 
+  name: lon
+- !ruby/object:RI::MethodSummary 
+  name: postalcode
+- !ruby/object:RI::MethodSummary 
+  name: published?
+- !ruby/object:RI::MethodSummary 
+  name: region
+- !ruby/object:RI::MethodSummary 
+  name: room
+- !ruby/object:RI::MethodSummary 
+  name: speed
+- !ruby/object:RI::MethodSummary 
+  name: street
+- !ruby/object:RI::MethodSummary 
+  name: text
+- !ruby/object:RI::MethodSummary 
+  name: timestamp
+- !ruby/object:RI::MethodSummary 
+  name: uri
+name: Location
+superclass: XMPPElement

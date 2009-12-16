@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the JID of the streamhost
+full_name: Jabber::Bytestreams::StreamHost#jid=
+is_singleton: false
+name: jid=
+params: (j)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "&lt;iq/&gt; callback handler to answer Software Version queries (registered by constructor and used internally only)"
+- !ruby/struct:SM::Flow::P 
+  body: Used internally
+full_name: Jabber::Version::Responder#iq_callback
+is_singleton: false
+name: iq_callback
+params: (iq)
+visibility: public

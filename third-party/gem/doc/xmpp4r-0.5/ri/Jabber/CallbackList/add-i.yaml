@@ -1,0 +1,29 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add a callback to the list
+- !ruby/struct:SM::Flow::P 
+  body: List will be sorted afterwards
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "prio:"
+    body: "[Integer] the callback's priority, the higher, the sooner."
+  - !ruby/struct:SM::Flow::LI 
+    label: "ref:"
+    body: "[String] the callback's reference"
+  - !ruby/struct:SM::Flow::LI 
+    label: "block:"
+    body: "[Block] a block to execute"
+  - !ruby/struct:SM::Flow::LI 
+    label: "return:"
+    body: "[Jabber::CallbackList] The list, for chaining"
+  type: :NOTE
+full_name: Jabber::CallbackList#add
+is_singleton: false
+name: add
+params: (prio = 0, ref = nil, proc = nil, &block)
+visibility: public

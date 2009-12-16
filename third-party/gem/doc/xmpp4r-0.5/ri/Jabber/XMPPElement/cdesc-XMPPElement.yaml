@@ -1,0 +1,52 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: class_for_name_xmlns
+- !ruby/object:RI::MethodSummary 
+  name: force_xmlns
+- !ruby/object:RI::MethodSummary 
+  name: force_xmlns?
+- !ruby/object:RI::MethodSummary 
+  name: import
+- !ruby/object:RI::MethodSummary 
+  name: name_xmlns
+- !ruby/object:RI::MethodSummary 
+  name: name_xmlns_for_class
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class represents an XML element and provides functionality for automatic casting of XML element classes according to their element name and namespace.
+- !ruby/struct:SM::Flow::P 
+  body: "Deriving classes must met these criteria:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: The element name and namespace must be specified by calling the name_xmlns class method
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: The class constructor must be callable with no mandatory parameter
+  type: :BULLET
+constants: []
+
+full_name: Jabber::XMPPElement
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: clone
+- !ruby/object:RI::MethodSummary 
+  name: parent=
+- !ruby/object:RI::MethodSummary 
+  name: set_xml_lang
+- !ruby/object:RI::MethodSummary 
+  name: typed_add
+- !ruby/object:RI::MethodSummary 
+  name: xml_lang
+- !ruby/object:RI::MethodSummary 
+  name: xml_lang=
+name: XMPPElement
+superclass: REXML::Element

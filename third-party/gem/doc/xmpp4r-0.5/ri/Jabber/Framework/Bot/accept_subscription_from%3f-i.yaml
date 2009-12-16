@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Front-end for Roster::Helper#add_subscription_request_callback
+- !ruby/struct:SM::Flow::P 
+  body: Can be overwritten, must return true or false
+full_name: Jabber::Framework::Bot#accept_subscription_from?
+is_singleton: false
+name: accept_subscription_from?
+params: (jid)
+visibility: public
