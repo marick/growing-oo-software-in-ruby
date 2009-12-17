@@ -8,7 +8,6 @@ module SwingUtilities
   
   def self.invoke_later(&block)
     Thread.new do
-#      TestLogger.debug("invoking later")
       Thread.pass   # This is the "later" part.
       block.call
     end

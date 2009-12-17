@@ -41,6 +41,8 @@ class Main
   def start_user_interface
     Log.info(me("starting user interface"))
     SwingUtilities.invoke_and_wait do 
+      # Note: since Main waits for this block to finish, it's 
+      # safe to use @ui elsewhere.
       @ui = MainWindow.new
     end
   end
@@ -48,8 +50,15 @@ class Main
   def join_auction(connection, item_id)
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                MainMessageListener.new(@ui))
+    # I passed in a MainMessageListener instead of a block because I imagine 
+    # there will eventually be more more than one method on it. (A block is just
+    # an object with a single method: "do whatever you do".)
     Log.info(me("sending join-auction message"));
     chat.send_message(XMPP::Message.new)
+
+    # In #goos, there's some code that assigns chat to an instance
+    # variable (notToBeGCd) to keep it from being garbage collected. I don't think
+    # that's needed with the fake XMPP implementation.
   end
 
   def auction_id(item_id, connection)
@@ -57,6 +66,8 @@ class Main
   end
 
   class MainMessageListener
+    # We have to pass the MainWindow object in Ruby "inner" classes don't see their
+    # enclosing class's instance variables.
     def initialize(ui)
       @ui = ui
     end
@@ -65,7 +76,6 @@ class Main
       Log.debug(me("received message"))
       SwingUtilities.invoke_later do
         Log.debug(me("Getting ready to show #{MainWindow::STATUS_LOST}"))
-        Log.debug(me("working with #{@ui}"))
         @ui.show_status(MainWindow::STATUS_LOST)
       end
     end
