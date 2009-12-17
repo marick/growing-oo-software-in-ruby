@@ -1,40 +1,40 @@
+require 'app/main'
+require 'timeout'
+
 
 class AuctionSniperDriver
-  include Appscript
 
-  def initialize(timeout_millis)
-    @timeout_millis = timeout_millis
+  def initialize(timeout_seconds)
+    @timeout_seconds = timeout_seconds
+    @top_level_frame = MainWindow::MAIN_WINDOW_NAME
   end
 
-  def start_bidding_in(auction)
-    env_settings = %Q{SNIPER_HOSTNAME="#{XMPP_HOSTNAME}" SNIPER_ID="#{SNIPER_ID}"  SNIPER_PASSWORD="#{SNIPER_PASSWORD}" SNIPER_ITEM_ID="#{auction.item_id}"}
-    puts env_settings
-    puts `#{env_settings} open build/Release/#{APP_NAME}.app`
-# --args Contents/Resources/rb_main.rb --#{XMPP_HOSTNAME} --#{SNIPER_ID} --#{SNIPER_PASSWORD} --#{auction.item_id}`
-    puts "started..."
+  def has_sniper_status?(status_text)
+    has_eventually?(MainWindow::SNIPER_STATUS_NAME, :text, status_text)
   end
 
   def stop
-    app(APP_NAME).quit  
   end
 
-private
+  private
 
-  def proxy 
-    return @proxy if @proxy
-    @proxy = app("System Events").processes[APP_NAME]
+  def has_eventually?(key, accessor, expected)
+    Timeout::timeout(@timeout_seconds) do 
+      loop do 
+        break if JFrame::Widget_map.has_key?(key)
+#        TestLogger.debug "Driver: No #{key}"
+        sleep 0.1
+      end
+
+      loop do 
+        actual = JFrame::Widget_map[key].send(accessor)
+        break if actual == expected
+#        TestLogger.debug "Driver: #{key} not set to #{expected}. Still #{actual}."
+        sleep 0.1
+      end
+      true
+    end
+  rescue Timeout::Error
+    false
   end
-
-  def only_window
-    proxy.windows[1]
-  end
-
-  def sniper_status
-    only_window.static_texts[1].value.get
-  end
-
-  def shows_sniper_status?(status_text)
-    sniper_status == status_text
-  end
-
 end

@@ -1,76 +1,59 @@
-require 'xmpp4r-simple'
-require 'monitor'
-
-
-class MessageQueue
-  def initialize(wait_time)
-    @wait_time_in_seconds = wait_time
-    @queue = []
-    @queue.extend(MonitorMixin)
-    @condition = @queue.new_cond
-  end
-
-
-  def has_entry?
-    puts "#{Time.now}: entering has_entry?"
-    @queue.synchronize do 
-      while @queue.empty?
-        unless @condition.wait(@wait_time_in_seconds)
-          puts "#{Time.now}: timeout"
-          return false
-        end
-      end
-      puts "#{Time.now}: queue is not empty"
-      true
-    end
-  end
-
-  def add_to_end(thing)
-    @queue.synchronize do 
-      @queue < thing
-      @condition.signal
-    end
-  end
-end
+require 'external/xmpp'
+require 'external/util'
+require 'thread'
+require 'timeout'
 
 class FakeAuctionServer
+  ITEM_ID_AS_LOGIN = "auction-%s"
+  AUCTION_RESOURCE = "Auction"
+  AUCTION_PASSWORD = "auction"
 
   attr_reader :item_id
 
   def initialize(item_id)
     @item_id = item_id
-    @message_queue = MessageQueue.new(50)
+    @connection = XMPP::Connection.new(XMPP_HOSTNAME)
   end
 
   def start_selling_item
-    jid_string = "auction-#{@item_id}@#{XMPP_HOSTNAME}/#{XMPP_RESOURCE}"
-    puts jid_string
-    @connection = Jabber::Simple.new(jid_string, XMPP_PASSWORD)
-
-    @connection.received_messages { | msg | 
-      puts "received: #{msg}"
-      @message_queue.add_to_end(msg) if msg.type == :chat
-    }
+    @connection.connect
+    @connection.login(sprintf(ITEM_ID_AS_LOGIN, item_id),
+                      AUCTION_PASSWORD, AUCTION_RESOURCE)
+    TestLogger.info(me("connects to XMPP server."))
+    @connection.chat_manager.add_chat_listener do | chat, created_locally |
+      TestLogger.info(me("is notified of an auction participant."))
+      @current_chat = chat
+      @message_listener = SingleMessageListener.new
+      @current_chat.add_message_listener(@message_listener)
+    end
   end
 
   def has_received_join_request_from_sniper?
-    puts "Have I received a join request?"
-    @message_queue.has_entry?
+    @message_listener.received_a_message?
+  end
+
+  def announce_closed
+    @current_chat.send_message(XMPP::Message.new)
   end
 
   def stop
     @connection.disconnect
   end
-
-  def log(message); puts "#{$0}: " + message; end
-
 end
 
-if $0 == __FILE__
-  require 'constants'
-  FakeAuctionServer.new(ONE_ITEM).start_selling_item
-  puts Thread.list.inspect
-  # hack
-  Thread.list[1].join
-end
 
+class SingleMessageListener
+  def initialize
+    @messages = BlockingQueue.new
+  end
+
+  def process_message(chat, message)
+    TestLogger.debug(me("stashing away #{message}."))
+    @messages << message
+  end
+
+  def received_a_message?
+    TestLogger.debug(me("checking for message."))
+    @messages.has_entry?
+  end
+end

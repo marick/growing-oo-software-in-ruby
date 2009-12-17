@@ -26,10 +26,10 @@ class Main
   end
 
   def self.connection(hostname, username, password)
-    connection = XMPPConnection.new(hostname)
+    connection = XMPP::Connection.new(hostname)
     connection.connect
     connection.login(username, password, AUCTION_RESOURCE)
-    Log.info(me("connected to XMPP server"))
+    Log.info("Main connected to XMPP server")
     connection
   end
     
@@ -49,7 +49,7 @@ class Main
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                MainMessageListener.new(@ui))
     Log.info(me("sending join-auction message"));
-    chat.send_message(Message.new)
+    chat.send_message(XMPP::Message.new)
   end
 
   def auction_id(item_id, connection)
