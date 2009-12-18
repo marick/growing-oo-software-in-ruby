@@ -1,0 +1,12 @@
+# -*- mode:ruby; indent-tabs-mode:nil; coding:utf-8 -*-
+# vim:ts=2:sw=2:expandtab:
+require 'rubygems'
+require 'rake'
+require 'rake/clean'
+require 'rake/testtask'
+
+task :default => [:cucumber]
+
+task :cucumber do
+  system("cucumber --no-color")
+end
