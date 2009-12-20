@@ -24,6 +24,15 @@ class JFrame
   def add(widget)
   end
 
+  def close
+    Widget_map.clear
+    @on_window_closed_callback.call
+  end
+
+  def on_window_closed(&block)
+    @on_window_closed_callback = block
+  end
+
 end
 
 class JLabel < JFrame

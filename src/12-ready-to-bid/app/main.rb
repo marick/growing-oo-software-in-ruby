@@ -50,10 +50,10 @@ class Main
   end
 
   def join_auction(connection, item_id)
-    disconnect_when_ui_closes
+    disconnect_when_ui_closes(connection)
 
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
-                                               AuctionMessageTranslator.new(self))
+                                                AuctionMessageTranslator.new(self))
     Log.info(me("sending join-auction message"));
     chat.send_message(AuctionMessage.join_message)
 
@@ -66,8 +66,10 @@ class Main
     sprintf(AUCTION_ID_FORMAT, item_id, connection.service_name)
   end
 
-  def disconnect_when_ui_closes
-    # Not needed with our fake swing implementation - at least not yet.
+  def disconnect_when_ui_closes(connection)
+    @ui.on_window_closed do 
+      connection.disconnect
+    end
   end
 
   def auction_closed
@@ -75,6 +77,11 @@ class Main
       Log.debug(me("Getting ready to show #{MainWindow::STATUS_LOST}"))
       @ui.show_status(MainWindow::STATUS_LOST)
     end
+  end
+
+  def current_price(price, increment)
+    puts "=== We have not gotten to the implementation of current_price by the end of chapter 12."
+    puts "====== So a scenario containing this is expected to fail."
   end
 end
 
@@ -87,7 +94,7 @@ class MainWindow < JFrame
   STATUS_LOST = "You lose!"
 
   def initialize
-    name = MAIN_WINDOW_NAME
+    self.name = MAIN_WINDOW_NAME
     @sniper_status = create_label(STATUS_JOINING)
     add(@sniper_status)
   end

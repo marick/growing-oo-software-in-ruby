@@ -1,7 +1,6 @@
 require 'app/main'
 require 'timeout'
 
-
 class AuctionSniperDriver
 
   def initialize(timeout_seconds)
@@ -20,6 +19,7 @@ class AuctionSniperDriver
   end
 
   def stop
+    JFrame::Widget_map[MainWindow::MAIN_WINDOW_NAME].close
   end
 
   private
