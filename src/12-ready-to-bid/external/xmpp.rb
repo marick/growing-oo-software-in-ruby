@@ -39,7 +39,9 @@ module XMPP
       @last_sender = sender
       @message_listeners.each do | connection, listener |
         next if connection == from_connection
-        listener.process_message(from_connection, Message.new(text))
+        message = Message.new
+        message.body = text
+        listener.process_message(from_connection, message)
       end
     end
 
@@ -96,10 +98,7 @@ module XMPP
   end
 
   class Message
-    attr_reader :body
-    def initialize(body)
-      @body = body
-    end
+    attr_accessor :body
   end
 
 end

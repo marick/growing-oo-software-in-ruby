@@ -53,7 +53,7 @@ class FakeAuctionServer
   end
 
   def announce_closed
-    @current_chat.send_message(AuctionMessage.empty_message)
+    @current_chat.send_message(AuctionMessage.close_message)
   end
 
   def stop

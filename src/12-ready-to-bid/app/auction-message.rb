@@ -31,7 +31,7 @@ class AuctionMessage
 
   def self.make_message(event_name, *args)
     prefix = [message_bit("SOLVersion", "1.1"),
-              message_bit("EVENT", event_name)]
+              message_bit("Event", event_name)]
     rest = Enumerator.new(args, :each_slice, 2).collect { | key, value | 
       message_bit(key, value)
     }

@@ -1,4 +1,4 @@
-Feature: basic sniper behavior
+Feature: Ways to lose an auction
 
    Scenario: Sniper joins auction, but gets no chance to bid before losing
 
