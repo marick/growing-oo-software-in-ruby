@@ -1,3 +1,1 @@
-require 'test/unit'
-require 'Shoulda'
-require 'assert2'
+require 'mock-talk'

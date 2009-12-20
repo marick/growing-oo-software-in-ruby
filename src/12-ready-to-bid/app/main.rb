@@ -4,7 +4,8 @@ require 'external/swing'
 require 'external/xmpp'
 require 'external/util'
 require 'logger'
-require 'app/message'
+require 'app/auction-message'
+require 'app/auction-message-translator'
 
 class Main
   Log = Logger.new($stdout)
@@ -49,13 +50,12 @@ class Main
   end
 
   def join_auction(connection, item_id)
+    disconnect_when_ui_closes
+
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
-                                               MainMessageListener.new(@ui))
-    # I passed in a MainMessageListener instead of a block because I imagine 
-    # there will eventually be more more than one method on it. (A block is just
-    # an object with a single method: "do whatever you do".)
+                                               AuctionMessageTranslator.new(self))
     Log.info(me("sending join-auction message"));
-    chat.send_message(Message.join_message)
+    chat.send_message(AuctionMessage.join_message)
 
     # In #goos, there's some code that assigns chat to an instance
     # variable (notToBeGCd) to keep it from being garbage collected. I don't think
@@ -66,20 +66,14 @@ class Main
     sprintf(AUCTION_ID_FORMAT, item_id, connection.service_name)
   end
 
+  def disconnect_when_ui_closes
+    # Not needed with our fake swing implementation - at least not yet.
+  end
 
-  class MainMessageListener
-    # We have to pass the MainWindow object in Ruby "inner" classes don't see their
-    # enclosing class's instance variables.
-    def initialize(ui)
-      @ui = ui
-    end
-
-    def process_message(chat, message)
-      Log.debug(me("received message"))
-      SwingUtilities.invoke_later do
-        Log.debug(me("Getting ready to show #{MainWindow::STATUS_LOST}"))
-        @ui.show_status(MainWindow::STATUS_LOST)
-      end
+  def auction_closed
+    SwingUtilities.invoke_later do
+      Log.debug(me("Getting ready to show #{MainWindow::STATUS_LOST}"))
+      @ui.show_status(MainWindow::STATUS_LOST)
     end
   end
 end
