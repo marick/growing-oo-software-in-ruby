@@ -14,9 +14,13 @@ module Locations
     end if ENV.has_key?('RUBYLIB')
   end
 
-  # Add on private library for gems that user might not have installed.
+  book_root = File.join(__DIR__, '..', '..')
+  third_party = File.join(book_root, 'third-party')
+
+  # Restrict Gems to our own private ones.
   require 'rubygems'
-  ENV['GEM_PATH'] = File.join(__DIR__,'third-party', 'gem')
+  ENV['GEM_PATH'] = File.join(third_party, 'gem')
+  ENV['GEM_HOME'] = File.join(third_party, 'gem')
   Gem.clear_paths
 
   # Add the directory this file resides in to the load path, so you can run the
@@ -27,9 +31,8 @@ module Locations
   $LOAD_PATH.delete('.')
 
   restrict_load_path_to_defaults
-  $LOAD_PATH << __DIR__ + "/third-party/lib"
-  $LOAD_PATH << __DIR__ + "/lib"
+  $LOAD_PATH << File.join(book_root, 'lib')
+  $LOAD_PATH << File.join(third_party, 'lib')
 end
 
-
-$sandboxed = true
+ENV["sniper_sandboxed"] = "true"

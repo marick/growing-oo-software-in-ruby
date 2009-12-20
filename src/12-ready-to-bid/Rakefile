@@ -2,11 +2,18 @@
 # vim:ts=2:sw=2:expandtab:
 require 'rubygems'
 require 'rake'
-require 'rake/clean'
 require 'rake/testtask'
+ENV["sniper_in_rake"] = "true"
 
-task :default => [:cucumber]
 
-task :cucumber do
+task :default => [:microtest]
+
+task :cucumber => [:microtests] do
   system("cucumber --no-color")
+end
+
+task :microtest => [:test]
+
+Rake::TestTask.new do | t | 
+  t.test_files = FileList['microtests/**/*tests.rb']
 end
