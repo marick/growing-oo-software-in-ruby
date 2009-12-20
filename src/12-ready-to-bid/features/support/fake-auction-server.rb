@@ -1,6 +1,6 @@
 require 'external/xmpp'
 require 'external/util'
-require 'app/auction-message'
+require 'app/sol-text'
 require 'thread'
 require 'timeout'
 require 'assert2'
@@ -36,24 +36,24 @@ class FakeAuctionServer
 
   def has_received_join_request_from?(sniper_id)
     @message_listener.with_next_message do | message | 
-      assert { message.body == AuctionMessage.join_message } 
+      assert { message.body == SOLText.join } 
       assert { sniper_id == @current_chat.participant }
     end
   end
 
   def report_price(price, increment, bidder)
-    @current_chat.send_message(AuctionMessage.price_message(price, increment, bidder))
+    @current_chat.send_message(SOLText.price(price, increment, bidder))
   end
 
   def has_received_bid?(bid, sniper_id)
     @message_listener.with_next_message do | message |
-      assert { message.body == AuctionMessage.bid_message("Price", bid) }
+      assert { message.body == SOLText.bid("Price", bid) }
       assert { sniper_id == @current_chat.participant }
     end
   end
 
   def announce_closed
-    @current_chat.send_message(AuctionMessage.close_message)
+    @current_chat.send_message(SOLText.close)
   end
 
   def stop

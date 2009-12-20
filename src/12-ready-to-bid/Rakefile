@@ -8,10 +8,12 @@ ENV["sniper_in_rake"] = "true"
 
 task :default => [:microtest]
 
-task :cucumber => [:microtests] do
+desc "Run Cucumber (business-facing) tests. Runs microtests first"
+task :cucumber => [:microtest] do
   system("cucumber --no-color")
 end
 
+desc "Run microtests (aka unit tests)."
 task :microtest => [:test]
 
 Rake::TestTask.new do | t | 

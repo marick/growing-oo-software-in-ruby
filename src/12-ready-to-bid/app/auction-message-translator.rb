@@ -4,7 +4,8 @@ class AuctionMessageTranslator
   end
 
   def process_message(chat, message)
-    # Following code will, I expect, soon belong with AuctionMessage or its successor.
+    # Following code will, I expect, soon belong with SOLText or its successor.
+    # For now, it's as written in #goos.
     event = unpack_event_from(message.body) 
     
     case event['Event']
@@ -15,9 +16,10 @@ class AuctionMessageTranslator
     end
   end
 
-  def unpack_event_from(message)
-    # Ruby 1.8.6 doesn't have the &:message hack built in.
-    pairs = message.split(/[;:]/).collect { | s | s.strip } 
+  def unpack_event_from(sol_text)
+    # Note: Ruby 1.8.6 doesn't have the &:message hack built in, so I use this
+    # way-less-cool form of collect.
+    pairs = sol_text.split(/[;:]/).collect { | s | s.strip } 
     Hash[*pairs]
   end
 end

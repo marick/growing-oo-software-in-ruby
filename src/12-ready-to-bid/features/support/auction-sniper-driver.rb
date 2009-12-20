@@ -5,7 +5,6 @@ class AuctionSniperDriver
 
   def initialize(timeout_seconds)
     @timeout_seconds = timeout_seconds
-    @top_level_frame = MainWindow::MAIN_WINDOW_NAME
   end
 
   # Method names like "has_sniper_status" work better with the default

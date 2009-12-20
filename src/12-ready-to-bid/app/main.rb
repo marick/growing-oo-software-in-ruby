@@ -4,7 +4,7 @@ require 'external/swing'
 require 'external/xmpp'
 require 'external/util'
 require 'logger'
-require 'app/auction-message'
+require 'app/sol-text'
 require 'app/auction-message-translator'
 
 class Main
@@ -34,7 +34,6 @@ class Main
     Log.info("Main connected to XMPP server")
     connection
   end
-    
 
   def initialize
     start_user_interface
@@ -55,7 +54,7 @@ class Main
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                 AuctionMessageTranslator.new(self))
     Log.info(me("sending join-auction message"));
-    chat.send_message(AuctionMessage.join_message)
+    chat.send_message(SOLText.join)
 
     # In #goos, there's some code that assigns chat to an instance
     # variable (notToBeGCd) to keep it from being garbage collected. I don't think
