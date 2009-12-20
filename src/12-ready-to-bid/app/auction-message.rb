@@ -5,7 +5,7 @@ require 'enumerator'
 # was complicated enough that I did it with tests. Following #goos,
 # I'm not testing each individual *_message method.
 
-class Message
+class AuctionMessage
   include Enumerable
 
   def self.empty_message
@@ -13,9 +13,12 @@ class Message
     make_message("UNDERSPECIFIED")
   end
 
-
   def self.join_message
     make_message("JOIN")
+  end
+
+  def self.close_message
+    make_message("CLOSE")
   end
 
   def self.price_message(price, increment, bidder)
