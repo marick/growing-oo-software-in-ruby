@@ -6,8 +6,9 @@ require 'external/util'
 require 'logger'
 require 'app/sol-text'
 require 'app/auction-message-translator'
-require 'app/auction'
+require 'app/xmpp-auction'
 require 'app/auction-sniper'
+require 'app/sniper-state-displayer'
 
 class Main
   Log = Logger.new($stdout)
@@ -55,14 +56,11 @@ class Main
 
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
-    auction = Auction.new(chat)
-    chat.add_message_listener(AuctionMessageTranslator.new(AuctionSniper.new(auction, self)))
+    auction = XMPPAuction.new(chat)
+    auction_sniper = AuctionSniper.new(auction, SniperStateDisplayer.new(@ui))
+    chat.add_message_listener(AuctionMessageTranslator.new(auction_sniper))
     Log.info(me("sending join-auction message"));
-    chat.send_message(SOLText.join)
-
-    # In #goos, there's some code that assigns chat to an instance
-    # variable (notToBeGCd) to keep it from being garbage collected. I don't think
-    # that's needed with the fake XMPP implementation.
+    auction.join
   end
 
   def auction_id(item_id, connection)
@@ -74,25 +72,6 @@ class Main
       connection.disconnect
     end
   end
-
-  def sniper_lost
-    SwingUtilities.invoke_later do
-      @ui.show_status(MainWindow::STATUS_LOST)
-    end
-  end
-
-  def sniper_bidding
-    SwingUtilities.invoke_later do
-      Log.debug(me("Getting ready to show #{MainWindow::STATUS_BIDDING}"))
-      @ui.show_status(MainWindow::STATUS_BIDDING)
-    end
-  end
-
-
-  def current_price(price, increment)
-    puts "=== We have not gotten to the implementation of current_price by the end of chapter 12."
-    puts "====== So a scenario containing this is expected to fail."
-  end
 end
 
 class MainWindow < JFrame
@@ -102,6 +81,7 @@ class MainWindow < JFrame
   STATUS_JOINING = "Joining"
   STATUS_BIDDING = "Bidding"
   STATUS_LOST = "You lose!"
+  STATUS_WINNING = "Won!"
 
   def initialize
     self.name = MAIN_WINDOW_NAME
