@@ -81,7 +81,8 @@ class MainWindow < JFrame
   STATUS_JOINING = "Joining"
   STATUS_BIDDING = "Bidding"
   STATUS_LOST = "You lose!"
-  STATUS_WINNING = "Won!"
+  STATUS_WINNING = "Winning"
+  STATUS_WON = "You won!"
 
   def initialize
     self.name = MAIN_WINDOW_NAME
