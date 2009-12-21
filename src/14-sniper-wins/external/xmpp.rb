@@ -53,6 +53,7 @@ module XMPP
 
   class Connection  # For now, glom together Connection, ChatManager, and Chat
     attr_reader :service_name
+    attr_reader :user
 
     def initialize(host)
       TestLogger.info("Set service name to #{host}")
@@ -73,6 +74,7 @@ module XMPP
     end
 
     def login(name, password, resource)
+      @user = name
       @id = "#{name}@#{service_name}/#{resource}"
     end
 

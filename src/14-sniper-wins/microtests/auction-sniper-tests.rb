@@ -23,7 +23,7 @@ class AuctionSniperTests < Test::Unit::TestCase
     price = 1001
     increment = 25
     during {
-      @sniper.current_price(price, increment)
+      @sniper.current_price(price, increment, "ignored source")
     }.behold! {
       @auction.should_receive(:bid).once.with(price + increment)
       @sniper_listener.should_receive(:sniper_bidding).at_least.once

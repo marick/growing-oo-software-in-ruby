@@ -58,7 +58,8 @@ class Main
                                                nil)
     auction = XMPPAuction.new(chat)
     auction_sniper = AuctionSniper.new(auction, SniperStateDisplayer.new(@ui))
-    chat.add_message_listener(AuctionMessageTranslator.new(auction_sniper))
+    translator = AuctionMessageTranslator.new(connection.user, auction_sniper)
+    chat.add_message_listener(translator)
     Log.info(me("sending join-auction message"));
     auction.join
   end
