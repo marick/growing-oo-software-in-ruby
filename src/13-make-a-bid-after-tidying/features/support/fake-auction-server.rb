@@ -47,8 +47,9 @@ class FakeAuctionServer
 
   def has_received_bid?(bid, sniper_id)
     @message_listener.with_next_message do | message |
-      assert { message.body == SOLText.bid(bid) }
-      assert { sniper_id == @current_chat.participant }
+      assert_equal SOLText.bid(bid), message.body
+      assert_equal @current_chat.participant, sniper_id
+      true
     end
   end
 
@@ -68,7 +69,7 @@ class SingleMessageListener
   end
 
   def process_message(chat, message)  # called from XMPP server
-    TestLogger.debug(me("stashing away #{message}."))
+    TestLogger.debug(me("stashing away #{message.body}."))
     @messages.enqueue(message)
   end
 
