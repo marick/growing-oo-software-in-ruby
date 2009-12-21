@@ -39,7 +39,8 @@ class SOLText
     # methods until there's a stronger reason to make an AuctionEvent subclass. 
     def event.type; self['Event']; end
     # Tempted to do some method_missing magic here, but guessing when to 
-    # send to_i to the value seems fragile.
+    # send to_i to the value seems fragile and I don't (yet) want to 
+    # define it programmatically. 
     def event.current_price; self['CurrentPrice'].to_i; end
     def event.increment; self['Increment'].to_i; end
     event

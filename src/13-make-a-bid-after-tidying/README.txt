@@ -1,3 +1,4 @@
-Little to say about this version, except that I couldn't fake out quite as
-much as #goos does because I couldn't make an anonymous subclass of Auction
-that implements bid(). Instead, I put it in the real Auction class.
+Instead of having an AuctionEvent class know how to parse message bodies, I
+put that behavior into SOLText, which already knows how to make them. That
+lets me keep events as hashes (with a little hackery to hide that fact). I
+imagine this will change fairly quickly. 

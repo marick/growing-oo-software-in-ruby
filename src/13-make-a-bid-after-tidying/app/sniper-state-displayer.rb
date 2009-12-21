@@ -2,7 +2,6 @@ class SniperStateDisplayer
   def initialize(ui)
     @ui = ui
   end
-
   def sniper_bidding
     show_status(MainWindow::STATUS_BIDDING)
   end
@@ -23,7 +22,5 @@ class SniperStateDisplayer
       TestLogger.debug(me("Showing #{status}"))
     end
   end
-
-
 end
 
