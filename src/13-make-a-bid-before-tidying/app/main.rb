@@ -87,12 +87,6 @@ class Main
       @ui.show_status(MainWindow::STATUS_BIDDING)
     end
   end
-
-
-  def current_price(price, increment)
-    puts "=== We have not gotten to the implementation of current_price by the end of chapter 12."
-    puts "====== So a scenario containing this is expected to fail."
-  end
 end
 
 class MainWindow < JFrame
