@@ -1,8 +1,5 @@
 require 'features/support/constants'
 
-SNIPER_ID = 'sniper'
-SNIPER_PASSWORD = 'sniper'
-
 # In #goos, the ApplicationRunner creates the AuctionSniperDriver and
 # also has methods to query the UI (by calling the driver). I didn't
 # see why the tests shouldn't create the AuctionSniperDriver as well
