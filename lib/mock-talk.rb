@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'flexmock'
 require 'flexmock/test_unit'
 require 'shoulda'
 require 'assert2'
@@ -9,6 +10,9 @@ require 'assert2'
 # test can state what is to happen before stating what the mock should
 # receive.
 class Test::Unit::TestCase
+
+  attr_accessor :meaning_at_this_moment
+
   def because(&block)
     @because = block
     self
@@ -28,29 +32,37 @@ class Test::Unit::TestCase
     behold! {}
   end
 
+end
 
-  # Easy mock setup
 
-  # Use like this:
-  # Timeslice.new(mocks(:use_source, :procedure_source, :hash_maker))
-  #
-  # ...
-  #
-  # @use_source.should_expect(...)
-  #
-  # 
-  # See util/test-support.rb for how tested classes should arrange
-  # for easy mocking.
+class FlexMock::Expectation
+  # For now, just token is recorded for the state of the test after some 
+  # particular message is received.
+  
+  alias old_verify_call verify_call
 
-  def mocks(*symbols)
-    hash = {}
-    symbols.each do | symbol | 
-      name = symbol.to_s
-      a_mock = flexmock(name)
-      instance_variable_set("@#{name}", a_mock)
-      hash[symbol] = a_mock
-    end
-    hash
+  def verify_call(*args)
+    @when_expectation_fulfilled.call if @when_expectation_fulfilled
+    old_verify_call(*args)
   end
 
+  def which_means(meaning)
+    the_whole_test = mock.flexmock_container
+    @when_expectation_fulfilled = lambda {
+      the_whole_test.meaning_at_this_moment = meaning
+    }
+    self
+  end
+
+  def when(meaning)
+    the_whole_test = mock.flexmock_container
+    @when_expectation_fulfilled = lambda {
+      FlexMock.check("Everything up to this point in the test was supposed to mean " + 
+                     "'#{meaning}', but it meant " + 
+                   "'#{the_whole_test.meaning_at_this_moment}'.") { 
+        meaning == the_whole_test.meaning_at_this_moment
+      }
+    }
+  end
 end
+    

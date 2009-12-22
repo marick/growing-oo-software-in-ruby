@@ -18,7 +18,7 @@ Feature: How the sniper works as an auction progresses
        Given the sniper has joined an ongoing auction
         When the sniper responds to a bid of 1000 by rebidding an increment of 98
          Then the auction reports the sniper has bid 1098 with an increment of 97
-          And the sniper shows that it's won the auction
+          And the sniper shows that it's winning the auction
 
        When the auction closes
        Then the sniper shows that it's won the auction

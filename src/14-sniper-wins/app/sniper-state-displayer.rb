@@ -10,8 +10,12 @@ class SniperStateDisplayer
     show_status(MainWindow::STATUS_LOST)
   end
 
-  def sniper_winning # This seems to have popped up from nowhere.
+  def sniper_winning 
     show_status(MainWindow::STATUS_WINNING)
+  end
+
+  def sniper_won
+    show_status(MainWindow::STATUS_WON)
   end
 
   private
