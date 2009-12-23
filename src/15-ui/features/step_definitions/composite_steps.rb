@@ -6,10 +6,11 @@ Given /^the sniper has joined an ongoing auction$/ do
   }  
 end
 
-Given /^the sniper responds to a bid of (\d+) by rebidding an increment of (\d+)$/ do | price, increment |
+Given /^the sniper responds to a new price of (\d+) .and next increment (\d+). with the smallest possible bid$/ do | price, increment |
+  sniper_bid = price.to_i+increment.to_i
   steps %Q{ 
-      When the auction reports another bidder has bid #{price} with an increment of #{increment}
-      Then the sniper shows that it's bidding in the auction
+      When the auction reports another bidder has bid #{price} (and that the next increment is #{increment})
+      Then the sniper shows that it.s bidding #{sniper_bid} to top the previous price
        And the auction receives a bid of #{price.to_i+increment.to_i} from the sniper
   }
 end

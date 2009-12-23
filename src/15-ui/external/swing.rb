@@ -54,21 +54,21 @@ class JTable < JFrame
   def initialize(model)
     @model = model
     @model.table = self
-    @columns = (0...@model.column_count).collect { Array.new(@model.row_count) }
+    @rows = (0...@model.row_count).collect { Array.new(@model.column_count) }
   end
 
   def value_at(row, column) 
-    @columns[column][row]
+    @rows[row][column]
   end
 
   def set_value_at(row, column, newval)
-    @columns[column][row] = newval
+    @rows[row][column] = newval
   end
 
   def values
-    @columns.flatten
+    @rows.flatten
   end
 
-  def column_count; @columns.count; end
-  def row_count; @columns[0].count; end
+  def row_count; @rows.count; end
+  def column_count; @rows[0].count; end
 end

@@ -14,8 +14,8 @@ class AuctionSniperDriver
   # and translate into the "has...?" form. It can't do that with
   # "shows...?" (without my having to write custom code).
 
-  def has_sniper_status?(status_text)
-    has_eventually?(MainWindow::SNIPER_TABLE_NAME, status_text) do | widget, expected | 
+  def has_sniper_status?(expected)
+    has_eventually?(MainWindow::SNIPER_TABLE_NAME, expected[:status]) do | widget, expected | 
       widget.values.include? expected
     end
   end

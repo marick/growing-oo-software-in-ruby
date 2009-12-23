@@ -12,6 +12,7 @@ class FakeAuctionServer
   AUCTION_PASSWORD = "auction"
 
   attr_reader :item_id
+  attr_reader :most_recent_price
 
   def initialize(item_id)
     @item_id = item_id
@@ -42,6 +43,7 @@ class FakeAuctionServer
   end
 
   def report_price(price, increment, bidder)
+    @most_recent_price = price
     @current_chat.send_message(SOLText.price(price, increment, bidder))
   end
 
