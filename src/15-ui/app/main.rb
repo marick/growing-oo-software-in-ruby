@@ -77,7 +77,7 @@ end
 
 class MainWindow < JFrame
   MAIN_WINDOW_NAME = "Auction Sniper Main"
-  SNIPER_STATUS_NAME = "Sniper Status"
+  SNIPER_TABLE_NAME = "Sniper Status"
   
   STATUS_JOINING = "Joining"
   STATUS_BIDDING = "Bidding"
@@ -87,17 +87,40 @@ class MainWindow < JFrame
 
   def initialize
     self.name = MAIN_WINDOW_NAME
-    @sniper_status = create_label(STATUS_JOINING)
-    add(@sniper_status)
+    @snipers = SnipersTableModel.new
+    fill_content_pane(make_snipers_table)
+  end
+
+  def fill_content_pane(snipers_table)
+    # Don't bother with scroll view or content pane setups.
   end
     
-  def create_label(initial_text)
-    label = JLabel.new(initial_text)
-    label.name = SNIPER_STATUS_NAME
-    label
+  def make_snipers_table
+    table = JTable.new(@snipers)
+    table.name = SNIPER_TABLE_NAME
+    table
   end
 
   def show_status(status)
-    @sniper_status.text = status
+    @snipers.status_text = status
+  end
+end
+
+class SnipersTableModel < JFrameAbstractTableModel
+
+  attr_accessor :table
+
+  def initialize
+    @status_text = MainWindow::STATUS_JOINING
+  end
+
+  def column_count; 1; end
+  def row_count; 1; end
+
+  def value_at(row, column); @status_text; end
+
+  def status_text=(newval)
+    @status_text = newval
+    fire_table_rows_updated(0, 0)
   end
 end

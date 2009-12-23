@@ -2,6 +2,7 @@ require 'app/main'
 require 'timeout'
 
 class AuctionSniperDriver
+  include Test::Unit::Assertions
 
   def initialize(timeout_seconds)
     @timeout_seconds = timeout_seconds
@@ -14,7 +15,9 @@ class AuctionSniperDriver
   # "shows...?" (without my having to write custom code).
 
   def has_sniper_status?(status_text)
-    has_eventually?(MainWindow::SNIPER_STATUS_NAME, :text, status_text)
+    has_eventually?(MainWindow::SNIPER_TABLE_NAME, status_text) do | widget, expected | 
+      widget.values.include? expected
+    end
   end
 
   def stop
@@ -24,7 +27,7 @@ class AuctionSniperDriver
   private
 
   # Our fake version of Swing stores all the widgets indexed by name.
-  def has_eventually?(key, accessor, expected)
+  def has_eventually?(key, expected, &block)
     Timeout::timeout(@timeout_seconds) do 
       loop do 
         break if JFrame::Widget_map.has_key?(key)
@@ -33,14 +36,13 @@ class AuctionSniperDriver
       end
 
       loop do 
-        actual = JFrame::Widget_map[key].send(accessor)
-        break if actual == expected
-        TestLogger.debug "Driver: #{key} not set to #{expected}. Still #{actual}."
+        break if block.call(JFrame::Widget_map[key], expected)
+        TestLogger.debug "Driver: #{key} not yet #{expected}."
         sleep 0.1
       end
       true
     end
   rescue Timeout::Error
-    false
+    flunk "The widget #{key} never contained expected value #{expected}."
   end
 end

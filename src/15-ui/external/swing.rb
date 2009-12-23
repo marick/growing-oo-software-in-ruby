@@ -42,3 +42,33 @@ class JLabel < JFrame
     @text = text
   end
 end
+
+class JFrameAbstractTableModel
+  def fire_table_rows_updated(row, column)
+    table.set_value_at(row, column, self.value_at(row, column))
+  end
+end
+
+
+class JTable < JFrame
+  def initialize(model)
+    @model = model
+    @model.table = self
+    @columns = (0...@model.column_count).collect { Array.new(@model.row_count) }
+  end
+
+  def value_at(row, column) 
+    @columns[column][row]
+  end
+
+  def set_value_at(row, column, newval)
+    @columns[column][row] = newval
+  end
+
+  def values
+    @columns.flatten
+  end
+
+  def column_count; @columns.count; end
+  def row_count; @columns[0].count; end
+end
