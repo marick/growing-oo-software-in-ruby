@@ -29,12 +29,19 @@ class AuctionSniperTests < Test::Unit::TestCase
       @sniper.auction_closed
     }.behold! {
       @sniper_listener.should_receive(:sniper_bidding).
+                       with(a_sniper_that_is(SniperState::BIDDING)).
                        which_means("someone else is in the lead")
       @sniper_listener.should_receive(:sniper_lost).at_least.once.
                        when("someone else is in the lead")
     }
   end
   
+  def a_sniper_that_is(state)
+    on { | snapshot | 
+      snapshot.state == state
+    }
+  end
+
   should "bid higher (and so report) when a new price arrives" do 
     price = 1001
     increment = 25
@@ -46,9 +53,11 @@ class AuctionSniperTests < Test::Unit::TestCase
       @sniper_listener.should_receive(:sniper_bidding).at_least.once.
                        with(SniperSnapshot.new(:item_id => @sniper.item_id,
                                                :last_price => price,
-                                               :last_bid => bid))
+                                               :last_bid => bid,
+                                               :state => SniperState::BIDDING))
     }
   end
+
 
   should "report that the sniper is winning when the current price came from it" do
     during {

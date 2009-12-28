@@ -1,6 +1,5 @@
 require 'external/swing'
-
-
+require 'app/requires'
 
 class MainWindow < JFrame
   MAIN_WINDOW_NAME = "Auction Sniper Main"
@@ -34,7 +33,7 @@ class MainWindow < JFrame
     @snipers.show_status(status)
   end
 
-  def sniper_status_changed(sniper_state, status_text)
-    @snipers.status_changed(sniper_state, status_text)
+  def sniper_state_changed(sniper_snapshot)
+    @snipers.status_changed(sniper_snapshot)
   end
 end

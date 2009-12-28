@@ -17,10 +17,10 @@ class SnipersTableModelTests < Test::Unit::TestCase
 
   should "set sniper values in columns" do
     during {
-      @model.sniper_status_changed(SniperSnapshot.new(:item_id => "item id",
-                                                      :last_price => 555,
-                                                      :last_bid => 666),
-                                   MainWindow::STATUS_BIDDING)
+      @model.sniper_state_changed(SniperSnapshot.new(:item_id => "item id",
+                                                     :last_price => 555,
+                                                     :last_bid => 666,
+                                                     :state => SniperState::BIDDING))
     }.behold! {
       @listener.should_receive(:table_changed).once.
                 with( on { | arg |  correct_row_changed_event(arg) })

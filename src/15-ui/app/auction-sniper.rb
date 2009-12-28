@@ -1,4 +1,5 @@
 require 'app/auction-message-translator'
+require 'app/sniper-state'
 require 'app/sniper-snapshot'
 
 class AuctionSniper
@@ -29,8 +30,9 @@ class AuctionSniper
       bid = price + increment
       @auction.bid(bid)
       @sniper_listener.sniper_bidding(SniperSnapshot.new(:item_id => item_id,
-                                                      :last_price => price,
-                                                      :last_bid => bid))
+                                                         :last_price => price,
+                                                         :last_bid => bid,
+                                                         :state => SniperState::BIDDING))
     end
   end
 end
