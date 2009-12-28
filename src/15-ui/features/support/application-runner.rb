@@ -14,7 +14,9 @@ class ApplicationRunner
       begin
         Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.item_id)
       rescue Exception => ex 
+        puts "======== #{ex.message}"
         puts ex.backtrace
+        raise ex
       end
     end
   end
