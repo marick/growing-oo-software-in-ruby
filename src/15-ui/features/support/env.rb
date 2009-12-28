@@ -8,6 +8,7 @@ TestLogger = Logger.new($stdout)
 TestLogger.level = Logger::WARN
 Main::Log.level = Logger::WARN
 BlockingQueue::Log.level = Logger::WARN
+SwingUtilities::Log.level = Logger::INFO
 
 After do
   @auction.stop

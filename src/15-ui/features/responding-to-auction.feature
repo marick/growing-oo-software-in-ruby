@@ -18,7 +18,7 @@ Feature: How the sniper works as an auction progresses
        Given the sniper has joined an ongoing auction
        When the sniper responds to a new price of 1000 (and next increment 98) with the smallest possible bid
        Then the auction reports the sniper has bid 1098 (and that the next increment is 97)
-          And the sniper shows that it's winning the auction
+          And the sniper shows that it's winning the auction with a bid of 1098
 
        When the auction closes
-       Then the sniper shows that it's won the auction
+       Then the sniper shows that it's won the auction at a price of 1098

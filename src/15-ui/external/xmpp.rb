@@ -1,8 +1,6 @@
 require 'external/util'
-require 'ostruct'
 
 module XMPP
-
   class Rendezvous
 
     attr_reader :last_sender

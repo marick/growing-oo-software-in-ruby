@@ -1,12 +1,18 @@
 require 'app/auction-message-translator'
+require 'app/value-object'
+
+SniperState = ValueObjectClass(:item_id, :last_price, :last_bid)
 
 class AuctionSniper
   include AuctionMessageTranslator::PriceSource
+
+  attr_reader :item_id
   
-  def initialize(auction, sniper_listener)
+  def initialize(auction, sniper_listener, item_id)
     @auction = auction
     @sniper_listener = sniper_listener
-    @is_winning
+    @item_id = item_id
+    @is_winning = false
   end
 
   def auction_closed
@@ -22,8 +28,11 @@ class AuctionSniper
     if @is_winning
       @sniper_listener.sniper_winning
     else
-      @auction.bid(price+increment)
-      @sniper_listener.sniper_bidding
+      bid = price + increment
+      @auction.bid(bid)
+      @sniper_listener.sniper_bidding(SniperState.new(:item_id => item_id,
+                                                      :last_price => price,
+                                                      :last_bid => bid))
     end
   end
 end

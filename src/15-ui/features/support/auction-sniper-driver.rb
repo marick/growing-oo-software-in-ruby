@@ -8,15 +8,22 @@ class AuctionSniperDriver
     @timeout_seconds = timeout_seconds
   end
 
-  # Method names like "has_sniper_status" work better with the default
-  # RSpec, which is clever enough to let you write
-  #   @driver.should have_sniper_status MainWindow::STATUS_JOINING
-  # and translate into the "has...?" form. It can't do that with
-  # "shows...?" (without my having to write custom code).
-
   def has_sniper_status?(expected)
-    has_eventually?(MainWindow::SNIPER_TABLE_NAME, expected[:status]) do | widget, expected | 
-      widget.values.include? expected
+    has_eventually?(MainWindow::SNIPER_TABLE_NAME, expected) do | widget, expected | 
+      has_matching_row?(widget, expected)
+    end
+  end
+
+  def has_matching_row?(widget, expected)
+    widget.rows.each do | row |
+      return true if all_expected_values_in_row?(row, expected)
+    end
+    false
+  end
+
+  def all_expected_values_in_row?(row, expected)
+    expected.values.all? do | expected_value |
+      row.include? expected_value
     end
   end
 
@@ -43,6 +50,6 @@ class AuctionSniperDriver
       true
     end
   rescue Timeout::Error
-    flunk "The widget #{key} never contained expected value #{expected}."
+    flunk "The widget #{key} never contained expected value #{expected.inspect}."
   end
 end

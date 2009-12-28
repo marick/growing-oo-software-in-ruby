@@ -1,4 +1,9 @@
+require 'logger'
+
 module SwingUtilities
+  Log = Logger.new($stdout)
+  Log.level = Logger::WARN
+
   def self.invoke_and_wait(&block)
     thread = Thread.new do
       block.call
@@ -44,17 +49,31 @@ class JLabel < JFrame
 end
 
 class JFrameAbstractTableModel
-  def fire_table_rows_updated(row, column)
-    table.set_value_at(row, column, self.value_at(row, column))
+  def add_table_model_listener(listener)
+    @listener = listener  # Only one so far.
+  end
+
+  def fire_table_rows_updated(first_row, last_row)
+    @listener.table_changed(TableModelEvent.new(self, first_row))
   end
 end
 
+class TableModelEvent
+  attr_reader :model, :row
+  def initialize(model, row)
+    @model = model
+    @row = row
+  end
+end
 
 class JTable < JFrame
+  attr_accessor :rows
+
   def initialize(model)
     @model = model
-    @model.table = self
-    @rows = (0...@model.row_count).collect { Array.new(@model.column_count) }
+    @rows = (0...model.row_count).collect do 
+      Array.new(model.column_count, "")
+    end
   end
 
   def value_at(row, column) 
@@ -65,10 +84,19 @@ class JTable < JFrame
     @rows[row][column] = newval
   end
 
-  def values
-    @rows.flatten
-  end
+  def table_changed(event)
+    model = event.model
+    row = event.row
+    (0...Column.num_values).each do | column |
+      set_value_at(row, column, model.value_at(row, column))
+    end
 
-  def row_count; @rows.count; end
-  def column_count; @rows[0].count; end
+    if SwingUtilities::Log.info?
+      hash = {}
+      (0...Column.num_values).each do | column |
+        hash[Column.names[column]] = value_at(row, column)
+      end
+      SwingUtilities::Log.info("Updated row #{row}: #{hash.inspect}")
+    end
+  end
 end

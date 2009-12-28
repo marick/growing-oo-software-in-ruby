@@ -11,7 +11,7 @@ class AuctionSniperTests < Test::Unit::TestCase
   def setup
     @auction = flexmock('auction')
     @sniper_listener = flexmock("sniper listener")
-    @sniper = AuctionSniper.new(@auction, @sniper_listener)
+    @sniper = AuctionSniper.new(@auction, @sniper_listener, "some item id")
   end
 
   should "report that sniper lost when the auction closes immediately" do 
@@ -38,11 +38,15 @@ class AuctionSniperTests < Test::Unit::TestCase
   should "bid higher (and so report) when a new price arrives" do 
     price = 1001
     increment = 25
+    bid = price+increment
     during {
       @sniper.current_price(price, increment, "ignored source")
     }.behold! {
-      @auction.should_receive(:bid).once.with(price + increment)
-      @sniper_listener.should_receive(:sniper_bidding).at_least.once
+      @auction.should_receive(:bid).once.with(bid)
+      @sniper_listener.should_receive(:sniper_bidding).at_least.once.
+                       with(SniperState.new(:item_id => @sniper.item_id,
+                                            :last_price => price,
+                                            :last_bid => bid))
     }
   end
 

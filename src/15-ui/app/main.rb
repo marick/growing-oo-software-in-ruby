@@ -1,6 +1,4 @@
-require 'ostruct'
 require 'pp'
-require 'external/swing'
 require 'external/xmpp'
 require 'external/util'
 require 'logger'
@@ -9,6 +7,8 @@ require 'app/auction-message-translator'
 require 'app/xmpp-auction'
 require 'app/auction-sniper'
 require 'app/sniper-state-displayer'
+require 'app/ui'
+require 'app/snipers-table-model'
 
 class Main
   Log = Logger.new($stdout)
@@ -57,7 +57,8 @@ class Main
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
     auction = XMPPAuction.new(chat)
-    auction_sniper = AuctionSniper.new(auction, SniperStateDisplayer.new(@ui))
+    auction_sniper = AuctionSniper.new(auction, SniperStateDisplayer.new(@ui),
+                                       item_id)
     translator = AuctionMessageTranslator.new(connection.user, auction_sniper)
     chat.add_message_listener(translator)
     Log.info(me("sending join-auction message"));
@@ -75,52 +76,3 @@ class Main
   end
 end
 
-class MainWindow < JFrame
-  MAIN_WINDOW_NAME = "Auction Sniper Main"
-  SNIPER_TABLE_NAME = "Sniper Status"
-  
-  STATUS_JOINING = "Joining"
-  STATUS_BIDDING = "Bidding"
-  STATUS_LOST = "You lose!"
-  STATUS_WINNING = "Winning"
-  STATUS_WON = "You won!"
-
-  def initialize
-    self.name = MAIN_WINDOW_NAME
-    @snipers = SnipersTableModel.new
-    fill_content_pane(make_snipers_table)
-  end
-
-  def fill_content_pane(snipers_table)
-    # Don't bother with scroll view or content pane setups.
-  end
-    
-  def make_snipers_table
-    table = JTable.new(@snipers)
-    table.name = SNIPER_TABLE_NAME
-    table
-  end
-
-  def show_status(status)
-    @snipers.status_text = status
-  end
-end
-
-class SnipersTableModel < JFrameAbstractTableModel
-
-  attr_accessor :table
-
-  def initialize
-    @status_text = MainWindow::STATUS_JOINING
-  end
-
-  def column_count; 1; end
-  def row_count; 1; end
-
-  def value_at(row, column); @status_text; end
-
-  def status_text=(newval)
-    @status_text = newval
-    fire_table_rows_updated(0, 0)
-  end
-end

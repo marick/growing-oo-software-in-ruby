@@ -2,8 +2,10 @@ class SniperStateDisplayer
   def initialize(ui)
     @ui = ui
   end
-  def sniper_bidding
-    show_status(MainWindow::STATUS_BIDDING)
+  def sniper_bidding(state)
+    SwingUtilities.invoke_later do
+      @ui.sniper_status_changed(state, MainWindow::STATUS_BIDDING)
+    end
   end
 
   def sniper_lost
