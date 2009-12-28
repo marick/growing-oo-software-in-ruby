@@ -1,7 +1,5 @@
 require 'app/auction-message-translator'
-require 'app/value-object'
-
-SniperState = ValueObjectClass(:item_id, :last_price, :last_bid)
+require 'app/sniper-snapshot'
 
 class AuctionSniper
   include AuctionMessageTranslator::PriceSource
@@ -30,7 +28,7 @@ class AuctionSniper
     else
       bid = price + increment
       @auction.bid(bid)
-      @sniper_listener.sniper_bidding(SniperState.new(:item_id => item_id,
+      @sniper_listener.sniper_bidding(SniperSnapshot.new(:item_id => item_id,
                                                       :last_price => price,
                                                       :last_bid => bid))
     end

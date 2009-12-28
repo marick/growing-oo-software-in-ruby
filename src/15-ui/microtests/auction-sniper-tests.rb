@@ -44,9 +44,9 @@ class AuctionSniperTests < Test::Unit::TestCase
     }.behold! {
       @auction.should_receive(:bid).once.with(bid)
       @sniper_listener.should_receive(:sniper_bidding).at_least.once.
-                       with(SniperState.new(:item_id => @sniper.item_id,
-                                            :last_price => price,
-                                            :last_bid => bid))
+                       with(SniperSnapshot.new(:item_id => @sniper.item_id,
+                                               :last_price => price,
+                                               :last_bid => bid))
     }
   end
 

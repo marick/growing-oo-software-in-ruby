@@ -2,13 +2,7 @@ require 'pp'
 require 'external/xmpp'
 require 'external/util'
 require 'logger'
-require 'app/sol-text'
-require 'app/auction-message-translator'
-require 'app/xmpp-auction'
-require 'app/auction-sniper'
-require 'app/sniper-state-displayer'
-require 'app/ui'
-require 'app/snipers-table-model'
+require 'app/requires'
 
 class Main
   Log = Logger.new($stdout)
@@ -57,7 +51,7 @@ class Main
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
     auction = XMPPAuction.new(chat)
-    auction_sniper = AuctionSniper.new(auction, SniperStateDisplayer.new(@ui),
+    auction_sniper = AuctionSniper.new(auction, SniperSnapshotDisplayer.new(@ui),
                                        item_id)
     translator = AuctionMessageTranslator.new(connection.user, auction_sniper)
     chat.add_message_listener(translator)

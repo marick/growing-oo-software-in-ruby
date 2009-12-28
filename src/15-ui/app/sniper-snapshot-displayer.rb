@@ -1,4 +1,4 @@
-class SniperStateDisplayer
+class SniperSnapshotDisplayer
   def initialize(ui)
     @ui = ui
   end

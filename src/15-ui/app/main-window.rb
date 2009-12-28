@@ -1,15 +1,5 @@
 require 'external/swing'
 
-module Column
-  ITEM_ID = 0
-  LAST_PRICE = 1
-  LAST_BID = 2
-  FINAL = SNIPER_STATUS = 3
-
-  def self.names; ["item id", "last price", "last bid", "status"]; end
-
-  def self.num_values; FINAL+1; end
-end
 
 
 class MainWindow < JFrame

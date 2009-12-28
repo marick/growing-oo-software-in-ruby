@@ -17,9 +17,9 @@ class SnipersTableModelTests < Test::Unit::TestCase
 
   should "set sniper values in columns" do
     during {
-      @model.sniper_status_changed(SniperState.new(:item_id => "item id",
-                                                   :last_price => 555,
-                                                   :last_bid => 666),
+      @model.sniper_status_changed(SniperSnapshot.new(:item_id => "item id",
+                                                      :last_price => 555,
+                                                      :last_bid => 666),
                                    MainWindow::STATUS_BIDDING)
     }.behold! {
       @listener.should_receive(:table_changed).once.
@@ -28,7 +28,7 @@ class SnipersTableModelTests < Test::Unit::TestCase
     assert_model_values(Column::ITEM_ID => "item id",
                         Column::LAST_PRICE => 555,
                         Column::LAST_BID => 666,
-                        Column::SNIPER_STATUS => MainWindow::STATUS_BIDDING)
+                        Column::SNIPER_STATE => MainWindow::STATUS_BIDDING)
   end
 
 

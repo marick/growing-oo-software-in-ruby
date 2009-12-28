@@ -1,8 +1,10 @@
 require 'external/swing'
-require 'app/ui'
+require 'app/sniper-snapshot'
+require 'app/main-window'
+require 'app/column'
 
 class SnipersTableModel < JFrameAbstractTableModel
-  STARTING_UP = SniperState.new(:item_id => '', :last_price => 0, :last_bid => 0)
+  STARTING_UP = SniperSnapshot.new(:item_id => '', :last_price => 0, :last_bid => 0)
 
   def initialize
     @sniper_state = STARTING_UP
@@ -17,7 +19,7 @@ class SnipersTableModel < JFrameAbstractTableModel
     when Column::ITEM_ID then @sniper_state.item_id
     when Column::LAST_PRICE then @sniper_state.last_price
     when Column::LAST_BID then @sniper_state.last_bid
-    when Column:: SNIPER_STATUS then @status_text
+    when Column:: SNIPER_STATE then @status_text
     end
   end
 
