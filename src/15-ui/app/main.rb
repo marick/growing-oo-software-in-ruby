@@ -4,10 +4,12 @@ require 'external/util'
 require 'logger'
 require 'app/requires'
 
-class Main
+module App   # TODO: at some point, this really ought to surround all app code.
   Log = Logger.new($stdout)
   Log.level = Logger::WARN
-  
+end
+
+class Main
   ARG_HOSTNAME = 0
   ARG_USERNAME = 1
   ARG_PASSWORD = 2
@@ -18,7 +20,7 @@ class Main
   AUCTION_ID_FORMAT = "#{ITEM_ID_AS_LOGIN}@%s/#{AUCTION_RESOURCE}"
 
   def self.main(*args)
-    Log.info("App initializing")
+    App::Log.info("App initializing")
     main = new
     main.join_auction(connection(args[ARG_HOSTNAME], args[ARG_USERNAME], args[ARG_PASSWORD]),
                       args[ARG_ITEM_ID]);
@@ -28,7 +30,7 @@ class Main
     connection = XMPP::Connection.new(hostname)
     connection.connect
     connection.login(username, password, AUCTION_RESOURCE)
-    Log.info("Main connected to XMPP server")
+    App::Log.info("Main connected to XMPP server")
     connection
   end
 
@@ -37,7 +39,7 @@ class Main
   end
 
   def start_user_interface
-    Log.info(me("starting user interface"))
+    App::Log.info(me("starting user interface"))
     SwingUtilities.invoke_and_wait do 
       # Note: since Main waits for this block to finish, it's 
       # safe to use @ui elsewhere.
@@ -55,7 +57,7 @@ class Main
                                        item_id)
     translator = AuctionMessageTranslator.new(connection.user, auction_sniper)
     chat.add_message_listener(translator)
-    Log.info(me("sending join-auction message"));
+    App::Log.info(me("sending join-auction message"));
     auction.join
   end
 

@@ -24,8 +24,8 @@ class SniperSnapshotDisplayer
 
   def show_status(status)
     SwingUtilities.invoke_later do
+      App::Log.info(me("Showing #{status.inspect}"))
       @ui.show_status(status)
-      TestLogger.debug(me("Showing #{status}"))
     end
   end
 end

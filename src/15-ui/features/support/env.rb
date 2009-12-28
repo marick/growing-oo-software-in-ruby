@@ -6,7 +6,7 @@ require 'external/blocking-queue'
 
 TestLogger = Logger.new($stdout)
 TestLogger.level = Logger::WARN
-Main::Log.level = Logger::WARN
+App::Log.level = Logger::WARN
 BlockingQueue::Log.level = Logger::WARN
 SwingUtilities::Log.level = Logger::INFO
 
