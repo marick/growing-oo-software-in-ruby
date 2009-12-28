@@ -11,6 +11,7 @@ class AuctionMessageTranslator
 
   def process_message(chat, message)
     event = SOLText.to_event(message.body)
+    App::Log.info("Received #{event.inspect} from auction.")
     
     case event['Event']
     when 'CLOSE'

@@ -42,6 +42,7 @@ class SnipersTableModel < JFrameAbstractTableModel
   end
 
   def show_status(new_status_text)
-    sniper_status_changed(STARTING_UP, new_status_text)
+    state = STATUS_TEXT.invert[new_status_text]
+    sniper_state_changed(SniperSnapshot.new(:item_id => '', :last_price => 0, :last_bid => 0, :state => state))
   end
 end

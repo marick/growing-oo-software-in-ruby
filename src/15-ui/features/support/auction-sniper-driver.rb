@@ -8,7 +8,7 @@ class AuctionSniperDriver
     @timeout_seconds = timeout_seconds
   end
 
-  def has_sniper_status?(expected)
+  def viewing?(expected)
     has_eventually?(MainWindow::SNIPER_TABLE_NAME, expected) do | widget, expected | 
       has_matching_row?(widget, expected)
     end
@@ -16,12 +16,16 @@ class AuctionSniperDriver
 
   def has_matching_row?(widget, expected)
     widget.rows.each do | row |
+      TestLogger.debug("Checking #{row.inspect} for #{expected.inspect}")
       return true if all_expected_values_in_row?(row, expected)
     end
     false
   end
 
   def all_expected_values_in_row?(row, expected)
+    # Following #goos in having table cells contain either integers or 
+    # strings. When checking, I check the string representation.
+    row = row.collect { | cell | cell.to_s } 
     expected.values.all? do | expected_value |
       row.include? expected_value
     end

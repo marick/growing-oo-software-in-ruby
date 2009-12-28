@@ -28,11 +28,13 @@ class AuctionSniper
       @sniper_listener.sniper_winning
     else
       bid = price + increment
+      snapshot = SniperSnapshot.new(:item_id => item_id,
+                                    :last_price => price,
+                                    :last_bid => bid,
+                                    :state => SniperState::BIDDING)
+      App::Log.info("Sniper upping bid: #{snapshot.inspect}")
       @auction.bid(bid)
-      @sniper_listener.sniper_bidding(SniperSnapshot.new(:item_id => item_id,
-                                                         :last_price => price,
-                                                         :last_bid => bid,
-                                                         :state => SniperState::BIDDING))
+      @sniper_listener.sniper_bidding(snapshot)
     end
   end
 end

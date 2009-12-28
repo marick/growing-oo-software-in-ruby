@@ -34,6 +34,6 @@ class MainWindow < JFrame
   end
 
   def sniper_state_changed(sniper_snapshot)
-    @snipers.status_changed(sniper_snapshot)
+    @snipers.sniper_state_changed(sniper_snapshot)
   end
 end
