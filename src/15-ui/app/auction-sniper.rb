@@ -1,40 +1,37 @@
 require 'app/auction-message-translator'
-require 'app/sniper-state'
 require 'app/sniper-snapshot'
 
 class AuctionSniper
   include AuctionMessageTranslator::PriceSource
 
-  attr_reader :item_id
-  
   def initialize(auction, sniper_listener, item_id)
     @auction = auction
     @sniper_listener = sniper_listener
-    @item_id = item_id
-    @is_winning = false
+    @snapshot = SniperSnapshot.joining(:item_id => item_id)
+  end
+
+  def item_id
+    @snapshot.item_id
   end
 
   def auction_closed
-    if @is_winning
-      @sniper_listener.sniper_won
-    else
-      @sniper_listener.sniper_lost
-    end
+    @snapshot = @snapshot.closed
+    notify_listener
   end
 
   def current_price(price, increment, source)
-    @is_winning = (source == FROM_SNIPER)
-    if @is_winning
-      @sniper_listener.sniper_winning
+    if (source == FROM_SNIPER)
+      @snapshot = @snapshot.winning(:last_price => price)
     else
       bid = price + increment
-      snapshot = SniperSnapshot.new(:item_id => item_id,
-                                    :last_price => price,
-                                    :last_bid => bid,
-                                    :state => SniperState::BIDDING)
-      App::Log.info("Sniper upping bid: #{snapshot.inspect}")
+      @snapshot = @snapshot.bidding(:last_price => price, :last_bid => bid)
       @auction.bid(bid)
-      @sniper_listener.sniper_bidding(snapshot)
     end
+    notify_listener
+  end
+
+
+  def notify_listener
+    @sniper_listener.sniper_state_changed(@snapshot)
   end
 end

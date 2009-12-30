@@ -18,27 +18,8 @@ class AuctionSniperTests < Test::Unit::TestCase
     during {
       @sniper.auction_closed
     }.behold! {
-      @sniper_listener.should_receive(:sniper_lost).at_least.once
-    }
-  end
-
-  should "report that sniper lost when the auction closes while someone else has high bid" do
-    @auction.should_ignore_missing
-    during {
-      @sniper.current_price(123, 45, FROM_OTHER_BIDDER)
-      @sniper.auction_closed
-    }.behold! {
-      @sniper_listener.should_receive(:sniper_bidding).
-                       with(a_sniper_that_is(SniperState::BIDDING)).
-                       which_means("someone else is in the lead")
-      @sniper_listener.should_receive(:sniper_lost).at_least.once.
-                       when("someone else is in the lead")
-    }
-  end
-  
-  def a_sniper_that_is(state)
-    on { | snapshot | 
-      snapshot.state == state
+      @sniper_listener.should_receive(:sniper_state_changed).at_least.once.
+                       with(a_sniper_that_is(SniperState::LOST))
     }
   end
 
@@ -50,7 +31,7 @@ class AuctionSniperTests < Test::Unit::TestCase
       @sniper.current_price(price, increment, "ignored source")
     }.behold! {
       @auction.should_receive(:bid).once.with(bid)
-      @sniper_listener.should_receive(:sniper_bidding).at_least.once.
+      @sniper_listener.should_receive(:sniper_state_changed).at_least.once.
                        with(SniperSnapshot.new(:item_id => @sniper.item_id,
                                                :last_price => price,
                                                :last_bid => bid,
@@ -58,26 +39,80 @@ class AuctionSniperTests < Test::Unit::TestCase
     }
   end
 
+  # Note: it's unclear to me if "last bid" means "last thing I bid,
+  # whether accepted or not" or "last bid that's been accepted". Given
+  # the structure of the app, I think it has to be the former, in
+  # which case the last bid can be higher than the last price, as
+  # shown below.
+  should "report that sniper lost when the auction closes while someone else has high bid" do
+    @auction.should_ignore_missing
+    during {
+      @sniper.current_price(123, 45, FROM_OTHER_BIDDER)
+      @sniper.auction_closed
+    }.behold! {
+      @sniper_listener.should_receive(:sniper_state_changed).
+                       with(a_sniper_that_is(SniperState::BIDDING)).
+                       which_means("someone else is in the lead")
+      @sniper_listener.should_receive(:sniper_state_changed).at_least.once.
+                       with(SniperSnapshot.new(:item_id => @sniper.item_id,
+                                               :last_price => 123,
+                                               :last_bid => 168,
+                                               :state => SniperState::LOST)).
+                       when("someone else is in the lead")
+    }
+  end
+  
 
   should "report that the sniper is winning when the current price came from it" do
+    @auction.should_ignore_missing
     during {
-      @sniper.current_price(123, 45, FROM_SNIPER)
+      @sniper.current_price(123, 12, FROM_OTHER_BIDDER)
+      @sniper.current_price(135, 45, FROM_SNIPER)
     }.behold! {
-      @sniper_listener.should_receive(:sniper_winning).at_least.once
+      @sniper_listener.should_receive(:sniper_state_changed).
+                       with(a_sniper_that_is(SniperState::BIDDING)).
+                       which_means("the sniper is bidding")
+      @sniper_listener.should_receive(:sniper_state_changed).at_least.once.
+                       with(SniperSnapshot.new(:item_id => @sniper.item_id,
+                                               :last_price => 135,
+                                               :last_bid => 135, 
+                                               :state => SniperState::WINNING)).
+                       when("the sniper is bidding")
     }
   end
 
-  should "report that sniper lost when the auction closes while the sniper is winning" do
+  # I've changed this from #goos to emphasize that bidding happens before 
+  # learning you've won. (Without this, the test would show the winning 
+  # bid as 0 - since one never went out.)
+
+  should "report that sniper won when the auction closes while the sniper is winning" do
     @auction.should_ignore_missing
     during {
-      @sniper.current_price(123, 45, FROM_SNIPER)
+      @sniper.current_price(123, 12, FROM_OTHER_BIDDER)
+      @sniper.current_price(135, 45, FROM_SNIPER)
       @sniper.auction_closed
     }.behold! {
-      @sniper_listener.should_receive(:sniper_winning).
+      @sniper_listener.should_receive(:sniper_state_changed).
+                       with(a_sniper_that_is(SniperState::BIDDING))
+      @sniper_listener.should_receive(:sniper_state_changed).
+                       with(a_sniper_that_is(SniperState::WINNING)).
                        which_means("the sniper is winning")
-      @sniper_listener.should_receive(:sniper_won).at_least.once.
+      @sniper_listener.should_receive(:sniper_state_changed).at_least.once.
+                       with(SniperSnapshot.new(:item_id => @sniper.item_id,
+                                               :last_price => 135,
+                                               :last_bid => 135, 
+                                               :state => SniperState::WON)).
                        when("the sniper is winning")
     }
   end
+
+
+  def a_sniper_that_is(state)
+    on { | snapshot | 
+      snapshot.state == state
+    }
+  end
+
+
   
 end

@@ -15,11 +15,8 @@ class SnipersTableModel < JFrameAbstractTableModel
   }
     
 
-  STARTING_UP = SniperSnapshot.new(:item_id => '', :last_price => 0, :last_bid => 0,
-                                   :state => SniperState::JOINING)
-
   def initialize
-    @snapshot = STARTING_UP
+    @snapshot = nil
     @status_text = MainWindow::STATUS_JOINING
   end
 
@@ -39,10 +36,5 @@ class SnipersTableModel < JFrameAbstractTableModel
     @snapshot = new_snapshot
     @status_text = STATUS_TEXT[@snapshot.state]
     fire_table_rows_updated(0, 0)
-  end
-
-  def show_status(new_status_text)
-    state = STATUS_TEXT.invert[new_status_text]
-    sniper_state_changed(SniperSnapshot.new(:item_id => '', :last_price => 0, :last_bid => 0, :state => state))
   end
 end
