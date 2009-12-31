@@ -5,12 +5,6 @@ class MainWindow < JFrame
   MAIN_WINDOW_NAME = "Auction Sniper Main"
   SNIPER_TABLE_NAME = "Sniper Status"
   
-  STATUS_JOINING = "Joining"
-  STATUS_BIDDING = "Bidding"
-  STATUS_LOST = "You lose!"
-  STATUS_WINNING = "Winning"
-  STATUS_WON = "You won!"
-
   def initialize
     self.name = MAIN_WINDOW_NAME
     @snipers = SnipersTableModel.new
@@ -27,10 +21,6 @@ class MainWindow < JFrame
     table = JTable.new(@snipers)
     table.name = SNIPER_TABLE_NAME
     table
-  end
-
-  def show_status(status)
-    @snipers.show_status(status)
   end
 
   def sniper_state_changed(sniper_snapshot)

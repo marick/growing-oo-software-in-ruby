@@ -5,19 +5,24 @@ require 'app/main-window'
 require 'app/column'
 
 class SnipersTableModel < JFrameAbstractTableModel
+  include SniperState
+
   STATUS_TEXT = { 
     # Why keep those constants in MainWindow?
-    SniperState::JOINING => MainWindow::STATUS_JOINING,
-    SniperState::BIDDING => MainWindow::STATUS_BIDDING,
-    SniperState::LOST => MainWindow::STATUS_LOST,
-    SniperState::WINNING => MainWindow::STATUS_WINNING,
-    SniperState::WON => MainWindow::STATUS_WON
+    JOINING => "Joining",
+    BIDDING => "Bidding",
+    LOST => "Lost",
+    WINNING => "Winning",
+    WON => "Won",
   }
-    
+
+  def self.status_text(state)
+    SnipersTableModel::STATUS_TEXT[state]
+  end
 
   def initialize
     @snapshot = nil
-    @status_text = MainWindow::STATUS_JOINING
+    @status_text = STATUS_TEXT[JOINING]
   end
 
   def column_count; Column.num_values; end

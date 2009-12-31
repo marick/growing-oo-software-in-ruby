@@ -19,6 +19,7 @@ class SniperSnapshot < ValueObjectClass(:item_id, :last_price, :last_bid, :state
     clone.move_to(WINNING).merge!(:last_price => new_values[:last_price])
   end
 
+  # Can't do #goos weird @override thing. Ruby is so primitive.
   def closed
     if state == WINNING
       clone.move_to(WON)
@@ -37,5 +38,4 @@ class SniperSnapshot < ValueObjectClass(:item_id, :last_price, :last_bid, :state
     end
     self
   end
-  alias_method :with, :merge!
 end

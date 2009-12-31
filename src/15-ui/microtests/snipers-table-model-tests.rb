@@ -5,6 +5,8 @@ require 'microtests/testutil'
 require 'app/snipers-table-model'
 
 class SnipersTableModelTests < Test::Unit::TestCase
+  include SniperState
+
   def setup
     @listener = flexmock("table model listener")
     @model = SnipersTableModel.new
@@ -20,7 +22,7 @@ class SnipersTableModelTests < Test::Unit::TestCase
       @model.sniper_state_changed(SniperSnapshot.new(:item_id => "item id",
                                                      :last_price => 555,
                                                      :last_bid => 666,
-                                                     :state => SniperState::BIDDING))
+                                                     :state => BIDDING))
     }.behold! {
       @listener.should_receive(:table_changed).once.
                 with( on { | arg |  correct_row_changed_event(arg) })
@@ -28,7 +30,7 @@ class SnipersTableModelTests < Test::Unit::TestCase
     assert_model_values(Column::ITEM_ID => "item id",
                         Column::LAST_PRICE => 555,
                         Column::LAST_BID => 666,
-                        Column::SNIPER_STATE => MainWindow::STATUS_BIDDING)
+                        Column::SNIPER_STATE => SnipersTableModel.status_text(BIDDING))
   end
 
 
