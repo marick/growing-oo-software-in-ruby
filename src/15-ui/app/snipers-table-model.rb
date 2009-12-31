@@ -29,12 +29,7 @@ class SnipersTableModel < JFrameAbstractTableModel
   def row_count; 1; end
 
   def value_at(row, column)
-    case column
-    when Column::ITEM_ID then @snapshot.item_id
-    when Column::LAST_PRICE then @snapshot.last_price
-    when Column::LAST_BID then @snapshot.last_bid
-    when Column::SNIPER_STATE then @status_text
-    end
+    Column.value_in(@snapshot, column)
   end
 
   def sniper_state_changed(new_snapshot)
