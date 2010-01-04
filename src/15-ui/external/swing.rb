@@ -70,7 +70,6 @@ class JTable < JFrame
   attr_accessor :rows
 
   def initialize(model)
-    @model = model
     @rows = (0...model.row_count).collect do 
       Array.new(model.column_count, "")
     end
