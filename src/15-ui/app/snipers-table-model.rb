@@ -8,7 +8,6 @@ class SnipersTableModel < JFrameAbstractTableModel
   include SniperState
 
   STATUS_TEXT = { 
-    # Why keep those constants in MainWindow?
     JOINING => "Joining",
     BIDDING => "Bidding",
     LOST => "Lost",

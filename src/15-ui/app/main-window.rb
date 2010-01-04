@@ -5,9 +5,9 @@ class MainWindow < JFrame
   MAIN_WINDOW_NAME = "Auction Sniper Main"
   SNIPER_TABLE_NAME = "Sniper Status"
   
-  def initialize
+  def initialize(snipers)
+    @snipers = snipers
     self.name = MAIN_WINDOW_NAME
-    @snipers = SnipersTableModel.new
     snipers_table = make_snipers_table
     @snipers.add_table_model_listener(snipers_table)
     fill_content_pane(snipers_table)

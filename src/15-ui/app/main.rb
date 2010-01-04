@@ -43,7 +43,8 @@ class Main
     SwingUtilities.invoke_and_wait do 
       # Note: since Main waits for this block to finish, it's 
       # safe to use @ui elsewhere.
-      @ui = MainWindow.new
+      @snipers = SnipersTableModel.new
+      @ui = MainWindow.new(@snipers)
     end
   end
 
@@ -53,7 +54,8 @@ class Main
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
     auction = XMPPAuction.new(chat)
-    auction_sniper = AuctionSniper.new(auction, SniperSnapshotDisplayer.new(@ui),
+    auction_sniper = AuctionSniper.new(auction,
+                                       SwingThreadSniperListener.new(@snipers),
                                        item_id)
     translator = AuctionMessageTranslator.new(connection.user, auction_sniper)
     chat.add_message_listener(translator)
