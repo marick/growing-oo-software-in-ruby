@@ -21,6 +21,7 @@ end
 
 class JFrame
   Widget_map = {}
+  attr_accessor :title
 
   def name=(name)
     Widget_map[name] = self
@@ -67,12 +68,13 @@ class TableModelEvent
 end
 
 class JTable < JFrame
-  attr_accessor :rows
+  attr_accessor :rows, :column_headers
 
   def initialize(model)
     @rows = (0...model.row_count).collect do 
       Array.new(model.column_count, "")
     end
+    set_column_headers(model)
   end
 
   def value_at(row, column) 
@@ -81,6 +83,12 @@ class JTable < JFrame
 
   def set_value_at(row, column, newval)
     @rows[row][column] = newval
+  end
+
+  def set_column_headers(model)
+    @column_headers = (0...model.column_count).inject([]) do | so_far, column | 
+      so_far << model.column_name(column)
+    end
   end
 
   def table_changed(event)
@@ -93,7 +101,7 @@ class JTable < JFrame
     if SwingUtilities::Log.info?
       hash = {}
       (0...Column.num_values).each do | column |
-        hash[Column.names[column]] = value_at(row, column)
+        hash[@column_headers[column]] = value_at(row, column)
       end
       SwingUtilities::Log.info("Updated row #{row}: #{hash.inspect}")
     end

@@ -9,6 +9,8 @@ When /^the sniper has started bidding in that auction$/ do
   @application =  ApplicationRunner.new
   @application.start_bidding_in(@auction)
   @driver = AuctionSniperDriver.new(1)
+  @driver.should have_title(MainWindow::APPLICATION_TITLE)
+  @driver.should have_column_titles
 end
 
 

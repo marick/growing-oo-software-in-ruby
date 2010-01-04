@@ -24,4 +24,11 @@ class ColumnTests < Test::Unit::TestCase
     assert { Column.value_in(snapshot, Column::SNIPER_STATE) == "Joining" }
   end
 
+  should "provide column names" do
+    assert { Column.names[Column::ITEM_ID] == "Item" } 
+    assert { Column.names[Column::LAST_PRICE] == "Last Price" } 
+    assert { Column.names[Column::LAST_BID] == "Last Bid" } 
+    assert { Column.names[Column::SNIPER_STATE] == "Status" } 
+  end
+
 end   

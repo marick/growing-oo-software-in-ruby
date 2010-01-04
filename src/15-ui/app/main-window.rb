@@ -2,12 +2,14 @@ require 'external/swing'
 require 'app/requires'
 
 class MainWindow < JFrame
+  APPLICATION_TITLE = "Sniper"
   MAIN_WINDOW_NAME = "Auction Sniper Main"
   SNIPER_TABLE_NAME = "Sniper Status"
   
   def initialize(snipers)
     @snipers = snipers
     self.name = MAIN_WINDOW_NAME
+    self.title = APPLICATION_TITLE
     snipers_table = make_snipers_table
     @snipers.add_table_model_listener(snipers_table)
     fill_content_pane(snipers_table)

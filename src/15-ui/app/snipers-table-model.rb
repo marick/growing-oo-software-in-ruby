@@ -31,6 +31,10 @@ class SnipersTableModel < JFrameAbstractTableModel
     Column.value_in(@snapshot, column)
   end
 
+  def column_name(column)
+    Column.names[column]
+  end
+
   def sniper_state_changed(new_snapshot)
     @snapshot = new_snapshot
     @status_text = STATUS_TEXT[@snapshot.state]

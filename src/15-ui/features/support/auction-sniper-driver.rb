@@ -31,11 +31,35 @@ class AuctionSniperDriver
     end
   end
 
+  def has_title?(expected)
+    main_window.title == expected
+  end
+
+  def has_column_titles?
+    table = widget(MainWindow::SNIPER_TABLE_NAME)
+    (0...Column.num_values).all? do | column | 
+      actual = table.column_headers[column]
+      expected = Column.names[column]
+      if actual != expected
+        fail("Column #{column} is #{actual}, not #{expected}.")
+      end
+    end
+    true
+  end
+
   def stop
-    JFrame::Widget_map[MainWindow::MAIN_WINDOW_NAME].close
+    main_window.close
   end
 
   private
+
+  def main_window
+    widget(MainWindow::MAIN_WINDOW_NAME)
+  end
+
+  def widget(name)
+    JFrame::Widget_map[name]
+  end
 
   # Our fake version of Swing stores all the widgets indexed by name.
   def has_eventually?(key, expected, &block)
