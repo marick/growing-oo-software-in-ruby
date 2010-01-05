@@ -5,14 +5,14 @@ When /^the auction has started to sell an item$/ do
 end
 
 When /^the sniper has started bidding in that auction$/ do
-  start_bidding_in_auctions([@auctions.last_used])
+  start_bidding_in_auctions(@auctions)
   start_driver
 end
 
-Given /^the sniper has joined auctions for items (\d+) and (\d+)$/ do | first_item, second_item |
-  start_auctions_for_items(["item-"+first_item, 
-                            "item-"+second_item])
-  start_bidding_in_auctions(@auctions.all)
+When /^the sniper has joined auctions for items (\d+) and (\d+)$/ do | first_item, second_item |
+  start_auctions_for_items(["item-"+first_item, "item-"+second_item])
+  start_bidding_in_auctions(@auctions)
+  start_driver
 end
 
 def start_auctions_for_items(items)

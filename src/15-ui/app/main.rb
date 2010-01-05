@@ -10,20 +10,22 @@ module App   # TODO: at some point, this really ought to surround all app code.
 end
 
 class Main
-  ARG_HOSTNAME = 0
-  ARG_USERNAME = 1
-  ARG_PASSWORD = 2
-  ARG_ITEM_ID = 3
-
   AUCTION_RESOURCE = "Auction"
   ITEM_ID_AS_LOGIN = "auction-%s"
   AUCTION_ID_FORMAT = "#{ITEM_ID_AS_LOGIN}@%s/#{AUCTION_RESOURCE}"
 
-  def self.main(*args)
+  def self.main(hostname, username, password, *item_ids)
+    item_id = item_ids[0]
     App::Log.info("App initializing")
+    connection = connection(hostname, username, password)
+
     main = new
-    main.join_auction(connection(args[ARG_HOSTNAME], args[ARG_USERNAME], args[ARG_PASSWORD]),
-                      args[ARG_ITEM_ID]);
+    ui = main.start_user_interface
+    disconnect_when_ui_closes(connection, ui)
+
+    item_ids.each do | item_id | 
+      main.join_auction(connection, item_id);
+    end
   end
 
   def self.connection(hostname, username, password)
@@ -34,10 +36,6 @@ class Main
     connection
   end
 
-  def initialize
-    start_user_interface
-  end
-
   def start_user_interface
     App::Log.info(me("starting user interface"))
     SwingUtilities.invoke_and_wait do 
@@ -46,11 +44,10 @@ class Main
       @snipers = SnipersTableModel.new
       @ui = MainWindow.new(@snipers)
     end
+    @ui
   end
 
   def join_auction(connection, item_id)
-    disconnect_when_ui_closes(connection)
-
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
     auction = XMPPAuction.new(chat)
@@ -67,8 +64,8 @@ class Main
     sprintf(AUCTION_ID_FORMAT, item_id, connection.service_name)
   end
 
-  def disconnect_when_ui_closes(connection)
-    @ui.on_window_closed do 
+  def self.disconnect_when_ui_closes(connection, ui)
+    ui.on_window_closed do 
       connection.disconnect
     end
   end

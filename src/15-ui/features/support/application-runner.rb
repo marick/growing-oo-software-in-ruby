@@ -10,10 +10,10 @@ require 'features/support/constants'
 
 class ApplicationRunner
   def start_bidding_in(auctions)
-    auction = auctions[0]
     thread = Thread.new do
       begin
-        Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.item_id)
+        ids = auctions.collect { | auction | auction.item_id }
+        Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, *ids)
       rescue Exception => ex 
         puts "======== #{ex.message}"
         puts ex.backtrace
