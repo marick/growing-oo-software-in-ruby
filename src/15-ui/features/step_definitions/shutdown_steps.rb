@@ -2,6 +2,8 @@
 
 
 When /^the auction closes$/ do
-  @auction.announce_closed
+  @auctions.each do | auction | 
+    auction.announce_closed
+  end
 end
 

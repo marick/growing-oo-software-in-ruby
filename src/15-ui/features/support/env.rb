@@ -11,7 +11,7 @@ BlockingQueue::Log.level = Logger::WARN
 SwingUtilities::Log.level = Logger::INFO
 
 After do
-  @auction.stop
+  @auctions.each { | auction | auction.stop }
   @driver.stop
   @application.stop
 end

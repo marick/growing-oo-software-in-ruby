@@ -9,7 +9,8 @@ require 'features/support/constants'
 # own process).
 
 class ApplicationRunner
-  def start_bidding_in(auction)
+  def start_bidding_in(auctions)
+    auction = auctions[0]
     thread = Thread.new do
       begin
         Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.item_id)
