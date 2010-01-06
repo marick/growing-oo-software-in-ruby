@@ -1,0 +1,21 @@
+# -*- mode:ruby; indent-tabs-mode:nil; coding:utf-8 -*-
+# vim:ts=2:sw=2:expandtab:
+require 'rubygems'
+require 'rake'
+require 'rake/testtask'
+ENV["sniper_in_rake"] = "true"
+
+
+task :default => [:microtest]
+
+desc "Run Cucumber (business-facing) tests. Runs microtests first"
+task :cucumber => [:microtest] do
+  system("cucumber --no-color")
+end
+
+desc "Run microtests (aka unit tests)."
+task :microtest => [:test]
+
+Rake::TestTask.new do | t | 
+  t.test_files = FileList['microtests/**/*tests.rb']
+end
