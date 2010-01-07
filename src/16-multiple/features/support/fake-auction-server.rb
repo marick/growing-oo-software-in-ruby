@@ -37,8 +37,10 @@ class FakeAuctionServer
 
   def has_received_join_request_from?(sniper_id)
     @message_listener.with_next_message do | message | 
+      TestLogger.debug(me("HIT #{item_id} received #{message.inspect}"))
       assert { message.body == SOLText.join } 
-      assert { sniper_id == @current_chat.participant }
+      assert_equal(@current_chat.participant, sniper_id)
+      true
     end
   end
 
@@ -49,6 +51,7 @@ class FakeAuctionServer
 
   def has_received_bid?(bid, sniper_id)
     @message_listener.with_next_message do | message |
+      TestLogger.debug(me("HIT #{item_id} received #{message.inspect}"))
       assert_equal SOLText.bid(bid), message.body
       assert_equal @current_chat.participant, sniper_id
       true
@@ -76,6 +79,7 @@ class SingleMessageListener
   end
 
   def with_next_message  
-    yield @messages.dequeue
+    message = @messages.dequeue
+    yield message
   end
 end

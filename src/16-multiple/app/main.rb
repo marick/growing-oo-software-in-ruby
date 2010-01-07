@@ -16,7 +16,7 @@ class Main
 
   def self.main(hostname, username, password, *item_ids)
     item_id = item_ids[0]
-    App::Log.info("App initializing")
+    App::Log.debug("App initializing")
     connection = connection(hostname, username, password)
 
     main = new
@@ -24,7 +24,6 @@ class Main
     disconnect_when_ui_closes(connection, ui)
 
     item_ids.each do | item_id | 
-      puts "====== loop"
       main.join_auction(connection, item_id);
     end
   end
@@ -33,12 +32,12 @@ class Main
     connection = XMPP::Connection.new(hostname)
     connection.connect
     connection.login(username, password, AUCTION_RESOURCE)
-    App::Log.info("Main connected to XMPP server")
+    App::Log.debug("Main connected to XMPP server")
     connection
   end
 
   def start_user_interface
-    App::Log.info(me("starting user interface"))
+    App::Log.debug(me("starting user interface"))
     SwingUtilities.invoke_and_wait do 
       # Note: since Main waits for this block to finish, it's 
       # safe to use @ui elsewhere.
@@ -49,17 +48,15 @@ class Main
   end
 
   def join_auction(connection, item_id)
-    puts "===== UM"
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
-    puts "===== UMOPOOOO"
     auction = XMPPAuction.new(chat)
     auction_sniper = AuctionSniper.new(auction,
                                        SwingThreadSniperListener.new(@snipers),
                                        item_id)
     translator = AuctionMessageTranslator.new(connection.user, auction_sniper)
     chat.add_message_listener(translator)
-    App::Log.info(me("sending join-auction message"));
+    App::Log.debug(me("sending join-auction message"));
     auction.join
   end
 

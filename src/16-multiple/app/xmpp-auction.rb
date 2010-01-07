@@ -12,6 +12,7 @@ class XMPPAuction
   end
 
   def send_message(text)
+    App::Log.debug(me("Sniper sending #{text}"))
     @chat.send_message(text)
   rescue Exception => ex
     puts ex.backtrace

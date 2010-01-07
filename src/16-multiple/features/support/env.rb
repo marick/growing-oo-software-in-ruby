@@ -5,10 +5,11 @@ require 'app/main'
 require 'external/blocking-queue'
 
 TestLogger = Logger.new($stdout)
-TestLogger.level = Logger::INFO
-App::Log.level = Logger::INFO
+TestLogger.level = Logger::WARN
+App::Log.level = Logger::WARN
 BlockingQueue::Log.level = Logger::WARN
 SwingUtilities::Log.level = Logger::INFO
+XMPP::Log.level = Logger::WARN
 
 After do
   @auctions.each { | auction | auction.stop }

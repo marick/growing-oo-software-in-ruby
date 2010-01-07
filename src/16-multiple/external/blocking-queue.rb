@@ -27,6 +27,7 @@ class BlockingQueue
   end
 
   def enqueue (thing)
+    Log.debug("Blocking queue adding #{thing.inspect}.")
     @queue.synchronize do 
       @queue << thing
       @condition.signal
@@ -34,6 +35,7 @@ class BlockingQueue
   end
 
   def dequeue
+    Log.debug("Going to dequeue from what is currently #{@queue.inspect}.")
     @queue.synchronize do 
       wait_for_something
       @queue.shift
