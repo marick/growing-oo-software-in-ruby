@@ -1,6 +1,10 @@
 require 'external/util'
+require 'logger'
 
 module XMPP
+  Log = Logger.new($stdout)
+  Log.level = Logger::WARN
+  
   class Chat
     attr_reader :name
     
@@ -19,9 +23,9 @@ module XMPP
 
     def send_message(sending_user, text)
       @last_sender = sending_user
-      TestLogger.debug(me("forwarding message to listeners #{@message_listeners.inspect}."))
       @message_listeners.each do | user, listener |
         next if user == sending_user
+        Log.debug(me("forwarding #{text} to listeners #{listener.class}@#{listener.object_id}."))
         message = Message.new
         message.body = text
         listener.process_message(self, message)
@@ -47,7 +51,7 @@ module XMPP
     end
 
     def other_end_arrives(chat)
-      TestLogger.debug(me("forwarding new chat listeners #{@on_chat_creation.inspect}."))
+      Log.debug(me("forwarding new chat listeners #{@on_chat_creation.inspect}."))
       @chat = chat
       @on_chat_creation.call(self, false)
     end
@@ -59,6 +63,8 @@ module XMPP
     def add_message_listener(listener)
       @chat.add_message_listener(@user, listener)
     end
+
+    def participant; @chat.participant; end
   end
 
 
@@ -73,7 +79,7 @@ module XMPP
     attr_reader :user
 
     def initialize(host)
-      TestLogger.info("Set service name to #{host}")
+      Log.info("Set service name to #{host}")
       @service_name = host
     end
 
