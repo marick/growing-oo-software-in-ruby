@@ -7,12 +7,22 @@ When /^the (\w* *)auction reports (.*) has bid (\d+) .increment (\d+).$/ do | au
   make_auction_report(auction_description, bidder_description, price, increment)
 end
 
+When /^the (\w+) auction confirms that the sniper has bid (\d+)$/ do | auction_description, price |
+  make_auction_report(auction_description, "the sniper", price, 50)
+end
+
+
+
 def auction_described_by(auction_description)
   case auction_description.strip
   when ""
     @auctions.last_used
   when "first"
     @auctions[0]
+  when "second"
+    @auctions[1]
+  else
+    raise "This is an odd auction description: #{auction_description}"
   end
 end
 

@@ -25,11 +25,19 @@ Then /^the sniper shows that it.s winning the auction with a bid of (\d+)$/ do |
                                         :most_recent_price => bid)
 end
 
-Then /^the sniper shows that it.s bidding (\d+) to top the previous price$/ do | last_bid |
+Then /^the sniper shows that it.s bidding (\d+) to top the previous price.*$/ do | last_bid |
+  ui_showing_bidding(last_bid)
+end
+
+Then /^the sniper shows it.s bidding (\d+) to top the previous price.*$/ do | last_bid |
+  ui_showing_bidding(last_bid)
+end
+
+
+def ui_showing_bidding(last_bid)
   most_recent_price = @auctions.last_used.most_recent_price
   @driver.should be_viewing(:item_id => @auctions.last_used.item_id,
                                         :status => text(SniperState::BIDDING),
                                         :last_bid => last_bid, 
                                         :most_recent_price => most_recent_price)
 end
-

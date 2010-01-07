@@ -13,6 +13,7 @@ When /^the sniper has joined auctions for items (\d+) and (\d+)$/ do | first_ite
   start_auctions_for_items(["item-"+first_item, "item-"+second_item])
   start_bidding_in_auctions(@auctions)
   start_driver
+  wait_for_auctions_to_get_join_requests
 end
 
 def start_auctions_for_items(items)
@@ -33,4 +34,10 @@ def start_driver
   wait_for_quiet
   @driver.should have_title(MainWindow::APPLICATION_TITLE)
   @driver.should have_column_titles
+end
+
+def wait_for_auctions_to_get_join_requests
+  @auctions.each do | auction | 
+    auction.should have_received_join_request_from(SNIPER_ID)
+  end
 end
