@@ -13,6 +13,7 @@ class FakeAuctionServer
 
   attr_reader :item_id
   attr_reader :most_recent_price
+  attr_reader :most_recent_bid
 
   def initialize(item_id)
     @item_id = item_id
@@ -50,6 +51,7 @@ class FakeAuctionServer
   end
 
   def has_received_bid?(bid, sniper_id)
+    @most_recent_bid = bid
     @message_listener.with_next_message do | message |
       TestLogger.debug(me("HIT #{item_id} received #{message.inspect}"))
       assert_equal SOLText.bid(bid), message.body
