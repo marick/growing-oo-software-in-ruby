@@ -48,6 +48,7 @@ class Main
   end
 
   def join_auction(connection, item_id)
+    safely_add_item_to_model(item_id)
     chat = connection.chat_manager.create_chat(auction_id(item_id, connection),
                                                nil)
     auction = XMPPAuction.new(chat)
@@ -58,6 +59,12 @@ class Main
     chat.add_message_listener(translator)
     App::Log.debug(me("sending join-auction message"));
     auction.join
+  end
+
+  def safely_add_item_to_model(item_id)
+    SwingUtilities.invoke_and_wait do 
+      @snipers.add_sniper(SniperSnapshot.joining(:item_id => item_id))
+    end
   end
 
   def auction_id(item_id, connection)

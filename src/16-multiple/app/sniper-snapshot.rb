@@ -28,6 +28,10 @@ class SniperSnapshot < ValueObjectClass(:item_id, :last_price, :last_bid, :state
     end
   end
 
+  def is_for_same_item_as?(other)
+    self.item_id == other.item_id
+  end
+
   def move_to(state)
     self.clone.merge!(:state => state)
   end

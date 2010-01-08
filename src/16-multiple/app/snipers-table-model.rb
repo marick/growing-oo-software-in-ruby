@@ -20,24 +20,39 @@ class SnipersTableModel < JFrameAbstractTableModel
   end
 
   def initialize
-    @snapshot = nil
-    @status_text = STATUS_TEXT[JOINING]
+    @snapshots = []
   end
 
   def column_count; Column.num_values; end
-  def row_count; 1; end
+  def row_count; @snapshots.size; end
+  def row_as_snapshot(row); @snapshots[row]; end
 
   def value_at(row, column)
-    Column.value_in(@snapshot, column)
+    Column.value_in(@snapshots[row], column)
   end
 
   def column_name(column)
     Column.names[column]
   end
 
+  def add_sniper(snapshot)
+    next_row = @snapshots.length
+    @snapshots << snapshot
+    fire_table_rows_inserted(next_row, next_row)
+  end
+
+  def find_row_matching(snapshot)
+    match = @snapshots.find do | candidate |
+      candidate.is_for_same_item_as?(snapshot)
+    end
+    throw "Programmer Error: Cannot find match for #{snapshot.inspect}" unless match
+    match
+  end
+
   def sniper_state_changed(new_snapshot)
+    index = @snapshots.index(find_row_matching(new_snapshot))
+    @snapshots[index] = new_snapshot
     @snapshot = new_snapshot
-    @status_text = STATUS_TEXT[@snapshot.state]
     fire_table_rows_updated(0, 0)
   end
 end

@@ -50,6 +50,7 @@ class JLabel < JFrame
 end
 
 class JFrameAbstractTableModel
+
   def add_table_model_listener(listener)
     @listener = listener  # Only one so far.
   end
@@ -57,13 +58,24 @@ class JFrameAbstractTableModel
   def fire_table_rows_updated(first_row, last_row)
     @listener.table_changed(TableModelEvent.new(self, first_row))
   end
+
+  def fire_table_rows_inserted(first_row, last_row)
+    @listener.table_changed(TableModelEvent.new(self, first_row, last_row, TableModelEvent::ALL_COLUMNS, TableModelEvent::INSERT))
+  end
 end
 
 class TableModelEvent
-  attr_reader :model, :row
-  def initialize(model, row)
+  ALL_COLUMNS = "all columns"
+  INSERT = "insert" 
+  CHANGE = "change"
+
+  attr_reader :model, :first_row, :last_row, :column, :type
+  def initialize(model, first_row, last_row = first_row, column = ALL_COLUMNS, type = CHANGE)
     @model = model
-    @row = row
+    @first_row = first_row
+    @last_row = last_row
+    @column = column
+    @type = type
   end
 end
 
@@ -71,10 +83,15 @@ class JTable < JFrame
   attr_accessor :rows, :column_headers
 
   def initialize(model)
-    @rows = (0...model.row_count).collect do 
-      Array.new(model.column_count, "")
+    @rows = []
+    (0...model.row_count).each do 
+      @rows << new_row(model)
     end
     set_column_headers(model)
+  end
+
+  def new_row(model)
+    Array.new(model.column_count, "")
   end
 
   def value_at(row, column) 
@@ -92,12 +109,27 @@ class JTable < JFrame
   end
 
   def table_changed(event)
-    model = event.model
-    row = event.row
+    case event.type
+    when TableModelEvent::CHANGE
+      row_change(event.model, event.first_row)
+    when TableModelEvent::INSERT  # right now, only a single row is appended.
+      row_insert(event.model, event.first_row)
+    end
+    maybe_log(event.first_row)
+  end
+
+  def row_change(model, row)
     (0...Column.num_values).each do | column |
       set_value_at(row, column, model.value_at(row, column))
     end
+  end
 
+  def row_insert(model, row)
+    @rows << new_row(model)
+    row_change(model, row)
+  end
+
+  def maybe_log(row)
     if SwingUtilities::Log.info?
       hash = {}
       (0...Column.num_values).each do | column |
@@ -106,4 +138,5 @@ class JTable < JFrame
       SwingUtilities::Log.info("Updated row #{row}: #{hash.inspect}")
     end
   end
+
 end

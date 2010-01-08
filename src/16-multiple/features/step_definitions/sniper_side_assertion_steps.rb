@@ -25,6 +25,13 @@ Then /^the sniper shows that it.s winning the auction with a bid of (\d+)$/ do |
                                         :most_recent_price => bid)
 end
 
+
+Then /^the sniper shows that it.s winning both auctions with its last bid\.$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+
+
 Then /^the sniper shows that it.s bidding (\d+) to top the previous price.*$/ do | last_bid |
   ui_showing_bidding(last_bid)
 end
