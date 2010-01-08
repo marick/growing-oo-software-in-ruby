@@ -14,6 +14,10 @@ class SnipersTableModelTests < Test::Unit::TestCase
     @listener.should_receive(:table_changed).with(any).by_default
   end
 
+  should "have enough columns" do 
+    assert_equal(Column.num_values, @model.column_count)
+  end
+
   should "notify listener when adding a sniper" do
     assert { @model.row_count == 0 } 
     joining = SniperSnapshot.joining(:item_id => "item123")
@@ -28,10 +32,6 @@ class SnipersTableModelTests < Test::Unit::TestCase
     assert_row_matches_snapshot(0, joining)
   end
 
-  should "have enough columns" do 
-    assert_equal(Column.num_values, @model.column_count)
-  end
-
   should "set sniper values in columns" do
     @model.add_sniper(SniperSnapshot.joining(:item_id => "item id"))
     during {
@@ -41,7 +41,7 @@ class SnipersTableModelTests < Test::Unit::TestCase
                                                      :state => BIDDING))
     }.behold! {
       @listener.should_receive(:table_changed).once.
-                with( on { | arg |  correct_row_changed_event(arg) })
+                with(a_change_in_row(0))
     }
     assert_model_values(Column::ITEM_ID => "item id",
                         Column::LAST_PRICE => 555,
@@ -49,11 +49,29 @@ class SnipersTableModelTests < Test::Unit::TestCase
                         Column::SNIPER_STATE => SnipersTableModel.status_text(BIDDING))
   end
 
+  private
+
+  # matchers
+
+  def an_insertion_at_row(row)
+    on { | arg | 
+      expected = TableModelEvent.new(@model, row, row,
+                                     TableModelEvent::ALL_COLUMNS,
+                                     TableModelEvent::INSERT)
+      correct_row_changed_event(expected)
+    } 
+  end
+
+  def a_change_in_row(row)
+    on { | arg |  correct_row_changed_event(arg) }
+  end
+
+  # random assertions
+
   def assert_row_matches_snapshot(row, snapshot)
     candidate = @model.row_as_snapshot(row)
     assert { candidate == snapshot } 
   end
-
 
   def assert_model_values(hash)
     hash.each do | column, expected | 
@@ -61,9 +79,8 @@ class SnipersTableModelTests < Test::Unit::TestCase
     end
   end
 
-  def an_insertion_at_row(row)
-    on { | arg | correct_row_changed_event(TableModelEvent.new(@model, row, row, TableModelEvent::ALL_COLUMNS, TableModelEvent::INSERT)) } 
-  end
+
+  # misc
 
   def correct_row_changed_event(actual_event)
     same_properties_as?(actual_event, TableModelEvent.new(@model, 0))
