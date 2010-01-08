@@ -8,6 +8,9 @@ module Column
     ITEM_ID => lambda { | snapshot | snapshot.item_id }, # Use &: if past Ruby 1.8.6
     LAST_PRICE => lambda { | snapshot | snapshot.last_price },
     LAST_BID => lambda { | snapshot | snapshot.last_bid },
+
+    # I hate hate hate that Column uses SnipersTableModel.status_text. 
+    # Did that come from #goos? 
     SNIPER_STATE => lambda { | snapshot | SnipersTableModel.status_text(snapshot.state) }, 
   }
 

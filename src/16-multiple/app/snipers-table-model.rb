@@ -53,6 +53,6 @@ class SnipersTableModel < JFrameAbstractTableModel
     index = @snapshots.index(find_row_matching(new_snapshot))
     @snapshots[index] = new_snapshot
     @snapshot = new_snapshot
-    fire_table_rows_updated(0, 0)
+    fire_table_rows_updated(index, index)
   end
 end

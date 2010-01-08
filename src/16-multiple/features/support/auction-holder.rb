@@ -1,6 +1,9 @@
 require 'delegate'
 
 class AuctionHolder < DelegateClass(Array)
+
+  attr_reader :last_index
+
   def initialize
     @auctions = []
     super(@auctions)
